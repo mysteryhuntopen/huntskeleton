@@ -1,0 +1,15 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Some say that &ldquo;feel&rdquo; is in the drums. Others say that only the feel of the original singer matters.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<audio controls>
+  <source src="{{ asset_url_for('puzzles/nobody_likes_sad_songs/song.mp3') }}" type="audio/mpeg"/>
+</audio>
+{% endblock %}

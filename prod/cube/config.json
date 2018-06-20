@@ -1,0 +1,12 @@
+{
+  "port": 8182,
+  "huntDefinitionClassName": "edu.mit.puzzle.cube.huntimpl.insideout2018.HuntDefinition",
+  "serviceEnvironment": "PRODUCTION",
+  "databaseConfig": {
+    "driverClassName": "com.mysql.jdbc.Driver",
+    "jdbcUrl": "jdbc:mysql://google/cube_production?socketFactory=com.google.cloud.sql.mysql.SocketFactory&cloudSqlInstance=mystery-hunt-2018:us-central1:shared-mysql",
+    "username": "proxyuser",
+    "password": ""
+  },
+  "corsAllowedOrigins": []
+}

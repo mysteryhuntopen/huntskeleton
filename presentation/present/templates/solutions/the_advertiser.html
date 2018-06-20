@@ -1,0 +1,91 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Kevin Hwang and Hubert Hwang{% endblock %}
+{% block solution %}BLACK MAGIC{% endblock %}
+
+{% block solution_head_block %}
+<style>
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+
+<p>These are the puzzle answers from this section (given here in alphabetical order):</p>
+
+<ul>
+  <li><code>GOLDEN STATE</code></li>
+  <li><code>PEARL</code></li>
+  <li><code>RED CHINA</code></li>
+  <li><code>THUMBHOLES</code></li>
+  <li><code>WOODSTOCK</code></li>
+</ul>
+
+<p>
+  Each of the five clues has a set of blanks, a product description,
+  and an enumeration with a &trade; symbol afterwards.  The
+  enumerations do not match up with the blanks.  However, the answers
+  to the given Pok&eacute;mon puzzles do fit!
+</p>
+
+<p>
+  Each product description obliquely clues a &ldquo;product name&rdquo; which is
+  actually the name of a TM (Technical Machine) from the
+  Pok&eacute;mon series.  Each TM has an associated number.  (Between
+  the different generations of games, some TMs changed numerical
+  values.  The TMs clued here all have the same number in all games
+  where they appear.)
+</p>
+
+<p>
+  Each TM number is two digits long.  Use each digit as an index into
+  the corresponding answer.  This gives us the following:
+</p>
+
+<table class="solution-table">
+  <tr>
+    <th>Answer</th>
+    <th>Product Name</th>
+    <th>TM#</th>
+    <th>Letters</th>
+  </tr>
+  <tr>
+    <td><code>THUMBHOLES</code></td>
+    <td><code>FALSE SWIPE</code></td>
+    <td>54</td>
+    <td>B/M</td>
+  </tr>
+  <tr>
+    <td><code>PEARL</code></td>
+    <td><code>ENERGY BALL</code></td>
+    <td>53</td>
+    <td>L/A</td>
+  </tr>
+  <tr>
+    <td><code>GOLDEN STATE</code></td>
+    <td><code>FLASH CANNON</code></td>
+    <td>91</td>
+    <td>A/G</td>
+  </tr>
+  <tr>
+    <td><code>RED CHINA</code></td>
+    <td><code>PSYWAVE</code></td>
+    <td>46</td>
+    <td>C/I</td>
+  </tr>
+  <tr>
+    <td><code>WOODSTOCK</code></td>
+    <td><code>POWER-UP PUNCH</code></td>
+    <td>98</td>
+    <td>K/C</td>
+  </tr>
+</table>
+
+<p>
+  The extracted letters spell out the required technique, <strong><code>BLACK MAGIC</code></strong>.
+</p>
+
+{% endblock %}

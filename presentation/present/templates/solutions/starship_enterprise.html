@@ -1,0 +1,242 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Henry Wong and Grant Elliott{% endblock %}
+{% block solution %}IN FLUX{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content img {
+    width: 100%;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Each component puzzle answer is a two-word phrase. Their initials form <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166 Alpha-2 country codes</a> (&ldquo;the undiscovered country&rdquo;). Each of these countries has a flag consisting of three stripes with <a href="https://en.wikipedia.org/wiki/Electronic_color_code">resistor code colors</a> (the &ldquo;declarations of the Borg&rdquo; are that &ldquo;resistance is futile&rdquo;).</p>
+
+<table class="solution-table condensed-table">
+  <tr>
+    <th>Puzzle ID</th>
+    <th>Answer</th>
+    <th>Country code</th>
+    <th>Country</th>
+    <th>Resistor color</th>
+  </tr>
+  <tr>
+    <td>A1</td>
+    <td><code>MISFIT MATHEMATICIANS</code></td>
+    <td>MM</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Myanmar#/media/File:Flag_of_Myanmar.svg" target="_blank">Myanmar</a></td>
+    <td>4500 Ohm</td>
+  </tr>
+  <tr>
+    <td>A2</td>
+    <td><code>FEDERAL RESOURCES</code></td>
+    <td>FR</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_France#/media/File:Flag_of_France.svg" target="_blank">France</a></td>
+    <td>6900 Ohm</td>
+  </tr>
+  <tr>
+    <td>A3</td>
+    <td><code>AUSTERE TYPEFACE</code></td>
+    <td>AT</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Austria#/media/File:Flag_of_Austria.svg" target="_blank">Austria</a></td>
+    <td>2900 Ohm</td>
+  </tr>
+  <tr>
+    <td>A4</td>
+    <td><code>INITIAL THREAT</code></td>
+    <td>IT</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Italy#/media/File:Flag_of_Italy.svg" target="_blank">Italy</a></td>
+    <td>5900 Ohm</td>
+  </tr>
+  <tr>
+    <td>A5</td>
+    <td><code>TAX DOCUMENTS</code></td>
+    <td>TD</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Chad#/media/File:Flag_of_Chad.svg" target="_blank">Chad</a></td>
+    <td>6400 Ohm</td>
+  </tr>
+  <tr>
+    <td>A6</td>
+    <td><code>INLAID EMBLEM</code></td>
+    <td>IE</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Ireland#/media/File:Flag_of_Ireland.svg" target="_blank">Ireland</a></td>
+    <td>59000 Ohm</td>
+  </tr>
+  <tr>
+    <td>A7</td>
+    <td><code>VIRTUALIZED ENVIRONMENT</code></td>
+    <td>VE</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Venezuela#/media/File:Flag_of_Venezuela.svg" target="_blank">Venezuela</a></td>
+    <td>4600 Ohm</td>
+  </tr>
+  <tr>
+    <td>A8</td>
+    <td><code>PAIRWISE EXPANSION</code></td>
+    <td>PE</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Peru#/media/File:Flag_of_Peru.svg" target="_blank">Peru</a></td>
+    <td>2900 Ohm</td>
+  </tr>
+  <tr>
+    <td>A9</td>
+    <td><code>BLACK OPERATION</code></td>
+    <td>BO</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Bolivia#/media/File:Flag_of_Bolivia.svg" target="_blank">Bolivia</a></td>
+    <td>2400000 Ohm</td>
+  </tr>
+  <tr>
+    <td>A10</td>
+    <td><code>COLOR MICROGRAPHY</code></td>
+    <td>CM</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Cameroon#/media/File:Flag_of_Cameroon.svg" target="_blank">Cameroon</a></td>
+    <td>520000 Ohm</td>
+  </tr>
+  <tr>
+    <td>A11</td>
+    <td><code>RECREATIONAL USE</code></td>
+    <td>RU</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Russia#/media/File:Flag_of_Russia.svg" target="_blank">Russia</a></td>
+    <td>9600 Ohm</td>
+  </tr>
+  <tr>
+    <td>A12</td>
+    <td><code>ANATOMICAL DEMONSTRATIONS</code></td>
+    <td>AD</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Andorra#/media/File:Flag_of_Andorra.svg" target="_blank">Andorra</a></td>
+    <td>6400 Ohm</td>
+  </tr>
+  <tr>
+    <td>A13</td>
+    <td><code>INTRACTABLE QUESTION</code></td>
+    <td>IQ</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Iraq#/media/File:Flag_of_Iraq.svg" target="_blank">Iraq</a></td>
+    <td>29 Ohm</td>
+  </tr>
+  <tr>
+    <td>A14</td>
+    <td><code>ETRUSCAN GOD</code></td>
+    <td>EG</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Egypt#/media/File:Flag_of_Egypt.svg" target="_blank">Egypt</a></td>
+    <td>29 Ohm</td>
+  </tr>
+  <tr>
+    <td>A15</td>
+    <td><code>SMALL NOVEL</code></td>
+    <td>SN</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Senegal#/media/File:Flag_of_Senegal.svg" target="_blank">Senegal</a></td>
+    <td>5400 Ohm</td>
+  </tr>
+  <tr>
+    <td>A16</td>
+    <td><code>GERI HALLIWELL</code></td>
+    <td>GH</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Ghana#/media/File:Flag_of_Ghana.svg" target="_blank">Ghana</a></td>
+    <td>2400000 Ohm</td>
+  </tr>
+  <tr>
+    <td>A17</td>
+    <td><code>LABORATORY TECHNOLOGISTS</code></td>
+    <td>LT</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Lithuania#/media/File:Flag_of_Lithuania.svg" target="_blank">Lithuania</a></td>
+    <td>4500 Ohm</td>
+  </tr>
+  <tr>
+    <td>A18</td>
+    <td><code>IMPROVISED RAFT</code></td>
+    <td>IR</td>
+    <td><a href="https://en.wikipedia.org/wiki/Flag_of_Iran#/media/File:Flag_of_Iran.svg" target="_blank">Iran</a></td>
+    <td>5900 Ohm</td>
+  </tr>
+</table>
+
+<p>The Substation meta answers are names of Star Trek television episodes in which the stardate is specified unambiguously. The stardates function as voltages.</p>
+
+<table class="solution-table condensed-table">
+  <tr>
+    <th>Meta ID</th>
+    <th>Answer</th>
+    <th>Voltage</th>
+  </tr>
+  <tr>
+    <td>D1</td>
+    <td><code>INTERFACE</code></td>
+    <td>47215.5 V</td>
+  </tr>
+  <tr>
+    <td>D2</td>
+    <td><code>EMANATIONS</code></td>
+    <td>48623.5 V</td>
+  </tr>
+  <tr>
+    <td>D3</td>
+    <td><code>REAL LIFE</code></td>
+    <td>50836.2 V</td>
+  </tr>
+  <tr>
+    <td>D4</td>
+    <td><code>MERIDIAN</code></td>
+    <td>48423.2 V</td>
+  </tr>
+  <tr>
+    <td>D5</td>
+    <td><code>EVOLUTION</code></td>
+    <td>43125.8 V</td>
+  </tr>
+  <tr>
+    <td>D6</td>
+    <td><code>PRIME FACTORS</code></td>
+    <td>48642.5 V</td>
+  </tr>
+</table>
+
+<p>Interpreting the tunnel network as a circuit comprised of resistors and power supplies yields:</p>
+
+<img {{ img_src_for('solutions/starship_enterprise/image.png') }} >
+
+<p>Solving for the power supply currents yields results very close to integral amperes:</p>
+
+<table class="solution-table condensed-table">
+  <tr>
+    <th>Meta ID</th>
+    <th>Current</th>
+    <th>Letter</th>
+  </tr>
+  <tr>
+    <td>D1</td>
+    <td>9.004484 A</td>
+    <td><code>I</code></td>
+  </tr>
+  <tr>
+    <td>D2</td>
+    <td>14.005170 A</td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td>D3</td>
+    <td>6.004262 A</td>
+    <td><code>F</code></td>
+  </tr>
+  <tr>
+    <td>D4</td>
+    <td>12.001309 A</td>
+    <td><code>L</code></td>
+  </tr>
+  <tr>
+    <td>D5</td>
+    <td>21.006291 A</td>
+    <td><code>U</code></td>
+  </tr>
+  <tr>
+    <td>D6</td>
+    <td>24.001302 A</td>
+    <td><code>X</code></td>
+  </tr>
+</table>
+
+<p>And so, you can find this core memory <strong><code>IN FLUX</code></strong>.</p>
+{% endblock %}

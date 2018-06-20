@@ -1,0 +1,44 @@
+---
+steps:
+  - id: 'fetch-cube'
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['pull', 'gcr.io/$PROJECT_ID/www-cube:latest']
+    waitFor: ['-']
+  - id: 'fetch-presentation'
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['pull', 'gcr.io/$PROJECT_ID/www-presentation:latest']
+    waitFor: ['-']
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '--cache-from'
+      - 'gcr.io/$PROJECT_ID/www-cube:latest'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/www-cube:$REVISION_ID'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/www-cube:latest'
+      - '-f'
+      - 'prod/Dockerfile-cube'
+      - '.'
+    waitFor: ['fetch-cube']
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '--cache-from'
+      - 'gcr.io/$PROJECT_ID/www-presentation:latest'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/www-presentation:$REVISION_ID'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/www-presentation:latest'
+      - '-f'
+      - 'prod/Dockerfile-present'
+      - '.'
+    waitFor: ['fetch-presentation']
+images:
+  - 'gcr.io/$PROJECT_ID/www-cube:$REVISION_ID'
+  - 'gcr.io/$PROJECT_ID/www-presentation:$REVISION_ID'
+  - 'gcr.io/$PROJECT_ID/www-cube:latest'
+  - 'gcr.io/$PROJECT_ID/www-presentation:latest'
+timeout: 1200s
+options:
+  machineType: 'N1_HIGHCPU_8'

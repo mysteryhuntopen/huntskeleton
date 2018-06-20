@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block page_body %}
+<div class="ha-control-boxes-container">
+  {{ autoRefreshWidget() }}
+</div>
+<div class="ha-page-section">
+  <h2>Pending Submissions</h2>
+  <table class="ha-table">
+    <thead>
+      <tr>
+  <th>Submission Time</th>
+  <th>Team</th>
+  <th>Puzzle</th>
+  <th>Answer</th>
+  <th>Caller</th>
+  <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in pending_submissions %}
+      <tr>
+  <td>{{ s.timestamp | datetime }}</td>
+  <td>{{ s.teamId }}</td>
+  <td>{{ prettyPuzzleIdentifier(s.puzzleId) }}</td>
+  <td>
+    <a href="{{ url_for('submission', submission_id=s.submissionId) }}">
+      {{ s.submission }}
+    </a>
+  </td>
+  <td>{{ s.callerUsername }}</td>
+  <td>
+    {% if s.status == 'SUBMITTED' %}
+    <form action="{{ url_for('submission', submission_id=s.submissionId) }}" method="post">
+      <input type="hidden" name="status" value="ASSIGNED">
+      <input type="submit" value="Assign to Me">
+    </form>
+    {% elif s.status == 'ASSIGNED' %}
+    <form action="{{ url_for('submission', submission_id=s.submissionId) }}" method="post">
+      <input type="hidden" name="status" value="SUBMITTED">
+      <input type="submit" value="Unassign">
+    </form>
+    {% endif %}
+  </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

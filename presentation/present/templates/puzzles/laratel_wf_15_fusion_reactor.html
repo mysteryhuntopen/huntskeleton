@@ -1,0 +1,273 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The creature heavily damaged Nostromo&rsquo;s fusion reactor. Now it barely even powers the distress beacon. This far out in space, will anyone hear us anyway?
+{% endblock %}
+
+{% block puzzle_call_to_action_block %}
+What will give the Nostromo&rsquo;s crew a chance?
+{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content table {
+    margin: 0 auto;
+    border: 3px solid black;
+    border-collapse: collapse;
+  }
+
+  .puzzle-content td {
+    width: 35px;
+    height: 35px;
+
+    border: 1px solid black;
+    border-collapse; collapse;
+
+    text-align: center;
+    font-size: 16pt;
+  }
+
+  .puzzle-content .red {
+    background-color: #ff8080;
+  }
+
+  .puzzle-content .yellow {
+    background-color: #e5ff80;
+  }
+
+  .puzzle-content .green {
+    background-color: #80ffb3;
+  }
+
+  .puzzle-content .blue {
+    background-color: #80b3ff;
+  }
+
+  .puzzle-content .purple {
+    background-color: #e680ff;
+  }
+
+  .puzzle-content .thick-right-border {
+    border-right-width: 3px;
+  }
+
+  .puzzle-content .thick-bottom-border {
+    border-bottom-width: 3px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<p>After that thing burst out of Kane and skittered out of here, we split the crew up to try and capture it. Each crew member was assigned a set of two adjacent compartments to keep watch over. We&rsquo;ve had sightings in each one. It almost looks like the creature is searching the ship. We&rsquo;ve marked our sightings of it in each compartment, and here&rsquo;s what we can tell about its behavior:</p>
+
+<ul>
+  <li>It entered and exited each compartment exactly once, ending where it began.</li>
+  <li>It never visited the same point twice.</li>
+  <li>It traveled counter-clockwise overall.</li>
+  <li>It traveled next to at least one side of each grid segment of bulkhead between compartments.</li>
+</ul>
+
+<p>What is it looking for? How long it traveled in each compartment is surely half of the answer to the puzzle.</p>
+
+<table>
+  <tr>
+    <td class="red"></td>
+    <td class="red"></td>
+    <td class="red thick-right-border thick-bottom-border"></td>
+    <td class="yellow"></td>
+    <td class="yellow"></td>
+    <td class="yellow"></td>
+    <td class="yellow thick-bottom-border"></td>
+    <td class="yellow thick-bottom-border"></td>
+    <td class="yellow thick-bottom-border"></td>
+    <td class="yellow thick-bottom-border"></td>
+    <td class="yellow thick-bottom-border"></td>
+    <td class="yellow thick-bottom-border"></td>
+    <td class="yellow thick-bottom-border"></td>
+  </tr>
+  <tr>
+    <td class="red"></td>
+    <td class="red thick-right-border thick-bottom-border"></td>
+    <td class="yellow thick-bottom-border"><b>&#x25EF;</b></td>
+    <td class="yellow thick-bottom-border"></td>
+    <td class="yellow thick-bottom-border"></td>
+    <td class="yellow thick-right-border"></td>
+    <td class="green thick-right-border"></td>
+    <td class="green"><b>&#x25EF;</b></td>
+    <td class="green"></td>
+    <td class="green"></td>
+    <td class="green thick-right-border"></td>
+    <td class="yellow thick-bottom-border"></td>
+    <td class="yellow"><b>&#x25EF;</b></td>
+  </tr>
+  <tr>
+    <td class="red thick-right-border thick-bottom-border"><b>&#x25EF;</b></td>
+    <td class="red"></td>
+    <td class="red"></td>
+    <td class="red"></td>
+    <td class="red thick-right-border thick-bottom-border"></td>
+    <td class="yellow thick-right-border"></td>
+    <td class="green thick-right-border"></td>
+    <td class="green thick-bottom-border"></td>
+    <td class="green thick-bottom-border"></td>
+    <td class="green thick-bottom-border"></td>
+    <td class="green thick-right-border thick-bottom-border"></td>
+    <td class="blue thick-right-border"></td>
+    <td class="yellow"></td>
+  </tr>
+  <tr>
+    <td class="blue thick-right-border"></td>
+    <td class="red"></td>
+    <td class="red"></td>
+    <td class="red thick-right-border"></td>
+    <td class="yellow thick-bottom-border"></td>
+    <td class="yellow thick-right-border thick-bottom-border"></td>
+    <td class="green thick-bottom-border"></td>
+    <td class="green thick-bottom-border"></td>
+    <td class="green"></td>
+    <td class="green"></td>
+    <td class="green thick-right-border"><b>&#x25EF;</b></td>
+    <td class="blue thick-right-border"></td>
+    <td class="yellow"></td>
+  </tr>
+  <tr>
+    <td class="blue thick-right-border"></td>
+    <td class="red"></td>
+    <td class="red"></td>
+    <td class="red thick-right-border"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple thick-right-border"></td>
+    <td class="green thick-bottom-border"></td>
+    <td class="green thick-bottom-border"></td>
+    <td class="green thick-right-border thick-bottom-border"></td>
+    <td class="blue thick-right-border"></td>
+    <td class="yellow"></td>
+  </tr>
+  <tr>
+    <td class="blue thick-right-border"></td>
+    <td class="red"></td>
+    <td class="red"></td>
+    <td class="red thick-right-border thick-bottom-border"><b>&#x25EF;</b></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple thick-right-border"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue thick-right-border"></td>
+    <td class="yellow"></td>
+  </tr>
+  <tr>
+    <td class="blue thick-right-border"></td>
+    <td class="red"></td>
+    <td class="red thick-right-border"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple thick-right-border"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue thick-right-border"></td>
+    <td class="yellow"></td>
+  </tr>
+  <tr>
+    <td class="blue thick-right-border"></td>
+    <td class="red"></td>
+    <td class="red thick-right-border"></td>
+    <td class="purple thick-bottom-border"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple thick-right-border"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue thick-right-border"></td>
+    <td class="yellow"></td>
+  </tr>
+  <tr>
+    <td class="blue thick-right-border"><b>&#x25EF;</b></td>
+    <td class="red thick-bottom-border"></td>
+    <td class="red thick-bottom-border"></td>
+    <td class="red thick-right-border"></td>
+    <td class="purple thick-bottom-border"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple thick-right-border"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue thick-right-border"></td>
+    <td class="yellow"></td>
+  </tr>
+  <tr>
+    <td class="blue"></td>
+    <td class="blue thick-bottom-border"></td>
+    <td class="blue thick-right-border thick-bottom-border"></td>
+    <td class="red thick-bottom-border"></td>
+    <td class="red thick-right-border thick-bottom-border"></td>
+    <td class="purple thick-bottom-border"></td>
+    <td class="purple thick-bottom-border"><b>&#x25EF;</b></td>
+    <td class="purple thick-bottom-border"></td>
+    <td class="purple thick-right-border thick-bottom-border"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue thick-right-border"></td>
+    <td class="yellow"></td>
+  </tr>
+  <tr>
+    <td class="blue thick-right-border"></td>
+    <td class="purple thick-bottom-border"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple"></td>
+    <td class="purple thick-right-border"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue thick-right-border"></td>
+    <td class="yellow"></td>
+  </tr>
+  <tr>
+    <td class="blue"></td>
+    <td class="blue thick-right-border"></td>
+    <td class="purple thick-bottom-border"></td>
+    <td class="purple thick-bottom-border"></td>
+    <td class="purple thick-bottom-border"></td>
+    <td class="purple thick-bottom-border"></td>
+    <td class="purple thick-bottom-border"></td>
+    <td class="purple thick-bottom-border"><b>&#x25EF;</b></td>
+    <td class="purple thick-right-border thick-bottom-border"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue thick-right-border"><b>&#x25EF;</b></td>
+    <td class="yellow"></td>
+  </tr>
+  <tr>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue thick-right-border"></td>
+    <td class="blue"></td>
+    <td class="blue"></td>
+    <td class="blue thick-right-border"></td>
+    <td class="yellow"></td>
+  </tr>
+</table>
+{% endblock %}

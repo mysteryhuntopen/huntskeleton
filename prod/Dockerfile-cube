@@ -1,0 +1,19 @@
+FROM ubuntu:16.04
+
+RUN apt-get update && \
+  apt-get install --no-install-recommends -qy maven openjdk-8-jdk-headless
+
+RUN mkdir -p /opt/src /opt/cfg
+
+ADD cube/pom.xml /opt/src/
+WORKDIR /opt/src
+RUN mvn verify clean --fail-never
+
+ADD cube /opt/src
+WORKDIR /opt/src
+RUN mvn package -DskipTests=true
+
+ADD prod/cube/config.json /opt/cfg
+WORKDIR /opt/cfg
+EXPOSE 8182
+CMD ["java", "-jar", "/opt/src/target/cube.jar"]

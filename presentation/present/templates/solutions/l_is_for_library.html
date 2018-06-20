@@ -1,0 +1,216 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Erin Price{% endblock %}
+{% block solution %}OCELOT{% endblock %}
+
+{% block solution_head_block %}
+{# Table font size shrunk so that table content doesn't need to wrap #}
+<style>
+  .puzzle-content table {
+    font-size: 0.8em;
+  }
+
+  .puzzle-content table td {
+    padding: 0.8em;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Each image is taken from a children&rsquo;s alphabet book. The letters for each page spell out <code>SORT BY DATE USE SURNAMES</code>. The flavor text, &ldquo;Baby&rsquo;s first good reads&rdquo;, clues you to use <a href="https://www.goodreads.com/">Goodreads</a> to find the first available publication date for each book. Sorting by the publication date and indexing into the authors&rsquo; last names by the page number on each image yields <code>BIG CATS SMALL CATS OSCAR</code>. The O page in <i>Big Cats, Small Cats</i>, by Calvin Smith, is <strong><code>OCELOT</code></strong>.</p>
+
+<table class="solution-table condensed-table">
+  <tr>
+    <th>
+      Page
+    </th>
+    <th>
+      Title
+    </th>
+    <th>
+      Author
+    </th>
+    <th>
+      Index
+    </th>
+    <th>
+      Letter
+    </th>
+    <th>
+      Pub. Date
+    </th>
+  </tr>
+  <tr>
+    <td>SPACE CAPSULE</td>
+    <td><i>ABCs on Wings</i></td>
+    <td>Olivera, Ramon</td>
+    <td>1</td>
+    <td><code>O</code></td>
+    <td>7/21/2015</td>
+  </tr>
+  <tr>
+    <td>OSCAR</td>
+    <td><i>Alpha</i></td>
+    <td>Arsenault, Isabelle</td>
+    <td>3</td>
+    <td><code>S</code></td>
+    <td>8/25/2015</td>
+  </tr>
+  <tr>
+    <td>RAVEN</td>
+    <td><i>Alphabet Bird Collection</i></td>
+    <td>Ogilvy, Shelli</td>
+    <td>4</td>
+    <td><code>L</code></td>
+    <td>4/25/2009</td>
+  </tr>
+  <tr>
+    <td>TIGER</td>
+    <td><i>Alphabet Soup: A Feast of Letters</i></td>
+    <td>Gustafson, Scott</td>
+    <td>1</td>
+    <td><code>G</code></td>
+    <td>1/9/1990</td>
+  </tr>
+  <tr>
+    <td>BALLOONS</td>
+    <td><i>Alphablock</i></td>
+    <td>Franceschelli, Christopher</td>
+    <td>5</td>
+    <td><code>C</code></td>
+    <td>8/6/2013</td>
+  </tr>
+  <tr>
+    <td>YAK</td>
+    <td><i>Alphamals: A to Z</i></td>
+    <td>Carter, Graham</td>
+    <td>3</td>
+    <td><code>R</code></td>
+    <td>10/3/2017</td>
+  </tr>
+  <tr>
+    <td>DOGS, DOCTOR, DUCK</td>
+    <td><i>Babar&rsquo;s ABC</i></td>
+    <td>Brunhoff, Laurent</td>
+    <td>1</td>
+    <td><code>B</code></td>
+    <td>1/1/1983</td>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td><i>Chicka Chicka Boom Boom</i></td>
+    <td>Martin, Jr., Bill</td>
+    <td>5</td>
+    <td><code>I</code></td>
+    <td>1/1/1989</td>
+  </tr>
+  <tr>
+    <td>T-SHIRT</td>
+    <td><i>D is for Dress-Up: The ABC&rsquo;s of What We Wear</i></td>
+    <td>Carluccio, Maria</td>
+    <td>1</td>
+    <td><code>C</code></td>
+    <td>4/5/2016</td>
+  </tr>
+  <tr>
+    <td>EARWIG</td>
+    <td><i>Gone Wild: An Endangered Animal Alphabet</i></td>
+    <td>McLimans, David</td>
+    <td>1</td>
+    <td><code>M</code></td>
+    <td>9/5/2006</td>
+  </tr>
+  <tr>
+    <td>UNITED NATIONS</td>
+    <td><i>Journey Around New York From A to Z</i></td>
+    <td>Zschock, Martha</td>
+    <td>2</td>
+    <td><code>S</code></td>
+    <td>5/1/2002</td>
+  </tr>
+  <tr>
+    <td>SIT STILL, MAX</td>
+    <td><i>Max&rsquo;s ABC</i></td>
+    <td>Wells, Rosemary</td>
+    <td>5</td>
+    <td><code>S</code></td>
+    <td>5/4/2006</td>
+  </tr>
+  <tr>
+    <td>ELEPHANT</td>
+    <td><i>Miss Bindergarten Gets Ready for Kindergarten</i></td>
+    <td>Slate, Joseph</td>
+    <td>4</td>
+    <td><code>T</code></td>
+    <td>9/1/1996</td>
+  </tr>
+  <tr>
+    <td>SLICED SALAMI</td>
+    <td><i>Old Black Fly</i></td>
+    <td>Aylesworth, Jim</td>
+    <td>1</td>
+    <td><code>A</code></td>
+    <td>4/15/1992</td>
+  </tr>
+  <tr>
+    <td>UNICYCLE</td>
+    <td><i>Olivia&rsquo;s ABC</i></td>
+    <td>Falconer, Ian</td>
+    <td>2</td>
+    <td><code>A</code></td>
+    <td>8/26/2014</td>
+  </tr>
+  <tr>
+    <td>RABBIT</td>
+    <td><i>Paul Thurlby&rsquo;s Alphabet</i></td>
+    <td>Thurlby, Paul</td>
+    <td>5</td>
+    <td><code>L</code></td>
+    <td>7/1/2011</td>
+  </tr>
+  <tr>
+    <td>NEWSPAPER</td>
+    <td><i>Pinkalicious ABC: An Alphabet Book</i></td>
+    <td>Kann, Victoria</td>
+    <td>2</td>
+    <td><code>A</code></td>
+    <td>5/24/2016</td>
+  </tr>
+  <tr>
+    <td>ACORNS, ALLIGATOR</td>
+    <td><i>R is for Rocket: An ABC Book</i></td>
+    <td>Hills, Tad</td>
+    <td>5</td>
+    <td><code>S</code></td>
+    <td>7/7/2015</td>
+  </tr>
+  <tr>
+    <td>MAIL TRUCK</td>
+    <td><i>Richard Scarry&rsquo;s Cars and Trucks From A to Z</i></td>
+    <td>Scarry, Richard</td>
+    <td>2</td>
+    <td><code>C</code></td>
+    <td>10/3/1990</td>
+  </tr>
+  <tr>
+    <td>EDMONTONOSAURUS</td>
+    <td><i>Robert Crowther&rsquo;s Pop-Up Dinosaur ABC</i></td>
+    <td>Crowther, Robert</td>
+    <td>5</td>
+    <td><code>T</code></td>
+    <td>1/27/2015</td>
+  </tr>
+  <tr>
+    <td>SKULL WITH SMILE</td>
+    <td><i>The Dangerous Alphabet</i></td>
+    <td>Gaiman, Neil</td>
+    <td>2</td>
+    <td><code>A</code></td>
+    <td>4/29/2008</td>
+  </tr>
+</table>
+{% endblock %}

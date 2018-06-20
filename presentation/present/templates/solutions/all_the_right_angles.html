@@ -1,0 +1,369 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Charles Steinhardt{% endblock %}
+{% block solution %}POCKET MONEY{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content table, .puzzle-content td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  .puzzle-content td {
+    height: 25px;
+    width: 25px;
+    text-align: center;
+  }
+
+  .puzzle-content .green {
+    background-color: #3ab503;
+  }
+
+  .puzzle-content .extraction {
+    color: white;
+  }
+
+  .puzzle-content .flexbox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 360px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>This is a &ldquo;right angles&rdquo; puzzle, where every answer makes exactly one 90-degree turn. In addition, several of the squares must be filled with the numbers 1-8 and &ldquo;CUE&rdquo;:</p>
+
+<table>
+  <tr>
+    <td>L</td>
+    <td>A</td>
+    <td>N</td>
+    <td class="green extraction">O</td>
+    <td>S</td>
+    <td class="green extraction">O</td>
+    <td>S</td>
+    <td>U</td>
+    <td>T</td>
+    <td>S</td>
+  </tr>
+  <tr>
+    <td>O</td>
+    <td>R</td>
+    <td class="green">O</td>
+    <td>L</td>
+    <td class="green">O</td>
+    <td>V</td>
+    <td class="green">E</td>
+    <td>T</td>
+    <td>6</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>W</td>
+    <td class="green">H</td>
+    <td>I</td>
+    <td class="green">G</td>
+    <td>N</td>
+    <td class="green">E</td>
+    <td>S</td>
+    <td class="green">H</td>
+    <td>I</td>
+    <td>R</td>
+  </tr>
+  <tr>
+    <td class="green extraction">N</td>
+    <td>U</td>
+    <td class="green">S</td>
+    <td>H</td>
+    <td>I</td>
+    <td>S</td>
+    <td class="green">L</td>
+    <td>O</td>
+    <td class="green">U</td>
+    <td>I</td>
+  </tr>
+  <tr>
+    <td>E</td>
+    <td class="green">R</td>
+    <td>N</td>
+    <td>5</td>
+    <td>F</td>
+    <td>O</td>
+    <td>U</td>
+    <td class="green">S</td>
+    <td>E</td>
+    <td class="green extraction">P</td>
+  </tr>
+  <tr>
+    <td class="green extraction">C</td>
+    <td>K</td>
+    <td class="green">E</td>
+    <td>D</td>
+    <td>O</td>
+    <td>G</td>
+    <td>P</td>
+    <td>O</td>
+    <td class="green">K</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>O</td>
+    <td class="green">A</td>
+    <td>M</td>
+    <td class="green">Y</td>
+    <td>L</td>
+    <td>R</td>
+    <td>E</td>
+    <td class="green">R</td>
+    <td>E</td>
+    <td class="green extraction">M</td>
+  </tr>
+  <tr>
+    <td>L</td>
+    <td>S</td>
+    <td class="green">I</td>
+    <td>R</td>
+    <td class="green">D</td>
+    <td>A</td>
+    <td class="green">N</td>
+    <td>I</td>
+    <td class="green">R</td>
+    <td>B</td>
+  </tr>
+  <tr>
+    <td>B</td>
+    <td>T</td>
+    <td>D</td>
+    <td class="green">O</td>
+    <td>P</td>
+    <td class="green">M</td>
+    <td>G</td>
+    <td class="green">L</td>
+    <td>R</td>
+    <td>I</td>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td>R</td>
+    <td>3</td>
+    <td>T</td>
+    <td class="green">O</td>
+    <td>S</td>
+    <td class="green">U</td>
+    <td>E</td>
+    <td>O</td>
+    <td>V</td>
+  </tr>
+  <tr>
+    <td>R</td>
+    <td>E</td>
+    <td>A</td>
+    <td class="green">K</td>
+    <td>E</td>
+    <td class="green">T</td>
+    <td>E</td>
+    <td class="green">S</td>
+    <td>S</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>B</td>
+    <td>S</td>
+    <td class="green">A</td>
+    <td>R</td>
+    <td class="green">D</td>
+    <td>V</td>
+    <td class="green">A</td>
+    <td>R</td>
+    <td class="green">K</td>
+    <td>L</td>
+  </tr>
+  <tr>
+    <td>E</td>
+    <td class="green">*</td>
+    <td>E</td>
+    <td class="green">E</td>
+    <td>R</td>
+    <td>I</td>
+    <td>M</td>
+    <td class="green">T</td>
+    <td>N</td>
+    <td class="green extraction">E</td>
+  </tr>
+  <tr>
+    <td>L</td>
+    <td>S</td>
+    <td class="green">N</td>
+    <td>S</td>
+    <td>T</td>
+    <td>T</td>
+    <td>U</td>
+    <td>S</td>
+    <td class="green">K</td>
+    <td>R</td>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td class="green">B</td>
+    <td>E</td>
+    <td>R</td>
+    <td>7</td>
+    <td>E</td>
+    <td>L</td>
+    <td class="green">A</td>
+    <td>S</td>
+    <td class="green extraction">K</td>
+  </tr>
+  <tr>
+    <td class="green extraction">T</td>
+    <td>T</td>
+    <td>A</td>
+    <td>E</td>
+    <td>P</td>
+    <td>O</td>
+    <td class="green">M</td>
+    <td>G</td>
+    <td class="green">G</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td class="green">E</td>
+    <td>X</td>
+    <td>T</td>
+    <td>I</td>
+    <td class="green">S</td>
+    <td>S</td>
+    <td class="green">A</td>
+    <td>E</td>
+    <td>L</td>
+  </tr>
+  <tr>
+    <td>L</td>
+    <td>T</td>
+    <td class="green">I</td>
+    <td>T</td>
+    <td class="green">E</td>
+    <td>P</td>
+    <td class="green">D</td>
+    <td>R</td>
+    <td>2</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>E</td>
+    <td>4</td>
+    <td>S</td>
+    <td class="green">A</td>
+    <td>G</td>
+    <td class="green">E</td>
+    <td>I</td>
+    <td>S</td>
+    <td>O</td>
+    <td>G</td>
+  </tr>
+  <tr>
+    <td>W</td>
+    <td>8</td>
+    <td class="green extraction">Y</td>
+    <td>M</td>
+    <td class="green extraction">E</td>
+    <td>S</td>
+    <td>O</td>
+    <td>N</td>
+    <td>D</td>
+    <td>1</td>
+  </tr>
+</table>
+
+<p>As hinted by 5S (&ldquo;STRIPES&rdquo;), we are playing a game of 8-ball and we are stripes, which means we simply need to pocket the 8 to win. As usual, we cannot hit an opponent&rsquo;s ball first. The shortest path is to play the ball to the northeast, which results in hitting 11 cushions and pocketing the 8 ball in the southwest corner. The letters hit along each cushion, in path order, spell <strong><code>POCKET MONEY</code></strong>.</p>
+
+<p>Individual answers:</p>
+
+<div class="flexbox">
+  <span><b>1S</b> LOW-NECKED</span>
+  <span><b>2W</b> SONAR</span>
+  <span><b>3S</b> OVEN</span>
+  <span><b>4W</b> SOSO</span>
+  <span><b>5S</b> STRIPES</span>
+  <span><b>6S</b> OWNER</span>
+  <span><b>7E</b> ROLO</span>
+  <span><b>8N</b> TUTS</span>
+  <span><b>8S</b> THOU</span>
+  <span><b>9N</b> (SIX)TUS</span>
+  <span><b>10E</b> HIGH-(FIVE)D</span>
+  <span><b>10S</b> HUSH</span>
+  <span><b>11N</b> GLOVE</span>
+  <span><b>12E</b> SHIRT</span>
+  <span><b>13S</b> URN</span>
+  <span><b>14E</b> ISOGRAM</span>
+  <span><b>15S</b> SOUSE</span>
+  <span><b>16E</b> LOUI(S IX)</span>
+  <span><b>17E</b> (FIVE)FOLD</span>
+  <span><b>18N</b> FINE</span>
+  <span><b>19W</b> GOLD</span>
+  <span><b>20E</b> POKER</span>
+  <span><b>21E</b> OKAPI</span>
+  <span><b>22S</b> AMBIVALENT</span>
+  <span><b>23S</b> ASTRA</span>
+  <span><b>24S</b> RAMP</span>
+  <span><b>25W</b> REPULSE</span>
+  <span><b>26W</b> MERENGUE</span>
+  <span><b>27N</b> LOAMY</span>
+  <span><b>28S</b> STREAK</span>
+  <span><b>29S</b> ILEUS</span>
+  <span><b>30W</b> BRING</span>
+  <span><b>31N</b> BLOCK</span>
+  <span><b>31S</b> BARBECUE</span>
+  <span><b>32E</b> DORY</span>
+  <span><b>33S</b> POETESS</span>
+  <span><b>34S</b> LEO</span>
+  <span><b>35E</b> RIVAL</span>
+  <span><b>35S</b> ROSS</span>
+  <span><b>36N</b> (THREE)-DIMENSIONAL</span>
+  <span><b>36E</b> (THREE)-TOED</span>
+  <span><b>37N</b> TORI</span>
+  <span><b>38S</b> ST VITUS</span>
+  <span><b>39E</b> RESCUES</span>
+  <span><b>40S</b> AARDVARK</span>
+  <span><b>41S</b> BELS</span>
+  <span><b>42N</b> MARK</span>
+  <span><b>43S</b> LATTE</span>
+  <span><b>44N</b> NEER</span>
+  <span><b>45N</b> TRIM</span>
+  <span><b>46E</b> TUSKS</span>
+  <span><b>47N</b> RENT</span>
+  <span><b>48E</b> BERSERK</span>
+  <span><b>48W</b> BATTLE</span>
+  <span><b>49S</b> (SEVEN)-PEAT</span>
+  <span><b>50E</b> ELMS</span>
+  <span><b>51W</b> SALE(S EVEN)T</span>
+  <span><b>52N</b> KRK</span>
+  <span><b>52S</b> KALE</span>
+  <span><b>53S</b> TEXT</span>
+  <span><b>54N</b> AENEAS</span>
+  <span><b>55S</b> GE(T WO)RD</span>
+  <span><b>56N</b> IPO</span>
+  <span><b>57W</b> SIEGE</span>
+  <span><b>58E</b> SAGA</span>
+  <span><b>59W</b> PETIT (FOUR)</span>
+  <span><b>60N</b> RAGGA</span>
+  <span><b>61W</b> A(TWO)OD</span>
+  <span><b>62E</b> (FOUR) SAGES</span>
+  <span><b>63N</b> EPSOM</span>
+  <span><b>64E</b> ISOG(ONE)</span>
+  <span><b>65E</b> W(EIGHT)Y MATTERS</span>
+  <span><b>65N</b> WELT</span>
+  <span><b>66E</b> (EIGHT)Y-SIX</span>
+  <span><b>67E</b> MESONS</span>
+  <span><b>68W</b> NOID</span>
+  <span><b>69E</b> D(ONE)GAL</span>
+</div>
+{% endblock %}

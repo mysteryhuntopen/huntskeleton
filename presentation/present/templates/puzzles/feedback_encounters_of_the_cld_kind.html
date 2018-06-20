@@ -1,0 +1,158 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content img {
+    display: block;
+    margin: auto;
+  }
+
+  .puzzle-content .flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    margin: 20px 0px;
+  }
+
+  .puzzle-content .flexbox span {
+    width: 23%;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .puzzle-content .flexbox span.big-margin {
+    margin: 10px 5% 0px 5%;
+  }
+
+  .puzzle-content .flexbox span.small-span {
+    width: 20%;
+  }
+
+  @media print {
+    .puzzle-content img {
+      display: block;
+      page-break-inside: avoid;
+    }
+
+    .puzzle-content .flexbox {
+      page-break-inside: avoid;
+      page-break-after: always;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<img {{ img_src_for('puzzles/feedback_encounters_of_the_cld_kind/1.png') }} >
+
+<div class="flexbox">
+  <span>People slaving away generating power</span>
+  <span>Pledging your eternal soul to the thing that literally controls the weather</span>
+  <span>Interactions with Starfleet</span>
+  <span>Human hybrid offspring</span>
+  <span>Need for a brash copilot</span>
+  <span>Apologizing for emissions and racism</span>
+  <span>Beings everywhere coming together to offer what little they have</span>
+  <span>Potato based religion popularity</span>
+  <span>Decision to protect the twelve colonies</span>
+  <span>Crises of faith</span>
+  <span>Offering the galaxy&rsquo;s most influential civil rights leader a chance to live</span>
+  <span>Word of your attempts spreading across the galaxy</span>
+  <span>Consuming their proteins</span>
+  <span>Examples of what Headism can offer the world</span>
+  <span>Energy swords used</span>
+  <span>Sex with froopy creatures</span>
+  <span>Attempts to weasel out of it</span>
+  <span>Xenophile cultures encountered</span>
+  <span>Pressure to donate your genitals</span>
+  <span>Ability to pay for a synthetic heart</span>
+  <span>Misperception of approval from the giant head</span>
+  <span>Arrogant scientist pricks inventing energy sources</span>
+  <span>Realization that the old gods are dead</span>
+  <span>Discussion of humanity&rsquo;s obsession with penises</span>
+  <span>Dropping to your knees</span>
+  <span>Microverses</span>
+  <span>Going out onto the sidewalk</span>
+  <span>Food needed</span>
+</div>
+
+<img {{ img_src_for('puzzles/feedback_encounters_of_the_cld_kind/2.png') }} >
+
+<div class="flexbox">
+  <span class="big-margin">Mounting suspicion of your only companion</span>
+  <span class="big-margin">Ability for a talking chair to know who is lying</span>
+  <span class="big-margin">Using your last drop of fuel</span>
+  <span>Story arcs following the hero&rsquo;s journey</span>
+  <span>Red Xs marked on foreheads</span>
+  <span>Telepathic parasites</span>
+  <span>Flashbacks</span>
+  <span>Dangerous criminals that look exactly like us</span>
+  <span>Ithorians revering nature</span>
+  <span>Freezing time</span>
+  <span>Zany wacky characters</span>
+  <span>Desire to remember everything</span>
+  <span>Embedded memories</span>
+  <span>Murder of beloved friends</span>
+  <span>Number of Popplers eaten</span>
+  <span>Groups of Morlocks</span>
+  <span>Ability to fix the house before your parents get home</span>
+  <span>Memory storage units viewed</span>
+</div>
+
+<img {{ img_src_for('puzzles/feedback_encounters_of_the_cld_kind/3.png') }} >
+
+<div class="flexbox">
+  <span>Portals to Asgard</span>
+  <span>Bombing yourself back into the Stone Age</span>
+  <span>Pluto&rsquo;s status as a planet</span>
+  <span>Distraction and henpecking</span>
+  <span>Manipulation through sex and advanced technology</span>
+  <span>Ability to throw an awesome party</span>
+  <span>Laser guns given to monkeys</span>
+  <span>Ability to focus entirely on war</span>
+  <span>Ability of rich corporations to keep mining</span>
+  <span>Morphizer use</span>
+  <span>Usefulness of Replicants</span>
+  <span>Insistence that Pluto is a planet</span>
+  <span>Number of people controlled by entity</span>
+  <span>Size of holes in the plot</span>
+  <span>Size of body parts</span>
+  <span>Female domination of society</span>
+  <span>Size of Pluto</span>
+  <span>Fractal dust ingested</span>
+  <span>Reliance on birthing machines</span>
+  <span>Attempts to get back to normal</span>
+</div>
+
+<img {{ img_src_for('puzzles/feedback_encounters_of_the_cld_kind/4.png') }} >
+
+<div class="flexbox">
+  <span class="small-span">Scientific-sounding gibberish</span>
+  <span class="small-span">Ability to alter details</span>
+  <span class="small-span">Agents ordered to attack</span>
+  <span class="small-span">Need for an antidote</span>
+  <span class="small-span">Helpers roped into this</span>
+  <span>Interdimensional pathways</span>
+  <span>Difficulty of fulfilling your purpose</span>
+  <span>Brazenness of selfie requests</span>
+  <span>Perceived importance of getting a selfie</span>
+  <span>Shedding the blood of your brothers</span>
+  <span>Genetic changes caused by serum</span>
+  <span>Gagh palatability</span>
+  <span>Ability to leave the brain analyzer</span>
+  <span>Dead Secret Service agents</span>
+  <span>Number of Force-sensitive children</span>
+  <span>Experiencing fabricated origin stories</span>
+  <span>Length of existence</span>
+  <span>Viruses uploaded to brain analyzer</span>
+  <span>Hostages taken</span>
+  <span>Sympathy for the Na&rsquo;vi</span>
+  <span>Exotic DNA included in the serum</span>
+</div>
+{% endblock %}

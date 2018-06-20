@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Head Hunters: Login</title>
+    <link rel="shortcut icon" href="{{ asset_url_for('images/favicon.ico') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/bootstrap-reduced.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/support.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('login.static', filename='login.css') }}">
+    <style>
+      @media screen {
+        body {
+          background-color: #92959f;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed-header">
+      <div class="fixed-header-inner">
+        <div class="header-links">
+          <div class="header-link"><a href="/">Home</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="overall-layout-body">
+      <div class="title-text">Operation: Head Hunters</div>
+      <div id="main-page-content">
+        {% if error %}
+          <div class="support-section">
+            <div class="login-error">
+              {{ error }}
+            </div>
+          </div>
+        {% endif %}
+        <div class="support-section">
+          <form action="/login" method="post">
+            <table class="login-form-table">
+              <tr>
+                <td class="login-form-label">User or team name:</td>
+                <td><input type="text" name="username"></td>
+              </tr>
+              <tr>
+                <td class="login-form-label">Password:</td>
+                <td><input type="password" name="password"></td>
+              </tr>
+            </table>
+            <input type="submit" value="Login" class="login-button">
+          </form>
+        </div>
+        <div class="support-section login-help-text">
+          <p>
+            If you have problems logging in, email <a href="mailto:loginhelp@head-hunters.org">loginhelp@head-hunters.org</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,335 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .puzzle-content .box {
+    border: 2px solid black;
+    border-radius: 10px;
+
+    background-color: #f2f2f2;
+
+    height: 300px;
+    width: 47%;
+    padding: 10px 0px 10px 15px;
+
+    margin-bottom: 17px;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  @font-face {
+    font-family: "Computer Modern";
+    src: {{ asset_url_for('puzzles/no_context/cmunbi.woff') }} format("woff"),
+      {{ asset_url_for('puzzles/no_context/cmunbx.woff') }} format("woff"),
+      {{ asset_url_for('puzzles/no_context/cmunrm.woff') }} format("woff"),
+      {{ asset_url_for('puzzles/no_context/cmunti.woff') }} format("woff");
+  }
+
+  .puzzle-content .centered {
+    align-self: center;
+
+    font-family: "Computer Modern";
+
+    margin-bottom: 10px;
+  }
+
+  .puzzle-content .centered div:not(:first-child) {
+    padding-left: 0.3em;
+  }
+
+  @media print {
+    .puzzle-content .box {
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact !important;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="boxes">
+  <div class="box">
+    <span class="centered">
+      <div>
+        <i>S</i><sub>1</sub><i> &rarr; A|B</i>
+      </div>
+      <div>
+        <i>A &rarr; </i>[<i>a &ndash; z</i>]<i></i>[<i>a &ndash; z</i>]<i></i>[<i>a &ndash; z</i>]<i>g</i>
+      </div>
+      <div>
+        <i>B &rarr; </i>[<i>aegt</i>]<i>CC</i>
+      </div>
+      <div>
+        <i>C &rarr; </i>[<i>ceismn</i>]<i></i>
+      </div>
+    </span>
+    <div>Across: 7, 61</div>
+    <div>Down: 4, 5, 6, 9, 33</div>
+  </div>
+  <div class="box">
+    <span class="centered">
+      <div>
+        <i>S</i><sub>2</sub><i> &rarr; m</i>[<i>a &ndash; z</i>]<i></i>[<i>a &ndash; z</i>]<i>|thA|B</i>
+      </div>
+      <div>
+        <i>A &rarr; </i>[<i>a &ndash; z</i>]<i>|</i>[<i>a &ndash; z</i>]<i>A</i>
+      </div>
+      <div>
+        <i>B &rarr; C|</i>[<i>a &ndash; z</i>]<i></i>[<i>a &ndash; z</i>]<i>C</i>[<i>a &ndash; z</i>]<i></i>
+      </div>
+      <div>
+        <i>C &rarr; l</i>[<i>a &ndash; z</i>]<i></i>[<i>a &ndash; z</i>]<i></i>
+      </div>
+    </span>
+    <div>Across: 10, 40</div>
+    <div>Down: 2, 18, 20, 22, 43</div>
+  </div>
+  <div class="box">
+    <span class="centered">
+      <div>
+        <i>S</i><sub>3</sub><i> &rarr; A|B</i>
+      </div>
+      <div>
+        <i>A &rarr; pCe|peD</i>
+      </div>
+      <div>
+        <i>B &rarr; hE|</i>[<i>afke</i>]<i>E</i>[<i>a &ndash; z</i>]<i></i>
+      </div>
+      <div>
+        <i>C &rarr; o</i>
+      </div>
+      <div>
+        <i>D &rarr; </i>[<i>st</i>]<i>D|</i>[<i>st</i>]<i></i>
+      </div>
+      <div>
+        <i>E &rarr; </i>[<i>a &ndash; z</i>]<i></i>[<i>a &ndash; mo &ndash; z</i>]<i></i>
+      </div>
+    </span>
+    <div>Across: 19, 24, 53</div>
+    <div>Down: 11, 35, 51, 52, 59</div>
+  </div>
+  <div class="box">
+    <span class="centered">
+      <div>
+        <i>S</i><sub>4</sub><i> &rarr; sA|A</i>
+      </div>
+      <div>
+        <i>A &rarr; </i>[<i>adot</i>]<i>B</i>
+      </div>
+      <div>
+        <i>B &rarr; CC|iC|Cm</i>
+      </div>
+      <div>
+        <i>C &rarr; </i>[<i>abcdefghjklopqrstuvwxyz</i>]<i></i>
+      </div>
+    </span>
+    <div>Across: 11, 14, 32, 33, 54</div>
+    <div>Down: 27, 30</div>
+  </div>
+  <div class="box">
+    <span class="centered">
+      <div>
+        <i>S</i><sub>5</sub><i> &rarr; A|B</i>
+      </div>
+      <div>
+        <i>A &rarr; s</i>[<i>a &ndash; z</i>]<i></i>[<i>a &ndash; z</i>]<i></i>
+      </div>
+      <div>
+        <i>B &rarr; </i>[<i>fltuvw</i>]<i>B|C|Cs</i>
+      </div>
+      <div>
+        <i>C &rarr; afDfe|eDe|ikeDike|reDre|sDs</i>
+      </div>
+      <div>
+        <i>D &rarr; </i>[<i>a &ndash; ln &ndash; z</i>]<i>|</i>[<i>a &ndash; ln &ndash; z</i>]<i>D|C|</i>
+      </div>
+    </span>
+    <div>Across: 15, 36, 44, 48, 57, 64</div>
+    <div>Down: 31</div>
+  </div>
+  <div class="box">
+    <span class="centered">
+      <div>
+        <i>S</i><sub>6</sub><i> &rarr; </i>[<i>bmort</i>]<i></i>[<i>a &ndash; z</i>]<i></i>[<i>a &ndash; z</i>]<i></i>[<i>a &ndash; z</i>]<i></i>
+      </div>
+    </span>
+    <div>Across: 41</div>
+    <div>Down: 7, 8, 12, 13, 23, 38, 46, 47</div>
+  </div>
+  <div class="box">
+    <span class="centered">
+      <div>
+        <i>S</i><sub>7</sub><i> &rarr; A|B|C</i>
+      </div>
+      <div>
+        <i>A &rarr; </i>[<i>a &ndash; z</i>]<i>D|D</i>[<i>a &ndash; z</i>]<i></i>
+      </div>
+      <div>
+        <i>B &rarr; FGEGF</i>
+      </div>
+      <div>
+        <i>C &rarr; </i>[<i>ls</i>]<i>HoI</i>
+      </div>
+      <div>
+        <i>D &rarr; ea</i>
+      </div>
+      <div>
+        <i>E &rarr; B|F</i>
+      </div>
+      <div>
+        <i>F &rarr; </i>[<i>bcdfghjklmnpqrstvwxyz</i>]<i></i>
+      </div>
+      <div>
+        <i>G &rarr; </i>[<i>aeiou</i>]<i></i>
+      </div>
+      <div>
+        <i>H &rarr; EGE|</i>
+      </div>
+      <div>
+        <i>I &rarr; n|bs</i>
+      </div>
+    </span>
+    <div>Across: 16, 20, 42, 43, 56</div>
+    <div>Down: 1, 39, 58</div>
+  </div>
+  <div class="box">
+    <span class="centered">
+      <div>
+        <i>S</i><sub>8</sub><i> &rarr; iAB|lo</i>[<i>aeiou</i>]<i>A|</i>[<i>a &ndash; z</i>]<i>l</i>[<i>a &ndash; z</i>]<i></i>
+      </div>
+      <div>
+        <i>A &rarr; </i>[<i>a &ndash; z</i>]<i>|</i>[<i>a &ndash; z</i>]<i>A|</i>
+      </div>
+      <div>
+        <i>B &rarr; ke|a</i>
+      </div>
+    </span>
+    <div>Across: 26, 45, 55, 63</div>
+    <div>Down: 29, 34, 45</div>
+  </div>
+  <div class="box">
+    <span class="centered">
+      <div>
+        <i>S</i><sub>9</sub><i> &rarr; A|B</i>
+      </div>
+      <div>
+        <i>A &rarr; na</i>[<i>a &ndash; z</i>]<i>|</i>[<i>a &ndash; z</i>]<i></i>[<i>a &ndash; z</i>]<i>ne</i>
+      </div>
+      <div>
+        <i>B &rarr; CDEFE</i>
+      </div>
+      <div>
+        <i>C &rarr; st|</i>
+      </div>
+      <div>
+        <i>D &rarr; r|re</i>
+      </div>
+      <div>
+        <i>E &rarr; </i>[<i>a &ndash; z</i>]<i>|</i>[<i>a &ndash; z</i>]<i>E|</i>
+      </div>
+      <div>
+        <i>F &rarr; d|n|ss</i>
+      </div>
+    </span>
+    <div>Across: 25, 60</div>
+    <div>Down: 3, 37, 44, 50, 57</div>
+  </div>
+  <div class="box">
+    <span class="centered">
+      <div>
+        <i>S</i><sub>10</sub><i> &rarr; A|</i>[<i>a &ndash; z</i>]<i>S</i><sub>10</sub><i></i>[<i>a &ndash; z</i>]<i></i>
+      </div>
+      <div>
+        <i>A &rarr; bo|dse|hvo|la|ort|sc|treg</i>
+      </div>
+    </span>
+    <div>Across: 1, 17, 21, 29, 62</div>
+    <div>Down: 28, 49</div>
+  </div>
+</div>
+<div>A day in Madrid</div>
+<div>A donkey</div>
+<div>A logophile prob. has this (2 words)</div>
+<div>A minuscule amount</div>
+<div>A tool used when rowing</div>
+<div>A young horse</div>
+<div>Add to the payroll again</div>
+<div>Advice-giver Landers</div>
+<div>Air force of Nazi Germany</div>
+<div>An annoying thing</div>
+<div>Anonymizing network software</div>
+<div>Author of The Raven</div>
+<div>Clogs formed from wood</div>
+<div>Co. that created Game of Thrones</div>
+<div>Color associated with anger</div>
+<div>Comedian Daniel</div>
+<div>Common vegan protein source</div>
+<div>Construction toy</div>
+<div>Consume food</div>
+<div>DJs can spin them</div>
+<div>Denoting the mood of a verb</div>
+<div>Director Burton</div>
+<div>Eisenhower, for short</div>
+<div>Empire of Mansa Musa Keita</div>
+<div>Famous flop</div>
+<div>Grand Prix gov. body (2 words)</div>
+<div>Grassy meadow</div>
+<div>Halley’s is one</div>
+<div>Herbal liqueur colored with saffron</div>
+<div>Home chnl. of &ldquo;Splatterday on Saturday&rdquo;</div>
+<div>Ingred. in a Scarlett O’Hara</div>
+<div>It contains hooks and loops</div>
+<div>It could contain a rapier or a flying shuttle</div>
+<div>It’s over your head</div>
+<div>Jagger and bandmates, shortly</div>
+<div>Jeers</div>
+<div>Jet Matt that used to be a Bear</div>
+<div>Kingsmen member Jack</div>
+<div>Linguistic suffix</div>
+<div>Man smote for wasting seed</div>
+<div>Manfred von Richthofen, for one</div>
+<div>Mel’s Mad motorer</div>
+<div>Month named for a goddess of growth</div>
+<div>Motifs</div>
+<div>Nightmarish street</div>
+<div>Number of Magi</div>
+<div>October’s stone</div>
+<div>Part 1 of a helpful hint (3 words)</div>
+<div>Part 2 of a helpful hint (2 words)</div>
+<div>Partner to nose and throat</div>
+<div>Pok&eacute;mon that evolve into 8 different types</div>
+<div>Pole found on a ship</div>
+<div>Rocky cliff face</div>
+<div>Russian capital</div>
+<div>Seabird related to skimmers</div>
+<div>Soils containing both clay and sand</div>
+<div>Soothing plant</div>
+<div>Stimpy’s pal</div>
+<div>Stroke affectionately</div>
+<div>Supply with weapons</div>
+<div>Teen drama that popularized Chrismukkah (2 words)</div>
+<div>Television award</div>
+<div>The very end of something</div>
+<div>Thin strip of wood, as in a crib</div>
+<div>This kind of man takes your car away</div>
+<div>Tosses gently</div>
+<div>True blue</div>
+<div>What someone can do to your toes (2 words)</div>
+<div>What you do to the first syllable of syllable, for example</div>
+<div>Where McCain served, briefly</div>
+<div>Where you might find a Sparsam or Domb&aring;s</div>
+<div>Word preceding willikers</div>
+<div>XML extension used by news feeds</div>
+<div>Yanks’ counterparts</div>
+{% endblock %}

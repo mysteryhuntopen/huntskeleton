@@ -1,0 +1,27 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .pin {
+    display: block;
+    width: 400px;
+    margin: 0 auto;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+{% if site_mode() == "solution" %}
+<div id="main-page-content">
+  <p>Shortly after solving the various emotion metas, each team is visited by the corresponding emotion, who leaves behind a small token of their appreciation.  Once all emotions are returned to the Control Room, Buzzy <a href="{{ url_for('full_puzzle' if session.usertype == 'writingteam' else 'puzzle', puzzle_id='buzzy_encounter') }}">visits himself</a>.  He informs the team that tensions are still high and sends them into <a href="{{ url_for('full_puzzle' if session.usertype == 'writingteam' else 'puzzle', puzzle_id='the_brainstorm') }}">The Brainstorm</a> to collect idea fragments, a task which requires all five of the emotions&rsquo; gifts.</p>
+  <p>After the team has collected the idea fragments, Buzzy has them meet him outside the Control Room.  A short scripted experience follows:</p>
+  <iframe id="video" src="https://www.youtube.com/embed/ozOcIGzHurY?autoplay=0&modestbranding=1&playsinline=1&rel=0&showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+  <p>At the end of the show, Buzzy offers his thanks.  Handing the team a rather coin-like pin, he promotes them from cadets to commandos.</p>
+  <img class="pin" {{ img_src_for('puzzles/emotional_finale/pin.jpg') }}/>
+</div>
+{% endif %}
+{% endblock %}

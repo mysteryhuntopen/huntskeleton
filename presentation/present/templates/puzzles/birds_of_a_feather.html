@@ -1,0 +1,101 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_errata_block %}
+<p><b>Errata:</b> At 6:55pm EST 01/12/2018, all but the first instance of <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird04.jpg') }}" /> were changed to <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird05.jpg') }}" />.</p>
+
+<p><b>Errata:</b> After Mystery Hunt ended, to account for a late-reported erratum, all instances of <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird11-old.jpg') }}" /> were replaced with <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird11.jpg') }}" />
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Birds of a feather fly as a flock together. At least according to collective wisdom. But, I’m sure I’ve heard them called something else.
+{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .birds {
+    font-size: 2em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .puzzle-content .bird, .errata .bird {
+    max-width: 100px;
+    max-height: 100px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>’s-Hertogenbosch</div>
+<div>Atacama</div>
+<div>Bastogne</div>
+<div>Basutoland</div>
+<div>Borden</div>
+<div>Bundy</div>
+<div>Ceylon</div>
+<div>French Indochina</div>
+<div>Gold Coast</div>
+<div>Holmes</div>
+<div>Jamestown</div>
+<div>K♣ 10♣ 7♣ 6♣ 2♣</div>
+<div>Kaczynski</div>
+<div>Kalahari</div>
+<div>Karakum</div>
+<div>Kimmel</div>
+<div>Leningrad</div>
+<div>Manson</div>
+<div>Masada</div>
+<div>Massachusetts Bay</div>
+<div>Norton</div>
+<div>Plymouth</div>
+<div>Q♦ J♦ 8♦ 4♦ 3♦</div>
+<div>Rader</div>
+<div>Roanoke</div>
+<div>Sajak</div>
+<div>Sevastopol</div>
+<div>Southern Rhodesia</div>
+<div>Tenochtitlan</div>
+<div>Thessalonica</div>
+<div>Wilhelm</div>
+<div>Winfrey</div>
+<hr>
+<div class="birds">
+  (((<img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird01.jpg') }}" /> + <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird02.jpg') }}" />) * <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird03.jpg') }}" />) + <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird01.jpg') }}" />) / (<img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird03.jpg') }}" /> * <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird02.jpg') }}" />) = _ _ _ _ _ _ _ of <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird04.jpg') }}" />
+</div>
+<hr>
+<div class="birds">
+  <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird01.jpg') }}" /> - (<img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird05.jpg') }}" /> + <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird03.jpg') }}" />) / <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird02.jpg') }}" /> = _ _ _ _ _ _ _ _ of <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird06.jpg') }}" />
+</div>
+<hr>
+<div class="birds">
+  <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird05.jpg') }}" /> - <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird07.jpg') }}" /> + <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird02.jpg') }}" /> = _ _ _ _ _ _ _ _ _ _ _ of <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird08.jpg') }}" />
+</div>
+<hr>
+<div class="birds">
+  ((<img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird05.jpg') }}" /> * <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird02.jpg') }}" />) - <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird09.jpg') }}" />) / <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird01.jpg') }}" /> = _ _ _ _ _ _ _ of <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird10.jpg') }}" />
+</div>
+<hr>
+<div class="birds">
+  <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird02.jpg') }}" /> - (<img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird01.jpg') }}" /> + <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird03.jpg') }}" />) / (<img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird11.jpg') }}" /> - <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird05.jpg') }}" />) = _ _ _ _ _ _ _ _ _ _ of <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird12.jpg') }}" />
+</div>
+<hr>
+<div class="birds">
+  <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird11.jpg') }}" /> / <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird03.jpg') }}" /> = _ _ _ _ of <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird13.jpg') }}" />
+</div>
+<hr>
+<div class="birds">
+  ((<img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird07.jpg') }}" /> - <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird02.jpg') }}" />) * <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird01.jpg') }}" />) / <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird02.jpg') }}" /> - <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird11.jpg') }}" /> = _ _ _ of <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird14.jpg') }}" />
+</div>
+<hr>
+<div class="birds">
+  <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird11.jpg') }}" /> - <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird09.jpg') }}" /> + <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird07.jpg') }}" /> - <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird01.jpg') }}" /> = _ _ _ _ _ _ _ _ _ _ _ of <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird15.jpg') }}" />
+</div>
+<hr>
+<div class="birds">
+  (<img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird09.jpg') }}" /> * <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird05.jpg') }}" /> * <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird03.jpg') }}" />) - ((<img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird01.jpg') }}" /> + <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird09.jpg') }}" />) * (<img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird01.jpg') }}" /> / <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird03.jpg') }}" />)) = _ _ _ _ _ of <img class="bird" src="{{ asset_url_for('puzzles/birds_of_a_feather/bird16.jpg') }}" />
+</div>
+{% endblock %}

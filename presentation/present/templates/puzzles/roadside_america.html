@@ -1,0 +1,388 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet" />
+<style>
+  .puzzle-content > * {
+    margin: 1em;
+  }
+
+  .puzzle-content > *:first-child {
+    margin-top: 0;
+  }
+
+  .puzzle-content > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .puzzle-content .map img {
+    width: 100%;
+  }
+
+  .puzzle-content .postcard {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 624px;
+    height: 415px;
+    page-break-inside: avoid;
+
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 16px;
+    line-height: 1.5em;
+  }
+
+  .puzzle-content .postcard img {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+  }
+
+  .puzzle-content .postcard .text {
+    position: absolute;
+    z-index: 20;
+    width: 280px;
+    top: 40px;
+    padding: 0 20px;
+  }
+
+  .puzzle-content .postcard .from {
+    position: absolute;
+    z-index: 20;
+    top: 355px;
+    left: 80px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="map">
+  <img src="{{ asset_url_for('puzzles/roadside_america/map.png') }}" />
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>Checking in from The Mother Road! No Escalades or ATSs here!
+      It&rsquo;s all old-school Coupes, covered in spray
+      paint. You&rsquo;ve never seen anything like this, there&rsquo;s
+      ten of them all lined up, nose down in the dirt, tail fins to
+      the heavens! I tagged one for you.</p>
+  </div>
+
+  <div class="from">
+    Veronica
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>Cheers! Thish ish the besht museum! Ever! Thanks god for
+      dishtilling stills. Even old Washington had one. The temperansh
+      exhitbit is a bit of a buzzkill. P.S. I&rsquo;m nnot drunmkf.</p>
+  </div>
+
+  <div class="from">
+    Sarah
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>Do you have plans for the solstice yet? Since I can&rsquo;t
+      meet up with my Druid brothers on Salisbury Plain this year,
+      I&rsquo;ll make my pilgrimage to the other henge, the one in the
+      American West. As I understand it, without the proper granite,
+      the next best building material was old cars. Oh well, I&rsquo;m
+      sure the gods will hear my prayers regardless.</p>
+  </div>
+
+  <div class="from">
+    Louise
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>Ever wondered what it would feel like to jump a motorcycle over
+      14 Greyhound buses? Wonder no longer! Just strap on your spangly
+      leather jumpsuit and the VR goggles at this Sunflower State
+      museum, and you&rsquo;ll just about be there. I&rsquo;m tempted
+      to take this rocket-on-wheels for a spin&hellip;</p>
+  </div>
+
+  <div class="from">
+    Louise
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>Hare Krishna! I feel like I&rsquo;ve stepped into a time
+      machine, but I can&rsquo;t tell if I&rsquo;ve gone back to the
+      60s, or back to the India of the Maharajas. This golden palace
+      is fit for a spiritual leader, if only I could hear myself
+      chanting over the fracking down the road.</p>
+  </div>
+
+  <div class="from">
+    Gregory
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>Hello from the American frontier! I don&rsquo;t know if Buffalo
+      Bill ever really rode through here, but this museum is a
+      gunslinger&rsquo;s paradise. I suppose all the guns people lost
+      or dropped must end up somewhere, I just didn&rsquo;t think it
+      would be here! This must be the only museum to put battlefield
+      dirt on display.</p>
+  </div>
+
+  <div class="from">
+    Jack
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>I must have rolled a 20, because I just found the coolest park
+      in the world! I spent the morning running around a castle,
+      shaking my fists at gremlins and goblins. You should come out
+      here! Just be careful not to wake the sleeping dragon.</p>
+  </div>
+
+  <div class="from">
+    Tim
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>&ldquo;I was shot by the Union and Eaten by the Confederates,
+      and all I got was this stupid plaque&rdquo;. That&rsquo;s what I
+      would say if I were this poor camel. He died far from home, but
+      at least he had a fun time scaring horses.</p>
+  </div>
+
+  <div class="from">
+    Susan
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>I&rsquo;m converting! I&rsquo;ve decided to become an
+      Elevationist, and join as this congregation smokes its sacrament
+      every Sunday. This house of worship is dope, I could contemplate
+      this trippy art all day. Anyway, time to go! I want to say ten
+      Hail Mary Janes before mass.</p>
+  </div>
+
+  <div class="from">
+    Ryan
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>I&rsquo;m in a sticky situation. You know I&rsquo;m a
+      germaphobe, but here I am next to a wall COVERED in other
+      people&rsquo;s chewing gum. Even the abundant PNW rain could not
+      clean away the sticky, pepperminty smell that pervades the area…</p>
+  </div>
+
+  <div class="from">
+    Jack
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>I&rsquo;m writing from a house that gives a new meaning to the
+      term &ldquo;aluminum siding&rdquo;. All it took was one
+      stir-crazy retiree with a taste for beer, and boom! The whole
+      house got a makeover. There are even pull-tab
+      curtains. Don&rsquo;t get any ideas.</p>
+  </div>
+
+  <div class="from">
+    Susan
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>I&rsquo;ve always wanted to stand at the feet of a
+      god&hellip;Albeit a very unconventional statue of one. His eyes
+      are mismatched, being made of different spare parts, and he
+      holds aloft&hellip;a toilet! He even has his trusty trident!</p>
+  </div>
+
+  <div class="from">
+    Sammie
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>No bishop would have his seat here!  Instead of carved stone,
+      the walls are made of junk, and rather than being in the town
+      square, it&rsquo;s in some guy&rsquo;s backyard (although the
+      neighbors aren&rsquo;t too pleased about it). It&rsquo;s
+      overgrown with vegetation but he&rsquo;s still building it, one
+      old TV or broken ladder or destrung tennis racket at a time.</p>
+  </div>
+
+  <div class="from">
+    Veronica
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>The King of Rock and Roll didn&rsquo;t just have a pulsating
+      pelvis, he also had some sweet karate moves! This tiny monument
+      commemorates the time he leapt from his limo to stop a kid from
+      being beat up. May we all be as selfless as this bejeweled,
+      side-burned hero.</p>
+  </div>
+
+  <div class="from">
+    Tim
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>This particular walk in the woods has a little extra mystery to
+      it. Towering redwoods stand among chainsaw carvings of woodland
+      creatures, all visible from the gondolas strung high above. Paul
+      Bunyan says &ldquo;Hi&rdquo;, as does Babe.</p>
+  </div>
+
+  <div class="from">
+    Sammie
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>To fluoridate, or not to fluoridate?  This hard water question
+      has torn families apart. I stand at the foot of a huge statue
+      that celebrates the town that first added this tiny little anion
+      to water. Nothing like a 5 ton piece of wavy metal to fight
+      tooth decay.</p>
+  </div>
+
+  <div class="from">
+    Gregory
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>Today I swore a Blood Oath to the mob. A virtual one, that is!
+      And I learned how vast the web of organized crime really
+      is. This museum, a former courthouse, celebrates the wiseguys
+      just as much as the G-men who took them down. Maybe more,
+      actually.</p>
+  </div>
+
+  <div class="from">
+    Ryan
+  </div>
+</div>
+
+<div class="postcard">
+  <img src="{{ asset_url_for('puzzles/roadside_america/postcard.png') }}" />
+
+  <div class="text">
+    <p>Dear Terry</p>
+
+    <p>Your dream of eating fettucini while gazing upon the
+      &ldquo;Creation of Adam&rdquo; can finally come true! But rather
+      than Michelangelo&rsquo;s delicate brushwork, you&rsquo;ll be
+      gazing upon Paco&rsquo;s delicate spray-work while you twirl
+      your fork into your pasta. Come gaze upon the fresco that used
+      up all the spray paint in the area.</p>
+  </div>
+
+  <div class="from">
+    Sarah
+  </div>
+</div>
+{% endblock %}

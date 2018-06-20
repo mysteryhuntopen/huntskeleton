@@ -1,0 +1,233 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Ryan Veeder{% endblock %}
+{% block solution %}ADVENTURE{% endblock %}
+
+{% block solution_content_block %}
+  <p>In this interactive fiction text adventure computer game, you are
+    an alchemy student at G.U.E. Tech, and you have summoned the
+    Eldest Horror, Ynf-Okh-Omm, in the basement tunnels. You thought
+    it would be cool. But pretty soon, Ynf-Okh-Omm will awaken, and
+    consume the universe.</p>
+
+  <p>You have nine turns to correct this, which isn’t really enough
+    time. Fortunately, when nine turns are up, you can travel back in
+    time (restart the game) and try again. You’ll have to try to
+    collect data on each loop that you can apply in the
+    next. Specifically, you’ll have to learn 13 eldritch spells.</p>
+
+  <p>Each spell has a one-letter abbreviation (just like the movement
+    directions North, East, South, West, Up, and Down), but to refer
+    to a spell by its abbreviation in a given loop, you must first
+    enter the full name of the spell. Just keeping you honest!</p>
+
+  <p>Some spells can only be discovered with the use of other
+    spells. The progression is fairly nonlinear, but this is one
+    possible order:</p>
+
+  <ul>
+    <li><b>RAENFIDHRE</b>—The spell that banishes Elder Horrors. This is on a poster in the Alchemy building:
+      <ul>
+        <li>UP</li>
+        <li>X POSTER</li>
+      </ul>
+    </li>
+    <li><b>KULEHRIF</b>—The spell that lets you see in the dark. A hacker will teach it to you:
+      <ul>
+        <li>NORTH</li>
+        <li>NORTH</li>
+        <li>EAST</li>
+        <li>EAST</li>
+        <li>X HACKER</li>
+      </ul>
+    </li>
+    <li><b>JILXUBE</b>—The spell that summons a mass of slime. An
+      Elder Horror in the tunnels is holding some lecture notes with
+      this spell:
+      <ul>
+        <li>NORTH</li>
+        <li>NORTH</li>
+        <li>RAENFIDHRE</li>
+        <li>X NOTES</li>
+      </ul>
+    </li>
+    <li><b>BHEISHAUPH</b>—The spell that summons frigid air. This is
+      written in a textbook someone left in a dark corner of the
+      tunnels:
+      <ul>
+        <li>NORTH</li>
+        <li>NORTH</li>
+        <li>EAST</li>
+        <li>EAST</li>
+        <li>SOUTH</li>
+        <li>SOUTH</li>
+        <li>WEST</li>
+        <li>KULEHRIF</li>
+        <li>X TEXTBOOK</li>
+      </ul>
+    </li>
+    <li><b>HTERWERBSET</b>—The spell that resurrects the dead. This is
+      on a note in the Necromancy building (the note doesn’t explain
+      what the spell does, but a little bit of experimentation will
+      reanimate a nearby cockroach):
+      <ul>
+        <li>UP</li>
+        <li>EAST</li>
+        <li>EAST</li>
+        <li>KULEHRIF</li>
+        <li>NORTH</li>
+        <li>X SCRAP</li>
+      </ul>
+    </li>
+    <li><b>VAADIGNEPHOD</b>—The spell that straightens out
+      non-Euclidean geometry. This is referred to on a grant
+      application in the basement of a building that’s under
+      construction. You have to fill the pit with slime, then freeze
+      the slime. Kinda complicated:
+      <ul>
+        <li>UP</li>
+        <li>NORTH</li>
+        <li>JILXUBE</li>
+        <li>BHEISHAUPH</li>
+        <li>GET ENVELOPE</li>
+        <li>OPEN ENVELOPE</li>
+        <li>READ GRANT APPLICATION</li>
+      </ul>
+    </li>
+    <li><b>CAERLAEV</b>—A spell that lets you switch bodies with other
+      people. A gross blob in the sub-basement knows this spell, but
+      it is stuck in a dead end beyond a non-Euclidean tunnel, and it
+      is very thirsty (for slime):
+      <ul>
+        <li>NORTH</li>
+        <li>NORTH</li>
+        <li>EAST</li>
+        <li>DOWN</li>
+        <li>EAST</li>
+        <li>VAADIGNEPHOD</li>
+        <li>SOUTH</li>
+        <li>JILXUBE</li>
+      </ul>
+    </li>
+    <li><b>PHEIMMEB</b>—A spell that lets you travel to the Dusky
+      Threshold, the dark space behind our universe. You find this
+      spell by reanimating a rat:
+      <ul>
+        <li>NORTH</li>
+        <li>NORTH</li>
+        <li>EAST</li>
+        <li>DOWN</li>
+        <li>SOUTH</li>
+        <li>SOUTH</li>
+        <li>EAST</li>
+        <li>HTERWERBSET</li>
+        <li>X NOTE</li>
+      </ul>
+    </li>
+    <li><b>YZAWNZAG</b>—A spell that steels your mind and increases
+      your willpower. This is on a statuette, guarded by an Elder
+      Thing, in a dark room, in the sub-basement.
+      <ul>
+        <li>NORTH</li>
+        <li>NORTH</li>
+        <li>EAST</li>
+        <li>DOWN</li>
+        <li>SOUTH</li>
+        <li>SOUTH</li>
+        <li>KULEHRIF</li>
+        <li>RAENFIDHRE</li>
+        <li>X STATUETTE</li>
+      </ul>
+    </li>
+    <li><b>MNYMNSWST</b>—A spell that lets you travel away from the
+      Dusky Threshold. This spell is taught to you by a spectre who
+      lives in the Dusky Threshold, in a room beyond a waterfall of
+      slime:
+      <ul>
+        <li>NORTH</li>
+        <li>NORTH</li>
+        <li>EAST</li>
+        <li>DOWN</li>
+        <li>WEST</li>
+        <li>BHEISHAUPH</li>
+        <li>SOUTH</li>
+        <li>PHEIMMEB</li>
+        <li>X SPECTRE</li>
+      </ul>
+    </li>
+    <li><b>THOSSOTH</b>—A spell that cuts stuff up. It’s written on a
+      piece of paper that is lying around in the Dusky Threshold:
+      <ul>
+        <li>NORTH</li>
+        <li>NORTH</li>
+        <li>EAST</li>
+        <li>EAST</li>
+        <li>SOUTH</li>
+        <li>SOUTH</li>
+        <li>PHEIMMEB</li>
+        <li>X PAPER</li>
+      </ul>
+    </li>
+    <li><b>FICKORDBOK</b>—A spell that lets you speak Swedish. It’s in
+      a tome guarded by an Elder Horror in the Linguistics building
+      that truly exists in the Dusky Threshold but invisibly blocks
+      your progress in the Normal World:
+      <ul>
+        <li>UP</li>
+        <li>EAST</li>
+        <li>NORTH</li>
+        <li>PHEIMMEB</li>
+        <li>RAENFIDHRE</li>
+        <li>MNYMNSWST</li>
+        <li>X TOME</li>
+      </ul>
+    </li>
+    <li><b>AVITHSKELT</b>—A spell that lets you move up and down
+      through ceilings and floors. This is in a book in the Sorcery
+      department head’s office. It’s written in Swedish, and the
+      department head won’t let you in the office unless you switch
+      bodies with his assistant, and even if you do switch bodies with
+      his assistant, he’ll hypnotize you and let a monster eat you
+      unless you’re immune to hypnotism. As such, this is the last
+      spell you can discover:
+      <ul>
+        <li>UP</li>
+        <li>NORTH</li>
+        <li>NORTH</li>
+        <li>EAST</li>
+        <li>CAERLAEV</li>
+        <li>YZAWNZAG</li>
+        <li>EAST</li>
+        <li>FICKORDBOK</li>
+        <li>X BOOK</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>Only with Avithskelt is it possible to banish Ynf-Okh-Omm within
+    the time limit. You just have to activate the final spell’s
+    physics-defying powers, descend to the sub-basement, untangle a
+    non-Euclidean hallway, reach the power station where the Eldest
+    Horror is drawing its power, sever its connection, float up to
+    face Ynf-Okh-Omm itself, banish it, and use your last turn to
+    avoid being sucked into non-space yourself. Thus this is the only
+    winning solution:</p>
+
+  <ul>
+    <li><code>AVITHSKELT</code></li>
+    <li><code>DOWN</code></li>
+    <li><code>VAADIGNEPHOD</code></li>
+    <li><code>EAST</code></li>
+    <li><code>NORTH</code></li>
+    <li><code>THOSSOTH</code></li>
+    <li><code>UP</code></li>
+    <li><code>RAENFIDHRE</code></li>
+    <li><code>EAST</code></li>
+  </ul>
+
+  <p>Which spells <strong><code>ADVENTURE</code></strong>.</p>
+{% endblock %}

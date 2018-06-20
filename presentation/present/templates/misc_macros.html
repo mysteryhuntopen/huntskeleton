@@ -1,0 +1,7 @@
+{% macro generate_puzzle_page_icon(puzzleId) %}
+  <img class="{{puzzle_visibility.status|lower}}" {{img_src_for('/images/logo.svg')}}/>
+{% endmacro %}
+
+{% macro generate_puzzle_styles(puzzleId) %}
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+{% endmacro %}

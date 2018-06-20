@@ -1,0 +1,176 @@
+{% import "island_macros.html" as island_macros %}
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title_block %}{% endblock %}</title>
+    <meta name="viewport" content="width=1200, initial-scale=0"/>
+    <meta name="google" content="notranslate">
+    <script src="https://use.fontawesome.com/7e30e2e185.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="{{ asset_url_for('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset_url_for('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset_url_for('js/hunt.js') }}"></script>
+    <script src="{{ asset_url_for('js/solutions.js') }}"></script>
+    <link rel="shortcut icon" href="{{ asset_url_for('images/favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset_url_for('styles/bootstrap-reduced.css') }}">
+    <link rel="stylesheet" href="{{ asset_url_for('styles/jquery-ui.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/common.css') }}">
+    {% block styling_block %}{% endblock %}
+  </head>
+  <body>
+    {% if core_display_data and not session.usertype == 'writingteam' %}
+      <div id="header-change-contact-info" class="modal fade" role="dialog" aria-labelledby="changeContactInfoModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div>
+                Change Team Contact Info
+              </div>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form action="{{ url_for('change_contact_info') }}" method="post">
+                <table class="centered">
+                  <tr>
+                    <td class="text-align-right">Email</td>
+                    <td><input type="text" name="email" value="{{ core_display_data.email }}"></td>
+                  </tr>
+                  <tr>
+                    <td class="text-align-right">Primary Phone</td>
+                    <td><input type="text" name="primaryPhone" value="{{ core_display_data.primaryPhone }}"></td>
+                  </tr>
+                  <tr>
+                    <td class="text-align-right">Secondary Phone</td>
+                    <td><input type="text" name="secondaryPhone" value="{{ core_display_data.secondaryPhone }}"></td>
+                  </tr>
+                </table>
+                <p>
+                  Clicking the button below will change the contact
+                  information used for answer confirmation for your
+                  entire team. Please double-check the information
+                  entered before submitting a change.
+                </p>
+                <input type="submit" value="Change Team Contact Info">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="fixed-header">
+      <div class="fixed-header-inner">
+        <div class="header-links">
+          <div class="header-link"><a href="{{ url_for('full_island', island_id='index') if session.usertype == 'writingteam' else url_for('index') }}">Control Room</a></div>
+          {% if core_display_data and core_display_data['openIslands']|length > 0 %}
+            <div class="header-link header-dropdown">
+              <div class="header-dropdown-title"><a href="#">Islands of Personality <span class="fa fa-caret-down"></span></a></div>
+              <div class="dropdown-content-wrapper">
+                {% for island_id in core_display_data['openIslands'] %}
+                  <div class="dropdown-link">
+                    <a href="{{ url_for('full_island' if session.usertype == 'writingteam' else 'island', island_id=island_id) }}">{{ island_macros.name(island_id) }}</a>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+          <div class="header-link"><a href="{{ url_for('full_objectives' if session.usertype == 'writingteam' else 'objectives') }}">Mission Objectives</a></div>
+          <div class="header-link header-dropdown">
+            <div class="header-dropdown-title"><a href="#">Useful Links <span class="fa fa-caret-down"></span></a></div>
+            <div class="dropdown-content-wrapper">
+              {% if is_hunt_started %}
+                <div class="dropdown-link"><a href="{{ url_for('full_puzzle_list' if session.usertype == 'writingteam' else 'puzzle_list') }}">List of Puzzles</a></div>
+                {% if session.usertype != 'writingteam' %}
+                  <div class="dropdown-link"><a href="{{ url_for('activity_log') }}">Team Log</a></div>
+                {% endif %}
+              {% endif %}
+              <div class="dropdown-link"><a href="{{ url_for('faq') }}">FAQ</a></div>
+              <div class="dropdown-link"><a href="{{ url_for('errata') }}">Errata</a></div>
+              <div class="dropdown-link"><a href="{{ url_for('safety') }}">Health and Safety</a></div>
+              <div class="dropdown-link"><a href="{{ url_for('sponsors') }}">Sponsors</a></div>
+              {% if site_mode() == 'solution' %}
+                <div class="dropdown-link"><a href="{{ url_for('credits') }}">Credits</a></div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="header-links">
+          {% block header_content %}
+          {% endblock %}
+          {% if core_display_data %}
+            {% if is_hunt_started and site_mode() != 'solution' %}
+              {% if core_display_data['brainpowerThresholds'] and core_display_data['openIslands']|length < core_display_data['brainpowerThresholds'] | length %}
+                {% set island_phrase -%}
+                  {%- if core_display_data['openIslands']|length == 0 -%}
+                    an island
+                  {%- elif core_display_data['openIslands']|length >= core_display_data['brainpowerThresholds']|length - 1 -%}
+                    the final island
+                  {%- else -%}
+                    another island
+                  {%- endif -%}
+                {%- endset %}
+                <div class="header-link brainpower"
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      {% if (core_display_data['brainpower'] >= core_display_data['brainpowerThresholds'][core_display_data['openIslands']|length]) %}
+                        title="You have {{ core_display_data['brainpower'] }} brainpower, which is sufficient to clear the brain fog from {{island_phrase}}!"
+                      {% else %}
+                        title="You have {{ core_display_data['brainpower'] }} of the {{ core_display_data['brainpowerThresholds'][core_display_data['openIslands']|length] }} brainpower necessary to clear the brain fog from {{island_phrase}}."
+                      {% endif %}
+                  >
+                  {% if core_display_data['brainpower'] >= core_display_data['brainpowerThresholds'][core_display_data['openIslands']|length] %}
+                    {% set puzzle_id=core_display_data['islandUnlocks'][core_display_data['openIslands']|length] %}
+                    <a href="{{ url_for('puzzle', puzzle_id=puzzle_id) }}">
+                  {% endif %}
+                  {% if core_display_data['brainpower'] >= core_display_data['brainpowerThresholds'][core_display_data['openIslands']|length] %}
+                    <img {{ img_src_for('images/brainpower-lit.svg') }} >
+                  {% else %}
+                    <img {{ img_src_for('images/brainpower.svg') }} >
+                  {% endif %}
+                  <span {% if core_display_data['brainpower'] >= core_display_data['brainpowerThresholds'][core_display_data['openIslands']|length] %}{{ "class=threshold-reached" }}{% endif %} >{{ core_display_data['brainpower'] }}/{{ core_display_data['brainpowerThresholds'][core_display_data['openIslands']|length] }}</span>
+                  {% if core_display_data['brainpower'] >= core_display_data['brainpowerThresholds'][core_display_data['openIslands']|length] %}
+                    </a>
+                  {% endif %}
+                </div>
+              {% endif %}
+              <div class="header-link buzzy-bucks"
+                    data-toggle="tooletip"
+                    data-placement="bottom"
+                    title="You have {{ core_display_data['buzzyBucks'] }} Buzzy Buck{% if core_display_data['buzzyBucks'] != 1 %}s{% endif%}."
+              >
+                <img {{ img_src_for('images/buzzy-bucks.svg') }} >
+                <span>{{ core_display_data['buzzyBucks'] }}</span>
+              </div>
+            {% endif %}
+          {% if not session.usertype == 'writingteam' %}
+          <div class="header-link header-dropdown">
+            <div class="header-dropdown-title"><a href="#">Team <span class="fa fa-caret-down"></span></a></div>
+            <div class="dropdown-content-wrapper dropdown-align-right" id="header-session-control">
+              {% if session["username"] %}
+                {% set team_length_limit = 30 %}
+                <div class="dropdown-text allow-wrap" id="header-session-team-name"{% if core_display_data['teamName']|length > team_length_limit %} data-toggle="tooltip" data-placement="bottom" title="{{ core_display_data["teamName"] }}"{% endif %}>
+                  {{ pretty_truncate(core_display_data["teamName"], team_length_limit) }}
+                </div>
+                {% if (not site_mode()) or site_mode() != 'solution' %}
+                  <div class="dropdown-link"><a href="#" data-toggle="modal" data-target="#header-change-contact-info"><span class="fa fa-pencil-square-o"></span> Update Contact Info</a></div>
+                  <div class="dropdown-link"><a href="{{ url_for('login.logout') }}"><span class="fa fa-sign-out"></span> Logout</a></div>
+                {% endif %}
+              {% else %}
+                <div class="dropdown-text">Not logged in</div>
+                <div class="dropdown-link"><a href="{{ url_for('login.login') }}"><span class="fa fa-sign-in"> Login</a></div>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="overall-layout-body {{ puzzle_round_id }}">
+      {% block overall_layout_body %}{% endblock %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Baby&rsquo;s first good reads.
+{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .images {
+    text-align: center;
+  }
+
+  .puzzle-content img {
+    max-width: 100%;
+    max-height: 400px;
+
+    margin-bottom: 20px;
+  }
+
+  .puzzle-content .container {
+    display: inline-block;
+    position: relative;
+  }
+
+  .puzzle-content .number {
+    position: absolute;
+    top: 90%;
+    left: 98%;
+    transform: translate(-90%, -98%);
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="images">
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/01.png') }} >
+      <span class="number">1</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/02.png') }} >
+      <span class="number">3</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/03.png') }} >
+      <span class="number">4</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/04.png') }} >
+      <span class="number">1</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/05.png') }} >
+      <span class="number">5</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/06.png') }} >
+      <span class="number">3</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/07.png') }} >
+      <span class="number">1</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/08.png') }} >
+      <span class="number">5</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/09.png') }} >
+      <span class="number">1</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/10.png') }} >
+      <span class="number">1</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/11.png') }} >
+      <span class="number">2</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/12.png') }} >
+      <span class="number">5</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/13.png') }} >
+      <span class="number">4</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/14.png') }} >
+      <span class="number">1</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/15.png') }} >
+      <span class="number">2</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/16.png') }} >
+      <span class="number">5</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/17.png') }} >
+      <span class="number">2</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/18.png') }} >
+      <span class="number">5</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/19.png') }} >
+      <span class="number">2</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/20.png') }} >
+      <span class="number">5</span>
+    </span>
+  </div>
+  <div>
+    <span class="container">
+      <img {{ img_src_for('puzzles/l_is_for_library/21.png') }} >
+      <span class="number">2</span>
+    </span>
+  </div>
+  <a href="{{asset_url_for('puzzles/l_is_for_library/22-large.png')}}"><img {{ img_src_for('puzzles/l_is_for_library/22.png') }} ></a>
+</div>
+{% endblock %}

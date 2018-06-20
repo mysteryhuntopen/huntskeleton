@@ -1,0 +1,102 @@
+{% macro prettyPuzzleIdentifier(puzzle_id) %}
+{% set puzzle = puzzle_id_to_puzzle[puzzle_id] %}
+{% if 'puzzleProperties' in puzzle %}
+{% set puzzleProperties = puzzle.puzzleProperties %}
+{% if 'DisplayNameProperty' in puzzleProperties %}
+{{ puzzleProperties.DisplayNameProperty.displayName }}
+{% elif 'DisplayIdProperty' in puzzleProperties %}
+{{ puzzleProperties.DisplayIdProperty.displayId }}
+{% else %}
+{{ puzzle_id }}
+{% endif %}
+{% else %}
+{{ puzzle_id }}
+{% endif %}
+{% endmacro %}
+
+{% macro autoRefreshWidget() %}
+<script>
+  function createAutoRefreshTimer() {
+    return window.setTimeout(function() {
+      location.reload();
+    }, 30000);
+  }
+  var autoRefreshTimer = createAutoRefreshTimer();
+  function onAutoRefreshChange(autoRefreshCheckbox) {
+    if (autoRefreshCheckbox.checked && !autoRefreshTimer) {
+      autoRefreshTimer = createAutoRefreshTimer();
+    } else if (!autoRefreshCheckbox.checked && autoRefreshTimer) {
+      window.clearTimeout(autoRefreshTimer);
+      autoRefreshTimer = null;
+    }
+  }
+</script>
+<div class="ha-column-control-box">
+  <span class="ha-control-box-title">
+    Auto Refresh
+  </span>
+  <div class="ha-labeled-input-form">
+    <label>
+      Enable 30 second auto refresh
+      <input type="checkbox" id="autoRefreshCheckbox" checked onchange="onAutoRefreshChange(this)">
+    </label>
+    <label>
+      Last refresh {{ current_timestamp() | datetime }}
+    </label>
+  </div>
+</div>
+{% endmacro %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>Hunt Admin</title>
+    <script src="https://use.fontawesome.com/7e30e2e185.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='huntadmin.css') }}">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://twemoji.maxcdn.com/2/twemoji.min.js?2.4"></script>
+    <script>
+      $(document).ready(function() {
+        twemoji.folder = '2/svg';
+        twemoji.parse(document.body);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="ha-navbar">
+      {% macro link(route, title) %}
+      <a href="{{ url_for(route) }}" class="{{ 'active' if route in request.url_rule.rule }}">
+	{{ title }}
+      </a>
+      {% endmacro %}
+
+      {{ link('bigboard', 'Big Board') }}
+      {{ link('callqueue', 'Call Queue') }}
+      {{ link('interactionqueue', 'Dispatch') }}
+      {{ link('productionassets', 'Production Assets') }}
+      {{ link('teams', 'Teams') }}
+      {{ link('bulk_team_action', 'Bulk Team Action') }}
+      {{ link('users', 'Users') }}
+      {% if is_authorized('events:create:*') %}
+      {{ link('admintools', 'Admin Tools') }}
+      {% endif %}
+
+      <div class="ha-navbar-title">
+        {{ session["username"] }} -<a href="{{ url_for('login.logout') }}">Log Out</a>
+      </div>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="ha-error-bar">
+      <span class="ha-error-bar-title">Error</span>
+      {% for message in messages %}
+      <p>{{ message }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% block page_body %}{% endblock %}
+  </body>
+</html>

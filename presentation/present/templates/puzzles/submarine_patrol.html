@@ -1,0 +1,30 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content img {
+    display: block;
+    width: 80%;
+    margin: auto;
+  }
+
+  @media print {
+    .puzzle-content img {
+        page-break-inside: avoid;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<p>The fleet of submarines shown next to the grid is patrolling an underwater minefield. The clues next to the grid indicate the number of ship segments along the corresponding horizontal row of the grid. The cells containing segments of distinct ships cannot touch each other, not even by a corner. The ships can be placed in any of the three directions (horizontally or vertically).</p>
+
+<p>All the ship segments lie on a closed loop which runs through the grid without touching itself: if two cells on the loop touch diagonally by an edge or a corner, they must actually be two or three cells apart along the loop. Each ship segment indicates the number of mines present in the (up to 26) neighboring cells. There are no mines in the cells traversed by the loop. The total number of mines is given.</p>
+
+<img {{ img_src_for('puzzles/submarine_patrol/image.svg') }} >
+{% endblock %}

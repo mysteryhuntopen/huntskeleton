@@ -1,0 +1,85 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}This Friggin&rsquo; Puzzle{% endblock %}
+{% block puzzle_name_block %}This Friggin&rsquo; Puzzle{% endblock %}
+
+{% block puzzle_head_block %}
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/support.css') }}">
+<style>
+  .puzzle-content table, .puzzle-content td {
+    border-collapse: collapse;
+    border: 1px black solid;
+    text-align: center;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+&hellip;I hate it!
+{% endblock %}
+
+{% block puzzle_content_block %}
+<table>
+  <tr>
+    <td>Square root of negative one (1)</td>
+    <td>&ldquo;Laugh-___&rdquo; (2)</td>
+    <td>Greek (8)</td>
+    <td>It’s found in New Roman variety (5)</td>
+    <td>Satisfied (9)</td>
+    <td>Nostradamus&rsquo; most famous work, with &ldquo;The&rdquo; (10)</td>
+    <td>Original style of light bulb (12)</td>
+    <td>Put-down (6)</td>
+  </tr>
+  <tr>
+    <td>Own (4)</td>
+    <td>Line found in email headers (2)</td>
+    <td>Conclude (6)</td>
+    <td>Jay-Z has 99 (8)</td>
+    <td>&ldquo;Chronicle of a Death ___&rdquo; (8)</td>
+    <td>Measurements obtained from thermometers (12)</td>
+    <td>Highly radioactive (3)</td>
+    <td>Growing (10)</td>
+  </tr>
+  <tr>
+    <td>&ldquo;___, Madly, Deeply&rdquo; (5)</td>
+    <td>Spinoff of Cars (Pixar) (6)</td>
+    <td>&ldquo;One ___ Over the Cuckoo&rsquo;s Nest&rdquo; (4)</td>
+    <td>TV Land show starring the Katydids (8)</td>
+    <td>Cambridge area college and T station (7)</td>
+    <td>Word often found with Then and Else (2)</td>
+    <td>Element with highest known melting point (8)</td>
+    <td>It’s released in an exothermic reaction (4)</td>
+  </tr>
+  <tr>
+    <td>Not lost (5)</td>
+    <td>First half of this hunt&rsquo;s theme (6)</td>
+    <td>Harry&rsquo;s alma mater (8)</td>
+    <td>&ldquo;Fawlty ___&rdquo; (6)</td>
+    <td>Member of order Diptera (3)</td>
+    <td>Ghosts responsible for physical disturbances (12)</td>
+    <td>Thin wire or thread (8)</td>
+    <td>Bus-to-Bus or Subway-to-Bus, e.g. (8)</td>
+  </tr>
+  <tr>
+    <td>Club adjacent to the MIT Nuclear Reactor (8)</td>
+    <td>Crazy (6)</td>
+    <td>&ldquo;___ Feeling Lucky&rdquo; (2)</td>
+    <td>Type of aid sometimes used by elderly (7)</td>
+    <td>What it takes to tango (3)</td>
+    <td>Instrument depicted in Jethro Tull&rsquo;s logo (5)</td>
+    <td>Divides or separates (5)</td>
+    <td>Type of loop (3)</td>
+  </tr>
+  <tr>
+    <td>This is one friggin&rsquo; example (6)</td>
+    <td>They can be associates, assistants, or full (10)</td>
+    <td>NYPD&rsquo;s nickname: New York&rsquo;s ___ (6)</td>
+    <td>Most common word in the English language (3)</td>
+    <td>&ldquo;I Can ___ Cheezburger&rdquo; (3)</td>
+    <td>The I in MIT (9)</td>
+    <td>The UN&rsquo;s is in New York City (12)</td>
+    <td>Charge induced by mechanical stresses (16)</td>
+  </tr>
+</table>
+{% endblock %}

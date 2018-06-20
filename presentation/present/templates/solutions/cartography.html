@@ -1,0 +1,244 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Justin Melvin, Max Wolf, Erin Price, and Laina Lomina{% endblock %}
+{% block solution %}PINNACLES{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content img:not(.us-map) {
+    width: 300px;
+  }
+
+  .puzzle-content table {
+    margin-bottom: 20px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Each journal entry clues a set of peaks on the map of a national park in the US (in alphabetical order by park name). The first sentence is a clue about the park name and/or location. The paragraphs are below with the clues bolded and the peaks listed under each entry. Each entry has a different mechanic hiding the peak names. The clue in the last entry hints that you need to mark the peaks on maps in order of occurrence in the journal entry. When you draw lines between points in this order, a letter is drawn on the map.</p>
+
+<p><b>Page 1:</b></p>
+<p>&ldquo;August: A lobster-filled day of adventure on an island.&rdquo; clues <b>Acadia National Park</b>. This entry provides <b>charade clues</b> for peaks.</p>
+<p>&ldquo;He saw us <b>pee endlessly at the rendezvous yesterday, I see</b>. The <b>short-handed officer had no trump</b> so we beat him easily. <b>Lacking any sweet alcoholic beverage we plead for a</b> fun trip home. A <b>bee with adrenoleukodystrophy</b> flew by. We saw <b>fish lungs with no end bit and more</b>! To heal them we had to use <b>deception to trick the first of needlefish into the emergency rooms</b>. They asked us if we wanted <b>tea before our messed up infrared commercial</b>. For <b>the Russian among us it was yes, why</b>?&rdquo;</p>
+<table class="solution-table condensed-table">
+  <tr>
+    <th>
+      Entry Snippet
+    </th>
+    <th>
+      Extraction
+    </th>
+    <th>
+      Peak
+    </th>
+  </tr>
+  <tr>
+    <td>pee endlessly at the rendezvous yesterday, I see.</td>
+    <td>PE + MET + I + C</td>
+    <td>Pemetic</td>
+  </tr>
+  <tr>
+    <td>short-handed officer had no trump</td>
+    <td>SARGE + NT</td>
+    <td>Sargent</td>
+  </tr>
+  <tr>
+    <td>Lacking any sweet alcoholic beverage we plead for a</td>
+    <td>NO + RUM + BEG + A</td>
+    <td>Norumbega</td>
+  </tr>
+  <tr>
+    <td>bee with adrenoleukodystrophy</td>
+    <td>B + ALD</td>
+    <td>Bald</td>
+  </tr>
+  <tr>
+    <td>fish lungs with no end bit and more!</td>
+    <td>GIL + MORE</td>
+    <td>Gilmore</td>
+  </tr>
+  <tr>
+    <td>deception to trick the first of needlefish into the emergency rooms</td>
+    <td>CON + N + ERS</td>
+    <td>Conners</td>
+  </tr>
+  <tr>
+    <td>tea before our messed up infrared commercial.</td>
+    <td>T + &lt;IR&gt; AD</td>
+    <td>Triad</td>
+  </tr>
+  <tr>
+    <td>the Russian among us it was yes, why?</td>
+    <td>DA + Y</td>
+    <td>Day</td>
+  </tr>
+</table>
+<p>Connecting the peaks in order makes an <code>A</code> shape on the map.</p>
+<a href="{{ asset_url_for('solutions/cartography/01.png') }}" target="blank"><img {{ img_src_for('solutions/cartography/01.png') }}></a>
+
+<p><b>Page 2:</b></p>
+<p>&ldquo;August: We left late at night to explore the caldera!&rdquo; clues <b>Crater Lake</b>. This entry <b>names peaks literally</b>.</p>
+<p>&ldquo;We waved to the <b>watchman</b> as we set out. As our guide, Mr <b>Hillman</b>, pointed out the stars, the <b>red cone</b>s of light from our flashlights played over the <b>desert, cone</b>-billed tanagers and <b>grouse</b> sleepily complaining when we stepped too close to their resting spots. Down the slope I spotted a path of white <b>pumice, point</b>ing west toward the dead forest as though accusing it of being a <b>skell</b>, conning us all into thinking it living <b>timber</b>.&rdquo;</p>
+<div>Peaks used literally:</div>
+<div>Watchman</div>
+<div>Hillman</div>
+<div>Red Cone</div>
+<div>Desert Cone</div>
+<div>Grouse Hill</div>
+<div>Pumice Point</div>
+<div>Skell Head</div>
+<div>Timber</div>
+<p>Connecting the peaks in order makes an <code>N</code> shape on the map.</p>
+<a href="{{ asset_url_for('solutions/cartography/02.png') }}" target="_blank"><img {{ img_src_for('solutions/cartography/02.png') }}></a>
+
+<p><b>Page 3:</b></p>
+<p>&ldquo;July: We started out for our northern icy adventure!&rdquo; clues <b>Glacier National Park</b>. This entry <b>divides peak names between two or more words</b>.</p>
+<p>&ldquo;Being s<b>kint la</b>tely, we decided to walk to the <b>long fell ow</b>ned by my neighbor&rsquo;s estate. Seeing something weird in the distance I said, &ldquo;Sla<b>va, ugh, t</b>he hell is that?!&rdquo; furrowing my <b>brow. &ldquo;N</b>othing I want to stick around. Perhaps a withdra<b>wal ton</b>ight is in order.&rdquo; I took out my camera to film, but I tripped over a <b>log an</b>d fell backwards on a pack of CDs. &ldquo;Careful with the <b>di&hellip; Vide</b>o evidence is all we have!&rdquo; Slava said as I fell.&rdquo;</p>
+<div>Peaks divided between two or more words:</div>
+<div>Kintla</div>
+<div>Longfellow</div>
+<div>Vaught</div>
+<div>Brown</div>
+<div>Walton</div>
+<div>Logan</div>
+<div>Divide</div>
+<p>Connecting them in order makes an <code>L</code> shape on the map.</p>
+<a href="{{ asset_url_for('solutions/cartography/03.png') }}" target="_blank"><img {{ img_src_for('solutions/cartography/03.png') }}></a>
+
+<p><b>Page 4:</b></p>
+<p>&ldquo;June: What an educational day near a massive hole!&rdquo; clues the <b>Grand Canyon</b>. This entry provides <b>trivia style clues</b> for peaks.</p>
+<p>&ldquo;What a teacher we had today: <b>This knighted Scottish geologist introduced the theory of uniformitarianism to the masses.</b> It described the exploits of a <b>Spanish explorer who looked for the Seven Cities of Cibola.</b> The trip continued as we <b>threw heavy metal objects in a game where close is sometimes good enough.</b> We cracked the lock to his statue room: it was <b>the Old High German name for a one-eyed god frequently depicted with a pair of ravens.</b> The most awesome statue was of <b>a deity, part of a triumvirate, responsible for restoring the balance of good and evil in troubled times.</b> The <b>related statue next to it was a multi-headed god of creation&mdash;downright eerie to look at&mdash;what if it grew more heads?&rdquo;</b></p>
+<div>Peaks given by trivia style clues:</div>
+<table class="solution-table">
+  <tr>
+    <th>
+      Trivia-style clue
+    </th>
+    <th>
+      Answer
+    </th>
+    <th>
+    </th>
+  </tr>
+  <tr>
+    <td>This knighted Scottish geologist introduced the theory of uniformitarianism to the masses</td>
+    <td>Sir Charles Lyell</td>
+    <td>Lyell Butte</td>
+  </tr>
+  <tr>
+    <td>Spanish explorer who looked for the Seven Cities of Cibola</td>
+    <td>Francisco V&aacute;zquez de Coronado</td>
+    <td>Coronado Butte</td>
+  </tr>
+  <tr>
+    <td>threw heavy metal objects in a game where close is sometimes good enough</td>
+    <td>Horseshoes</td>
+    <td>Horseshoe Mesa</td>
+  </tr>
+  <tr>
+    <td>the Old High German name for a one-eyed god frequently depicted with a pair of ravens</td>
+    <td>Wotan</td>
+    <td>Wotan&rsquo;s Throne</td>
+  </tr>
+  <tr>
+    <td>a deity, part of a triumvirate, responsible for restoring the balance of good and evil in troubled times</td>
+    <td>Vishnu</td>
+    <td>Vishnu Temple</td>
+  </tr>
+  <tr>
+    <td>related statue next to it was a multi-headed god of creation&mdash;downright eerie to look at&mdash;what if it grew more heads</td>
+    <td>Brahma</td>
+    <td>Brahma Temple</td>
+  </tr>
+</table>
+<p>Connecting the peaks in order makes an <code>I</code> shape on the map.</p>
+<a href="{{ asset_url_for('solutions/cartography/04.png') }}" target="_blank"><img {{ img_src_for('solutions/cartography/04.png') }}></a>
+
+<p><b>Page 5:</b></p>
+<p>&ldquo;August: There were explosive quantities of fun on our trip!&rdquo; clues <b>Lassen Volcanic National Park</b>. This entry clues peaks as <b>one letter expansions of words</b>.</p>
+<p>&ldquo;We fly into an <b>expanded airfield</b>, flying over farmers with <b>a tall rake</b> as our destination <b>looms immensely</b> in the distance. Travel can make me feel <b>iller long</b> after arriving, like when I went to the huge Dimond Gorge in Australia or when I visited an <b>immense Conad</b> store in Italy. &ldquo;Wellyouknow&rdquo;, my fast-talking friend says, <b>&ldquo;IfFord&rdquo; (giant</b> automaker) &ldquo;caredaboutmotionsicknessthey&shy;woulddosomethingaboutit.&rdquo; The situation can really <b>addle with a head</b>.&rdquo;</p>
+<div>Peaks given by one letter expansions of words:</div>
+<div>Fairfield</div>
+<div>Raker</div>
+<div>Loomis</div>
+<div>Diller</div>
+<div>Diamond</div>
+<div>Conard</div>
+<div>Sifford</div>
+<div>Saddle</div>
+<p>Connecting the peaks in order makes a <code>C</code> shape on the map.</p>
+<a href="{{ asset_url_for('solutions/cartography/05.png') }}" target="_blank"><img {{ img_src_for('solutions/cartography/05.png') }}></a>
+
+<p><b>Page 6:</b></p>
+<p>&ldquo;November: In the rainy northern climate we had a frightening coastal sojourn.&rdquo; clues <b>Olympic National Park</b>. This entry provides <b>close homophones</b> of peaks.</p>
+<p>&ldquo;I told Chris to <b>lean a</b> little closer. &ldquo;We can <b>steal</b> his wand&rdquo;. The night shaman said he was a <b>moon caster</b> which wasn&rsquo;t <b>Christ-y</b> enough for the Christians among us. The shaman in the <b>vest</b> made them <b>cry. Stall</b>, we did. Then I whispered: &ldquo;<b>Chris, tee</b> us up an excuse to leave. We&rsquo;re trapped - can&rsquo;t you <b>see?!&rdquo; &ldquo;Addle</b> them with your wisdom and watch as he <b>quits</b>!&rdquo; It only worked for a little <b>while, dur</b>! The suggestion wasn&rsquo;t worth a <b>cent. In El</b> Toro&rsquo;s mind we were his captives now.&rdquo;</p>
+<div>Peaks given by close homophones:</div>
+<div>Lena</div>
+<div>Steel</div>
+<div>Muncaster</div>
+<div>Christie</div>
+<div>West</div>
+<div>Crystal</div>
+<div>Christie</div>
+<div>Seattle</div>
+<div>Queets</div>
+<div>Wilder</div>
+<div>Sentinel</div>
+<p>Connecting the peaks in order makes an <code>E</code> shape on the map.</p>
+<a href="{{ asset_url_for('solutions/cartography/06.png') }}" target="_blank"><img {{ img_src_for('solutions/cartography/06.png') }}></a>
+
+<p><b>Page 7:</b></p>
+<p>&ldquo;September: This adventure was off to a rocky start&hellip;&rdquo; clues <b>Rocky Mountain National Park</b>. This entry provides <b>crossword clues</b> for peaks.</p>
+<p>&ldquo;We were attacked by <b>a medium-sized game bird from the grouse family</b> as soon as we landed in <b>the air force base south-east of Washington DC</b>. With the help of <b>the girl from Wonderland</b> we trapped it in an <b>eastern tiered temple</b> and caught it. We took the game to <b>Johnny&rsquo;s Cambridge restaurant</b> where, to fight off our <b>iron deficiency anemia (abbr.)</b>, we traded it for their <b>museum exhibit sample</b> of the <b>rough cut of meat from a beef shoulder</b>. Finally, we sent a postcard to the <b>all girl&rsquo;s school in Manhattan</b> to let our kids know we were safe.&rdquo;</p>
+<div>Peaks given by crossword clues:</div>
+<div>Ptarmigan</div>
+<div>Andrew&rsquo;s</div>
+<div>Alice</div>
+<div>Pagoda</div>
+<div>Flattop</div>
+<div>Ida</div>
+<div>Specimen</div>
+<div>Flatiron</div>
+<div>Chapin</div>
+<p>Connecting the peaks in order makes an <code>S</code> shape on the map.</p>
+<a href="{{ asset_url_for('solutions/cartography/07.png') }}" target="_blank"><img {{ img_src_for('solutions/cartography/07.png') }}></a>
+
+<p><b>Page 8:</b></p>
+<p>&ldquo;This adventure started with a drive along the skyline.&rdquo; clues <b>Shenandoah National Park</b>. This entry provides <b>anagrams</b> of peaks.</p>
+<p>&ldquo;In the sun I <b>basked, clad oddly</b> enough in swimwear. I get sick of the outdoors sometimes and wish, with a <b>magic &ldquo;zap!&rdquo;, hotel</b> beds would appear. Alas, I can see it now: amenities they <b>hawk, bills unfortunately</b> I pay. I can think of some <b>silly antonyms</b> of a hotel that reflect my position: <b>Bad Place Inn</b>, <b>&ldquo;Drag, Lo!&rdquo; (terrible)</b>, <b>Incoherent Flub (F</b> is your grade), and maybe most of all, <b>Stupid Hubs</b> For People Who Cannot Sleep Well On Dirt.&rdquo;</p>
+<div>Peaks given by anagrams:</div>
+<div>Saddleback</div>
+<div>Hazeltop</div>
+<div>Hawksbill</div>
+<div>Stony Man</div>
+<div>Pinnacle</div>
+<div>Old Rag</div>
+<div>Bluff</div>
+<div>Bush</div>
+<p>Connecting the peaks in order makes a <code>P</code> shape on the map.</p>
+<a href="{{ asset_url_for('solutions/cartography/08.png') }}" target="_blank"><img {{ img_src_for('solutions/cartography/08.png') }}></a>
+
+<p><b>Page 9:</b></p>
+<p>&ldquo;August: In the canyon of granite monoliths we had a ghostly adventure!&rdquo; clues <b>Yosemite National Park</b>. This entry provides <b>initialisms</b> for peaks.</p>
+<p>&ldquo;<b>G</b>erald <b>a</b>sked: &ldquo;<b>Y</b>ellow <b>l</b>ights <b>o</b>r <b>r</b>ed?&rdquo; &ldquo;<b>L</b>ike <b>y</b>ou&rsquo;d <b>e</b>njoy <b>l</b>emony <b>l</b>imelight!&rdquo; <b>F</b>lashlights <b>o</b>minously, <b>e</b>erily <b>r</b>eflected <b>s</b>hadowing <b>t</b>he <b>e</b>ast <b>r</b>iverbank. <b>L</b>eery <b>o</b>f <b>n</b>ight <b>g</b>hosts, <b>H</b>enry <b>o</b>ffered <b>f</b>rightened <b>f</b>amilies <b>m</b>ore <b>a</b>ssurances: &ldquo;<b>N</b>eed <b>n</b>ot <b>w</b>orry <b>a</b>bout <b>t</b>hese <b>k</b>nights <b>i</b>f <b>n</b>ot <b>s</b>cared!&rdquo;. <b>S</b>lowing <b>t</b>heir <b>a</b>gonizing <b>r</b>iverdance <b>r</b>equired <b>k</b>nowing <b>i</b>ntricately <b>n</b>uanced <b>g</b>hosts. <b>B</b>loodcurdling, <b>u</b>lulating <b>e</b>vocations <b>n</b>agged <b>a</b>pparitions <b>v</b>isibly. <b>I</b> <b>s</b>ucceed <b>t</b>oday, <b>a</b>men!&rdquo;</p>
+<div>Peaks given by initialisms:</div>
+<div>Gaylor</div>
+<div>Lyell</div>
+<div>Foerster</div>
+<div>Long</div>
+<div>Hoffmann</div>
+<div>Watkins</div>
+<div>Starr King</div>
+<div>Buena Vista</div>
+<p>Connecting the peaks in order makes an <code>N</code> shape on the map.</p>
+<a href="{{ asset_url_for('solutions/cartography/09.png') }}" target="_blank"><img {{ img_src_for('solutions/cartography/09.png') }}></a>
+
+<p><b>Page 10:</b></p>
+<p>The dots graphic on the last page, when laid over a map of the US, provides an ordering for the national park letters when fitted over a map of the US. That ordering spells out <strong><code>PINNACLES</code></strong>.</p>
+<a href="{{ asset_url_for('solutions/cartography/10.png') }}" target="_blank"><img class="us-map" {{ img_src_for('solutions/cartography/10.png') }}></a>
+{% endblock %}

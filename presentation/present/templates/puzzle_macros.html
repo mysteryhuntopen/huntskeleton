@@ -1,0 +1,37 @@
+{% macro crossword() %}
+{% set crossword = (caller()|trim).split('\n')|map("list")|list %}
+<table class="crossword">
+  {%- for r in range(crossword|length) %}
+    <tr>
+      {%- for c in range(crossword[r]|length) %}
+        {%- set cell = crossword[r][c] %}
+        {%- if cell == '|' %}
+          <td class="filled"></td>
+        {%- else %}
+          {%- set numbered = (r == 0 or c == 0 or crossword[r-1][c] == '|' or crossword[r][c-1] == '|') %}
+          <td {% if numbered %}class="numbered"{% endif %}>
+            {% if cell == '_' %}&nbsp;{% else %}{{ cell }}{% endif %}
+          </td>
+        {%- endif %}
+      {%- endfor %}
+    </tr>
+  {%- endfor %}
+</table>
+{% endmacro %}
+
+{% macro blanks() %}
+{%- set pattern = caller()|trim|list %}
+<span class="blanks">
+  {%- for char in pattern -%}
+    {%- if char == '_' %}
+      <span class="blank">&nbsp;</span>
+    {%- elif char == 'O' %}
+      <span class="box">&nbsp;</span>
+    {%- elif char == ' ' %}
+      <span class="space">&nbsp;</span>
+    {%- else %}
+      {{ char }}
+    {%- endif -%}
+  {% endfor %}
+</span>
+{% endmacro %}

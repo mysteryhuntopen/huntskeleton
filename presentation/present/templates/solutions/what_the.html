@@ -1,0 +1,157 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Genie Luzwick{% endblock %}
+{% block solution %}STRATEGY{% endblock %}
+
+{% block solution_head_block %}
+  <style>
+    .puzzle-content .images {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .puzzle-content .image {
+      width: 50%;
+    }
+
+    .puzzle-content .image > div {
+      margin: 0.5em 1em;
+    }
+
+    .puzzle-content img {
+      width: 90%;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <p>This is a rebus puzzle where each framed picture is cluing an acronym. Each frame depicts all but one word of the acronym. For instance, frame 12 shows a care bear and a woman tenderizing a steak, cluing &lsquo;TLC&rsquo;, otherwise known as &lsquo;tender loving care&rsquo;. Since &lsquo;loving&rsquo; is not depicted in the frame, that is the one word left out.</p>
+
+  <p>The frames are in alphabetical order by acronym. The numbers at the end of the puzzle correlate to the number of letters in each acronym word, with the blanks matching to the word not shown in the picture. For &lsquo;TLC&rsquo;, frame 12, the correct pair would be (6 _ 4). Tender (6), Loving (6), Care (4).</p>
+
+  <div class="images">
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/01.png') }}" />
+      <div><b>BASE</b>: Building Antenna Span <code>EARTH</code></div>
+      <div><b>Building</b>: Tall building</div>
+      <div><b>Antenna</b>: Antenna atop building</div>
+      <div><b>Span</b>: Wing span of plane overhead</div>
+      <div><b>Enumeration</b>: (8 7 4 <u>5</u>)</div>
+    </div>
+
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/02.png') }}" />
+      <div><b>CANOLA</b>: Canada Oil Low <code>ACID</code></div>
+      <div><b>Canada</b>: Canadian flag</div>
+      <div><b>Oil</b>: Oil can</div>
+      <div><b>Low</b>: Low battery symbol</div>
+      <div><b>Enumeration</b>: (6 3 3 <u>4</u>)</div>
+    </div>
+
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/03.png') }}" />
+      <div><b>DAEMON</b>: Disc And <code>EXECUTION</code> Monitor</div>
+      <div><b>Disc</b>: Floppy disc</div>
+      <div><b>Monitor</b>: Computer monitor</div>
+      <div><b>Enumeration</b>: (4 3 <u>9</u> 7)</div>
+    </div>
+
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/04.png') }}" />
+      <div><b>DARE</b>: Drug Abuse Resistance <code>EDUCATION</code></div>
+      <div><b>Drug</b>: Pills and needles</div>
+      <div><b>Abuse</b>: Drug addict with too many pills and needles</div>
+      <div><b>Resistance</b>: Fist on poster</div>
+      <div><b>Enumeration</b>: (4 5 10 <u>9</u>)</div>
+    </div>
+
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/05.png') }}" />
+      <div><b>MIT</b>: Massachusetts <code>INSTITUTE</code> of Technology</div>
+      <div><b>Massachusetts</b>: Outline of the state</div>
+      <div><b>Technology</b>: iPod, digital alarm</div>
+      <div><b>Enumeration</b>: (13 <u>9</u> 2 10)</div>
+    </div>
+
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/06.png') }}" />
+      <div><b>NATO</b>: North <code>ATLANTIC</code> Treaty Organization</div>
+      <div><b>North</b>: Compass pointer</div>
+      <div><b>Treaty</b>: Handshake</div>
+      <div><b>Organization</b>: Flowchart</div>
+      <div><b>Enumeration</b>:(5 <u>8</u> 6 12)</div>
+    </div>
+
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/07.png') }}" />
+      <div><b>NIMBY</b>: Not In <code>MY</code> Backyard</div>
+      <div><b>Not</b>: Rope knot</div>
+      <div><b>Backyard</b>: Backyard</div>
+      <div><b>Enumeration</b>: (3 2 <u>2</u> 8)</div>
+    </div>
+
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/08.png') }}" />
+      <div><b>OMG</b>: Oh <code>MY</code> God</div>
+      <div><b>Oh</b>: Oh from the movie Home</div>
+      <div><b>God</b>: Zeus</div>
+      <div><b>Enumeration</b>: (2 <u>2</u> 3)</div>
+    </div>
+
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/09.png') }}" />
+      <div><b>POG</b>: Passionfruit Orange <code>GUAVA</code></div>
+      <div><b>Passionfruit</b>: Fruit</div>
+      <div><b>Orange</b>: Fruit</div>
+      <div><b>Enumeration</b>: (12 6 <u>5</u>)</div>
+    </div>
+
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/10.png') }}" />
+      <div><b>RAM</b>: <code>RANDOM</code> Access Memory</div>
+      <div><b>Access</b>: Microsoft Office Access Symbol</div>
+      <div><b>Memory</b>: Head with a bunch of question marks floating overhead</div>
+      <div><b>Enumeration</b>:(<u>6</u> 6 6)</div>
+    </div>
+
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/11.png') }}" />
+      <div><b>TASER</b>: <code>THOMAS</code> A Swift&rsquo;s Electric Rifle</div>
+      <div><b>Swifts</b>: The bird</div>
+      <div><b>Electric</b>: Lightning bolts coming out of rifle</div>
+      <div><b>Rifle</b>: Rifle gun</div>
+      <div><b>Enumeration</b>: (<u>6</u> 1 6 8 5)</div>
+    </div>
+
+    <div class="image">
+      <img src="{{ asset_url_for('puzzles/what_the/12.png') }}" />
+      <div><b>TLC</b>: Tender <code>LOVING</code> Care</div>
+      <div><b>Tender</b>: Tenderizing a steak</div>
+      <div><b>Care</b>: Care Bear on the kitchen counter</div>
+      <div><b>Enumeration</b>: (6 <u>6</u> 4)</div>
+    </div>
+  </div>
+
+  <p>The groups of numbers at the end of the puzzle are in the order needed to extract the answer.</p>
+
+  <div>
+    <div><code>RANDOM</code></div>
+    <div><code>EXECUTION</code></div>
+    <div><code>ACID</code></div>
+    <div><code>LOVING</code></div>
+    <div><code>THOMAS</code></div>
+    <div><code>INSTITUTE</code></div>
+    <div><code>MY</code></div>
+    <div><code>EARTH</code></div>
+    <div><code>GUAVA</code></div>
+    <div><code>ATLANTIC</code></div>
+    <div><code>MY</code></div>
+    <div><code>EDUCATION</code></div>
+  </div>
+
+  <p>The first letter of each missing acronym word per frame to spells out <code>REAL TIME GAME</code>. Looking at the very last part of the puzzle, the solver sees (4 4 _ 4). RTS Game (<code>REAL TIME <strong>STRATEGY</strong> GAME</code> is a common acronym in the gaming world. <code><strong>STRATEGY</strong></code>, the missing word, is the answer.</p>
+{% endblock %}

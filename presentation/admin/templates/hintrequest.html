@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block page_body %}
+<div class="ha-page-section">
+  <table>
+    <tr>
+      <td>Request Time</td>
+      <td>{{ hint_request.timestamp | datetime }}</td>
+    </tr>
+    <tr>
+      <td>Team ID</td>
+      <td>{{ hint_request.teamId }}</td>
+    </tr>
+    <tr>
+      <td>Team Name</td>
+      <td>{{ team.teamName }}</td>
+    </tr>
+    <tr>
+      <td>Team Primary Phone</td>
+      <td>{{ team.primaryPhone }}</td>
+    </tr>
+    <tr>
+      <td>Team Secondary Phone</td>
+      <td>{{ team.secondaryPhone }}</td>
+    </tr>
+    <tr>
+      <td>Team Email</td>
+      <td>{{ team.email }}</td>
+    </tr>
+    <tr>
+      <td>Team Headquarters</td>
+      <td>{{ team.headquarters }}</td>
+    </tr>
+    <tr>
+      <td>Puzzle ID</td>
+      <td>{{ hint_request.puzzleId }}</td>
+    </tr>
+    <tr>
+      <td>Puzzle Name</td>
+      <td>
+        {% if 'puzzleProperties' in puzzle and 'DisplayNameProperty' in puzzle.puzzleProperties %}
+          {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}
+        {% else %}
+          unknown
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>Request</td>
+      <td>{{ hint_request.request }}</td>
+    </tr>
+    <tr>
+      <td>RequestType</td>
+      <td>{{ hint_request.hintType }}</td>
+    </tr>
+    <tr>
+      <td>Assigned to Caller</td>
+      <td>{{ hint_request.callerUsername }}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{ hint_request.status }}</td>
+    </tr>
+    <tr>
+      <td>Response</td>
+      <td>{{ hint_request.response }}</td>
+    </tr>
+  </table>
+  {% if hint_request.status == 'REQUESTED' %}
+  <form action="{{ url_for('hintrequest', hint_request_id=hint_request.hintRequestId) }}" method="post">
+    <input type="hidden" name="status" value="ASSIGNED">
+    <input type="submit" value="Assign to Me">
+  </form>
+  {% elif hint_request.status == 'ASSIGNED' %}
+  {% if hint_request.callerUsername == session['username'] %}
+  <h3>Step 1: Call {{ team.teamName }} at {{ team.primaryPhone }}.</h3>
+  <p>
+    If there's no answer, try their secondary phone number
+    {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get
+    updated contact info.
+  </p>
+  {% if hint_request.hintType == "HINT" %}
+    <p>
+      The team requested an answer to the question &ldquo;{{ hint_request.request }}&rdquo;.
+      If this is a simple yes/no question that meets our criteria for a
+      valid hint request, then answer the question. If not, inform the team that
+      you can't answer the question and that their hint request will be refunded.
+    </p>
+  {% else %}
+    <p>
+      The team requested the solution to this puzzles with the request
+      &ldquo;{{ hint_request.request }}&rdquo;. If this is a puzzle that meets our
+      criteria for a valid solution request, then inform the team that they will be receiving
+      a message with the solution soon. If not, inform the team that you can't give
+      them the solution and that their solution request will be refunded.
+    </p>
+  {% endif %}
+  <h3>Step 2: After the call, mark this request as either Answered or Rejected.</h3>
+  <form action="{{ url_for('hintrequest', hint_request_id=hint_request.hintRequestId) }}" method="post">
+    <p>
+      If the request was valid, enter the answer you provided here:
+      <input type="text" name="response" size="80">
+    </p>
+    <p>Then mark whether the request was answered or rejected:
+      <select name="status">
+        <option value="ANSWERED">Answered</option>
+        <option value="REJECTED">Rejected</option>
+      </select>
+    </p>
+    <p>
+      And then click
+      <input type="submit" value="Respond">.
+    </p>
+  </form>
+  {% endif %}
+  <form action="{{ url_for('hintrequest', hint_request_id=hint_request.hintRequestId) }}" method="post">
+    <input type="hidden" name="status" value="REQUESTED">
+    <p>
+      If the assigned user is no longer able to handle this request, please click
+      <input type="submit" value="Unassign">.
+    </p>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

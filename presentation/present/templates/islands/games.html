@@ -1,0 +1,45 @@
+{% extends "overall_layout.html" %}
+{% import "/games_macros.html" as macros with context %}
+
+{% block title_block %}Head Hunters: Games Island{% endblock %}
+
+{%- set includeRobber = 'games-supermeta' in puzzle_visibilities and puzzle_visibilities['games-supermeta'].status in ['UNLOCKED','SOLVED'] -%}
+
+{% block styling_block %}
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/games/styles/home.css') }}"/>
+  {{ macros.set_icon_styles(includeRobber) }}
+  <script>
+    // Prevent Firefox from letting you drag tiles
+    $(document).ready(function() {
+      $('svg').mousedown(function(e) {
+        e.preventDefault();
+      });
+    });
+  </script>
+{% endblock %}
+
+{% block overall_layout_body %}
+  {%- set board = (
+    (     15, 16, 17     ),
+    (   14,  5,  6, 18   ),
+    ( 13,  4,  0,  1,  7 ),
+    (   12,  3,  2,  8   ),
+    (     11, 10,  9     ),
+  ) -%}
+  <div id="main-page-content">
+    <div class="board">
+      {%- for row in board -%}
+        <div class="board-row">
+          {%- for card in row -%}
+            {{ macros.generate_puzzle_asset('antemeta' if card==0 else '', card) }}
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+      {%- if includeRobber -%}
+        {{ macros.generate_puzzle_asset('supermeta', none) }}
+      {%- endif -%}
+    </div>
+    <div class="island-title">Games Island</div>
+  </div>
+{% endblock %}

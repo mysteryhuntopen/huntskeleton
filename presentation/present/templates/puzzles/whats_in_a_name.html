@@ -1,0 +1,96 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content img {
+    max-height: 400px;
+    max-width: 400px;
+    align-self: center;
+  }
+
+  .puzzle-content div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+  }
+
+  .puzzle-content span {
+    align-self: center;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image01.png') }}" />
+  <span>13th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image02.png') }}" />
+  <span>11th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image03.png') }}" />
+  <span>9th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image04.png') }}" />
+  <span>14th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image05.png') }}" />
+  <span>11th-12th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image06.png') }}" />
+  <span>11th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image07.png') }}" />
+  <span>19th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image08.png') }}" />
+  <span>10th-11th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image09.png') }}" />
+  <span>11th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image10.png') }}" />
+  <span>12th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image11.png') }}" />
+  <span>12th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image12.png') }}" />
+  <span>12th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image13.png') }}" />
+  <span>15th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image14.png') }}" />
+  <span>19th-20th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image15.png') }}" />
+  <span>20th c.-present</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image16.png') }}" />
+  <span>13th-14th c.</span>
+</div>
+<div>
+  <img src="{{ asset_url_for('puzzles/whats_in_a_name/image17.png') }}" />
+  <span>10th c.</span>
+</div>
+{% endblock %}

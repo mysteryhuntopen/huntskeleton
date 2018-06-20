@@ -1,0 +1,144 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content div {
+    page-break-inside: avoid;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The double asterisk is &ldquo;D&rdquo;
+{% endblock %}
+
+{% block puzzle_content_block %}
+<hr />
+
+<div>
+  <p><strong>3</strong></p>
+
+  <p><img src="{{ asset_url_for('puzzles/yeah_but_it_didnt_work/01.png') }}" /></p>
+
+  <p>PS1868 .A1 1878</p>
+
+  <p>RL: Charles/MGH, Park St, GL: Gov&rsquo;t Center</p>
+</div>
+
+<hr />
+
+<div>
+  <p><strong>14</strong></p>
+
+  <p>Gur ortvaavat bs rgreavgl naq gur raq bs gvzr</p>
+
+  <p>EHT EELRTT AHTT CDEEEPRS DEZ</p>
+
+  <p>IKLP09</p>
+</div>
+
+<hr />
+
+<div>
+  <p><strong>1</strong></p>
+
+  <p>(47.5172, &minus;26.4550), (44.0244, &minus;26.6308), (40.0444,
+    &minus;23.7305), (40.0444, &minus;18.9844), (44.2767,
+    &minus;17.75391), (47.7541, &minus;17.4902)</p>
+
+  <p>Dorrance Building (16), Whitaker Building (56), Dreyfus Building
+    (18)</p>
+
+  <p>91.1 Tifton, Georgia; 105.3 Columbus AFB, Mississippi; 103.5
+    Janesville, Wisconsin; 90.3 Beloit, Wisconsin; 93.9 Purcell,
+    Oklahoma</p>
+</div>
+
+<hr />
+
+<div>
+  <p><strong>10</strong></p>
+
+  <p><img src="{{ asset_url_for('puzzles/yeah_but_it_didnt_work/02.png') }}"/></p>
+
+  <p><img src="{{ asset_url_for('puzzles/yeah_but_it_didnt_work/03.png') }}"/></p>
+
+  <p>Aisles eighth achoo Juan toot ache Diaz then x&rsquo;d Juan</p>
+</div>
+
+<hr />
+
+<div>
+  <p><strong>2</strong></p>
+
+  <p>2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59,
+    61, 67, 73, 79, 83, 89, 97, 101</p>
+
+  <p>79 110 101 111 117 103 104 116 111 98 116 97 105 110 111 110 101
+    111 104</p>
+
+  <p>{ (x,y) : x<sup>2</sup> + (y&minus;10)<sup>2</sup> < 1 } &#8746; { (x, y) : |x| < 1, | y&minus;4 | < 4 }</p>
+</div>
+
+<hr />
+
+<div>
+  <p><strong>4</strong></p>
+
+  <p>they went door crunchy pickle abcmouse <i class="fa fa-search" aria-hidden="true"></i></p>
+
+  <p>**</p>
+
+  <p>Ponder on the tracks! B&amp;O, Short Line, Pennsylvania&mdash;you need the
+    second letter</p>
+</div>
+
+<hr />
+
+<div>
+  <p><strong>2</strong></p>
+
+  <p>Your zombie friend is dissatisfied with his stale provisions&mdash;how
+    would you draw the victim&rsquo;s eyes?</p>
+
+  <p>The quck brown fox jumps over the lazy dog</p>
+
+  <p>My instinct says you should go with N</p>
+</div>
+
+<hr />
+
+<div>
+  <p><strong>24</strong></p>
+
+  <p><img width="100%" src="{{ asset_url_for('puzzles/yeah_but_it_didnt_work/04.png') }}"/></p>
+
+  <p><img src="{{ asset_url_for('puzzles/yeah_but_it_didnt_work/05.png') }}"/></p>
+
+  <p><img src="{{ asset_url_for('puzzles/yeah_but_it_didnt_work/06.png') }}"/></p>
+</div>
+
+<hr />
+
+<div>
+  <p><strong>3</strong></p>
+
+  <p>1.008, 6.94, 22.990, 39.098, 40.078, 44.956</p>
+
+  <p>2.7182818284590452353602874713527</p>
+
+  <p>654789#0*</p>
+</div>
+
+<hr />
+
+<div>
+  <p><em>Note to solvers: the resources at
+    <a href="http://www.mit.edu/~puzzle/resources.html">http://www.mit.edu/~puzzle/resources.html</a> may
+    be helpful</em></p>
+</div>
+{% endblock %}

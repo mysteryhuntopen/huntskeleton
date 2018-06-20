@@ -1,0 +1,76 @@
+{% extends "support_layout.html" %}
+{% block title_block %}FAQ{% endblock %}
+{% block screen_name_block %}FAQ{% endblock %}
+{% block header_content %}{% endblock %}
+
+{% block page_head_block %}
+<style>
+  #main-page-content .faq-bullet {
+    list-style-type: none;
+    padding-left: 0;
+  }
+</style>
+{% endblock %}
+
+
+{% block page_body %}
+<div class="support-section">
+  <div class="support-header">Scheduling</div>
+  <ul>
+    <li>Head Hunters begins with kickoff on FRIDAY, January 12 at 12:00 noon in Kresge Auditorium.</li>
+    <li>Puzzles will be live on <a href="https://head-hunters.org">head-hunters.org</a> on FRIDAY, January 12 at 1:00 p.m.</li>
+    <li>Head Hunters will remain open until MONDAY, January 15 at 10:00 a.m.</li>
+    <li>Wrapup will be MONDAY, January 15 at 12:00 noon in Kresge Auditorium.</li>
+  </ul>
+</div>
+
+<div class="support-section">
+  <div class="support-header">Q&amp;A</div>
+  <ul class="faq-bullet">
+    <li><b>Q</b>: Can we break the physical puzzles?</li>
+    <li><b>A</b>: Generally yes. Please don't do anything unsafe. Contact us if you think you're being instructed to do anything unsafe.</li>
+  </ul>
+  <ul class="faq-bullet">
+    <li><b>Q</b>: Can we use Google?</li>
+    <li><b>A</b>: Definitely.</li>
+  </ul>
+  <ul class="faq-bullet">
+    <li><b>Q</b>: Can we try to use metadata in the puzzle files or the source code of the puzzle to get extra information?</li>
+    <li><b>A</b>: Yep.</li>
+  </ul>
+  <ul class="faq-bullet">
+    <li><b>Q</b>: Can we try to hack the hunt site to get extra info?</li>
+    <li><b>A</b>: Please don't :(</li>
+  </ul>
+  <ul class="faq-bullet">
+    <li><b>Q</b>: Can we ask other teams for help on a puzzle? </li>
+    <li><b>A</b>: Please don't. If you're not having fun, please let us know and we will help!</li>
+  </ul>
+  <ul class="faq-bullet">
+    <li><b>Q</b>: Where do we find errata for puzzles?</li>
+    <li><b>A</b>: If any errata are found during Mystery Hunt, the affected puzzle pages will be updated, and a note will be added to the top of the puzzle pages. Additionally, we will be listing all errata <a href="{{ url_for('errata') }}">here</a>, and we will send an email to all the teams when errata are published.</li>
+  </ul>
+  <ul class="faq-bullet">
+    <li><b>Q</b>: How long will Cranium Command be open?</li>
+    <li><b>A</b>: Until 10am on Monday.</li>
+  </ul>
+  <ul class="faq-bullet">
+    <li><b>Q</b>: How do I contact Cranium Command?</li>
+    <li><b>A</b>: Use the Contact Cranium Command form on the website, please. If that is absolutely not working, email us at cranium-command@head-hunters.org, or call us at (617) 324-7732.</li>
+  </ul>
+  <ul class="faq-bullet">
+    <li><b>Q</b>: What should we do if we need to send Cranium Command a file?</li>
+    <li><b>A</b>: You can send us files by going to <a href="https://upload.head-hunters.org">https://upload.head-hunters.org</a>.</li>
+  </ul>
+  <ul class="faq-bullet">
+    <li><b>Q</b>: What browsers are supported for this website?</li>
+    <li><b>A</b>: All features of this site have been tested thoroughly in Chrome. Most things are tested to work under Firefox, Safari and Microsoft Edge. (In particular, printing may behave unpredictably in these browsers.) We do not support Internet Explorer.</li>
+  </ul>
+  <ul class="faq-bullet">
+    <li><b>Q</b>: Help! We don't know where to start!</li>
+    <li><b>A</b>: That's not a question, but I'll let it slide. You should check out the helpful resources on this page. <a href="http://www.mit.edu/~puzzle/resources/haveyoutried.pdf">ACME's "Have You Tried?" list</a> may be particularly helpful.</li>
+  </ul>
+</div>
+
+<p>More questions? Contact Cranium Command.</p>
+{% endblock %}

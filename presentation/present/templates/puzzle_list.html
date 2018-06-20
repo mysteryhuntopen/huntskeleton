@@ -1,0 +1,96 @@
+{% extends "support_layout.html" %}
+{% block title_block %}List of Puzzles{% endblock %}
+{% block screen_name_block %}List of Puzzles{% endblock %}
+
+{% block page_head_block %}
+<style>
+.round-list-item+.round-list-item {
+  margin-top: 24px;
+}
+.puzzle-list-item {
+  margin-left: 24px;
+}
+.monospace {
+  font-family: monospace;
+  font-size: 14px;
+}
+</style>
+{% endblock %}
+
+{% block page_body %}
+{% set puzzle_target = 'full_puzzle' if session.usertype == 'writingteam' else 'puzzle' %}
+{% set island_target = 'full_island' if session.usertype == 'writingteam' else 'island' %}
+<div>
+
+  <div class="round-list-item">
+    <div class="round-list-header">Emotions and Memories</div>
+      {% for puzzle_id in round_puzzle_map.get('memories',[]) %}
+        {% if all_visibilities.get(puzzle_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
+          <div class="puzzle-list-item">
+            <a href="{{ url_for(puzzle_target, puzzle_id=all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id)) }}">{{ pretty_title(all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id))|safe }}</a>{% if all_visibilities.get(puzzle_id,{}).get('status','') == 'SOLVED' and all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers') %} - <span class="monospace">{{ all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers')[0].get('canonicalAnswer') }}</span>{% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+  </div>
+
+  {% for island_id in ['pokemon', 'games', 'scifi', 'hacking'] %}
+    {% if all_visibilities.get(island_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
+      <div class="round-list-item">
+        <div class="round-list-header">
+          <a href="{{ url_for(island_target, island_id=island_id) }}">{{ all_puzzles.get(island_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',island_id) }}</a>
+        </div>
+        {% for puzzle_id in round_puzzle_map.get(island_id,[]) %}
+          {% if all_visibilities.get(puzzle_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
+            <div class="puzzle-list-item">
+              <a href="{{ url_for(puzzle_target, puzzle_id=all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id)) }}">{{ pretty_title(all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id))|safe }}</a>{% if all_visibilities.get(puzzle_id,{}).get('status','') == 'SOLVED' and all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers') %} - <span class="monospace">{{ all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers')[0].get('canonicalAnswer') }}</span>{% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  {% if site_mode() == "solution" %}
+    <div class="round-list-item">
+      <div class="round-list-header">Bonus Backup Puzzles</div>
+      <i>These puzzles were designed to be swapped in during Hunt in case a puzzle turned out to be hopelessly broken.</i>
+      <div class="puzzle-list-item">
+        <a href="{{ url_for(puzzle_target, puzzle_id='i_can_build_anything') }}">I Can Build Anything</a>
+      </div>
+      <div class="puzzle-list-item">
+        <a href="{{ url_for(puzzle_target, puzzle_id='irreverent_introdvction_to_the_imdb') }}">Irreverent Introdvction to the IMDb</a>
+      </div>
+      <div class="puzzle-list-item">
+        <a href="{{ url_for(puzzle_target, puzzle_id='this_friggin_puzzle') }}">This Friggin&rsquo; Puzzle</a>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if events_unlocked %}
+    <div class="round-list-item">
+      <div class="round-list-header">Events</div>
+      {% for puzzle_id in round_puzzle_map.events %}
+        {% if all_visibilities.get(puzzle_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
+          <div class="puzzle-list-item">
+            <a href="{{ url_for(puzzle_target, puzzle_id=all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id)) }}">{{ pretty_title(all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id))|safe }}</a>{% if all_visibilities.get(puzzle_id,{}).get('status','') == 'SOLVED' and all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers') %} - <span class="monospace">{{ all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers')[0].get('canonicalAnswer') }}</span>{% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if site_mode() == "solution" %}
+    <div class="round-list-item">
+      <div class="round-list-header">Encounters</div>
+        {% for interaction_finale in interactions_finales_ordering %}
+          <div class="puzzle-list-item">
+            <a href="{{ url_for(puzzle_target, puzzle_id=all_puzzles.get(interaction_finale).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',interaction_finale)) }}">
+              {{ pretty_title(all_puzzles.get(interaction_finale).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id))|safe }}
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

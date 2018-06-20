@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Submit</title>
+    <link rel="shortcut icon" href="{{ asset_url_for('images/favicon.ico') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/support.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='submit.css') }}">
+    <script src="https://use.fontawesome.com/7e30e2e185.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function() {
+        $('input.form-buttom').attr('disabled',true);
+        $('input.entry-field').keyup(function(e) {
+          var $relatedButton = $(this).siblings('input.form-button');
+          if ($(this).val().length > 0) {
+            $relatedButton.removeAttr('disabled');
+          } else {
+            $relatedButton.attr('disabled',true)
+          }
+        });
+        $('select[name="hinttype"]').change(function(e) {
+          var $relatedButton = $(this).siblings('input.form-button');
+          var $relatedEntryField = $(this).siblings('input.entry-field');
+          if ($(this).val() == 'HINT') {
+            $relatedButton.val('Submit and PAY 20,000 B$')
+            $relatedEntryField.val('');
+            $relatedEntryField.show();
+            $relatedButton.attr('disabled',true)
+          } else {
+            $relatedButton.val('Submit and PAY 100,000 B$')
+            $relatedEntryField.val("SOLUTION");
+            $relatedEntryField.hide();
+            $relatedButton.removeAttr('disabled');
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="fixed-header">
+      <div class="fixed-header-inner">
+        <div class="header-links">
+          <div class="header-link"><a href="/">Control Room</a></div>
+          <div class="header-link"><a href="{{ puzzle_url_for(puzzle_id) }}">Return to Puzzle</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overall-layout-body">
+      <div class="title-text">{{ pretty_title(puzzle.get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id))|safe }}</div>
+      <div id="main-page-content">
+        <div id="forms">
+          <div class="support-section">
+            <div class="support-header">Submissions</div>
+            {% if visibility['status'] != 'SOLVED' %}
+            <div class="submission-section-form">
+              <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+                <span>Submit an answer:</span>
+                <input type="text" name="submission" class="entry-field">
+                <input type="submit" value="Submit" class="form-button" disabled/>
+              </form>
+            </div>
+            {% endif %}
+            {% if submissions %}
+            <div class="submission-section-previous-subsection">
+              <div class="submission-section-previous-header">Previous Submissions</div>
+              <div class="submission-section-previous-listing">
+                <ul>
+                  {% for submission in submissions %}
+                  <li><code{% if submission.status == 'CORRECT' %} class="submission-section-previous-correct"{% endif %}>{{ submission.submission }}</code> at {{ submission.timestamp | datetime }} - {{ submission.status }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          <div class="support-section">
+            <div class="support-header">Requests</div>
+            <div class="submission-section-explanation">
+              <p>This is the option you should use to ask HQ to do
+                something or schedule something. If you want to bring us
+                something, have us judge something, or want to schedule
+                an activity, this is how to do it. [<b>IMPORTANT</b>: If
+                you are contacting HQ to carry out an instruction that
+                was revealed by a puzzle, you should submit <b>that
+                exact instruction</b> as a request.] You can also report
+                errata here. HQ will contact you to discuss the request
+                and will then schedule or close the request as
+                appropriate.</p>
+            </div>
+            <div class="submission-section-form">
+              <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+                <span>Request an interaction or report a problem:</span>
+                <input type="text" name="interactionrequest" size="100" class="entry-field"/>
+                <input type="submit" value="Submit" class="form-button" disabled/>
+              </form>
+            </div>
+            {% if interactions %}
+            <div class="submission-section-previous-subsection">
+              <div class="submission-section-previous-header">Previous Requests</div>
+              <div class="submission-section-previous-listing">
+                <ul>
+                  {% for interaction in interactions %}
+                  <li>{{ interaction.request }} at {{ interaction.timestamp | datetime }} - {{ interaction.status }}
+                    {% if interaction.response %}<br>{{ interaction.response }}{% endif %}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+
+          {% if (visibility['status'] != 'SOLVED' and team_properties.get('teamProperties',{}).get('ScoresProperty',{}).get('scores',{}).get('BUZZY_BUCKS') >= 20000) or hints %}
+            <div class="support-section">
+              <div class="support-header">Hints</div>
+              {% if visibility['status'] != 'SOLVED' and team_properties.get('teamProperties',{}).get('ScoresProperty',{}).get('scores',{}).get('BUZZY_BUCKS') >= 20000 %}
+              <div class="submission-section-explanation">
+                <p>This is the option that you should use to spend Buzzy Bucks to ask for a puzzle hint or solution.</p>
+                <p>For 20,000 Buzzy Bucks, Buzzy will call in a favor with Critical Thinking, who will answer any yes/no question you have about something that is puzzling you (as long as it's not too meta).</p>
+                <p>For 100,000 Buzzy Bucks, Buzzy will call in a big favor with Critical Thinking, who will provide the solution to something that is puzzling you (as long as it's not too meta).</p>
+                <p><b>Hints and solutions are nonrefundable, so make sure your team is in agreement before asking!</b></p>
+              </div>
+              <div class="submission-section-form">
+                <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+                  <div>Ask for a hint or solution:</div>
+                  <select name="hinttype">
+                    <option value="HINT">Hint</option>
+                    {% if visibility['status'] != 'SOLVED' and team_properties.get('teamProperties',{}).get('ScoresProperty',{}).get('scores',{}).get('BUZZY_BUCKS') >= 100000 %}
+                      <option value="SOLUTION">Solution</option>
+                    {% endif %}
+                  </select>
+                  <input type="text" name="hintrequest" class="entry-field" size="100">
+                  <input type="submit" value="Submit and PAY 20,000 B$" class="form-button" disabled/>
+                </form>
+              </div>
+              {% endif %}
+
+              {% if hints %}
+              <div class="submission-section-previous-subsection">
+                <div class="submission-section-previous-header">Previous Hints and Solutions</div>
+                <div class="submission-section-previous-listing">
+                  <ul>
+                    {% for hint in hints %}
+                    <li>{{ hint.request }} at {{ hint.timestamp | datetime }} - {{ hint.status }}
+                      {% if hint.response %}<br>{{ hint.response }}{% endif %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

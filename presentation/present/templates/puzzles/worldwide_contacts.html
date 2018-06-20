@@ -1,0 +1,55 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block puzzle_head_block %}
+  <script type="application/javascript" src="https://cdn.plot.ly/plotly-1.5.0.min.js"></script>
+  <script type="application/javascript" src="{{ asset_url_for('puzzles/worldwide_contacts/generatePlot.js') }}"></script>
+{% endblock %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <div id="thing1" />
+    <div id="thing2" />
+    <div id="thing3" />
+    <div id="thing4" />
+    <div id="thing5" />
+    <div id="thing6" />
+    <div id="thing7" />
+    <div id="thing8" />
+    <div id="thing9" />
+    <div id="thing10" />
+    <div id="thing11" />
+    <div id="thing12" />
+    <div id="thing13" />
+    <div>
+      <img style="width: 900px;" src="{{ asset_url_for('puzzles/worldwide_contacts/blank_map.png') }}">
+    </div>
+  </div>
+  <script type="application/javascript">
+
+    Plotly.d3.csv("{{ asset_url_for('puzzles/worldwide_contacts/lat_lngs.csv') }}", function(err, latlngs) {
+      var country_to_lat_long = {};
+      latlngs.forEach(function(latlng) {
+        country_to_lat_long[latlng['Country']] = latlng;
+      });
+
+      generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data1.csv') }}", 'thing1', 'KazakhstanMonaco', 1, country_to_lat_long)
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data2.csv') }}", 'thing2', 'UnitedKingdom', 3, country_to_lat_long))
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data3.csv') }}", 'thing3', 'BrazilSwitzerlandArmenia', 2, country_to_lat_long))
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data4.csv') }}", 'thing4', 'PanamaFijiPhilippines', 1, country_to_lat_long))
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data5.csv') }}", 'thing5', 'Cambodia', 2, country_to_lat_long))
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data6.csv') }}", 'thing6', 'IranFrance', 3, country_to_lat_long))
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data7.csv') }}", 'thing7', 'UnitedKingdomBrazil', 3, country_to_lat_long))
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data8.csv') }}", 'thing8', 'SpainItaly', 7, country_to_lat_long))
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data9.csv') }}", 'thing9', 'ChinaBhutan', 4, country_to_lat_long))
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data10.csv') }}", 'thing10', 'UnitedKingdomEcuador', 8, country_to_lat_long))
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data11.csv') }}", 'thing11', 'ArgentinaItalyUruguay', 9, country_to_lat_long))
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data12.csv') }}", 'thing12', 'TuvaluNewZealand', 3, country_to_lat_long))
+        .then(() => generatePlot("{{ asset_url_for('puzzles/worldwide_contacts/data13.csv') }}", 'thing13', 'PeruRwanda', 6, country_to_lat_long));
+    });
+  </script>
+{% endblock %}

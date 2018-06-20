@@ -1,0 +1,287 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Will Day, Julian West, and Nicholas Georgiou{% endblock %}
+{% block solution %}WHOOPEE{% endblock %}
+
+{% block solution_head_block %}
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/crossword.css') }}">
+<style>
+  /* Specificity wars! */
+  .puzzle-content .crossword td.grey {
+    background-color: lightgrey;
+  }
+
+  .puzzle-content .crossword td {
+    text-align: center;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<table class="crossword">
+  <tr>
+    <td class="filled"></td>
+    <td class="grey">S</td>
+    <td class="filled"></td>
+    <td class="grey">O</td>
+    <td class="filled"></td>
+
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="grey">L</td>
+    <td class="filled"></td>
+    <td class="grey">V</td>
+    <td class="filled"></td>
+    <td class="grey">E</td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="grey">W</td>
+    <td>A</td>
+    <td>R</td>
+    <td>C</td>
+    <td>R</td>
+    <td>A</td>
+    <td>F</td>
+    <td>T</td>
+    <td class="filled"></td>
+    <td>A</td>
+    <td>R</td>
+    <td>A</td>
+    <td>R</td>
+    <td>A</td>
+    <td class="grey">T</td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td>N</td>
+    <td class="filled"></td>
+    <td>H</td>
+    <td class="filled"></td>
+    <td>S</td>
+    <td class="filled"></td>
+    <td>A</td>
+    <td class="filled"></td>
+    <td>V</td>
+    <td class="filled"></td>
+    <td>S</td>
+    <td class="filled"></td>
+    <td>S</td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="grey">O</td>
+    <td>D</td>
+    <td>D</td>
+    <td>S</td>
+    <td class="filled"></td>
+    <td>S</td>
+    <td>A</td>
+    <td>C</td>
+    <td>R</td>
+    <td>A</td>
+    <td>M</td>
+    <td>E</td>
+    <td>N</td>
+    <td>T</td>
+    <td class="grey">O</td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td>D</td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td>E</td>
+    <td class="filled"></td>
+    <td>O</td>
+    <td class="filled"></td>
+    <td>L</td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td>E</td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="grey">N</td>
+    <td>U</td>
+    <td>D</td>
+    <td>I</td>
+    <td>S</td>
+    <td>T</td>
+    <td class="filled"></td>
+    <td>S</td>
+    <td>T</td>
+    <td>A</td>
+    <td>N</td>
+    <td>F</td>
+    <td>O</td>
+    <td>R</td>
+    <td class="grey">D</td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td>N</td>
+    <td class="filled"></td>
+    <td>R</td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td>M</td>
+    <td class="filled"></td>
+    <td>R</td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td>E</td>
+    <td>R</td>
+    <td>A</td>
+    <td>O</td>
+    <td>F</td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td>P</td>
+    <td>L</td>
+    <td>A</td>
+    <td>I</td>
+    <td>D</td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td>Q</td>
+    <td class="filled"></td>
+    <td>O</td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td>U</td>
+    <td class="filled"></td>
+    <td>R</td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="grey">R</td>
+    <td>A</td>
+    <td>T</td>
+    <td>I</td>
+    <td>F</td>
+    <td>I</td>
+    <td>E</td>
+    <td>S</td>
+    <td class="filled"></td>
+    <td>R</td>
+    <td>E</td>
+    <td>D</td>
+    <td>S</td>
+    <td>E</td>
+    <td class="grey">A</td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td>U</td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td>E</td>
+    <td class="filled"></td>
+    <td>H</td>
+    <td class="filled"></td>
+    <td>A</td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td>A</td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="grey">E</td>
+    <td>N</td>
+    <td>D</td>
+    <td>A</td>
+    <td>N</td>
+    <td>G</td>
+    <td>E</td>
+    <td>R</td>
+    <td>E</td>
+    <td>D</td>
+    <td class="filled"></td>
+    <td>L</td>
+    <td>A</td>
+    <td>D</td>
+    <td class="grey">Y</td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td>T</td>
+    <td class="filled"></td>
+    <td>L</td>
+    <td class="filled"></td>
+    <td>R</td>
+    <td class="filled"></td>
+    <td>U</td>
+    <td class="filled"></td>
+    <td>I</td>
+    <td class="filled"></td>
+    <td>E</td>
+    <td class="filled"></td>
+    <td>F</td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="grey">N</td>
+    <td>I</td>
+    <td>K</td>
+    <td>I</td>
+    <td>T</td>
+    <td>A</td>
+    <td class="filled"></td>
+    <td>G</td>
+    <td>R</td>
+    <td>I</td>
+    <td>E</td>
+    <td>V</td>
+    <td>O</td>
+    <td>U</td>
+    <td class="grey">S</td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td class="grey">E</td>
+    <td class="filled"></td>
+    <td class="grey">T</td>
+    <td class="filled"></td>
+    <td class="grey">S</td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="grey">I</td>
+    <td class="filled"></td>
+    <td class="grey">L</td>
+    <td class="filled"></td>
+  </tr>
+</table>
+
+<p>Reading clockwise around the perimeter of the solved criss-cross (as clued by 'very circumspect') spells out <code>NOW SOLVE TODAY&rsquo;S LISTENER</code>. Teams would then need to get a hold of Listener 4485 published in The Times (UK) on Saturday, January 13th, and solve it.
+
+<p>For details of the Listener crossword and solution, see <a href="http://www.listenercrossword.com/Solutions/S2018/Notes_4485.html">The Listener</a> website.</p>
+{% endblock %}

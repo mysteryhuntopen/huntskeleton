@@ -1,0 +1,25 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+<style type="text/css">
+  .tpmh-frame {
+    border: 0;
+    margin-left: -40px;
+    width: 1010px;
+    height: 1000px;
+  }
+</style>
+<script type="text/javascript" src="https://storage.googleapis.com/hunt2018-js/huntjs-client/huntjs-client.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<iframe width="1000px" height="800px" class="tpmh-frame" src="https://tpmh.studfindr.com">
+</iframe>
+{% endblock %}

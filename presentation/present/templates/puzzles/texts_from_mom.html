@@ -1,0 +1,47 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+  <script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.3.0"></script>
+  <script>
+    $(document).ready(function() {
+      twemoji.folder = '2/svg';
+      twemoji.parse(document.body);
+    });
+  </script>
+  <style>
+    .puzzle-content img.emoji {
+      width: 1em;
+      height: 1em;
+      margin-left: 0.25em;
+    }
+
+    .puzzle-content .group {
+      white-space: nowrap;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  You remember the day when your mom discovered emojis. She didn’t
+  have a great command over when to use them. They didn’t always mean
+  what she thought they did…
+{% endblock %}
+
+{% block puzzle_content_block %}
+<p><span class="group">⚜👏🤖🤖😟!</span>　<span class="group">💃🌌🎋👸👸👸👸😠</span>　<span class="group">👸😠</span>　<span class="group">🐸😟🍑🎸👸</span>　<span class="group">🇫🇮😟🇫🇮</span>.　<span class="group">👸&rsquo;🇫🇮</span>　<span class="group">⚜🦑🎋👸📗🌭</span> 　<span class="group">🦑</span> 　<span class="group">🌭🐅👩🐅🦑💃</span> 　<span class="group">💃👸🇫🇮👏</span> 　<span class="group">😟🍑💃</span> 　<span class="group">⚜👏🎮👗👍👏</span> 　<span class="group">🦑💃</span> 　<span class="group">👗🦑🐅</span> 　<span class="group">💃👩👏👸🎋👸🦑</span> 　<span class="group">🐋👩🎋💃⚜</span> 　<span class="group">🎸👍🦑🐅👏📗</span> 　<span class="group">🦑📗😻</span> 　<span class="group">🐅😟🍨👸👏</span> 　<span class="group">👩😠🐅😟🇫🇮</span> 　<span class="group">🌌🍨🍨⚜👏</span> 　<span class="group">👍💃🦑,</span> 　<span class="group">👗🍑💃</span> 　<span class="group">🎸🌭⚜👏🐸</span> 　<span class="group">🇱🇾🍨👍👏☺💃</span> 　<span class="group">🇫🇮👏</span> 　<span class="group">💃😟</span> 　<span class="group">🌌🍨👸📗😟🐋</span> 　<span class="group">🦑</span> 　<span class="group">🤖😟💃</span> 　<span class="group">😟🌌🎋👸</span> 　<span class="group">🦑🌌🍨👸🎋😠🐋👏🐅😠</span> 　<span class="group">💃⚜🦑👩🌭</span> 　<span class="group">🎮💃😟</span> 　<span class="group">👩🐋🍑😠💃</span> 　<span class="group">🎸🐋😟📗&rsquo;💃</span> 　<span class="group">🐅👏🇫🇮🇱🇾🇫🇮👗👏🐅!</span> 　<span class="group">🤖😟🤖!</span> 　<span class="group">☺🦑📗</span> 　<span class="group">🇱🇾🍑</span> 　<span class="group">👩🍑👏🤖👍</span> 　<span class="group">🍑😠</span> 　<span class="group">😟📗</span> 　<span class="group">💃🎮🎋🤖👏😠👏?</span> 　<span class="group">💃⚜🦑💃</span> 　<span class="group">🐋😟🍑🌌🍨👸👸😻</span> 　<span class="group">👗👏</span> 　<span class="group">&ldquo;🤖👸💃&rdquo;!</span> 　<span class="group">💃⚜🦑📗🎮👸👗😠!</span> 　<span class="group">🍨😟🎸☺😟🍨😟</span> 　<span class="group">&mdash;</span> 　<span class="group">🇫🇮👩👗🇫🇮</p>
+
+<p>😟📗</span> 　<span class="group">🐋⚜🦑👩🌭</span> 　<span class="group">🐋😟🍑🤖😻</span> 　<span class="group">🐸😟🍑</span> 　<span class="group">🤖👏🦑🎋👏</span> 　<span class="group">🦑</span> 　<span class="group">🐋🎮👗🌭😠⚜️</span> 　<span class="group">😻🍑🐅🌌👸🍨📗🌭</span> 　<span class="group">💃⚜👏</span> 　<span class="group">👩🐋🦑👍🦑📗🇱🇾😠👏</span> 　<span class="group">😠💃🦑🐅</span> 　<span class="group">☺👏🤖👏👗🐅🦑💃👸😟📗,</span> 　<span class="group">🐋⚜👸☺⚜</span> 　<span class="group">🌌👸👸👸😟🇫🇮🇫🇮👏🇫🇮😟🐅🦑💃👏😠</span> 　<span class="group">💃⚜👏</span> 　<span class="group">🇫🇮👏👏💃👸📗🌭</span> 　<span class="group">😟🎸🍑</span> 　<span class="group">☺👏👩🐸👏😠💃👸🦑🤖</span> 　<span class="group">🤖😟🎋👏🐅😠</span> 　<span class="group">🐋⚜😟</span> 　<span class="group">🎮🌭☺😟🍑🐅📗🇱🇾👸😻</span> 　<span class="group">🦑☺️🐅😟🎮🍑🍨😠</span> 　<span class="group">💃⚜👏</span> 　<span class="group">🇫🇮👸🤖👩🍨🐸</span> 　<span class="group">🐋🦑🐸?</p>
+
+<p>🦑☺☺😟🐅😻👸🎮🌭🌭🌭</span> 　<span class="group">💃😟</span> 　<span class="group">😠👸📗🌭👏🐅/😠😟📗🌌🎋👸👸🐋🐅👸💃👏🐅</span> 　<span class="group">🦑📗😻</span> 　<span class="group">🌭🍑👸💃👩📗🐅-👍🤖🦑🎸👗👏🐅</span> 　<span class="group">🌌🍨🦑🇫🇮👏😠</span> 　<span class="group">💃🦑🐸🤖😟👩👏</span> 　<span class="group">👸📗</span> 　<span class="group">🌌👸</span> 　<span class="group">📗👸📗👏🇱🇾💃📗</span> 　<span class="group">😠👏🎋🇱🇾📗💃🐸-😠🎮🇫🇮🐅🎋👏📗</span> 　<span class="group">⚜👸💃</span> 　<span class="group">😠👸📗🎸💃🤖👏,</span> 　<span class="group">&ldquo;📗🎮🌭⚜</span> 　<span class="group">😟📗👏</span> 　<span class="group">☺🦑📗</span> 　<span class="group">💃👏🤖🤖</span> 　<span class="group">🇫🇮👩🐅</span> 　<span class="group">💃⚜🦑💃</span> 　<span class="group">👸&rsquo;🌌🍨👸👸👸</span> 　<span class="group">😻😟👸📗🌭</span> 　<span class="group">🐋🐅😟📗🌭</span> 　<span class="group">💃😟😻🦑🐸</span> 　<span class="group">🐋⚜🎸🎋📗👏🎋👏🐅</span> 　<span class="group">👸</span> 　<span class="group">🇱🇾☺</span> 　<span class="group">🇱🇾🍑🐅&rdquo;</span> 　<span class="group">🐋👩🍑🦑💃?</p>
+
+<p>🇫🇮👩📗🐸</span> 　<span class="group">💃⚜👏</span> 　<span class="group">🌌👸👸👏😠💃</span> 　<span class="group">🐋😟🇫🇮🦑📗</span> 　<span class="group">🐋👸📗!</span> 　<span class="group">👸📗</span> 　<span class="group">🐅🍑👩☺🦑🍑🤖’😠</span> 　<span class="group">😻🐅🦑🌭</span> 　<span class="group">🐅🎮🐸👗☺👏,</span> 　<span class="group">🐋⚜🦑💃</span> 　<span class="group">🎸🐋😟👏😠</span> 　<span class="group">😠⚜👏🦑</span> 　<span class="group">☺😟🍑🤖👏👏</span> 　<span class="group">🐋👏🦑🐅</span> 　<span class="group">😟📗</span> 　<span class="group">⚜👏🌌🍨🎋👸👸👸</span> 　<span class="group">⚜👏🦑😻</span> 　<span class="group">💃😟</span> 　<span class="group">🐅👏👍🐅👏🎸⚜👏📗💃</span> 　<span class="group">⚜👏🐅</span> 　<span class="group">⚜😟🇫🇮👏</span> 　<span class="group">💃👩👗🐋📗?</p>
+
+<p>🐋⚜🌌👸💃</span> 　<span class="group">👍🍑👗🤖👸☺🦑💃👸😟📗</span> 　<span class="group">😟🍑💃🤖👸📗👏😻</span> 　<span class="group">💃⚜👏</span> 　<span class="group">👍😟🤖👸💃👸☺🦑🤖</span> 　<span class="group">👍⚜🎸🐅🤖😟😠😟👍⚜🐸</span> 　<span class="group">😟🎮🇫🇮😠</span> 　<span class="group">🇫🇮🌌🍨🍨👸🦑🇫🇮🇫🇮🦑🐅</span> 　<span class="group">🌭🦑😻😻🦑🎮🦑👏👸,</span> 　<span class="group">🐋⚜😟</span> 　<span class="group">🌭😟🎋👏🐅📗👏😻</span> 　<span class="group">🎸😟👸👗🐸🦑</span> 　<span class="group">🍑📗💃👸🎮👏🌭</span> 　<span class="group">⚜👏</span> 　<span class="group">🐋🦑😠</span> 　<span class="group">☺🦑👍💃🍑🐅👏😻</span> 　<span class="group">🦑👩🦑😻</span> 　<span class="group">👏🍨👏🎸🍨🍑💃👏😻</span> 　<span class="group">👗🐸</span> 　<span class="group">📗💃☺</span> 　<span class="group">🇫🇮👸🤖👸💃🦑🎸🇫🇮💃😠?</p>
+
+<p>👸📗</span> 　<span class="group">💃⚜👏</span> 　<span class="group">👗👏😠💃😠🇱🇾🤖👸📗🌭</span> 　<span class="group">🎋👸😻👏😟</span> 　<span class="group">👩💃🦑🇫🇮👏</span> 　<span class="group">😠👏🐅👸🇱🇾😠</span> 　<span class="group">😟👩😠</span> 　<span class="group">🦑🤖🤖</span> 　<span class="group">💃👸🇫🇮👏,</span> 　<span class="group">🐋⚜😟</span> 　<span class="group">😻🎸🤖👏😠</span> 　<span class="group">🇫🇮🎮🇫🇮📗🐅👸😟</span> 　<span class="group">🍑😠🍑🦑👩🐸🤖🐸</span> 　<span class="group">🐅👏😠☺🍑👏</span> 　<span class="group">(💃🐋😟</span>　<span class="group">🐋😟🐅😻😠)?</span></p>
+{% endblock %}

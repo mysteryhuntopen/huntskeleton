@@ -1,0 +1,112 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/blanks.css') }}">
+<style>
+  .puzzle-content table td {
+    padding: 0 1em;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+You look terrible! Going out on the town requires a head-to-toe makeover; better get familiar with the folks best suited to provide one.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<table>
+  <tr>
+    <td>bobbin</td>
+    <td>{% call puzzle_macros.blanks() %}_O___{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>book of future dates, hopefully</td>
+    <td>{% call puzzle_macros.blanks() %}____O_ _____{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>cereal grain Triticum</td>
+    <td>{% call puzzle_macros.blanks() %}____O{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>cover for a plate</td>
+    <td>{% call puzzle_macros.blanks() %}_O____{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>don&rsquo;t shoot him</td>
+    <td>{% call puzzle_macros.blanks() %}________O{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>elongated loaf of French bread</td>
+    <td>{% call puzzle_macros.blanks() %}_O______{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>feline progeny</td>
+    <td>{% call puzzle_macros.blanks() %}____O_{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>frustrum-shaped chocolate</td>
+    <td>{% call puzzle_macros.blanks() %}O___{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>generally-accepted tenets of a political party</td>
+    <td>{% call puzzle_macros.blanks() %}______O_{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>grip tightly</td>
+    <td>{% call puzzle_macros.blanks() %}_O____{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>kiss or cut preceder</td>
+    <td>{% call puzzle_macros.blanks() %}_O____{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>Mead Keeper</td>
+    <td>{% call puzzle_macros.blanks() %}_____O_{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>Pinocchio&rsquo;s pet cat</td>
+    <td>{% call puzzle_macros.blanks() %}_O____{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>rigid flap to keep sun out of the driver&rsquo;s eyes</td>
+    <td>{% call puzzle_macros.blanks() %}O____{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>scabbard</td>
+    <td>{% call puzzle_macros.blanks() %}___O__{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>solid, liquid, or solidus</td>
+    <td>{% call puzzle_macros.blanks() %}_O___{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>Spider-Man&rsquo;s Watson</td>
+    <td>{% call puzzle_macros.blanks() %}___O ____{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>stage in front of proscenium</td>
+    <td>{% call puzzle_macros.blanks() %}____O{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>Stallone&rsquo;s Vietnam POW</td>
+    <td>{% call puzzle_macros.blanks() %}_O___{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>the attack, decay, sustain, and release of sound</td>
+    <td>{% call puzzle_macros.blanks() %}______O_{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>train transient</td>
+    <td>{% call puzzle_macros.blanks() %}O___{% endcall %}</td>
+  </tr>
+  <tr>
+    <td>WWII-era fortified concrete military emplacement</td>
+    <td>{% call puzzle_macros.blanks() %}_O_____{% endcall %}</td>
+  </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Evan Broder and James Douberley{% endblock %}
+{% block solution %}BACKUP PLAN{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content table.akari {
+    border: 3px solid black;
+    border-collapse: collapse;
+  }
+
+  .puzzle-content table.akari td {
+    border: 1px solid black;
+    font-size: 1.25em;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    vertical-align: center;
+  }
+
+  .puzzle-content table.akari td.outlined {
+    border-width: 3px;
+  }
+
+  .puzzle-content table.akari td.fill {
+    background-color: black;
+    color: white;
+  }
+
+  .puzzle-content table.akari td.underline {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  .puzzle-content table.akari td.highlight {
+    background-color: yellow;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <p>After solving the Deploy puzzles, solvers are presented with a
+    6×6 grid, along with 6 answers that are 6 letters long. The
+    answers (in alphabetical), along with their puzzles’ titles, are
+    as follows:</p>
+
+  <ul>
+    <li><code>BOTNET</code> (“Studies in Two-Factor Authentication”)</li>
+    <li><code>HIKE UP</code> (“Zelma &amp; Frank”)</li>
+    <li><code>NEBULA</code> (“Ode to the Greeks”)</li>
+    <li><code>OCELOT</code> (“L is for Library”)</li>
+    <li><code>PENPAL</code> (“Executive Relationship Commandments”)</li>
+    <li><code>SOLERA</code> (“A Pub Crawl”)</li>
+  </ul>
+
+  <p>The word “elite” in the flavor text suggests leetspeak. This is
+    confirmed by the first letters of each of the puzzles in the
+    round—each of the first letters is typically replaced by a number
+    in leetspeak. This provides both confirmation of order and a key
+    for translating between letters and numbers:</p>
+
+  <table class="solution-table condensed-table">
+    <tr><th>Letter</th><th>Number</th></tr>
+    <tr><td>O</td><td>0</td></tr>
+    <tr><td>L</td><td>1</td></tr>
+    <tr><td>Z</td><td>2</td></tr>
+    <tr><td>E</td><td>3</td></tr>
+    <tr><td>A</td><td>4</td></tr>
+    <tr><td>S</td><td>5</td></tr>
+  </table>
+
+  <p>This information suggests that the answers should be entered into
+    the grid, sorted by the numeric equivalent of the first letter of
+    the puzzle’s title:</p>
+
+  <table class="akari">
+    <tr><td>N</td><td>E</td><td>B</td><td>U</td><td class="fill underline">L</td><td>A</td></tr>
+    <tr><td>O</td><td>C</td><td class="fill underline">E</td><td class="fill">L</td><td>O</td><td>T</td></tr>
+    <tr><td class="fill">H</td><td>I</td><td>K</td><td class="fill">E</td><td>U</td><td>P</td></tr>
+    <tr><td>P</td><td>E</td><td class="fill">N</td><td>P</td><td>A</td><td class="fill underline">L</td></tr>
+    <tr><td>S</td><td>O</td><td>L</td><td class="fill underline">E</td><td>R</td><td>A</td></tr>
+    <tr><td>B</td><td class="fill underline">O</td><td>T</td><td>N</td><td>E</td><td>T</td></tr>
+  </table>
+
+  <p>As suggested by the flavor text (“seeing their flashlights
+    everywhere”), this is in fact an
+    <a href="https://en.wikipedia.org/wiki/Light_Up_(puzzle)">Akari
+      puzzle</a> with numbers translated back from leetspeak. Replacing
+    the underlined letters with their leetspeak numbers and solving
+    the Akari yields the following grid:</p>
+
+  <table class="akari">
+    <tr><td></td><td></td><td class="highlight">*</td><td></td><td class="fill underline">1</td><td class="highlight">*</td></tr>
+    <tr><td></td><td class="highlight">*</td><td class="fill underline">3</td><td class="fill"></td><td></td><td></td></tr>
+    <tr><td class="fill"></td><td></td><td class="highlight">*</td><td class="fill"></td><td class="highlight">*</td><td></td></tr>
+    <tr><td class="highlight">*</td><td></td><td class="fill"></td><td class="highlight">*</td><td></td><td class="fill underline">1</td></tr>
+    <tr><td></td><td></td><td class="highlight">*</td><td class="fill underline">3</td><td></td><td class="highlight">*</td></tr>
+    <tr><td></td><td class="fill underline">0</td><td></td><td class="highlight">*</td><td></td><td></td></tr>
+  </table>
+
+  <p>Overlaying the lights on the grid and reading the lit cells in
+    order yields the answer: <strong><code>BACKUP PLAN</code></strong>:</p>
+
+  <table class="akari">
+    <tr><td>N</td><td>E</td><td class="highlight">B</td><td>U</td><td class="fill underline">L</td><td class="highlight">A</td></tr>
+    <tr><td>O</td><td class="highlight">C</td><td class="fill underline">E</td><td class="fill">L</td><td>O</td><td>T</td></tr>
+    <tr><td class="fill">H</td><td>I</td><td class="highlight">K</td><td class="fill">E</td><td class="highlight">U</td><td>P</td></tr>
+    <tr><td class="highlight">P</td><td>E</td><td class="fill">N</td><td class="highlight">P</td><td>A</td><td class="fill underline">L</td></tr>
+    <tr><td>S</td><td>O</td><td class="highlight">L</td><td class="fill underline">E</td><td>R</td><td class="highlight">A</td></tr>
+    <tr><td>B</td><td class="fill underline">O</td><td>T</td><td class="highlight">N</td><td>E</td><td>T</td></tr>
+  </table>
+{% endblock %}

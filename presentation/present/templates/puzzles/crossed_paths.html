@@ -1,0 +1,102 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .clues {
+    display: flex;
+  }
+
+  .puzzle-content .clue-list {
+    padding: 0 1.25em;
+  }
+
+  .puzzle-content .clue-list-header {
+    padding-bottom: 1em;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="clues">
+  <div class="clue-list">
+    <div class="clue-list-header"><b>Across</b></div>
+    <div><b>1.</b> Spewed out</div>
+    <div><b>10.</b> Wheat bundle</div>
+    <div><b>15.</b> With eleven peers</div>
+    <div><b>16.</b> Bean or horse</div>
+    <div><b>17.</b> Classroom poster</div>
+    <div><b>18.</b> Contribute</div>
+    <div><b>19.</b> Ottoman ruler</div>
+    <div><b>20.</b> Played by part</div>
+    <div><b>21.</b> Stable grain</div>
+    <div><b>22.</b> Decay</div>
+    <div><b>23.</b> Public transport</div>
+    <div><b>25.</b> Middle East ruler</div>
+    <div><b>26.</b> Cylon in red</div>
+    <div><b>28.</b> Rock</div>
+    <div><b>29.</b> Soda</div>
+    <div><b>32.</b> Playing fields</div>
+    <div><b>34.</b> “To be” conjugation</div>
+    <div><b>35.</b> DC’s Kyle and HBO’s Meyer</div>
+    <div><b>36.</b> Stroke</div>
+    <div><b>37.</b> Buffoon</div>
+    <div><b>39.</b> Many min.</div>
+    <div><b>40.</b> Over</div>
+    <div><b>41.</b> Canine command</div>
+    <div><b>42.</b> Salsa option</div>
+    <div><b>43.</b> Booze free</div>
+    <div><b>45.</b> Ointment spoiler</div>
+    <div><b>48.</b> Colony creature</div>
+    <div><b>49.</b> Boor</div>
+    <div><b>51.</b> Lounge</div>
+    <div><b>52.</b> Israeli seaport</div>
+    <div><b>55.</b> Boosts</div>
+    <div><b>58.</b> Ordered Chinese</div>
+    <div><b>59.</b> Obvious</div>
+    <div><b>60.</b> Short</div>
+    <div><b>61.</b> Spirals</div>
+  </div>
+  <div class="clue-list">
+    <div class="clue-list-header"><b>Down</b></div>
+    <div><b>1.</b> Liquid nitrogen vessel</div>
+    <div><b>2.</b> Metamorphosis end stage</div>
+    <div><b>3.</b> Sloppy strike sound</div>
+    <div><b>4.</b> Qt. quartet</div>
+    <div><b>5.</b> Fairy tale opener</div>
+    <div><b>6.</b> 43-Across clinic</div>
+    <div><b>7.</b> Central Switzerland range</div>
+    <div><b>8.</b> Always, poetically</div>
+    <div><b>9.</b> Silent Spring spray</div>
+    <div><b>10.</b> Pampering place</div>
+    <div><b>11.</b> Secreted</div>
+    <div><b>12.</b> Soft body</div>
+    <div><b>13.</b> Unconstitutional sort of bill</div>
+    <div><b>14.</b> Ottomans</div>
+    <div><b>24.</b> Ape shaped</div>
+    <div><b>25.</b> Flight fig.</div>
+    <div><b>27.</b> Replicating outside a host</div>
+    <div><b>28.</b> Distress call</div>
+    <div><b>29.</b> Montecristi accessory</div>
+    <div><b>30.</b> Begin (from)</div>
+    <div><b>31.</b> Yellow cards</div>
+    <div><b>32.</b> Precious 28-Across</div>
+    <div><b>33.</b> Soft strike sound</div>
+    <div><b>35.</b> Trinity member</div>
+    <div><b>38.</b> El _____</div>
+    <div><b>44.</b> Big Three conference site</div>
+    <div><b>45.</b> Bat one’s eyelashes</div>
+    <div><b>46.</b> Feudal lord</div>
+    <div><b>47.</b> Assents</div>
+    <div><b>50.</b> Top up</div>
+    <div><b>53.</b> Tantrum</div>
+    <div><b>54.</b> “Press _____ key”</div>
+    <div><b>55.</b> Blow away</div>
+    <div><b>56.</b> Doubtfire or Robinson</div>
+    <div><b>57.</b> Safe skies org.</div>
+  </div>
+</div>
+{% endblock %}

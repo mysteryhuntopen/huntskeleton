@@ -1,0 +1,97 @@
+{% extends "objective.html" %}
+{% import "objective_macros.html" as macros %}
+
+{# Dependent on:
+    openIslands
+    Puzzles:
+      games-antemeta
+      games-supermeta
+      games-recovery
+#}
+
+{% set objective_id = "games" %}
+{% set objective_name = "Recover the Games Core Memory" %}
+{% set objective_video_id = None %}
+{% set objective_video_visible = false %}
+{% set objective_unlocked = ('games' in core_display_data['openIslands']) %}
+{% set objective_complete = statuses['games-recovery'] == 'SOLVED' %}
+
+{% set end_text = {
+  'antemeta': {
+    'unlocked': 'You&rsquo;ve finally reached {name} at the center of the continent.  Truly your
+      territory is vast!',
+    'solved': 'You reached {name} at the heart of the island. Claiming it completed your {answer}.'
+  },
+  'supermeta': {
+    'unlocked': 'But there&rsquo;s no time to celebrate, for {name} has appeared. Perhaps he has
+      the orb!',
+    'solved': '{name} appeared, but you quickly defeated him.  In the process, you discovered
+      that the core memory {conjugation} {answer}.'
+  },
+  'recovery': {
+    'unlocked': 'Dig up the orb!',
+    'solved': 'After making a worthy offering to the desert gods, you recovered the Games Core Memory!
+      Buzzy&rsquo;s mind workers were able to use an ancient flying machine to return it to the
+      Control Room, saving Games Island!'
+  },
+} %}
+
+{% block objective_action_item_1 %}
+  {% if statuses['games-supermeta'] == 'SOLVED' %}
+    You have successfully confronted the robber
+  {% elif statuses['games-antemeta'] == 'SOLVED' %}
+    Your empire now runs through the heart of the island
+  {% else %}
+    You are but a lowly traveller in a harsh landscape
+  {% endif %} 
+{% endblock %}
+
+{% block objective_action_item_2 %}
+  {% if statuses['games-supermeta'] == 'SOLVED' %}
+    Recover the core memory
+  {% elif statuses['games-supermeta'] == 'UNLOCKED' %}
+    Defeat the robber
+  {% elif statuses['games-antemeta'] == 'UNLOCKED' %}
+    Annex the desert
+  {% else %}
+    Explore the island
+  {% endif %}
+{% endblock %}
+
+{% block objective_body %}
+  <p>
+    On Games Island, mind workers are always on the lookout for new strategies. For instance, 
+    how should we explore this continent? Mind workers here have been trying to connect the
+    island's diverse landscapes with a series of roads, but a mysterious entity at the heart
+    of the island has made matters difficult.
+  </p>
+  
+  {% if statuses['games-antemeta'] in ['UNLOCKED', 'SOLVED'] %}
+    <p>
+      {%- set substitutions = {
+        'name': macros.format_meta(names['games-antemeta']),
+        'answer': macros.format_answer(answers['games-antemeta']),
+      } -%}
+      {{- end_text['antemeta'][statuses['games-antemeta'] | lower].format(**substitutions) | safe -}}
+    </p>
+  {% else %}
+    <p>You should make your way towards the island&rsquo;s center and see for yourself.</p>
+  {% endif %}
+  
+  {% if statuses['games-supermeta'] in ['UNLOCKED', 'SOLVED'] %}
+    <p>
+      {%- set substitutions = {
+        'name': macros.format_meta(names['games-supermeta'], is_super = true),
+        'conjugation': 'was' if statuses['games-recovery'] == 'SOLVED' else 'is',
+        'answer': macros.format_answer(answers['games-supermeta']),
+      } -%}
+      {{- end_text['supermeta'][statuses['games-supermeta'] | lower].format(**substitutions) | safe -}}
+    </p>
+  {% endif %}      
+  
+  {% if statuses['games-recovery'] in ['UNLOCKED', 'SOLVED'] %}
+    <p>
+      {{- end_text['recovery'][statuses['games-recovery'] | lower] | safe -}}
+    </p>
+  {% endif %}
+{% endblock %}

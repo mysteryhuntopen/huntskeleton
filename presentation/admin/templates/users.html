@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block page_body %}
+{% if is_authorized('users:create:*') %}
+<div class="ha-control-boxes-container">
+  <form class="ha-column-control-box" action="{{ url_for('users') }}" method="post">
+    <span class="ha-control-box-title">
+      Add New User
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Username
+        <input type="text" name="username" pattern="^[a-zA-Z0-9_\-]+$">
+      </label>
+      <label>
+        Password
+        <input type="text" name="password">
+      </label>
+      <label>
+        Roles
+        <label>
+          <input type="checkbox" name="role_writingteam" checked>
+          writingteam
+        </label>
+        <label>
+          <input type="checkbox" name="role_admin">
+          admin
+        </label>
+      </label>
+    </div>
+    <input type="submit" value="Add User">
+  </form>
+</div>
+{% endif %}
+<div class="ha-page-section">
+  <table class="ha-table">
+    <thead>
+      <tr>
+	<th>Username</th>
+	<th>Roles</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for u in users %}
+      <tr>
+	<td><a href="{{ url_for('user', username=u.username) }}">{{ u.username }}</a></td>
+	<td>{{ ' '.join(u.roles) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

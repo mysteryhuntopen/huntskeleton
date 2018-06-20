@@ -1,0 +1,104 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+  <script src="{{ asset_url_for('puzzles/lest_you_be/js/jquery.mousewheel-min.js') }}"></script>
+  <script src="{{ asset_url_for('puzzles/lest_you_be/js/jquery.terminal-min.js') }}"></script>
+  <link href="{{ asset_url_for('puzzles/lest_you_be/css/jquery.terminal.css') }}" rel="stylesheet"/>
+  <link href="{{ asset_url_for('puzzles/lest_you_be/css/site.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div class="container">
+    <div class="term-wrapper border">
+      <div id="term"></div>
+    </div>
+    <div class="column">
+      <div class="help border">
+        <div class="phase-1-only">
+          <p>CURRENT STATUS: CALIBRATION</p>
+          <p>&lt;any text&gt;: submit a calibration point</p>
+          <p>!advance: move WHOLE TEAM to Testing (once Calibration is complete)</p>
+        </div>
+        <div class="phase-2-only">
+          <p>CURRENT STATUS: TESTING</p>
+          <p>!test: receive test data</p>
+          <p>
+            !reset: reset WHOLE TEAM to Calibration and reset judgment protocols. This command is not necessary for completion of Testing.
+          </p>
+        </div>
+      </div>
+      <div class="logo">
+        <div class="phase-1-only">
+          <pre>
+
+                                       `:oo/-`
+                                      /dmo:-:+h/
+                                     -mm/`    oM:
+                                     /h:h`    +M+
+                                  `/+yds+++d:sms
+                                :so:oysssh///:`
+                             `/yosys/``oo`
+                           -/hsys:-:+/s.
+                       `-/mNyydo://:s:
+                `````--.:oyo- oy--o+
+        `---::-o::::::::.    -Ndommh+-
+     -+oo/::---`            .:od:+MNs-/+:.
+   +hh/-`                  `:.s.  -yMmmdd-
+ .hho`                     +:o/     omhmNo`
+.hy:                      .+-s       `  /dNs`
+ys/                       +-/.            :dmo`
+md                        o+s               -yyo/:
+md                       :/s.                 ymsd
+sd/                      /os                   -:
+`dh`                    :/y`
+ `/                    -+o-
+                      :/+-
+                    -:/s.
+       `oo:::------//:-
+          -:++o+/::.
+
+          </pre>
+        </div>
+        <div class="phase-2-only">
+          <pre>
+
+             ````
+             ````    ---
+                 ``  ```
+               `----.
+               .-----
+          ......-::-......`
+         `NNNNNNNNNNNNNNNN+
+          `+NNo///////dNd`
+           /NN.       hNd
+           /NN.       hNd
+           /NN.       hNd
+           /NN.       hNd
+           /NN.`````` hNd
+          /mNd``````` +NNs`
+        -hNm/          .hNm+
+      `sNNs`             /mNd-
+     /mNd-   ```    ..`   `oNNs`
+   -hNmo--......```-----....:hNm+
+  oNNy------------------------+mNd`
+ /NN+---.```..------------------mNh
+ yNm---.`````.------------------sNN`
+ +NN:---..`..-------------------hNm
+  hNm+------------------------:hNN-
+   +mNmyo+/////////////////+shNNy.
+     :shmNNNNNNNNNNNNNNNNNNNdy+.
+
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://storage.googleapis.com/hunt2018-js/huntjs-client/huntjs-client.min.js"></script>
+  <script type="text/javascript" src="{{ asset_url_for('puzzles/lest_you_be/js/lest-you-be.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset_url_for('puzzles/lest_you_be/js/site.js') }}"></script>
+{% endblock %}

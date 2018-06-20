@@ -1,0 +1,61 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+.puzzle-content .block { 
+  width: 1.2em;
+  background: black;
+  display: inline-block;
+}
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<p>
+  Argh! Someone messed up my notes for the reactions. If I just remembered which reactants go with which products I might remember what I need from the supply table to get my brew just right!
+</p>
+
+<p>
+<b>Reactants:</b><br>
+Molecular structure with two R groups on the same side relative to a double bond<br>
+Sad teenage phase<br>
+Hired mob thug<br>
+First modular space station<br>
+Japanese troll monster<br>
+Long-needled conifer<br>
+Abortion stance<br>
+Serving of frozen dessert<br>
+Disaster with a liquid
+</p>
+
+<p>
+<b>Products:</b><br>
+Branching lung structures<br>
+To hold dear<br>
+Unit of scoring in soccer<br>
+Tiny creature unseen with the naked eye<br>
+Explorer or frontiersman, for example<br>
+Son of a monarch<br>
+Impish rascal<br>
+Durum wheat middlings<br>
+Long-legged bird akin to an ibis
+</p>
+
+<p>
+<b>Reactions:</b><br>
+Hydrobromination. Adding fearsome quantities of <span class="block">&nbsp;</span> makes me breathe easy.<br>
+Denitrosylation. I stole some extra <span class="block">&nbsp;</span> for the reaction and still no one cheered!<br>
+Herz Reaction. It’ll be sad if you don&rsquo;t add enough <span class="block">&nbsp;</span> &mdash; it won&rsquo;t be grainy enough!<br>
+Decarboxylation. You are free to decide to add <span class="block">&nbsp;</span> otherwise you&rsquo;ll be royally screwed.<br>
+Deoxygenation. Add a portion of <span class="block">&nbsp;</span>, you troublemaker.<br>
+Nitration. Pouring some <span class="block">&nbsp;</span> into the reaction is fly!<br>
+Hydrogenation. If you have the right isomer adding <span class="block">&nbsp;</span> will give the most prized results!<br>
+Carbonylation. Piece by piece get the <span class="block">&nbsp;</span> and add the smallest amount.<br>
+Epoxidation. Add a green, tall container of <span class="block">&nbsp;</span> or you&rsquo;ll have to explore for better options.
+</p>
+{% endblock %}

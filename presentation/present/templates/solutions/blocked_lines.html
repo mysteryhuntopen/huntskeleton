@@ -1,0 +1,50 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Alex Churchill{% endblock %}
+{% block solution %}THREE POUNDER{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .image-1 {
+    max-height: 400px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Solvers are presented with a mat printed on cardstock, containing colored squares and many letters in various orientations.</p>
+
+<p>Most letters recur many times. However, if you consider pairings of letter and color, a pattern emerges. Most letter-color combinations are present either just once, or exactly twice. The exceptions are that there are six red Ms, six orange As, six yellow Ts, six green Cs, and six cyan Hs. Taken in rainbow order, these spell the word <code>MATCH</code>.</p>
+
+<p>Perhaps you need to match up the two red Ds, the two red Ks, and so on. (You might conceivably even notice at this stage that every letter that&rsquo;s repeated has an axis of reflective symmetry).</p>
+
+<p>The squares are divided by lines in black or grey. The black lines form various irregular shapes. But the grey lines actually divide the mat into groups of exactly six squares. Equivalently, if you choose any square and travel to adjacent squares, only crossing black lines, you connect a group of six squares in every case.</p>
+
+<p>The groups of six squares are not rectangles, but irregular shapes, some of which you may recognize as the standard net of a cube. In fact, every one of these groups of six squares can be folded up into a cube, so that&rsquo;s what you should do. First, fold the mat along each horizontal and vertical line, then cut along the grey lines, and fold up the resulting hexominoes into cubes, using tape. You end up with thirty-one cubes.</p>
+
+<p>Once you have the cubes, the next thing to do is to start <code>MATCH</code>ing them. There are just two red Ts, two yellow Qs, two black Bs, and so on. So clued by the flavor text, you take the two faces with a red T on them and stick them together, oriented so that the letters match each other.</p>
+
+<p>For letters like V this means the top of each letter is in the same place, but for letters like B where the axis of symmetry is horizontal, the top of one B will be lined up with the bottom of the other. For the L and the Q, to get the letters to line up, the tops of the two letters need to be at 90&deg; to each other:</p>
+
+<img class="image-1" {{ img_src_for('solutions/blocked_lines/1.png') }} >
+
+<p>Letters like H, I, O and X aren&rsquo;t initially obvious in which orientation they should be attached together. And the letters repeated six times (red M, orange A, etc.) can&rsquo;t be initially paired up either. But as you work through assembling the cubes, in all cases it becomes clear how to line these cubes up to get a complete and unique figure formed by all 31 cubes.</p>
+
+<img {{ img_src_for('solutions/blocked_lines/2.jpg') }} >
+
+<p>You end up with a small cannon shape, with writing on four of its faces, and &ldquo;this way up&rdquo; arrows on three faces indicating the intended orientation. Reading from the topmost face and carrying on around in natural reading order, you read the message <code>SEPARATE LAYERS ONLY READ CMYK</code>.</p>
+
+<img {{ img_src_for('solutions/blocked_lines/3.jpg') }} >
+<img {{ img_src_for('solutions/blocked_lines/4.jpg') }} >
+<img {{ img_src_for('solutions/blocked_lines/5.jpg') }} >
+
+<p>So now you need to split the cannon into its separate layers. The top layer has the word <code>SEPARATE</code> written on it, which has already been obeyed. The middle layer has text saying <code>THIREEPHO</code>. The bottom layer has text saying <code>OXUNBIRDVERY</code> on its top (and <code>ONLY READ</code> on its bottom).
+
+<img {{ img_src_for('solutions/blocked_lines/6.jpg') }} >
+
+<p>If you restrict your attention to only the visible faces on layers 2 and 3, and only the faces that are colored cyan, magenta, yellow or black (CMYK), you read the final answer, <strong><code>THREE POUNDER</code></strong>.</p>
+{% endblock %}

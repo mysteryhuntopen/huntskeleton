@@ -1,0 +1,466 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .header {
+    font-size: 1.5em;
+  }
+
+  .puzzle-content .plan {
+    border: 1px solid black;
+    margin: 1em 1em 0 0;
+    padding: 1em;
+  }
+
+  @media print {
+    .puzzle-content .plan {
+        page-break-inside: avoid;
+    }
+  }
+
+  .puzzle-content .plan .subheader {
+    font-size: 1.33em;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+It&rsquo;s time to deploy the hack! You&rsquo;ve got a detailed set of instructions of how to get from the build site to your final location. However&hellip; you realize that the directions might not always work. That&rsquo;s why you&rsquo;ve got a <code>BACKUP PLAN</code>&mdash;or really, a series of them. Each time a plan tells you to do something that doesn&rsquo;t work, you&rsquo;ve got another plan to fall back on!
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="header"><b>Plans</b></div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan A</b></div>
+
+  <ol>
+    <li>Exit the east parallel of East Campus through the south door.  Note the middle letter on the sign above the door.</li>
+    <li>Follow the concrete path forwards until you reach a four-way intersection.</li>
+    <li>Turn left and walk past a blue light to another four-way.</li>
+    <li>Turn right.</li>
+    <li>Walk straight until you pass three benches on the left.</li>
+    <li>Ignore the path to the right and continue forward, just past the construction.</li>
+    <li>Turn towards the art and walk underneath it.</li>
+    <li>Turn to face the tall building.</li>
+    <li>Rotate counterclockwise 135 degrees.</li>
+    <li>Walk straight ahead to the phone.</li>
+    <li>Turn slightly left and walk down the stairs.</li>
+  </ol>
+</div>
+
+
+<div class="plan">
+  <div class="subheader"><b>Plan B</b></div>
+
+  <ol>
+    <li>Make a slight left turn and walk up the stairs.  There are three words in a circle here, and only one letter is shared by all of the words.  Note that letter.</li>
+    <li>Go through the door.</li>
+    <li>Turn left.</li>
+    <li>Go through the green door.</li>
+    <li>Walk straight through a hallway with glass on both sides.</li>
+    <li>Take the next right and walk forward until you reach a water fountain.</li>
+    <li>Walk towards a set of double doors and descend one floor.</li>
+    <li>Go through the white door and turn left.</li>
+    <li>Continue straight until you can&rsquo;t any more.</li>
+    <li>Turn left.</li>
+    <li>Walk forward until you find a red door, but don&rsquo;t enter it. Instead, enter the door on the opposite side of the hallway.</li>
+    <li>Descend one floor.</li>
+    <li>Turn right and walk forward to a blue light.</li>
+    <li>Make a slight right and follow the hallway as it curves slightly, until you find a spot with wooden doors on both sides of the hallway.</li>
+    <li>Enter the elevator that you can see from here, and go up two floors.</li>
+    <li>Walk forward until a four-way intersection, and turn left.</li>
+    <li>Descend one floor and locate the nearest office.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan C</b></div>
+
+  <ol>
+    <li>There are notes to your right and an arrow in front of you.  Note the second letter of the second word above the arrow.</li>
+    <li>Turn around.</li>
+    <li>Walk straight ahead, stopping just before the double doors.</li>
+    <li>Turn right and go through the door.</li>
+    <li>Descend one floor.</li>
+    <li>Descend one floor.</li>
+    <li>Exit the stairwell and turn left.</li>
+    <li>Walk forward until you reach a water fountain.</li>
+    <li>Enter the door opposite the water fountain, and ascend one flight of stairs.</li>
+    <li>Exit the stairs and walk towards the closest visible glass.</li>
+    <li>Keep walking straight until you find a three-way intersection.</li>
+    <li>Take the left path and continue until you find something useful in case of emergency.</li>
+    <li>Walk down the slight ramp and pass through the double doors.</li>
+    <li>At a four-way intersection, turn right.</li>
+    <li>Walk forward and take the next available right turn.</li>
+    <li>Walk up one flight of stairs.</li>
+    <li>Exit stairs, and walk in the direction with more visible EXIT signs as far as possible.</li>
+    <li>Turn right.</li>
+    <li>Walk forward underneath four rectangular light fixtures, then turn left.</li>
+    <li>Proceed forward to the nearest blue light.</li>
+    <li>Turn right and walk forward until the end of the hallway.</li>
+    <li>Turn left and walk to the end of the hallway.</li>
+    <li>Turn left and walk forward to the intersection.</li>
+    <li>Turn right and walk forward until you find an appropriate place to rest.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan D</b></div>
+
+  <ol>
+    <li>In front of you, there are four words in white.  Note the fifth letter of the last word.</li>
+    <li>Go through the closest door, then turn left.</li>
+    <li>Climb the ladder.</li>
+    <li>When you reach the top, walk forward until you find a three-way intersection.</li>
+    <li>Take the left fork and travel forward until you are at the second set of double doors.</li>
+    <li>Enter the door on the left just before the double doors.</li>
+    <li>Descend two flights of stairs.</li>
+    <li>Walk through the door, turn right, and pass through another door.</li>
+    <li>Walk forward and over a bridge.</li>
+    <li>Turn right, then immediately turn left.</li>
+    <li>Follow the winding pathway forward as it ramps up.</li>
+    <li>Enter through a door, and turn left.</li>
+    <li>Take either the ramp or stairs down, and turn right at the next opportunity.</li>
+    <li>Walk forward as far as possible.</li>
+    <li>Turn right, enter a door, and walk up one flight of stairs.</li>
+    <li>Exit through the first available door, and turn right.</li>
+    <li>Walk forward and up a half flight of stairs.</li>
+    <li>Walk through a double door and turn left.</li>
+    <li>Enter a door containing a large window.</li>
+    <li>Walk down as far as possible.</li>
+    <li>Exit through a gray door, and turn left.</li>
+    <li>Walk forward, and take the next left into a short hallway.</li>
+    <li>Press the button, and enter through the metal door.</li>
+    <li>Press the button with the second-largest number.</li>
+    <li>Exit, turn right, and walk to the end of the hallway.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan E</b></div>
+
+  <ol>
+    <li>Note the fourth letter of the first word that is painted in all caps on the door in front of you.</li>
+    <li>Turn around.</li>
+    <li>Walk straight ahead and pass through the double doors.</li>
+    <li>Walk forward until you pass five rectangular light fixtures.</li>
+    <li>Look at the blue double doors to your left.</li>
+    <li>Continue forward without turning.  Pass through the double doors.</li>
+    <li>Turn right.</li>
+    <li>Go to the elevator in front of you.</li>
+    <li>Enter the elevator and ride it to the first floor.</li>
+    <li>Exit the elevator.</li>
+    <li>Walk straight ahead until you reach a set of triangles.</li>
+    <li>Turn right.</li>
+    <li>Walk straight ahead through the sliding doors.</li>
+    <li>Walk onto the skybridge.</li>
+    <li>Take your assigned seat.</li>
+    <li>Wait six hours.</li>
+    <li>Head to baggage claim 3.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan F</b></div>
+
+  <ol>
+    <li>To your left, on the second triangle from the right, is a three word heading.  Note the third letter of the second word of that heading.</li>
+    <li>Walk straight briefly, then enter the first door on your right.</li>
+    <li>Go down one floor.</li>
+    <li>Walk through the door.</li>
+    <li>Turn right and go as straight as possible, until you are standing on MIT.</li>
+    <li>Turn right and buy a Pepsi.</li>
+    <li>Turn right and walk as straight as possible.</li>
+    <li>Enter through a red door and walk up two flights of stairs.</li>
+    <li>Pass through a door on your right.</li>
+    <li>Follow the hallway to the end.</li>
+    <li>Pass through a door in front of you, turn right, and take the path leading up.</li>
+    <li>Pass through the next available door.</li>
+    <li>Walk in the direction with the greatest number of EXIT signs, but do not pass through any doors.</li>
+    <li>Pass through a light green door. Walk downwards as far as possible.</li>
+    <li>Walk through the door in front of you, turn right, and walk until you are surrounded on both sides by electrical devices.</li>
+    <li>Turn right. </li>
+    <li>Walk forward to the wall, squeezing as necessary to fit.</li>
+    <li>Turn left, and walk as far as possible.</li>
+    <li>Turn right at your first possibility, then take an immediate left.</li>
+    <li>Walk to the end of the hallway, then enter a door with EXIT sign above it.</li>
+    <li>Go in the only available direction, and exit as soon as possible.</li>
+    <li>Turn right, walk to the lounge, turn right and exit through two sets of double doors.</li>
+    <li>Walk halfway and turn right.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan G</b></div>
+
+  <ol>
+    <li>On the left wall is a sign with red text.  Note the seventh letter on the second line.</li>
+    <li>Pass through the double doors until you reach a 4-way intersection.</li>
+    <li>Choose the path forward and follow it until you reach gold.</li>
+    <li>Go up one floor.</li>
+    <li>Turn left.</li>
+    <li>Proceed forward, then turn left at the next intersection.</li>
+    <li>Proceed forward, then turn right at the next intersection.</li>
+    <li>Continue straight ahead until you can&rsquo;t anymore.</li>
+    <li>Turn left.</li>
+    <li>Continue straight ahead until you can&rsquo;t anymore.</li>
+    <li>Go up one floor.</li>
+    <li>Continue straight ahead until you can&rsquo;t anymore.</li>
+    <li>Take the first available left, and continue until a three-way intersection.</li>
+    <li>Take the right path and proceed forward until you can&rsquo;t any more.</li>
+    <li>Exit and walk north.</li>
+    <li>From here you can see a vehicle. Walk in that direction until you are in between two television screens.</li>
+    <li>Walk towards the nearest exit but do not pass through it.</li>
+    <li>Turn left, and walk forward.</li>
+    <li>At a cosmic disturbance, continue forward and pass through a wooden door.</li>
+    <li>Turn right and walk as far as possible without passing through any doors.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan H</b></div>
+
+  <ol>
+    <li>On the wall in front of you is an arrow. Note the seventh letter in the longest word on the arrow.</li>
+    <li>Turn left.</li>
+    <li>Go straight ahead as far as you can.</li>
+    <li>Turn left and go through the red door.</li>
+    <li>Walk up two flights of stairs.</li>
+    <li>Exit and go towards the visible red light.</li>
+    <li>Walk up a half flight of stairs and straight until a four way intersection.</li>
+    <li>At the intersection, turn right.</li>
+    <li>Walk to the nearest stairwell, and head downstairs.</li>
+    <li>Walk towards the nearest phone booth.</li>
+    <li>Turn left and walk until the hallway ends.</li>
+    <li>Enter the stairwell and go up five floors.</li>
+    <li>Exit to the right out of the stairwell, and walk as far as possible without turning.</li>
+    <li>Walk to the nearest three-way intersection visible from here.</li>
+    <li>Take the left path.</li>
+    <li>Turn right when next possible and go down 1 floor.</li>
+    <li>Turn right.</li>
+    <li>Walk forward until you can see strange artwork to your left.</li>
+    <li>Turn around, and walk to the green door.</li>
+    <li>Go through the door and turn south.</li>
+    <li>Walk to the elevators, and go down three floors.</li>
+    <li>Exit the elevator and make a right followed by another right.</li>
+    <li>Walk as far as possible and turn left.</li>
+    <li>Press the button.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan I</b></div>
+
+  <ol>
+    <li>Note the middle letter of the hazard ahead of you.</li>
+    <li>Turn right and pass through the double doors.</li>
+    <li>Pass through the double doors.</li>
+    <li>Follow the corridor until you reach a stairway.</li>
+    <li>Continue through the double doors, then walk past nine overhead light fixtures.</li>
+    <li>Turn right and take the stairs up.</li>
+    <li>Continue forward.</li>
+    <li>Turn left.</li>
+    <li>Continue forward as far as possible.</li>
+    <li>Exit through the automatic doors.</li>
+    <li>Walk down the stairs.</li>
+    <li>Cross the street.</li>
+    <li>Walk forward, passing a map on your right.</li>
+    <li>Turn 45 degrees to the right.</li>
+    <li>Walk up the stairs and enter the nearest building.</li>
+    <li>Walk down a ramp, exiting to the right.</li>
+    <li>Walk to the nearest elevator and go down to the bottom-most floor.</li>
+    <li>Exit the elevator and go up 2 flights of stairs, taking the north staircase where possible.</li>
+    <li>Turn right.</li>
+    <li>Walk straight as far as possible.</li>
+    <li>Turn left.</li>
+    <li>Walk straight as far as possible.</li>
+    <li>Walk down a short ramp.</li>
+    <li>Turn right and walk towards the lights.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan J</b></div>
+  
+  <ol>
+    <li>There are four names on the door to the left of you.  Note the first initial of the first person on that door.</li>
+    <li>Continue down the hallways just past the next exit sign and through the double doors.</li>
+    <li>Turn left and ascend two floors.</li>
+    <li>Turn right and take the elevator to the third floor.</li>
+    <li>Exit the elevator and continue straight until you are under a blue light.</li>
+    <li>Turn left, and walk straight.</li>
+    <li>Make a quick right turn followed by a left turn.</li>
+    <li>Walk down a short ramp until a three-way intersection.</li>
+    <li>Turn right and walk as far as possible.</li>
+    <li>Turn left.</li>
+    <li>Walk straight as far as possible.</li>
+    <li>Enter the red door.</li>
+    <li>Go down 1 flight of stairs.</li>
+    <li>Exit through the white door.</li>
+    <li>Walk straight as far as possible, and turn left.</li>
+    <li>Walk forward, and take the next right.</li>
+    <li>Walk forward down a ramp.</li>
+    <li>Turn right and walk forward.</li>
+    <li>At the four-way intersection, walk straight.</li>
+    <li>Locate the nearest vending machines and walk in that direction.</li>
+    <li>At the next intersection turn right.</li>
+    <li>Walk up one flight of stairs.</li>
+    <li>Turn left and enter the elevator.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan K</b></div>
+
+  <ol>
+    <li>Above the double doors to your right are metallic letters.  Note the first one.</li>
+    <li>Turn left.</li>
+    <li>Walk straight ahead, then turn right when you can.</li>
+    <li>Continue straight ahead until you see glass double doors on the right.</li>
+    <li>Turn left.</li>
+    <li>Walk straight ahead through two pairs of double doors.</li>
+    <li>Follow the corridor as it bends until you pass a whiteboard.</li>
+    <li>Take the next right.</li>
+    <li>Walk straight ahead until you reach a break room across from the elevators.</li>
+    <li>Continue straight ahead, passing one chalkboard on the left and five on the right.</li>
+    <li>Go up six floors.</li>
+    <li>Turn to the west.</li>
+    <li>Walk straight ahead as far as you can.</li>
+    <li>Turn left.</li>
+    <li>Go forward, passing two stars on your right.</li>
+    <li>Take the next available right.</li>
+    <li>Walk straight as far as possible.</li>
+    <li>Enter the elevator and go to the top floor.</li>
+    <li>Exit and turn left.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan L</b></div>
+
+  <ol>
+    <li>To your left, there is a yellow sign.  Note the first letter of the second word in smallest type.</li>
+    <li>Continue straight ahead and stop at the double doors.</li>
+    <li>Continue straight ahead into the next building.</li>
+    <li>Head down the stairs one floor.</li>
+    <li>Head down the stairs another floor.</li>
+    <li>Take the elevator down to the first floor.</li>
+    <li>Walk east until you reach a revolving door.</li>
+    <li>Go through the non-revolving door.</li>
+    <li>Cross the street.</li>
+    <li>Walk up the stairs.</li>
+    <li>Walk straight ahead until you reach a glass wall.</li>
+    <li>Go through the revolving door.</li>
+    <li>Go down the stairs.</li>
+    <li>Purchase a snack.</li>
+    <li>Walk down the west corridor.</li>
+    <li>Turn right.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan M</b></div>
+
+  <ol>
+    <li>On your left, there is a black and white sign.  Take the second letter of the word before 3.</li>
+    <li>Go through the door to your left.</li>
+    <li>Descend two floors.</li>
+    <li>Go through the door.</li>
+    <li>Turn left.</li>
+    <li>Continue straight ahead until you come to a set of couches.</li>
+    <li>Sit on the red couch.  Admire the blue and orange couches from a distance.</li>
+    <li>Go to the nearby elevator.</li>
+    <li>Take the elevator down three floors.</li>
+    <li>Exit the elevator.</li>
+    <li>Go straight ahead down the hallway directly in front of you.</li>
+    <li>Enter the stairway.</li>
+    <li>Go down one floor.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan N</b></div>
+
+  <ol>
+    <li>In front of you, there is a letter written once in purple and once in orange.  Note that letter.</li>
+    <li>Turn left about 135 degrees.</li>
+    <li>Walk down the hallway until you are underneath a square of lights.</li>
+    <li>Turn left about 135 degrees.</li>
+    <li>Walk straight ahead about ten feet.</li>
+    <li>Turn left.</li>
+    <li>Take a drink of water.</li>
+    <li>Turn left.</li>
+    <li>Walk straight ahead about ten feet to rejoin the main corridor.</li>
+    <li>Turn left about 45 degrees.</li>
+    <li>Walk straight ahead until you are underneath the next square of lights.</li>
+    <li>Turn left about 135 degrees.</li>
+    <li>Walk straight ahead about ten feet and take a drink.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan O</b></div>
+
+  <ol>
+    <li>On the wall behind you is a bulletin board.  Look at the top left sign, and note the first letter of the second word printed in gold.</li>
+    <li>Turn counterclockwise 225 degrees.</li>
+    <li>Walk straight ahead until you are under the third square of lights.</li>
+    <li>Walk straight ahead through the double doors.</li>
+    <li>Go down the stairs.</li>
+    <li>Walk west down the corridor until you come to a stairway.</li>
+    <li>Turn right, go straight ahead, then turn left.</li>
+    <li>Walk straight ahead into a corridor with glass on both sides.</li>
+    <li>Exit through the right door.</li>
+    <li>Walk as straight as you can until you reach a bunch of concentric arcs.</li>
+    <li>Turn left and enter the arcs.</li>
+    <li>Climb to the top.</li>
+    <li>Follow the brick road.</li>
+    <li>Go down the stairs.</li>
+    <li>Turn right.</li>
+    <li>When you reach construction, turn right and go through the next door.</li>
+    <li>Turn left and go through the door.</li>
+    <li>Ascend two floors.</li>
+    <li>Open the door.</li>
+    <li>Get on the floor.</li>
+    <li>Walk the dinosaur.</li>
+    <li>Head north down the corridor until you reach a laser sign.</li>
+    <li>Note the name on the door to your right.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan P</b></div>
+
+  <ol>
+    <li>Ahead of you, there is a printed sign hanging from the ceiling.  Note the last letter of the word nearest to the arrow.</li>
+    <li>Descend to the bottom.</li>
+    <li>Turn left.</li>
+    <li>Go through the double doors.</li>
+    <li>Walk straight ahead until you reach the vending machines.</li>
+    <li>Turn left.</li>
+    <li>Take the elevator to the eighth floor.</li>
+    <li>Turn right.</li>
+    <li>Walk straight ahead until you can&rsquo;t go any further.</li>
+    <li>Turn right and go through the door.</li>
+    <li>Descend four floors.</li>
+  </ol>
+</div>
+
+<div class="plan">
+  <div class="subheader"><b>Plan Ω</b></div>
+
+  <ol>
+    <li>Turn left.</li>
+    <li>Walk straight ahead through two sets of double doors.</li>
+    <li>Continue up the ramp until you reach the T intersection.</li>
+    <li>Turn right and continue to the instructions.</li>
+    <li>Follow the pointing finger.</li>
+  </ol>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_flavortext_block %}
+<p>A little while ago, an upperclassman went off to scout for the hack. However, she was really sleep-deprived, and came back with&hellip; something. (She&rsquo;s resting now. Don&rsquo;t disturb her.) So we need you to retrace her steps.</p>
+
+<p>Thankfully, you&rsquo;ve got two advantages: (a little) more sleep, and your handy-dandy <code>EXOSKELETON</code>! The exoskeleton will allow you to jump exactly two stories upwards in a single bound. (But you can&rsquo;t jump through ceilings&mdash;remember to leave everything as you found it!)</p>
+{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .header {
+    font-size: 1.5em;
+  }
+
+  .puzzle-content img {
+    width: 100%;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="header"><b>The Upperclassman&rsquo;s Notes</b></div>
+<a href="{{ asset_url_for('puzzles/scouting_challenge/01.png') }}" target="_blank"><img {{ img_src_for('puzzles/scouting_challenge/01.png') }} ></a>
+<a href="{{ asset_url_for('puzzles/scouting_challenge/02.png') }}" target="_blank"><img {{ img_src_for('puzzles/scouting_challenge/02.png') }} ></a>
+<a href="{{ asset_url_for('puzzles/scouting_challenge/03.png') }}" target="_blank"><img {{ img_src_for('puzzles/scouting_challenge/03.png') }} ></a>
+<a href="{{ asset_url_for('puzzles/scouting_challenge/04.png') }}" target="_blank"><img {{ img_src_for('puzzles/scouting_challenge/04.png') }} ></a>
+<a href="{{ asset_url_for('puzzles/scouting_challenge/05.png') }}" target="_blank"><img {{ img_src_for('puzzles/scouting_challenge/05.png') }} ></a>
+<a href="{{ asset_url_for('puzzles/scouting_challenge/06.png') }}" target="_blank"><img {{ img_src_for('puzzles/scouting_challenge/06.png') }} ></a>
+<a href="{{ asset_url_for('puzzles/scouting_challenge/07.png') }}" target="_blank"><img {{ img_src_for('puzzles/scouting_challenge/07.png') }} ></a>
+<a href="{{ asset_url_for('puzzles/scouting_challenge/08.png') }}" target="_blank"><img {{ img_src_for('puzzles/scouting_challenge/08.png') }} ></a>
+<a href="{{ asset_url_for('puzzles/scouting_challenge/09.png') }}" target="_blank"><img {{ img_src_for('puzzles/scouting_challenge/09.png') }} ></a>
+<a href="{{ asset_url_for('puzzles/scouting_challenge/10.png') }}" target="_blank"><img {{ img_src_for('puzzles/scouting_challenge/10.png') }} ></a>
+<hr>
+<div class="header"><b>Instructions</b></div>
+<p>Start in lobby 7. Enter the elevator and go up to the second floor. Exit the elevator and follow the path to the right. Turn left as soon as you can, passing through the double doors. Continue straight down the corridor, and turn right as soon as you can.</p>
+
+<p>You&rsquo;ll pass a stairway on your left. Walk straight ahead down the hallway. (At some point, you&rsquo;ll pass a display case with animals in it.) Then, you&rsquo;ll reach a park. Do not enter the park. Do not take the stairs. Follow the hallway on the same floor instead as it bends, until you reach a T intersection.</p>
+
+<p>Turn left at the T. Follow that corridor as it zig-zags, and pass through two sets of double doors. Then immediately turn left. Continue down the corridor until you reach another double door, but do not pass through it. Instead, take the stairs down one floor.</p>
+
+<p>Take the left door to exit the stairs. Then, pass through the single door. Walk forwards through another single door. Ignore the stairs on your left and the exit on the right and continue (mostly) straight, and follow the corridor as it turns right. Continue straight ahead until you pop.</p>
+
+<p>Don&rsquo;t stop, though&mdash;turn right and then immediately turn left. Continue straight ahead, ignore the stairs, and continue on the same floor. Keep going until you find yourself in an open area, beneath a massive eye. Continue straight ahead.</p>
+
+<p>Pass into a hallway with a red wall on the left. Walk straight ahead through the glass doors (press the button on the left wall if necessary.) Take the first right, then the first left, then the first left, then the first right.</p>
+
+<p>Walk straight ahead and turn right. Press your face into the glass and look down. Then remove your face from the glass and continue down the hallway. At the end of the hallway, take a quick left, then a right.</p>
+
+<p>Turn right at the airport, then left. Continue down the hallway as straight as possible, passing through a set of double doors. Pass straight through the archway. Look left, but then turn right and go to the end of the hallway. Turn right. Go up a flight of stairs and look through the window at your domain.</p>
+{% endblock %}

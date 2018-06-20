@@ -1,0 +1,794 @@
+{% extends "solutions/solution_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Robin Deits, Jesse Moeller, Ariel Schwartz, Henry Wong{% endblock %}
+{% block solution %}ARGUE OVER{% endblock %}
+
+{% block solution_head_block %}
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/crossword.css') }}">
+<style>
+  .puzzle-content .highlighted {
+    background-color: pink;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<table class="crossword">
+  <tr>
+    <td class="numbered highlighted">
+      D
+    </td>
+    <td class="numbered">
+      T
+    </td>
+    <td class="numbered">
+      S
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      F
+    </td>
+    <td class="numbered highlighted">
+      R
+    </td>
+    <td class="numbered highlighted">
+      A
+    </td>
+    <td class="numbered highlighted">
+      K
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered">
+      A
+    </td>
+    <td class="numbered highlighted">
+      B
+    </td>
+    <td class="numbered">
+      A
+    </td>
+    <td class="numbered highlighted">
+      S
+    </td>
+    <td class="numbered">
+      H
+    </td>
+  </tr>
+  <tr>
+    <td class="numbered highlighted">
+      R
+    </td>
+    <td class="highlighted">
+      A
+    </td>
+    <td class="highlighted">
+      T
+    </td>
+    <td class="numbered highlighted">
+      S
+    </td>
+    <td class="filled"></td>
+    <td class="numbered">
+      A
+    </td>
+    <td>
+      A
+    </td>
+    <td class="highlighted">
+      R
+    </td>
+    <td>
+      E
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered">
+      B
+    </td>
+    <td>
+      O
+    </td>
+    <td class="highlighted">
+      U
+    </td>
+    <td>
+      R
+    </td>
+    <td class="highlighted">
+      N
+    </td>
+    <td>
+      E
+    </td>
+  </tr>
+  <tr>
+    <td class="numbered highlighted">
+      A
+    </td>
+    <td>
+      B
+    </td>
+    <td>
+      U
+    </td>
+    <td>
+      T
+    </td>
+    <td class="filled"></td>
+    <td class="numbered">
+      N
+    </td>
+    <td>
+      O
+    </td>
+    <td class="highlighted">
+      S
+    </td>
+    <td>
+      Y
+    </td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      B
+    </td>
+    <td class="highlighted">
+      E
+    </td>
+    <td class="highlighted">
+      L
+    </td>
+    <td class="highlighted">
+      G
+    </td>
+    <td class="highlighted">
+      I
+    </td>
+    <td class="highlighted">
+      U
+    </td>
+    <td class="highlighted">
+      M
+    </td>
+  </tr>
+  <tr>
+    <td class="numbered highlighted">
+      T
+    </td>
+    <td>
+      U
+    </td>
+    <td>
+      N
+    </td>
+    <td>
+      A
+    </td>
+    <td class="filled"></td>
+    <td class="numbered">
+      T
+    </td>
+    <td>
+      U
+    </td>
+    <td class="highlighted">
+      E
+    </td>
+    <td>
+      S
+    </td>
+    <td class="numbered">
+      D
+    </td>
+    <td>
+      A
+    </td>
+    <td>
+      Y
+    </td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      G
+    </td>
+    <td>
+      A
+    </td>
+    <td class="highlighted">
+      S
+    </td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered">
+      G
+    </td>
+    <td class="numbered highlighted">
+      C
+    </td>
+    <td>
+      A
+    </td>
+    <td>
+      L
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered">
+      E
+    </td>
+    <td>
+      S
+    </td>
+    <td>
+      S
+    </td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      E
+    </td>
+    <td>
+      R
+    </td>
+    <td class="highlighted">
+      N
+    </td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="numbered">
+      F
+    </td>
+    <td class="numbered">
+      E
+    </td>
+    <td class="numbered">
+      W
+    </td>
+    <td>
+      E
+    </td>
+    <td class="highlighted">
+      R
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered">
+      P
+    </td>
+    <td>
+      C
+    </td>
+    <td>
+      S
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      R
+    </td>
+    <td>
+      Y
+    </td>
+    <td class="highlighted">
+      U
+    </td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="numbered">
+      E
+    </td>
+    <td>
+      C
+    </td>
+    <td>
+      O
+    </td>
+    <td>
+      L
+    </td>
+    <td class="highlighted">
+      I
+    </td>
+    <td class="filled"></td>
+    <td class="numbered">
+      S
+    </td>
+    <td class="numbered">
+      C
+    </td>
+    <td>
+      H
+    </td>
+    <td>
+      O
+    </td>
+    <td>
+      O
+    </td>
+    <td class="numbered">
+      L
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="numbered">
+      A
+    </td>
+    <td>
+      R
+    </td>
+    <td>
+      L
+    </td>
+    <td>
+      E
+    </td>
+    <td class="highlighted">
+      P
+    </td>
+    <td class="numbered">
+      E
+    </td>
+    <td>
+      N
+    </td>
+    <td>
+      N
+    </td>
+    <td>
+      Y
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered">
+      A
+    </td>
+    <td class="numbered highlighted">
+      G
+    </td>
+    <td class="numbered">
+      A
+    </td>
+    <td class="numbered">
+      R
+    </td>
+    <td class="numbered">
+      I
+    </td>
+    <td class="numbered">
+      C
+    </td>
+  </tr>
+  <tr class="highlighted">
+    <td class="numbered">
+      S
+    </td>
+    <td>
+      U
+    </td>
+    <td>
+      F
+    </td>
+    <td>
+      F
+    </td>
+    <td>
+      E
+    </td>
+    <td>
+      R
+    </td>
+    <td>
+      I
+    </td>
+    <td>
+      N
+    </td>
+    <td>
+      S
+    </td>
+    <td class="numbered">
+      U
+    </td>
+    <td class="numbered">
+      C
+    </td>
+    <td>
+      C
+    </td>
+    <td>
+      O
+    </td>
+    <td>
+      T
+    </td>
+    <td>
+      A
+    </td>
+    <td>
+      S
+    </td>
+    <td>
+      H
+    </td>
+  </tr>
+  <tr>
+    <td class="numbered">
+      T
+    </td>
+    <td>
+      S
+    </td>
+    <td>
+      E
+    </td>
+    <td>
+      T
+    </td>
+    <td class="highlighted">
+      S
+    </td>
+    <td>
+      E
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered">
+      I
+    </td>
+    <td>
+      N
+    </td>
+    <td>
+      F
+    </td>
+    <td>
+      E
+    </td>
+    <td class="highlighted">
+      R
+    </td>
+    <td>
+      T
+    </td>
+    <td>
+      I
+    </td>
+    <td>
+      L
+    </td>
+    <td>
+      E
+    </td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered">
+      S
+    </td>
+    <td class="numbered">
+      I
+    </td>
+    <td class="numbered">
+      T
+    </td>
+    <td>
+      C
+    </td>
+    <td>
+      O
+    </td>
+    <td>
+      M
+    </td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      R
+    </td>
+    <td>
+      E
+    </td>
+    <td>
+      T
+    </td>
+    <td>
+      A
+    </td>
+    <td>
+      R
+    </td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td class="numbered">
+      L
+    </td>
+    <td class="numbered">
+      A
+    </td>
+    <td class="numbered highlighted">
+      B
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered">
+      D
+    </td>
+    <td>
+      I
+    </td>
+    <td>
+      S
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      A
+    </td>
+    <td>
+      M
+    </td>
+    <td>
+      A
+    </td>
+    <td>
+      S
+    </td>
+    <td>
+      S
+    </td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td class="numbered">
+      A
+    </td>
+    <td>
+      L
+    </td>
+    <td class="highlighted">
+      Y
+    </td>
+    <td class="filled"></td>
+    <td class="numbered">
+      S
+    </td>
+    <td>
+      O
+    </td>
+    <td>
+      N
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered">
+      R
+    </td>
+    <td class="numbered">
+      A
+    </td>
+    <td class="highlighted">
+      M
+    </td>
+    <td>
+      P
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+  </tr>
+  <tr>
+    <td class="filled"></td>
+    <td class="numbered">
+      P
+    </td>
+    <td>
+      B
+    </td>
+    <td class="highlighted">
+      J
+    </td>
+    <td class="filled"></td>
+    <td class="numbered">
+      C
+    </td>
+    <td>
+      L
+    </td>
+    <td>
+      A
+    </td>
+    <td class="numbered highlighted">
+      S
+    </td>
+    <td class="numbered">
+      S
+    </td>
+    <td>
+      E
+    </td>
+    <td>
+      S
+    </td>
+    <td class="filled"></td>
+    <td class="numbered">
+      T
+    </td>
+    <td class="numbered highlighted">
+      Z
+    </td>
+    <td class="numbered">
+      A
+    </td>
+    <td class="numbered">
+      R
+    </td>
+  </tr>
+  <tr>
+    <td class="numbered">
+      A
+    </td>
+    <td>
+      R
+    </td>
+    <td>
+      E
+    </td>
+    <td class="highlighted">
+      O
+    </td>
+    <td class="numbered">
+      L
+    </td>
+    <td>
+      A
+    </td>
+    <td>
+      S
+    </td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      M
+    </td>
+    <td>
+      A
+    </td>
+    <td>
+      G
+    </td>
+    <td>
+      I
+    </td>
+    <td class="filled"></td>
+    <td class="numbered">
+      E
+    </td>
+    <td class="highlighted">
+      A
+    </td>
+    <td>
+      V
+    </td>
+    <td>
+      E
+    </td>
+  </tr>
+  <tr>
+    <td class="numbered highlighted">
+      D
+    </td>
+    <td class="highlighted">
+      A
+    </td>
+    <td class="highlighted">
+      R
+    </td>
+    <td class="highlighted">
+      V
+    </td>
+    <td class="highlighted">
+      I
+    </td>
+    <td class="highlighted">
+      T
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      E
+    </td>
+    <td class="highlighted">
+      G
+    </td>
+    <td class="highlighted">
+      A
+    </td>
+    <td class="highlighted">
+      D
+    </td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      D
+    </td>
+    <td class="highlighted">
+      R
+    </td>
+    <td class="highlighted">
+      E
+    </td>
+    <td class="highlighted">
+      N
+    </td>
+  </tr>
+  <tr>
+    <td class="numbered">
+      E
+    </td>
+    <td>
+      S
+    </td>
+    <td>
+      T
+    </td>
+    <td class="highlighted">
+      E
+    </td>
+    <td>
+      E
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      G
+    </td>
+    <td>
+      A
+    </td>
+    <td>
+      L
+    </td>
+    <td>
+      E
+    </td>
+    <td class="filled"></td>
+    <td class="filled"></td>
+    <td class="numbered highlighted">
+      K
+    </td>
+    <td>
+      S
+    </td>
+    <td>
+      U
+    </td>
+  </tr>
+</table>
+
+<p>In this puzzle, a number of clues have been replaced with an angry face emoji.
+These clues all correspond to fictional or softened versions of vulgar words.
+Taking the intersection between the angry words and reading in standard crossword
+order results in something you could do with angry words, which is the answer:
+<strong><code>ARGUE OVER</code></strong>.</p>
+{% endblock %}

@@ -1,0 +1,390 @@
+{% extends "base.html" %}
+
+{% import 'bigboard_macros.html' as bigboard %}
+
+{% macro display_name(puzzle) %}
+  {%- if puzzle.puzzleProperties.DisplayNameProperty -%}
+    {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}
+  {%- else -%}
+    {{ puzzle.puzzleId }}
+  {%- endif -%}
+{% endmacro %}
+
+{% block page_body %}
+{% set editable = is_authorized('teams:update:%s' % team.teamId) %}
+<div class="ha-control-boxes-container">
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Change Contact Info
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+      <label>
+        Team Name
+        <input type="text" name="teamName" value="{{ team.teamName }}" {% if not editable %}disabled{% endif %}>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" value="{{ team.email }}" {% if not editable %}disabled{% endif %}>
+      </label>
+      <label>
+        Password
+        <input type="text" name="password" value="" placeholder="********" {% if not editable %}disabled{% endif %}>
+      </label>
+      <label>
+        Headquarters
+        <input type="text" name="headquarters" value="{{ team.headquarters }}" {% if not editable %}disabled{% endif %}>
+      </label>
+      <label>
+        Primary Phone
+        <input type="text" name="primaryPhone" value="{{ team.primaryPhone }}" {% if not editable %}disabled{% endif %}>
+      </label>
+      <label>
+        Secondary Phone
+        <input type="text" name="secondaryPhone" value="{{ team.secondaryPhone }}" {% if not editable %}disabled{% endif %}>
+      </label>
+    </div>
+    <input type="hidden" name="action" value="ChangeContactInfo">
+    <input type="submit" value="Change Contact Info" {% if not editable %}disabled{% endif %}>
+  </form>
+
+  {% if is_authorized('visibilities:update:%s' % team.teamId) %}
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Complete Emotion Encounter
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    {% for puzzleId in round_puzzle_map.EMOTION_INTERACTIONS %}
+    <div>
+      {% set allow = completeable_puzzle_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'UNLOCKED' %}
+      <input
+         type="button"
+         value="Yes, I'm sure"
+         onclick="document.getElementById('{{ puzzleId }}_button').removeAttribute('disabled')"
+         {% if not allow %}disabled{% endif %}
+      >
+      <button
+         id="{{ puzzleId }}_button"
+         type="submit"
+         name="puzzleId"
+         value="{{ puzzleId }}"
+         disabled>
+        {{ display_name(puzzles[puzzleId]) }}
+      </button>
+    </div>
+    {% endfor %}
+    <input type="hidden" name="action" value="SetPuzzleStatus">
+    <input type="hidden" name="actionType" value="Solve">
+  </form>
+
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Unlock Island
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    {% for puzzleId, placeholder in round_puzzle_map.ISLANDS_AND_PLACEHOLDERS %}
+    <div>
+      {% set allow = completeable_puzzle_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'INVISIBLE' %}
+      {% set allIslandsOpen = brainpower_thresholds|length <= open_islands|length %}
+      {% set sufficientBrainpower = not allIslandsOpen and team.get('teamProperties',{}).get('ScoresProperty',{}).get('scores',{}).get('BRAINPOWER') >= brainpower_thresholds[open_islands|length] %}
+      <input
+         type="button"
+         value="{% if sufficientBrainpower %}Yes, I'm sure{% elif allIslandsOpen %}All islands open!{% else %}Insufficient Brainpower{% endif %}"
+         onclick="document.getElementById('{{ puzzleId }}_button').removeAttribute('disabled')"
+         {% if not allow or not sufficientBrainpower %}disabled{% endif %}
+      >
+      <button
+          id="{{ puzzleId }}_button"
+          type="submit"
+          name="puzzleId"
+          value="{{ puzzleId }}"
+          disabled>
+        Unlock {{ placeholder|capitalize }} Island ({{ display_name(puzzles[puzzleId]) }})
+      </button>
+    </div>
+    {% endfor %}
+    <input type="hidden" name="action" value="SetPuzzleStatus">
+    <input type="hidden" name="actionType" value="Unlock">
+  </form>
+
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Complete Core Memory Recovery
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    {% for puzzleId in round_puzzle_map.ISLAND_RECOVERY_INTERACTIONS %}
+      <div>
+        {% set allow = completeable_puzzle_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'UNLOCKED' %}
+        <input
+            type="button"
+            value="Yes, I'm sure"
+            onclick="document.getElementById('{{ puzzleId }}_button').removeAttribute('disabled')"
+            {% if not allow %}disabled{% endif %}
+        >
+        <button
+            id="{{ puzzleId }}_button"
+            type="submit"
+            name="puzzleId"
+            value="{{ puzzleId }}"
+            disabled>
+          {{ display_name(puzzles[puzzleId]) }}
+        </button>
+      </div>
+    {% endfor %}
+    <input type="hidden" name="action" value="SetPuzzleStatus">
+    <input type="hidden" name="actionType" value="Solve">
+  </form>
+
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Complete Event
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    {% for event in round_puzzle_map.EVENTS %}
+    <div>
+      {% set puzzleId = event %}
+      {% set allow = completeable_puzzle_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'UNLOCKED' %}
+      <input
+         type="button"
+         value="Yes, I'm sure"
+         onclick="document.getElementById('{{ puzzleId }}_button').removeAttribute('disabled')"
+         {% if not allow %}disabled{% endif %}
+      >
+      <button
+         id="{{ puzzleId }}_button"
+         type="submit"
+         name="puzzleId"
+         value="{{ puzzleId }}"
+         disabled>
+        Complete {{ display_name(puzzles[puzzleId]) }}
+      </button>
+    </div>
+    {% endfor %}
+    <input type="hidden" name="action" value="SetPuzzleStatus">
+    <input type="hidden" name="actionType" value="Solve">
+  </form>
+
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Complete Finale
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    {% for endgame in round_puzzle_map.FINALES %}
+    <div>
+      {% set puzzleId = endgame %}
+      {% set allow = completeable_puzzle_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'UNLOCKED' %}
+      <input
+         type="button"
+         value="Yes, I'm sure"
+         onclick="document.getElementById('{{ puzzleId }}_button').removeAttribute('disabled')"
+         {% if not allow %}disabled{% endif %}
+      >
+      <button
+         id="{{ puzzleId }}_button"
+         type="submit"
+         name="puzzleId"
+         value="{{ puzzleId }}"
+         disabled>
+        Complete {{ display_name(puzzles[puzzleId]) }}
+      </button>
+    </div>
+    {% endfor %}
+    <input type="hidden" name="action" value="SetPuzzleStatus">
+    <input type="hidden" name="actionType" value="Solve">
+  </form>
+  {% endif %}
+
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Set Special Puzzle Status
+    </span>
+    <div class="ha-labeled-input-form">
+      {% set allow = completeable_puzzle_visibilities.get('pokemon-unevolved-10', {}).get('status', 'INVISIBLE') == 'UNLOCKED' %}
+      <input
+        type="button"
+        value="Yes, I'm sure"
+        onclick="document.getElementById('go_button').removeAttribute('disabled')"
+        {% if not allow %}disabled{% endif %}
+      >
+      <button
+         id="go_button"
+         type="submit"
+         name="action"
+         value="GoContentDelivered"
+         disabled>
+        Go! materials delivered
+      </button>
+    </div>
+  </form>
+
+  {% if is_authorized('events:create:GrantScoreEvent') %}
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Grant Brainpower
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    <input type="hidden" name="action" value="GrantScore">
+    <input type="hidden" name="scoreType" value="BRAINPOWER">
+    <div>
+      <input type="button" value="Yes, I'm sure" onclick="$('.brainpowerButton').removeAttr('disabled')">
+    </div>
+    <div>
+      <button class="brainpowerButton" type="submit" name="scoreAmount" value="50" disabled>50 BP</button>
+      <button class="brainpowerButton" type="submit" name="scoreAmount" value="100" disabled>100 BP</button>
+      <button class="brainpowerButton" type="submit" name="scoreAmount" value="500" disabled>500 BP</button>
+      <button class="brainpowerButton" type="submit" name="scoreAmount" value="1000" disabled>1000 BP</button>
+    </div>
+  </form>
+
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Grant Buzzy Bucks
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    <input type="hidden" name="action" value="GrantScore">
+    <input type="hidden" name="scoreType" value="BUZZY_BUCKS">
+    <div>
+      <input type="button" value="Yes, I'm sure" onclick="$('.buzzyBucksButton').removeAttr('disabled')">
+    </div>
+    <div>
+      <button class="buzzyBucksButton" type="submit" name="scoreAmount" value="5000" disabled>B$5K</button>
+      <button class="buzzyBucksButton" type="submit" name="scoreAmount" value="10000" disabled>B$10K</button>
+      <button class="buzzyBucksButton" type="submit" name="scoreAmount" value="20000" disabled>B$20K</button>
+      <button class="buzzyBucksButton" type="submit" name="scoreAmount" value="50000" disabled>B$50K</button>
+    </div>
+  </form>
+  {% endif %}
+
+  {#
+  Technically, anyone with visibility update access can use the below
+  form, but we really only want admin users using it for safety
+  reasons. So we'll check for a permission that only admins have
+  (event creation).
+  #}
+  {% if is_authorized('events:create:*') %}
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Set Puzzle Status
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+      <label>
+        Puzzle
+        <select name="puzzleId">
+          {% for puzzle in puzzles.values()|sort(attribute='puzzleProperties.DisplayNameProperty') %}
+            <option value="{{ puzzle.puzzleId }}">{{ display_name(puzzle) }}</option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+    <input type="hidden" name="action" value="SetPuzzleStatus">
+    <div>
+      <input type="button" value="Yes, I'm sure" onclick="document.getElementById('unlockButton').removeAttribute('disabled')">
+      <input id="unlockButton" type="submit" name="actionType" value="Unlock" disabled>
+    </div>
+    <div>
+      <input type="button" value="Yes, I'm sure" onclick="document.getElementById('solveButton').removeAttribute('disabled')">
+      <input id="solveButton" type="submit" name="actionType" value="Solve" disabled>
+    </div>
+  </form>
+
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Trailing Tide release
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Unlock entire round
+      </label>
+      <div>
+        {% set allow = is_hunt_started %}
+        <input
+           type="button"
+           value="Yes, I'm sure"
+           onclick="document.getElementById('release_emo_button').removeAttribute('disabled')"
+           {% if not allow %}disabled{% endif %}
+        >
+        <button
+            id="release_emo_button"
+            type="submit"
+            name="roundPrefix"
+            value="emo"
+            disabled>
+          Full release of Memories
+        </button>
+      </div>
+      {% for puzzleId in round_puzzle_map.ISLAND_IDS %}
+      <div>
+        {% set allow = completeable_puzzle_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'UNLOCKED' %}
+        <input
+           type="button"
+           value="Yes, I'm sure"
+           onclick="document.getElementById('release_{{ puzzleId }}_button').removeAttribute('disabled')"
+           {% if not allow %}disabled{% endif %}
+        >
+        <button
+            id="release_{{ puzzleId }}_button"
+            type="submit"
+            name="roundPrefix"
+            value="{{ puzzleId }}"
+            disabled>
+          Full release of {{ display_name(puzzles[puzzleId]) }}
+        </button>
+      </div>
+      {% endfor %}
+    </div>
+    <input type="hidden" name="action" value="TrailingTideRelease">
+  </form>
+  {% endif %}
+</div>
+
+{{ bigboard.bigboard_team_box(team, puzzles, round_puzzle_map, all_visibilities, scores) }}
+
+{% if team.teamProperties %}
+<div class="ha-page-section">
+  <h3>Team Properties</h3>
+  <pre>{{ team.teamProperties | tojson(indent=2) }}</pre>
+</div>
+{% endif %}
+{% endblock %}

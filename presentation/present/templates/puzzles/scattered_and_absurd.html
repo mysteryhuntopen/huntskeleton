@@ -1,0 +1,153 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/blanks.css') }}">
+<style>
+  .puzzle-content .item {
+    page-break-inside: avoid;
+    margin: 1em 0;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+You&rsquo;re sitting at the bar in a Tennessee barbecue place, when an old boy walks in, reeking of alcohol and sadness. He begins to regale you with all manner of grand ole stories, but you begin to think the man needs to straighten out his facts. 
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="item">
+  <p>&ldquo;My friend G, he was this rodeo cowboy, you know the
+    type. He told me about this one time, he left Amarillo with a
+    broken leg bright and early to go on this trip to San Antonio, but
+    he kept thinking about the place he&rsquo;d just left. Anyway
+    somewhere along the way he found a girlfriend! And then a wife!
+    Then in Santa Fe, his leg finally healed. So he gets to Houston,
+    and there he wins a saddle! Isn&rsquo;t that rich? He didn&rsquo;t
+    think so. But that&rsquo;s how I got my dog back.&rdquo;</p>
+
+  <p>({% call puzzle_macros.blanks() %}_____________O___{% endcall %})</p>
+</div>
+
+<div class="item">
+  <p>&ldquo;Car maintenance? Let me tell you about car
+    maintenance. This girl I knew, call her C, her man had this car
+    that was in terrible shape! This one time, she decides to surprise
+    him. She went over to the garage once while he was out. She
+    re-inflated his flats and rotated his tires. Wouldn&rsquo;t you
+    believe it, both of his headlights were broken, so she replaced
+    them and got them working again. She even went and detailed the
+    insides of the car, and then finally, since she was all worked up
+    and he didn&rsquo;t seem to be coming back yet, went and repainted
+    the whole dang car. What a good friend. He must have been out
+    dancing or drinking or something, which is why he was out for so
+    long. He had no idea! Anywhere, that&rsquo;s how I got my diamond
+    ring back.&rdquo;</p>
+
+  <p>({% call puzzle_macros.blanks() %}O_____________{% endcall %})</p>
+</div>
+
+<div class="item">
+  <p>&ldquo;My friend M told me this one time, about this one
+    story. In a miracle, this ranger brought an outlaw back from the
+    dead. The ranger&mdash;nobody really knew his name, just his
+    gun&mdash;he used one shot and saved him. He headed out of town
+    right afterwards, with his gun on his hip. The other guy, the
+    outlaw, Red was his name. He was this young kid, only 20-something
+    years old, but that one shot changed him for good. After that,
+    some people said Red went on to save 20 lives! And that&rsquo;s
+    how I got my hair back.&rdquo;</p>
+
+  <p>({% call puzzle_macros.blanks() %}__O____{% endcall %})</p>
+</div>
+
+<div class="item">
+  <p>&ldquo;Late this one night, my friend J and his girl head out
+    from her place. At her porch he puts on his boots. Then they go
+    uptown, where she puts on heels and they go dancing, although
+    throughout he just seems to get dustier and dustier. Like a
+    gentleman, he takes her back home, then heads back home, spends 30
+    minutes cleaning up and shaving, and then he gets on a tractor to
+    work &rsquo;til the break of dawn. Long story short, anyway,
+    that&rsquo;s how I got my house back.&rdquo;</p>
+
+  <p>({% call puzzle_macros.blanks() %}O____________{% endcall %})</p>
+</div>
+
+<div class="item">
+  <p>&ldquo;There was a woman I used to know&mdash;her good for
+    nothing husband used to leave her alone at home all the time
+    taking care of the kids. She never got to follow her
+    dreams&mdash;but at least he was rich. Then he lost all his cash,
+    and she divorced him. My buddy T had always had a thing for her,
+    so when he heard about it, he knew he had to win her over. So he
+    came back from Tennessee to visit her and help her out&mdash;the
+    townsfolk didn&rsquo;t look too kindly on her divorce in those
+    days. Someone had painted all over the football field&mdash;her
+    telephone number and &lsquo;Call for a good time&rsquo;! Can you
+    imagine? So he cleaned off the spraypaint, and she fell
+    head-over-heels for him. And that&rsquo;s how I got my best friend Jack
+    back.&rdquo;</p>
+
+  <p>({% call puzzle_macros.blanks() %}____________O____{% endcall %})</p>
+</div>
+
+<div class="item">
+  <p>&ldquo;My friend L, his life was like a typhoon had hit it, or
+    something like that. Late this one night, as this thunderstorm was
+    ending and the night sky came out, he and his ex left her place to
+    head to a bar together in his truck, to talk things out over
+    whiskey. But after they ran into some mutual friends there, they
+    exchanged pleasantries, the wind died down, and he just headed
+    home by himself. And that&rsquo;s how I got my pretty little thing
+    back.&rdquo;</p>
+
+  <p>({% call puzzle_macros.blanks() %}_______O_{% endcall %})</p>
+</div>
+
+<div class="item">
+  <p>&ldquo;My friend M, she had a crazy life growing up. Her mother
+    was a hero! One time, she singlehandedly put out a fire that was
+    engulfing the whole house! Her father could have died in there!
+    She only even found out after the fact, too, because basically
+    everyone in town including M, was away watching the fourth of July
+    parade!  But her father must have suffered something crazy from
+    there, because her parents&rsquo; relationship started to break
+    down and become abusive, and he drank a lot. Anyway, that&rsquo;s
+    sort of the reason for the way she is. Also, that&rsquo;s how I
+    got my front porch swing back.&rdquo;</p>
+
+  <p>({% call puzzle_macros.blanks() %}__________O____{% endcall %})</p>
+</div>
+
+<div class="item">
+  <p>&ldquo;My other friend G told me this story once. One night, his
+    dad goes stir crazy or something, I dunno, and breaks out of jail!
+    Then he sneaks over to this local motel and swipes a truck when
+    nobody&rsquo;s around, backing it carefully out of there in the
+    dead of night! Now what? He starts this sideline business selling
+    all sorts of kitschy romantic stuff, all these roses and wine and
+    all that kind of stuff, and then he and G&rsquo;s ma fell in
+    love. And then he became a long-haul trucker! Anyway, that&rsquo;s
+    how I got my second wife back.&rdquo;</p>
+
+  <p>({% call puzzle_macros.blanks() %}_____O_______{% endcall %})</p>
+</div>
+
+<div class="item">
+  <p>&ldquo;&lsquo;When you think of me, think of Tim.&rsquo; That was
+    on this weird letter that my friend T found on this guy&rsquo;s
+    doorstep. So she took it, and put that letter into storage
+    underneath her bed for like three years. After a month of crying
+    (allergies, I think?) she and this guy got together during the
+    summer, and they now go driving around a lot in his Chevy. What a
+    great love story. That&rsquo;s how I got my truck back.&rdquo;</p>
+
+  <p>({% call puzzle_macros.blanks() %}_______O_{% endcall %})</p>
+</div>
+
+{% endblock %}

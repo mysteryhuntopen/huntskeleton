@@ -1,0 +1,14 @@
+{% extends "overall_layout.html" %}
+
+{% block styling_block %}
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/support.css') }}">
+{% block page_head_block %}{% endblock %}
+{% endblock %}
+
+{% block overall_layout_body %}
+<div class="title-text">{% block screen_name_block %}{% endblock %}</div>
+<div id="main-page-content">
+  {% block page_body %}{% endblock %}
+</div>
+{% endblock %}

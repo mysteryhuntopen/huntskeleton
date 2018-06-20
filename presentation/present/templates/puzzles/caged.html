@@ -1,0 +1,447 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/blanks.css') }}">
+<style>
+  .puzzle-content table {
+    border-collapse: collapse;
+    counter-reset: clue;
+    background-color: white;
+  }
+
+  .puzzle-content td {
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0.25em;
+    border: 1px grey solid;
+    vertical-align: bottom;
+    text-align: right;
+  }
+
+  .puzzle-content table .numbered {
+    position: relative;
+
+    counter-increment: clue;
+  }
+
+  .puzzle-content table .numbered::before {
+    content: counter(clue);
+    font-size: 0.6em;
+    position: absolute;
+    top: 0;
+    left: 0.25em;
+  }
+
+  .puzzle-content table .border-top {
+    border-top: 3px black solid;
+  }
+
+  .puzzle-content table .border-right {
+    border-right: 3px black solid;
+  }
+
+  .puzzle-content table .border-left {
+    border-left: 3px black solid;
+  }
+
+  .puzzle-content table .border-bottom {
+    border-bottom: 3px black solid;
+  }
+
+  .puzzle-content .bar {
+    font-size: 1.5em;
+  }
+
+  .puzzle-content .clues > div {
+    margin-bottom: 1em;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Release your inner animal!
+{% endblock %}
+
+{% block puzzle_content_block %}
+<table>
+  <tr>
+    <td class="numbered border-left border-top">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top border-left">&nbsp;</td>
+    <td class="numbered border-top border-left">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top border-left">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top border-left">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-left">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-top border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-left">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-left">&nbsp;</td>
+    <td class="numbered border-top border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-left">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-left">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-left">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="numbered border-top">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-top border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="numbered border-left">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="">&nbsp;</td>
+    <td class="border-right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="numbered border-left border-bottom">&nbsp;</td>
+    <td class="border-bottom">&nbsp;</td>
+    <td class="border-bottom">&nbsp;</td>
+    <td class="border-bottom">&nbsp;</td>
+    <td class="border-bottom">&nbsp;</td>
+    <td class="numbered border-left border-bottom">&nbsp;</td>
+    <td class="border-bottom">&nbsp;</td>
+    <td class="border-bottom">&nbsp;</td>
+    <td class="numbered border-left border-bottom">&nbsp;</td>
+    <td class="border-bottom">&nbsp;</td>
+    <td class="border-bottom">&nbsp;</td>
+    <td class="border-left border-bottom">&nbsp;</td>
+    <td class="numbered border-left border-bottom">&nbsp;</td>
+    <td class="border-bottom">&nbsp;</td>
+    <td class="border-right border-bottom">&nbsp;</td>
+  </tr>
+</table>
+
+<div>
+  <p>
+    <span>{% call puzzle_macros.blanks() %}________{% endcall %}</span>
+    <span class="bar">|</span>
+    <span>{% call puzzle_macros.blanks() %}________{% endcall %}</span>
+  </p>
+</div>
+
+<div class="clues">
+  <div>
+    <div><b>Across</b></div>
+    <div><b>1.</b> DNC rival</div>
+    <div><b>5.</b> 24/7 medical ctrs.</div>
+    <div><b>8.</b> Maui or Pele, e.g.</div>
+    <div><b>11.</b> David or Robert</div>
+    <div><b>16.</b> Berlin subway</div>
+    <div><b>17.</b> James of The Smashing Pumpkins</div>
+    <div><b>18.</b> 7-foot brother of Marc</div>
+    <div><b>19.</b> Comedia dell&rsquo;___</div>
+    <div><b>20.</b> One getting revenge in 1984</div>
+    <div><b>21.</b> Yankee catcher Posada</div>
+    <div><b>22.</b> &ldquo;Love Story&rdquo; writer Erich</div>
+    <div><b>23.</b> MIT stud. grp. oversight org.</div>
+    <div><b>24.</b> Yoga pose with crossed legs</div>
+    <div><b>26.</b> Atmosphere</div>
+    <div><b>28.</b> Times when one might visit a 50-down</div>
+    <div><b>30.</b> Home of the Mongolian death worm</div>
+    <div><b>32.</b> Burden</div>
+    <div><b>34.</b> Gentle creatures from &ldquo;The Time Machine&rdquo;</div>
+    <div><b>36.</b> Emcees</div>
+    <div><b>38.</b> &ldquo;O Canada&rdquo;, e.g.</div>
+    <div><b>40.</b> Half of 12, in craps</div>
+    <div><b>41.</b> Golden Gloves event</div>
+    <div><b>44.</b> Tests requiring 21 carefully-placed devices (abbr.)</div>
+    <div><b>46.</b> Arthritis sufferer</div>
+    <div><b>49.</b> Rapture</div>
+    <div><b>51.</b> Give a heads-up</div>
+    <div><b>53.</b> Mail</div>
+    <div><b>54.</b> (The) fuzz</div>
+    <div><b>56.</b> Córdoba companions</div>
+    <div><b>59.</b> Birthplace of Yakov Smirnoff</div>
+    <div><b>63.</b> Floor in la maison</div>
+    <div><b>65.</b> Sonic creator</div>
+    <div><b>66.</b> Sower of discord between John and Paul</div>
+    <div><b>68.</b> Whip</div>
+    <div><b>70.</b> Setting for Dvořák&rsquo;s 9th</div>
+    <div><b>73.</b> You should find eight misspelled kinds in the grid</div>
+    <div><b>75.</b> Wee, oui?</div>
+    <div><b>77.</b> Answer to 57-Down</div>
+    <div><b>78.</b> Mayhem</div>
+    <div><b>80.</b> Den supply</div>
+    <div><b>82.</b> Sorghum storer</div>
+    <div><b>84.</b> Giant Hoth craft (abbr.)</div>
+    <div><b>85.</b> Finnish moon goddess</div>
+    <div><b>86.</b> Music game with a floor pad, for short</div>
+    <div><b>87.</b> A mathematician, or homophone of 72-Down</div>
+    <div><b>88.</b> Outdoes</div>
+    <div><b>89.</b> Uno e due</div>
+    <div><b>90.</b> FDA filing before clinical trials</div>
+    <div><b>91.</b> &rsquo;Fore</div>
+  </div>
+  <div>
+    <div><b>Down</b></div>
+    <div><b>1.</b> AK-47, e.g.</div>
+    <div><b>2.</b> Massive</div>
+    <div><b>3.</b> A famous one relies on the non-amenability of SO(3)</div>
+    <div><b>4.</b> Five-year plan? (abbr.)</div>
+    <div><b>5.</b> Delight in</div>
+    <div><b>6.</b> (Run) amok</div>
+    <div><b>7.</b> Gesture of ambivalence</div>
+    <div><b>8.</b> Type of order</div>
+    <div><b>9.</b> Pumped-up org.?</div>
+    <div><b>10.</b> Moniker for a 1947 murder victim, with &ldquo;Black&rdquo;</div>
+    <div><b>11.</b> How stars burn fuel</div>
+    <div><b>12.</b> Carly ___ Jepsen</div>
+    <div><b>13.</b> Cathedral instrument</div>
+    <div><b>14.</b> Lady Liberty, for one</div>
+    <div><b>15.</b> Prefix for photo or marketing</div>
+    <div><b>23.</b> Pseudopod-using organism (var.)</div>
+    <div><b>24.</b> One who is not a member of the clergy</div>
+    <div><b>25.</b> One frequently to be found under the table</div>
+    <div><b>27.</b> &ldquo;Psycho&rdquo; building</div>
+    <div><b>29.</b> Performer of Herculean feats</div>
+    <div><b>31.</b> Org. once helmed by Levine and Ozawa</div>
+    <div><b>33.</b> Txt. fmt.</div>
+    <div><b>35.</b> Nessie&rsquo;s refuge</div>
+    <div><b>36.</b> Guinness symbol</div>
+    <div><b>37.</b> The predecessor to TLS</div>
+    <div><b>39.</b> Tee follower</div>
+    <div><b>41.</b> An obit includes a short one</div>
+    <div><b>42.</b> Utility meter reading</div>
+    <div><b>43.</b> Like house pets</div>
+    <div><b>45.</b> Strong spirit</div>
+    <div><b>47.</b> Speed</div>
+    <div><b>48.</b> Eponymous salt locale</div>
+    <div><b>50.</b> Sauna spot</div>
+    <div><b>52.</b> Boris Godunov and Nicholas Romanov (var.)</div>
+    <div><b>53.</b> Tofu input</div>
+    <div><b>55.</b> Dimwit&rsquo;s brain size</div>
+    <div><b>57.</b> Simple question</div>
+    <div><b>58.</b> Like Mark, but not Paul, originally</div>
+    <div><b>60.</b> Give (to charity)</div>
+    <div><b>61.</b> Huts</div>
+    <div><b>62.</b> No longer in stock</div>
+    <div><b>64.</b> Amt. of vanilla to add, say</div>
+    <div><b>67.</b> Hopi assembly halls</div>
+    <div><b>69.</b> Swiss maiden</div>
+    <div><b>71.</b> Worked in whiteface</div>
+    <div><b>72.</b> Gretzky or Blanda, e.g.</div>
+    <div><b>73.</b> Source of Starbuck&rsquo;s orders?</div>
+    <div><b>74.</b> Worsen, as a relationship</div>
+    <div><b>76.</b> Go bad</div>
+    <div><b>79.</b> Giant masher</div>
+    <div><b>81.</b> Solve this type of eq. with FEM, FVM, or FDM</div>
+    <div><b>82.</b> Kerouac&rsquo;s &ldquo;Big ___ &rdquo;</div>
+    <div><b>83.</b> Chromite, to chromium</div>
+  </div>
+</div>
+{% endblock %}

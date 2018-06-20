@@ -1,0 +1,22 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "objective_macros.html" as objective_macros %}
+{% import "island_macros.html" as island_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block byline %}
+Sadness played by Kendra Pugh / Max Wolf
+{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_content_block %}
+{% if site_mode() == "solution" %}
+<div id="main-page-content">
+  <p>After a team solves the <a href="{{ url_for('full_puzzle' if session.usertype == 'writingteam' else 'puzzle', puzzle_id='sadness') }}">Sadness meta</a>, Sadness pays a visit to their headquarters. Upon entering, she remarks on how sad the room makes her. She becomes upset thinking about how Terry is going to lose Hunt. She gives a team member her <a href="{{ asset_url_for('puzzles/sadness_encounter/blueprints.png') }}">blueprints</a>, mentioning that she was crying when she was last looking over them and that her tears must have damaged the paper. After a few minutes, she ambles out of the room, saying that she&rsquo;s just dragging everyone down.</p>
+</div>
+{% endif %}
+{% endblock %}

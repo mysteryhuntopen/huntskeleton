@@ -1,0 +1,249 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Dan Collins, Robin Deits, Grant Elliott, and Henry Wong{% endblock %}
+{% block solution %}VOLUNTEER{% endblock %}
+
+{% block solution_head_block %}
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Each Jeopardy clue is ambiguous and does not fit in the specified
+  lengths. However, as suggested by the flavortext
+  (&ldquo;Secretly&rdquo;), each of the clues refers to a Secret
+  Service codename. The protected person&rsquo;s name fits the
+  provided length (using the name by which they are best known, not
+  their full legal name).</p>
+
+<p>Once identified, the dollar value of the clue is used as an index
+  into the name, resulting in the following data:</p>
+
+<table class="solution-table condensed-table">
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Clue</th>
+      <th>Codename</th>
+      <th>Protected Person</th>
+      <th>Letter</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>200</td>
+    <td>Neil Armstrong&rsquo;s boot left this on the Moon</td>
+    <td>Footprint</td>
+    <td><code>STROM THURMOND</code></td>
+    <td><code>T</code></td>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>Harper Lee might tell you to set this kind of lookout</td>
+    <td>Watchman</td>
+    <td><code>CHESTER CLIFTON</code></td>
+    <td><code>H</code></td>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>Click and Clack named this automaker&rsquo;s Aztek the &ldquo;2005 Ugliest Car of the Year&rdquo;</td>
+    <td>Pontiac</td>
+    <td><code>JESSE JACKSON</code></td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>It&rsquo;s a Mars mission or a Nissan SUV</td>
+    <td>Pathfinder</td>
+    <td><code>SPIRO AGNEW</code></td>
+    <td><code>P</code></td>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>This cereal can be &ldquo;fruity&rdquo; or &ldquo;cocoa&rdquo;</td>
+    <td>Pebbles</td>
+    <td><code>BRIDGET MCCAIN</code></td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>You might get a painful one from using an insufficient SPF</td>
+    <td>Sunburn</td>
+    <td><code>TED KENNEDY</code></td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>This popular trance song was produced by a Finnish DJ</td>
+    <td>Sandstorm</td>
+    <td><code>NELSON ROCKEFELLER</code></td>
+    <td><code>S</code></td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>&ldquo;Autumntime&rdquo; is not a common term in English, unlike this similar word for another season</td>
+    <td>Springtime</td>
+    <td><code>MAMIE EISENHOWER</code></td>
+    <td><code>I</code></td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>Side four of Bruce Springsteen&rsquo;s album &ldquo;The River&rdquo; includes this song</td>
+    <td>Ramrod</td>
+    <td><code>BOB DOLE</code></td>
+    <td><code>D</code></td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>This animal is a member of the taxonomic rank Apodiformes</td>
+    <td>Hummingbird</td>
+    <td><code>KAREN PENCE</code></td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>It&rsquo;s an Ability in Dungeons and Dragons, Fifth Edition</td>
+    <td>Wisdom</td>
+    <td><code>JOHN EHRLICHMAN</code></td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>This carnivore was found in the Cretaceous Period</td>
+    <td>T-rex</td>
+    <td><code>NEWT GINGRICH</code></td>
+    <td><code>T</code></td>
+  </tr>
+  <tr>
+    <td>600</td>
+    <td>This might contain an instrument cluster</td>
+    <td>Dashboard</td>
+    <td><code>MORRIS UDALL</code></td>
+    <td><code>S</code></td>
+  </tr>
+  <tr>
+    <td>600</td>
+    <td>Charlie Sheen would describe himself as this kind of person</td>
+    <td>Winner</td>
+    <td><code>ANDREW HATCHER</code></td>
+    <td><code>W</code></td>
+  </tr>
+  <tr>
+    <td>600</td>
+    <td>It&rsquo;s a term for light emission</td>
+    <td>Radiance</td>
+    <td><code>MALIA OBAMA</code></td>
+    <td><code>O</code></td>
+  </tr>
+  <tr>
+    <td>600</td>
+    <td>A certain type of electromagnetic generator is known by this name</td>
+    <td>Dynamo</td>
+    <td><code>AMY CARTER</code></td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td>600</td>
+    <td>This person&rsquo;s parents are Will and Jada</td>
+    <td>Willow</td>
+    <td><code>EVELYN LINCOLN</code></td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td>600</td>
+    <td>One of the major genres of poetry is described by this adjective</td>
+    <td>Lyric</td>
+    <td><code>CAROLINE KENNEDY</code></td>
+    <td><code>I</code></td>
+  </tr>
+  <tr>
+    <td>800</td>
+    <td>A 2001 film starring John Travolta</td>
+    <td>Swordfish</td>
+    <td><code>PHIL CRANE</code></td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td>800</td>
+    <td>It&rsquo;s another term for the shoulder or curb</td>
+    <td>Wayside</td>
+    <td><code>PIERRE SALINGER</code></td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td>800</td>
+    <td>This is made of a single piece of glass</td>
+    <td>Windowpane</td>
+    <td><code>WILLIAM TIMMONS</code></td>
+    <td><code>T</code></td>
+  </tr>
+  <tr>
+    <td>800</td>
+    <td>This is a common title for a person in middle management who is in charge of other employees</td>
+    <td>Supervisor</td>
+    <td><code>DAN QUAYLE</code></td>
+    <td><code>L</code></td>
+  </tr>
+  <tr>
+    <td>800</td>
+    <td>One of the creatures that appears in the Chinese zodiac is this</td>
+    <td>Dragon</td>
+    <td><code>WALTER MONDALE</code></td>
+    <td><code>O</code></td>
+  </tr>
+  <tr>
+    <td>800</td>
+    <td>This might be tied around a present or tree</td>
+    <td>Ribbon</td>
+    <td><code>PATTI DAVIS</code></td>
+    <td><code>V</code></td>
+  </tr>
+  <tr>
+    <td>1000</td>
+    <td>Johnny Mercer and Hoagy Carmichael wrote this jazz song</td>
+    <td>Skylark</td>
+    <td><code>TIPPER GORE</code></td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>1000</td>
+    <td>This is a common household cleaning tool</td>
+    <td>Duster</td>
+    <td><code>GERALDINE FERRARO</code></td>
+    <td><code>F</code></td>
+  </tr>
+  <tr>
+    <td>1000</td>
+    <td>One of the quantities in Einstein&rsquo;s famous equation &ldquo;E = mc<sup>2</sup>&rdquo; is this</td>
+    <td>Energy</td>
+    <td><code>CHELSEA CLINTON</code></td>
+    <td><code>I</code></td>
+  </tr>
+  <tr>
+    <td>1000</td>
+    <td>This word means &ldquo;to secretly add a substance to&rdquo;</td>
+    <td>Lace</td>
+    <td><code>JACQUELINE KENNEDY</code></td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>1000</td>
+    <td>A professional athlete based in Oakland, CA might be called this</td>
+    <td>Warrior</td>
+    <td><code>MALCOLM KILDUFF</code></td>
+    <td><code>L</code></td>
+  </tr>
+  <tr>
+    <td>1000</td>
+    <td>An object that can open any lock of a particular type is called this</td>
+    <td>Passkey</td>
+    <td><code>GERALD FORD</code></td>
+    <td><code>D</code></td>
+  </tr>
+</table>
+
+<p>Reading the extracted letters gives the clue phrase <code>THE
+  PRESIDENT SWORN IN AT LOVE FIELD</code>. That’s Lyndon Johnson, or
+  <strong><code>VOLUNTEER</code></strong> to the Secret Service.</p>
+{% endblock %}

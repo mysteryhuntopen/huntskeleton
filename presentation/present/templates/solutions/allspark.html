@@ -1,0 +1,352 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Grant Elliott and Robin Deits{% endblock %}
+{% block solution %}PRIME FACTORS{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .transform-chain {
+    margin: 1em 0;
+    line-height: 2;
+  }
+
+  .puzzle-content #blank-transforms .transform-chain {
+    margin: 2em 0;
+  }
+
+  .puzzle-content .transform-grid {
+    border-collapse: collapse;
+    empty-cells: show;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: monospace;
+    font-size: 1.25em;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .puzzle-content .transform-grid td {
+    width: 1.25em;
+    height: 1.25em;
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .puzzle-content .transform-grid td.green {
+    background-color: #c4ffc4;
+  }
+
+  .puzzle-content .transform-grid td.red {
+    background-color: #ffd8d8;
+  }
+
+  .puzzle-content .transform-grid td.yellow {
+    background-color: #ffffb1;
+  }
+
+  @media print {
+    .puzzle-content .transform-grid td.green {
+      box-shadow: inset 0 0 0 1000px #c4ffc4;
+    }
+
+    .puzzle-content .transform-grid td.red {
+      box-shadow: inset 0 0 0 1000px #ffd8d8;
+    }
+
+    .puzzle-content .transform-grid td.yellow {
+      box-shadow: inset 0 0 0 1000px  #ffffb1;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <p>After solving the puzzles on the same side of the Borg Cube as
+    the AllSpark, solvers are presented with the following answers (in
+    alphabetical order):</p>
+
+  <ul>
+    <li><code>AUSTERE TYPEFACE</code></li>
+    <li><code>COLOR MICROGRAPHY</code></li>
+    <li><code>GERI HALLIWELL</code></li>
+    <li><code>LABORATORY TECHNOLOGISTS</code></li>
+    <li><code>MISFIT MATHEMATICIANS</code></li>
+    <li><code>RECREATIONAL USE</code></li>
+  </ul>
+
+  <p>Each word of the answers is a unique length which corresponds to
+    one of the initial words of the given blank transformation
+    chains. Next, solvers must determine the mechanics of
+    transformation, which can be determined by studying the example
+    steps:</p>
+
+  <ul>
+    <li>Red: Delete the letter</li>
+    <li>Green: Double the letter</li>
+    <li>Yellow: Replace the letter with a single bit flip in its 5-bit binary representation</li>
+  </ul>
+
+  <p>The important yellow transform is confirmed by flavor about
+    “electronic gymnastics” (which in retrospect, is “bit flips”). The
+    word “Enable” is capitalized in flavor, indicating that words must
+    come from the
+    <a href="http://www.puzzlers.org/pub/wordlists/enable1.txt">Enhanced
+      North American Benchmark LExicon</a> (ENABLE) wordlist.</p>
+
+  <p>However, even using ENABLE to constrain possible transformation
+    steps, there are several options for each chain. The key
+    realization, as specified in the flavor, is that the final
+    configuration is a car model (which is also a word in
+    ENABLE). With this constraint, the chains all have unique
+    solutions:</p>
+
+  
+  <div id="solved-transforms">
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="red">T</td><td class="red">E</td><td class="yellow">C</td><td class="yellow">H</td><td class="yellow">N</td><td class="red">O</td><td>L</td><td>O</td><td>G</td><td>I</td><td>S</td><td>T</td><td>S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">B</td><td class="yellow">I</td><td class="yellow">O</td><td class="red">L</td><td class="red">O</td><td class="red">G</td><td class="yellow">I</td><td class="yellow">S</td><td class="yellow">T</td><td>S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">C</td><td class="yellow">A</td><td class="yellow">N</td><td class="red">A</td><td class="yellow">R</td><td class="yellow">D</td><td>S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">S</td><td>E</td><td class="yellow">L</td><td class="yellow">V</td><td>E</td><td class="green">S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">R</td><td class="yellow">E</td><td class="yellow">D</td><td class="yellow">R</td><td class="yellow">E</td><td class="yellow">S</td><td class="red">S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>P</td><td>U</td><td>L</td><td>S</td><td>A</td><td>R</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow">L</td><td class="yellow">A</td><td class="red">B</td><td class="yellow">O</td><td class="red">R</td><td class="yellow">A</td><td class="red">T</td><td class="yellow">O</td><td class="yellow">R</td><td class="red">Y</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">D</td><td class="red">E</td><td class="yellow">N</td><td class="yellow">I</td><td class="yellow">M</td><td class="red">S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">F</td><td class="green">O</td><td class="yellow">A</td><td class="yellow">L</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">B</td><td>O</td><td class="yellow">O</td><td class="yellow">E</td><td class="yellow">D</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>R</td><td>O</td><td>G</td><td>U</td><td>E</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td>M</td><td>I</td><td class="yellow">C</td><td class="red">R</td><td class="red">O</td><td class="yellow">G</td><td>R</td><td class="red">A</td><td class="red">P</td><td class="yellow">H</td><td>Y</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">M</td><td class="yellow">I</td><td>S</td><td>E</td><td class="red">R</td><td>L</td><td class="red">Y</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">E</td><td>A</td><td class="red">S</td><td class="yellow">E</td><td class="yellow">L</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="red">D</td><td class="yellow">A</td><td class="yellow">M</td><td>N</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>I</td><td>O</td><td>N</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td>M</td><td>I</td><td>S</td><td class="yellow">F</td><td>I</td><td class="yellow">T</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">M</td><td class="yellow">I</td><td class="green">S</td><td class="red">D</td><td>I</td><td class="yellow">D</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">L</td><td class="yellow">A</td><td class="yellow">S</td><td class="yellow">S</td><td class="yellow">I</td><td class="red">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>M</td><td>I</td><td>C</td><td>R</td><td>A</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td>A</td><td class="red">U</td><td class="green">S</td><td class="yellow">T</td><td class="yellow">E</td><td class="red">R</td><td>E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>A</td><td class="red">S</td><td class="red">S</td><td class="yellow">U</td><td class="yellow">M</td><td class="yellow">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">A</td><td class="yellow">T</td><td class="yellow">O</td><td class="yellow">M</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>E</td><td>D</td><td>G</td><td>E</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow">U</td><td class="yellow">S</td><td class="green">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">T</td><td class="yellow">W</td><td class="yellow">E</td><td>E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">D</td><td class="yellow">U</td><td class="yellow">D</td><td class="yellow">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>F</td><td class="yellow">E</td><td class="yellow">T</td><td>A</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>F</td><td class="yellow">A</td><td class="yellow">V</td><td class="red">A</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>F</td><td>I</td><td>T</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td>G</td><td>E</td><td>R</td><td class="yellow">I</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">G</td><td class="yellow">E</td><td>R</td><td class="yellow">M</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">C</td><td>U</td><td>R</td><td class="yellow">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>A</td><td>U</td><td>R</td><td>A</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td>R</td><td>E</td><td>C</td><td>R</td><td class="yellow">E</td><td class="yellow">A</td><td>T</td><td class="red">I</td><td class="red">O</td><td class="red">N</td><td class="yellow">A</td><td class="yellow">L</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">R</td><td>E</td><td class="red">C</td><td>R</td><td class="red">U</td><td class="yellow">I</td><td>T</td><td>E</td><td>D</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">B</td><td class="yellow">E</td><td class="yellow">R</td><td class="yellow">A</td><td class="red">T</td><td class="red">E</td><td class="red">D</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>C</td><td>U</td><td>B</td><td>E</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="red">T</td><td class="red">Y</td><td class="yellow">P</td><td class="yellow">E</td><td class="yellow">F</td><td>A</td><td class="yellow">C</td><td>E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">R</td><td>A</td><td class="yellow">V</td><td class="yellow">A</td><td class="yellow">G</td><td class="red">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">P</td><td class="yellow">A</td><td>T</td><td class="yellow">I</td><td class="yellow">O</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>T</td><td>I</td><td>T</td><td>A</td><td>N</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="red">H</td><td class="yellow">A</td><td class="yellow">L</td><td class="yellow">L</td><td>I</td><td class="yellow">W</td><td>E</td><td class="red">L</td><td class="red">L</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">E</td><td class="yellow">N</td><td class="red">D</td><td class="yellow">I</td><td class="yellow">V</td><td class="green">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">G</td><td class="yellow">O</td><td class="yellow">A</td><td class="red">T</td><td class="yellow">E</td><td class="yellow">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>O</td><td>M</td><td>E</td><td>G</td><td>A</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow">M</td><td class="yellow">A</td><td class="yellow">T</td><td class="yellow">H</td><td class="yellow">E</td><td class="red">M</td><td class="red">A</td><td>T</td><td class="yellow">I</td><td class="yellow">C</td><td class="red">I</td><td class="red">A</td><td>N</td><td>S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="red">L</td><td class="red">E</td><td class="yellow">V</td><td class="yellow">I</td><td class="yellow">A</td><td class="yellow">T</td><td class="red">H</td><td class="yellow">A</td><td class="red">N</td><td>S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">W</td><td class="yellow">A</td><td class="yellow">I</td><td class="yellow">V</td><td>E</td><td class="yellow">S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">S</td><td class="yellow">E</td><td class="yellow">A</td><td class="yellow">T</td><td>E</td><td>R</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>R</td><td>A</td><td>I</td><td>D</td><td>E</td><td>R</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow">C</td><td class="green">O</td><td class="yellow">L</td><td class="red">O</td><td class="yellow">R</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>B</td><td class="green">O</td><td class="yellow">O</td><td class="yellow">M</td><td class="yellow">S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">B</td><td>O</td><td class="yellow">O</td><td>G</td><td class="yellow">E</td><td class="yellow">R</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow">C</td><td>O</td><td>N</td><td class="red">G</td><td class="yellow">A</td><td class="yellow">S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>S</td><td>O</td><td>N</td><td>I</td><td>C</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <p>Reading the first letters of the car models in the given order
+    spells out what can defeat Megatron, namely (Optimus)
+    <strong><code>PRIME FACTORS</code></strong>.</p>
+{% endblock %}

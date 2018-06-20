@@ -1,0 +1,201 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/crossword.css') }}">
+<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.3.0"></script>
+<script>
+  $(document).ready(function() {
+    twemoji.folder = '2/svg';
+    twemoji.parse(document.body);
+  });
+</script>
+<style>
+  .puzzle-content .block {
+    background-color: lightblue;
+    padding: 20px;
+  }
+
+  .puzzle-content .block:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .puzzle-content .list {
+    margin-top: 20px;
+  }
+
+  .puzzle-content .purple {
+    color: purple;
+  }
+
+  .puzzle-content img:not(.emoji) {
+    max-width: 100%;
+  }
+
+  .puzzle-content img.emoji {
+    width: 1em;
+    height: 1em;
+    margin-left: 0.25em;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="block">
+  <div><audio controls>
+    <source src="{{ asset_url_for('puzzles/a_tribute_2010_2017/1.mp3') }}" type="audio/mpeg">
+  </audio></div>
+</div>
+
+<div class="block">
+  <img {{ img_src_for('puzzles/a_tribute_2010_2017/1.png') }}>
+</div>
+
+<div class="block">
+  <table class="crossword">
+    <tr>
+      <td class="numbered">&nbsp;</td>
+      <td class="numbered">&nbsp;</td>
+      <td class="numbered">&nbsp;</td>
+      <td class="filled"></td>
+      <td class="numbered">&nbsp;</td>
+      <td class="numbered">&nbsp;</td>
+      <td class="numbered">&nbsp;</td>
+      <td class="numbered">&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="filled"></td>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="filled"></td>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="filled"></td>
+      <td>&nbsp;</td>
+      <td class="filled"></td>
+    </tr>
+    <tr>
+      <td class="filled"></td>
+      <td>&nbsp;</td>
+      <td class="filled"></td>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="numbered">&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="filled"></td>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="filled"></td>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="numbered">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td class="filled"></td>
+      <td class="filled"></td>
+      <td>&nbsp;</td>
+      <td class="filled"></td>
+    </tr>
+  </table>
+
+  <div class="list">
+    <div><b>Across</b></div>
+    <div><b>1</b> Best medal</div>
+    <div><b>4</b> Employed</div>
+    <div><b>8</b> Items at a skate park, perhaps</div>
+    <div><b>9</b> &ldquo;Mr. Blue Sky&rdquo; band</div>
+    <div><b>10</b> Organizations that sell local produce</div>
+    <div><b>11</b> Aquatic plants or plantlike organisms</div>
+    <div><b>12</b> Month Caesar was betrayed</div>
+    <div><b>14</b> A mechanical switch</div>
+    <div><b>17</b> Source of atomic energy</div>
+    <div><b>19</b> Tell the truth</div>
+    <div><b>20</b> You can run, but you can&rsquo;t do this</div>
+    <div><b>21</b> Hera&rsquo;s husband&rsquo;s father&rsquo;s daughter</div>
+    <div><b>22</b> Ifs, ands, or buts</div>
+  </div>
+  <div class="list">
+    <div><b>Down</b></div>
+    <div><b>1</b> Creature found near Orcas Island</div>
+    <div><b>2</b> Princess associated with the Russian Revolution</div>
+    <div><b>3</b> To love</div>
+    <div><b>5</b> Our nearest star</div>
+    <div><b>6</b> Scalene, e.g.</div>
+    <div><b>7</b> Place where seahorses live</div>
+    <div><b>11</b> India Pale Ale, e.g.</div>
+    <div><b>13</b> Technique to take pictures of the brain</div>
+    <div><b>15</b> An elbow shape in a pipe or conduit</div>
+    <div><b>16</b> Response before "The yeas have it"</div>
+    <div><b>17</b> Special moments in puzzles</div>
+    <div><b>18</b> Property of the numbers 2, 4, 6, etc.</div>
+  </div>
+</div>
+
+<div class="block">
+  You&rsquo;re expecting me to identify the Rider-Waite-Smith numbering of Tarot cards as hinted phonetically in the title and associate the cards with famous people? How many teams do you expect to solve THAT?
+</div>
+
+<div class="block">
+  <ul>
+    <li class="purple">&#128077; &ldquo;Oh, Pretty Woman&rdquo; - Roy Orbison</li>
+    <li class="purple">&#128077; &ldquo;So Fine&rdquo; - Sean Paul</li>
+    <li class="purple">&#128077; &ldquo;Cover Girl&rdquo; - RuPaul</li>
+    <li>&#128078; &ldquo;Very Very Very&rdquo; - I.O.I   _ _ _</li>
+    <li>&#128078; &ldquo;Pass That Dutch&rdquo; - Missy Elliott   _ _ _ _</li>
+    <li>&#128078; &ldquo;Hold Me Close&rdquo; - David Essex   _ _ _</li>
+  </ul>
+</div>
+
+<div class="block">
+  <a href="{{ asset_url_for('puzzles/a_tribute_2010_2017/2-large.png') }}"><img {{ img_src_for('puzzles/a_tribute_2010_2017/2.png') }} ></a>
+</div>
+
+<div class="block">
+  <a href="{{ asset_url_for('puzzles/a_tribute_2010_2017/3.png') }}"><img {{ img_src_for('puzzles/a_tribute_2010_2017/3.png') }} ></a>
+</div>
+
+<div class="block">
+  <p>In his flashback, the EMF is spiking off the chart. The agent awakens in a hotel room covered in blood: the blood splatter indicates that the blood passed through the killer. He has amnesia, while she, who is the skeptic in their partnership, investigates the murder of a ghost hunter. Two bullets had been fired in the haunted house: the house that was drawn many times by the female victim.</p>
+  <p>In another flashback, the accomplished writer interested in police work sees his parents arguing with the smoking man. The crime scene is a living room in an old mansion where a doctor tried to help his patient to recover their alien abduction memories. There is a hidden alcove in the house, where his mom refused to provide answers. The agent requests help to retrieve his memories of a murder committed in the house twenty years ago.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Submit</title>
+    <link rel="shortcut icon" href="{{ asset_url_for('images/favicon.ico') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/support.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/island-unlock.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='submit.css') }}">
+    <script src="https://use.fontawesome.com/7e30e2e185.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function() {
+        $('input.form-buttom').attr('disabled',true);
+        $('select.island-unlock').change(function(e) {
+          var $relatedButton = $(this).siblings('input.form-button');
+          if ($(this).val().length > 0) {
+            $relatedButton.removeAttr('disabled');
+          } else {
+            $relatedButton.attr('disabled',true)
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="fixed-header">
+      <div class="fixed-header-inner">
+        <div class="header-links">
+          <div class="header-link"><a href="/">Control Room</a></div>
+          <div class="header-link"><a href="{{ puzzle_url_for(puzzle_id) }}">Return to Puzzle</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overall-layout-body">
+      <div class="title-text">{{ pretty_title(puzzle.get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id))|safe }}</div>
+      <div id="main-page-content">
+        <div id="forms">
+          <div class="support-section">
+            <div class="support-header">Unlock Island</div>
+            <div class="submission-section-form">
+              <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+                <select class="island-unlock" name="islandunlock">
+                  <option></option>
+                  {% for closed_island in closed_islands %}
+                    <option value="UNLOCK THE {{ placeholders[closed_island]|upper }} ISLAND">Unlock the {{ placeholders[closed_island] }} island</option>
+                  {% endfor %}
+                </select>
+                <input type="submit" value="Submit" class="form-button" disabled/>
+              </form>
+            </div>
+            {% if interactions %}
+            <div class="submission-section-previous-subsection">
+              <div class="submission-section-previous-header">Previous Requests</div>
+              <div class="submission-section-previous-listing">
+                <ul>
+                  {% for interaction in interactions %}
+                  <li>{{ interaction.request }} at {{ interaction.timestamp | datetime }} - {{ interaction.status }}
+                    {% if interaction.response %}<br>{{ interaction.response }}{% endif %}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

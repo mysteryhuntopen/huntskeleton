@@ -1,0 +1,38 @@
+{% macro pretty_list(l) -%}
+  {% with ls = l|list %}
+    {%- if ls|length <= 2 -%}
+      {{ ls|join(' and ') }}
+    {%- else -%}
+      {{ ls[:-1]|join(', ') }}, and {{ ls[-1] }}
+    {%- endif -%}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro pretty_number(n) -%}
+  {{ n if n<0 or n>10 else ['none','one','two','three','four','five','six','seven','eight','nine','ten'][n] }}
+{%- endmacro %}
+
+{%- macro format_span(str, class) -%}
+  <span class="{{class}}">
+    {{- str -}}
+  </span>
+{%- endmacro -%}
+
+{%- macro format_emotion(name) -%}
+  {{- format_span(name, 'puzzle-name emotion-name emotion-' + (name|lower) + '-name') -}}
+{%- endmacro -%}
+
+{%- macro format_meta(name, is_super = false) -%}
+  {%- set class = 'island-super-name' if is_super else 'island-meta-name' -%}
+  {{- format_span(name, 'puzzle-name ' + class) -}}
+{%- endmacro -%}
+
+{%- macro format_island(name) -%}
+  {{- format_span(name, 'island-name') -}}
+{%- endmacro -%}
+
+{%- macro format_answer(answer) -%}
+  {%- if answer is not none -%}
+    {{- format_span(answer, 'answer') -}}
+  {%- endif -%}
+{%- endmacro -%}

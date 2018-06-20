@@ -1,0 +1,62 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}
+  By Grant Elliott, Evan Broder, Chris Post, and Jeremy Conrad<br>
+  Radios constructed by Evan Broder and Conor Lenahan
+{% endblock %}
+{% block solution %}ON A CALTECH CANNONBALL RUN{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>The solutions to submetas that feed into this puzzle are as follows:</p>
+<ul>
+  <li><code>EXOSKELETON</code></li>
+  <li><code>BIOFUEL TORCH</code></li>
+  <li><code>BACKUP PLAN</code></li>
+</ul>
+
+<p>Each set of rewards on the bulletin boards can be used to construct a graph connecting puzzles.</p>
+
+<p>For the Scout floorplan, nodes are rooms, and edges are doorways (with door opening direction specifying edge direction):</p>
+
+<img {{ img_src_for('solutions/flee/1.svg') }} >
+
+<p>For the Build block diagram, nodes are blocks and edges are output-to-input connections:</p>
+
+<img {{ img_src_for('solutions/flee/2.svg') }} >
+
+<p>For the Deploy round, Raspberry Pi-powered “radios” were installed around campus with a two-channel selector and a push-to-talk button:</p>
+
+<img {{ img_src_for('solutions/flee/radio.png') }} >
+
+<p>Each radio would “broadcast” to a channel on one or more radios (potentially including itself), with asymmetric transmissions (just because radio A could hear radio B did not mean that radio B could hear radio A). Each radio represents a node, and edges are directed links from a transmitting radio to the radio(s) that can receive its transmission.</p>
+
+<p>The collected rewards then reduce to directed graphs:</p>
+
+<img {{ img_src_for('solutions/flee/3.png') }} >
+
+<p>Next, notice that each graph has the same number of edges as the meta answer for that round has letters. In fact, each graph actually contains a unique <a href="https://en.wikipedia.org/wiki/Eulerian_path">Eulerian path</a>. The Eulerian paths provide an ordering over edges, so that they may be labelled with the meta answer:</p>
+
+<img {{ img_src_for('solutions/flee/4.png') }} >
+
+<p>Allowing only these transitions transforms the plans into a maze with a unique solution:</p>
+
+<img {{ img_src_for('solutions/flee/5.svg') }} >
+<img {{ img_src_for('solutions/flee/6.svg') }} >
+<img {{ img_src_for('solutions/flee/7.svg') }} >
+
+<p>Labelling every transition between icons in the final path spells out the final answer phrase: <strong><code>ON A CALTECH CANNONBALL RUN</code></strong>.</p>
+{% endblock %}

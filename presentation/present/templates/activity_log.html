@@ -1,0 +1,61 @@
+{% extends "support_layout.html" %}
+{% block title_block %}Activity Log{% endblock %}
+{% block screen_name_block %}Activity Log{% endblock %}
+
+{% block page_head_block %}
+<style>
+  table.activitylog {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table.activitylog tr:nth-child(odd) {
+    background: rgba(204,204,204,0.3);
+  }
+  table.activitylog td {
+    padding: 0.25em 2em 0.25em 0.5em;
+  }
+  table.activitylog td.ts {
+    min-width: 10em;
+  }
+</style>
+{% endblock %}
+
+
+{% block page_body %}
+<div>
+  <table class="activitylog">
+    {% for entry in activity_entries %}
+      <tr>
+        <td class="ts">{{ entry["timestamp"] | datetime }}</td>
+        <td>
+          {% set display_id = all_puzzles.get(entry["puzzleId"]).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
+          {% if entry["puzzleId"] in island_ids %}
+            {% set url = url_for('island', island_id=entry["puzzleId"]) %}
+          {% else %}
+            {% set url = url_for('puzzle', puzzle_id=display_id) %}
+          {% endif %}
+          {% if entry["puzzleId"] not in interactions_and_finales %}
+            <a class="standard-link" href="{{ url }}">
+          {% endif %}
+            {{ pretty_title(all_puzzles.get(entry["puzzleId"]).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id)) | safe }}
+          {% if entry["puzzleId"] not in interactions_and_finales %}
+            </a>
+          {% endif %}
+        </td>
+        <td>{{ entry["status"] }}</td>
+        {% if "submissionId" in entry %}
+          <td>{{ entry["submission"] }}</td>
+        {% else %}
+          <td>
+            {% if entry["status"] == "SOLVED" %}
+              {% for answer in all_puzzles.get(entry["puzzleId"]).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers',[]) %}
+                {{ answer["canonicalAnswer"] }}
+              {% endfor %}
+            {% endif %}
+          </td>
+        {% endif %}
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

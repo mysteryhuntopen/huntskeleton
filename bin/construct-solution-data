@@ -1,0 +1,117 @@
+#!/usr/bin/env node
+if (!process.argv[2]) {
+  console.log("Usage: construct-solution-data hunt.json");
+  console.log("hunt.json is Evan's export of puzzle data. The output of the script should be put into solutions.js");
+  process.exit(1);
+}
+
+const fs = require('fs');
+
+// From: https://stackoverflow.com/a/28490254
+function rot13(s) {
+  return s.replace(/[A-Za-z]/g, function (c) {
+    return "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".charAt(
+           "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm".indexOf(c)
+    );
+  });
+}
+
+function cleanAnswer(s) {
+  return s.toUpperCase().replace(/[^A-Z]/g, '');
+}
+
+function cleanAndRot(s) {
+  return rot13(cleanAnswer(s));
+}
+
+const interactions = {
+  'arts_and_crafts': {
+    answers: ['MAKE A TIFO AND HOIST FOR HQ'],
+    message: 'After making a tifo and hoisting it, teams were given the answer: <answer>',
+  },
+  'family_dinner': {
+    answers: ['PREPARE US A MACARON'],
+    message: 'After preparing a macaron, teams were given the answer: <answer>',
+  },
+  'i_can_build_anything': {
+    answers: ['ASK US WHAT TO MACGYVER'],
+    correct: true,
+  },
+  'irreverent_introdvction_to_the_imdb': {
+    answers: ['MAKE NEW BEXLEY VID'],
+    correct: true,
+  },
+  'lets_get_ready_to_jumble': {
+    answers: ['TAPE YOUR HEEL TURN'],
+    message: 'After sending HQ a video of a heel turn, teams were given the answer: <answer>',
+  },
+  'special_delivery': {
+    answers: ['WE WANT A MOCKTAIL'],
+    message: 'After delivering a delicious mocktail to HQ, teams were given the answer: <answer>',
+  },
+  'this_friggin_puzzle': {
+    answers: ['INSULT HEADQUARTERS TO FINISH PUZZLE'],
+    correct: true,
+  },
+  'vain_snowball': {
+    answers: ['PLEASE OINK FOR HEADQUARTERS'],
+    message: 'After oinking, teams were given the answer: <answer>',
+  },
+  'wolf_in_the_fold': {
+    answers: ['MAKE SWAN'],
+    message: 'After making a swan for HQ, teams were given the answer: <answer>',
+  },
+  'mass_aid': {
+    answers: ['PLEASE ASK HQ FOR AN INFO DUMP', 'INFO DUMP'],
+    message: 'At this point, HQ provided teams with a diaper full of (among other things) four strips of paper. The strips were labelled: "1. Neil Armstrong", "2. Annie Taylor", "3. Jesse Lynch Williams", "4. Kelly Clarkson".'
+  },
+}
+
+const puzzlesIn = JSON.parse(fs.readFileSync(process.argv[2]));
+
+const puzzles = {};
+const canonicalAnswers = {};
+
+for (p in puzzlesIn) {
+  const props = puzzlesIn[p].puzzleProperties;
+  if (!props.AnswersProperty) {
+    continue;
+  }
+
+  const displayId = props.DisplayIdProperty.displayId;
+  puzzles[displayId] = {};
+
+  const answers = props.AnswersProperty.answers[0].acceptableAnswers;
+  answers.forEach(answer =>
+    puzzles[displayId][cleanAndRot(answer)] = { correct: true }
+  );
+
+  canonicalAnswers[displayId] = answers[0];
+}
+
+for (displayId in interactions) {
+  const interaction = interactions[displayId];
+
+  if (!puzzles[displayId]) {
+    puzzles[displayId] = {};
+  }
+
+  interaction.answers.forEach(answer => {
+    if (interaction.message) {
+      const canonicalAnswer = canonicalAnswers[displayId];
+
+      if (!canonicalAnswer && (interaction.message.indexOf('<answer>') >= 0)) {
+        throw new Error("Do not have canonical answer for " + displayId);
+      }
+
+      const msg = interaction.message.replace(/<answer>/g, canonicalAnswer);
+      puzzles[displayId][cleanAndRot(answer)] = { message: rot13(msg) }
+    } else if (interaction.correct) {
+      puzzles[displayId][cleanAndRot(answer)] = { correct: true }
+    } else {
+      throw new Error("interaction " + displayId + " did not have correct or message property");
+    }
+  });
+}
+
+console.log(JSON.stringify(puzzles));

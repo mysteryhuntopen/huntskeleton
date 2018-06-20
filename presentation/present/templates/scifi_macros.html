@@ -1,0 +1,148 @@
+{% macro generate_puzzle_styles(puzzle) %}
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+{% endmacro %}
+
+{% macro type(puzzle) %}
+  {%- set puzzle_id = puzzle.puzzleId -%}
+  {%- if (puzzle_id == 'scifi-supermeta') -%}
+    enterprise
+  {%- else -%}
+    {%- set id_parts = puzzle_id.split('-') -%}
+    {%- if id_parts|length >=2 and id_parts|length <=3 and id_parts[0] == 'scifi' -%}
+      {{'substation' if id_parts[1]=='meta' else 'blast-door'}}
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}
+
+{% macro substation_text(puzzle) %}
+  {%- set puzzle_id = puzzle.puzzleId -%}
+  {%- if puzzle_id[0:-1] == 'scifi-meta-' -%}
+    Substation {{ puzzle_id[-1] -}}
+  {%- endif -%}
+{% endmacro %}
+
+{% macro generate_puzzle_page_icon(puzzle) %}
+  {%- set puzzle_id = puzzle.puzzleId -%}
+  {%- set id_parts = puzzle_id.split('-') -%}
+  {%- set type = id_parts[1] if id_parts[1] in ['supermeta','meta'] else '' -%}
+  {%- set index = id_parts[-1] if type!='supermeta' else none -%}
+  {{ generate_icon_helper(type, index, puzzle_visibility, puzzle.puzzleProperties) }}
+{% endmacro %}
+
+{% macro generate_round_page_icon(type, index, style='') %}
+  {%- set puzzle_id = 'scifi-' + ('supermeta' if type=='supermeta' else (('meta-' if type=='meta' else '') + index|string)) -%}
+  {%- if puzzle_id in puzzle_visibilities -%}
+    {%- set visibility = puzzle_visibilities[puzzle_id] -%}
+    {%- set properties = puzzle_properties[puzzle_id].get('puzzleProperties', {}) -%}
+    {{ generate_icon_helper(type, index, visibility, properties, clickable=true, tunnelOnSolve=true, style=style) }}
+  {%- endif -%}
+{% endmacro %}
+
+{% macro generate_icon_helper(type, index, visibility, properties, clickable=false, tunnelOnSolve=false, style='') %}  
+  {%- set status = visibility.status -%}
+  {%- set answer = visibility.solvedAnswers|join(', ') if status=='SOLVED' else none -%}
+  {%- set display_name = properties.get('DisplayNameProperty', {}).get('displayName', '') -%}
+  {%- set link_puzzle_id = properties.get('DisplayIdProperty', {}).get('displayId', none) -%}
+  
+  {%- set puzzle_link_action = 'full_puzzle' if session.usertype == 'writingteam' else 'puzzle' -%}
+  {%- set clickable_safe = clickable and status in ['UNLOCKED','SOLVED'] and link_puzzle_id is not none -%}
+  {%- set link = url_for(puzzle_link_action, puzzle_id=link_puzzle_id) if clickable_safe else none -%}
+    
+  {%- if type == 'supermeta' -%}
+    {# Enterprise Icon #}
+
+    <div class="enterprise {{status|lower}}">
+      <img {{img_src_for('rounds/scifi/images/enterprise-' + status|lower + '.png')}} {%- if clickable_safe %} usemap="#hotspot" {%- endif %}>
+      {%- if clickable_safe -%}
+        <map name="hotspot">
+          <area href="{{ link }}"
+            shape="poly" coords="95,70,75,70,57,68,42,62,41,54,47,48,60,46,76,44,94,46,110,49,118,57,117,63,113,67,127,71,132,66,120,59,120,52,160,66,159,72,140,67,134,70,131,78,128,77,124,81,132,84,133,86,125,89,118,91,104,91,95,87,94,79,99,75"
+            data-toggle="tooltip"
+            data-placement="track"
+            title="{{display_name}}"
+            {% if answer is not none %} data-answer="{{answer}}" {% endif %}
+          />
+        </map>
+      {%- endif -%}
+    </div>
+
+  {%- elif type == 'meta' -%}
+    {# Substation Icon #}
+
+    <div class="substation {{status|lower}}" {%- if style|length %} style="{{style}}" {%- endif %}>
+      {%- if tunnelOnSolve and status=='SOLVED' -%}
+        <img class="substation-tunnel" {{img_src_for('rounds/scifi/images/tunnels/substation-open.png')}}/>
+      {%- endif -%}
+      <img class="substation-background" {{img_src_for('rounds/scifi/images/substations/bg-' + ('on' if status=="SOLVED" else 'off') + '.png')}}/>
+      <img class="substation-mask" {{img_src_for('rounds/scifi/images/substations/' + index|string + '-mask.png')}}/>
+      {%- if clickable_safe -%}
+        <a href="{{ link }}"
+          data-toggle="tooltip"
+          data-placement="track"
+          title="{{display_name}}"
+          data-annotation="Substation {{index}}:"
+          {% if answer is not none %} data-answer="{{answer}}" {% endif %}"
+        ></a>
+      {%- endif -%}
+    </div>
+
+  {%- else -%}
+    {# Blast Door Icon #}
+    {%- set door_color = properties.get('ScifiDoorColorProperty', {}).get('scifiDoorColor', none) -%}
+    {%- set door_boxes = properties.get('ScifiDoorBoxesProperty', {}).get('scifiDoorBoxes', none) -%}
+    <div class="blast-door {{status|lower}}" {%- if style|length %} style="{{style}}" {%- endif %}>
+      {%- if status=='SOLVED' -%}
+        <img class="blast-door-background" {{img_src_for('rounds/scifi/images/doors/bg-on.png')}}/>
+      {%- endif -%}
+      <img class="blast-door-image" {{img_src_for('rounds/scifi/images/doors/' + status|lower + '.svg')}}/>
+      {%- if tunnelOnSolve and status=='SOLVED' -%}
+        <img class="blast-door-tunnel" {{img_src_for('rounds/scifi/images/tunnels/door-open.png')}}/>
+      {%- endif -%}
+      {%- if door_boxes is not none -%}
+      <div class="boxes {{'boxes-left' if door_boxes>=0 else 'boxes-right'}}">
+        {%- for b in range(0,door_boxes|abs) -%}
+          <div class="box"></div>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+      {%- if door_color is not none -%}
+        <div class="dot dot-{{door_color}}"></div>
+      {%- endif -%}
+      {%- if clickable_safe -%}
+        <a href="{{ link }}"
+          data-toggle="tooltip"
+          data-placement="track"
+          title="{{display_name}}"
+          {% if answer is not none %} data-answer="{{answer}}" {% endif %}
+        ></a>
+      {%- endif -%}
+    </div>
+
+  {%- endif -%}
+{% endmacro %}
+
+{%- set TUNNEL_START = 10 -%}
+{%- set TUNNEL_TABLE = {
+  1: ['scifi-7', 'scifi-10', 'scifi-14'],
+  2: ['scifi-meta-5', 'scifi-2', 'scifi-9', 'scifi-12', 'scifi-15'],
+  3: ['scifi-meta-4', 'scifi-meta-6', 'scifi-3', 'scifi-8', 'scifi-9', 'scifi-13', 'scifi-16', 'scifi-17'],
+  4: ['scifi-meta-4', 'scifi-6', 'scifi-7', 'scifi-16'],
+  5: ['scifi-meta-5', 'scifi-6', 'scifi-8', 'scifi-14', 'scifi-15'],
+  6: ['scifi-meta-1', 'scifi-2', 'scifi-18'],
+  7: ['scifi-meta-1', 'scifi-5', 'scifi-13', 'scifi-18'],
+  8: ['scifi-meta-3', 'scifi-4', 'scifi-5', 'scifi-11'],
+  9: ['scifi-meta-2', 'scifi-12'],
+  10: ['scifi-meta-2', 'scifi-1', 'scifi-10', 'scifi-11'],
+  11: ['scifi-meta-6', 'scifi-1', 'scifi-4', 'scifi-17'],
+  12: ['scifi-meta-3', 'scifi-3']
+} -%}
+
+{% macro generate_tunnel(tunnel_number) %}
+  {%- set connected = TUNNEL_TABLE[tunnel_number] -%}
+  {%- set solved = [] -%}
+  {%- for pid in connected if pid in puzzle_visibilities and puzzle_visibilities[pid].status == 'SOLVED' -%}
+    {%- set _ = solved.append(pid) -%}
+  {%- endfor -%}
+  {%- set is_open = tunnel_number == TUNNEL_START or solved|length > 0 -%}
+  <img class="overlay tunnel" {{img_src_for('rounds/scifi/images/tunnels/' + tunnel_number|string + '-' + ('open' if is_open else 'closed') + '.png')}}/>
+{% endmacro %}

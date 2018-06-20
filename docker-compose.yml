@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  present:
+    build:
+      context: .
+      dockerfile: dev/Dockerfile-present
+    volumes:
+      - .:/src
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+  submit:
+    build:
+      context: .
+      dockerfile: dev/Dockerfile-submit
+    volumes:
+      - .:/src
+    ports:
+      - "5001:5001"
+    restart: unless-stopped
+  admin:
+    build:
+      context: .
+      dockerfile: dev/Dockerfile-admin
+    volumes:
+      - .:/src
+    ports:
+      - "5002:5002"
+    restart: unless-stopped
+  assets:
+    build:
+      context: .
+      dockerfile: dev/Dockerfile-assets
+    volumes:
+      - .:/src
+    ports:
+      - "5003:5003"
+    restart: unless-stopped
+  cube:
+    build:
+      context: .
+      dockerfile: dev/Dockerfile-cube
+    volumes:
+      - ./cube:/src
+    ports:
+      - "8182:8182"
+    restart: unless-stopped

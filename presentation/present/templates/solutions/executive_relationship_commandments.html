@@ -1,0 +1,310 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Robin Deits, John Toomey, and Michele Pratusevich{% endblock %}
+{% block solution %}PENPAL{% endblock %}
+
+{% block solution_content_block %}
+<p>The puzzle takes the form of a fake sex/relationship advice listicle. Each relationship commandment is actually a roundabout description of a specific UNIX bash command with a particular single-letter flag. The flavor text clues you that it is a valid Athena (the MIT computing system) command.</p>
+
+<p>The canonical source for the flags and commands is the current version of Athena running at MIT, which is Ubuntu 14.04 Trusty Tahr. The man pages can be found <a href="http://manpages.ubuntu.com/manpages/trusty">here</a>.</p>
+
+<p>Identifying the commands/flags in the given order, we have:</p>
+
+<table class="solution-table condensed-table">
+  <tr>
+    <th>
+      Command
+    </th>
+    <th>
+      Flag
+    </th>
+    <th>
+      Clue
+    </th>
+  </tr>
+  <tr>
+    <td>date</td>
+    <td class="nowrap">-r</td>
+    <td>Take your partner out to dinner. But make sure you&rsquo;ve changed recently.</td>
+  </tr>
+  <tr>
+    <td>dig</td>
+    <td class="nowrap">-k</td>
+    <td>Find yourself going deeper and deeper? There must be a key to it&hellip;</td>
+  </tr>
+  <tr>
+    <td>finger</td>
+    <td class="nowrap">-s</td>
+    <td>When you want to feel your partner in sexy ways, first get a one-line summary of their info.</td>
+  </tr>
+  <tr>
+    <td>gawk</td>
+    <td class="nowrap">-e</td>
+    <td>If you stare slackjawed at your partner, text them exactly what you want in a programmatic way to get over it&mdash;just not in a file.</td>
+  </tr>
+  <tr>
+    <td>join</td>
+    <td class="nowrap">-e</td>
+    <td>When you go to your partner (in bed), write &ldquo;empty&rdquo; on the box of missing condoms.</td>
+  </tr>
+  <tr>
+    <td>less</td>
+    <td class="nowrap">-G</td>
+    <td>When you want something smaller, don&rsquo;t highlight what you wanted to find.</td>
+  </tr>
+  <tr>
+    <td>man</td>
+    <td class="nowrap">-a</td>
+    <td>If you need help in your love life, find a guy friend. Ask him to give you an introduction.</td>
+  </tr>
+  <tr>
+    <td>more</td>
+    <td class="nowrap">-l</td>
+    <td>When you could use a little extra something, no form is going to make you wait.</td>
+  </tr>
+  <tr>
+    <td>mount</td>
+    <td class="nowrap">-B</td>
+    <td>Before you get on top, make sure you tie your partner up.</td>
+  </tr>
+  <tr>
+    <td>strip</td>
+    <td class="nowrap">-o</td>
+    <td>Take it all off, and your partner will show you right where to put it.</td>
+  </tr>
+  <tr>
+    <td>tail</td>
+    <td class="nowrap">-n</td>
+    <td>Let them see your butt, but only a few times.</td>
+  </tr>
+  <tr>
+    <td>touch</td>
+    <td class="nowrap">-c</td>
+    <td>It&rsquo;s OK to cop a feel, but don&rsquo;t let that lead to the miracle of creation&hellip;</td>
+  </tr>
+  <tr>
+    <td>unzip</td>
+    <td class="nowrap">-h</td>
+    <td>When the time is right, you can undo your fly. Don&rsquo;t be afraid to ask for help.</td>
+  </tr>
+  <tr>
+    <td>uptime</td>
+    <td class="nowrap">-s</td>
+    <td>When was the last time you had any downtime with your partner? Be specific where you start counting!</td>
+  </tr>
+</table>
+
+<p>Then, you need to identify all the pictures of animals. When you do that, you realize that they correspond to specific Ubuntu distributions released from Gusty Gibbon (7.10) to Trusty Tahr (14.04). Using this as an ordering for the commands and reading down the flags gives <code>LOCKERSHEBANGS</code>.</p>
+
+<table class="solution-table condensed-table">
+  <tr>
+    <th>
+      Animal
+    </th>
+    <th>
+      Command
+    </th>
+    <th>
+      Flag
+    </th>
+  </tr>
+  <tr>
+    <td>Gibbon</td>
+    <td>more</td>
+    <td><code>-l</code></td>
+  </tr>
+  <tr>
+    <td>Heron</td>
+    <td>strip</td>
+    <td><code>-o</code></td>
+  </tr>
+  <tr>
+    <td>Ibex</td>
+    <td>touch</td>
+    <td><code>-c</code></td>
+  </tr>
+  <tr>
+    <td>Jackalope</td>
+    <td>dig</td>
+    <td><code>-k</code></td>
+  </tr>
+  <tr>
+    <td>Koala</td>
+    <td>gawk</td>
+    <td><code>-e</code></td>
+  </tr>
+  <tr>
+    <td>Lynx</td>
+    <td>date</td>
+    <td><code>-r</code></td>
+  </tr>
+  <tr>
+    <td>Meerkat</td>
+    <td>uptime</td>
+    <td><code>-s</code></td>
+  </tr>
+  <tr>
+    <td>Narwhal</td>
+    <td>unzip</td>
+    <td><code>-h</code></td>
+  </tr>
+  <tr>
+    <td>Ocelot</td>
+    <td>join</td>
+    <td><code>-e</code></td>
+  </tr>
+  <tr>
+    <td>Pangolin</td>
+    <td>mount</td>
+    <td><code>-B</code></td>
+  </tr>
+  <tr>
+    <td>Quetzal</td>
+    <td>man</td>
+    <td><code>-a</code></td>
+  </tr>
+  <tr>
+    <td>Ringtail</td>
+    <td>tail</td>
+    <td><code>-n</code></td>
+  </tr>
+  <tr>
+    <td>Salamander</td>
+    <td>less</td>
+    <td><code>-G</code></td>
+  </tr>
+  <tr>
+    <td>Tahr</td>
+    <td>finger</td>
+    <td><code>-s</code></td>
+  </tr>
+</table>
+
+<p>Then, you must log into Athena and run <code>add shebangs</code>. Then, entering the locker (with <code>cd /mit/shebangs</code>) yields a number of executable binaries that correspond to the commands you previously identified. Running each command with the appropriate flag displays a sexy message. (Running the wrong command will display &ldquo;SUCH A TURNOFF!&rdquo;)</p>
+
+<p>NOTE: If you do not have an Athena account and want to access the executables, you can access all of them <a href="http://web.mit.edu/shebangs">here</a>.</p>
+
+<table class="solution-table condensed-table">
+  <tr>
+    <th>
+      Command
+    </th>
+    <th>
+      Flag
+    </th>
+    <th>
+      Clue
+    </th>
+    <th>
+      Sexy Message
+    </th>
+    <th>
+      Letter
+    </th>
+  </tr>
+  <tr>
+    <td>more</td>
+    <td><code>-l</code></td>
+    <td>When you could use a little extra something, no form is going to make you wait.</td>
+    <td>Awww yeah baby.</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td>strip</td>
+    <td><code>-o</code></td>
+    <td>Take it all off, and your partner will show you right where to put it.</td>
+    <td>No! Don&rsquo;t stop!</td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td>touch</td>
+    <td><code>-c</code></td>
+    <td>It&rsquo;s OK to cop a feel, but don&rsquo;t let that lead to the miracle of creation&hellip;</td>
+    <td>Show me more&hellip;</td>
+    <td><code>S</code></td>
+  </tr>
+  <tr>
+    <td>dig</td>
+    <td><code>-k</code></td>
+    <td>Fine yourself going deeper and deeper? There must be a key to it&hellip;</td>
+    <td>Wanna get it on?</td>
+    <td><code>W</code></td>
+  </tr>
+  <tr>
+    <td>gawk</td>
+    <td><code>-e</code></td>
+    <td>If you stare slackjawed at your partner, text them exactly what you want in a programmatic way to get over it&mdash;just not in a file.</td>
+    <td>Easy there big boy!</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>date</td>
+    <td><code>-r</code></td>
+    <td>Take your partner out to dinner. But make sure you&rsquo;ve changed recently.</td>
+    <td>Right there, yes!</td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td>uptime</td>
+    <td><code>-s</code></td>
+    <td>When was the last time you had any downtime with your partner? Be specific where you start counting!</td>
+    <td>I&rsquo;m feeling naughty!</td>
+    <td><code>I</code></td>
+  </tr>
+  <tr>
+    <td>unzip</td>
+    <td><code>-h</code></td>
+    <td>When the time is right, you can undo your fly. Don&rsquo;t be afraid to ask for help.</td>
+    <td>Strip for me, baby.</td>
+    <td><code>S</code></td>
+  </tr>
+  <tr>
+    <td>join</td>
+    <td><code>-e</code></td>
+    <td>When you go to your partner (in bed), write &ldquo;empty&rdquo; on the box of missing condoms.</td>
+    <td>Please don&rsquo;t stop!</td>
+    <td><code>P</code></td>
+  </tr>
+  <tr>
+    <td>mount</td>
+    <td><code>-B</code></td>
+    <td>Before you get on top, make sure you tie your partner up.</td>
+    <td>Engage!</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>man</td>
+    <td><code>-a</code></td>
+    <td>If you need help in your love life, find a guy friend. Ask him to give you an introduction.</td>
+    <td>Now you&rsquo;re all mine&hellip;</td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td>tail</td>
+    <td><code>-n</code></td>
+    <td>Let them see your butt, but only a few times.</td>
+    <td>Pull my hair.</td>
+    <td><code>P</code></td>
+  </tr>
+  <tr>
+    <td>less</td>
+    <td><code>-G</code></td>
+    <td>When you want something smaller, don&rsquo;t highlight what you wanted to find.</td>
+    <td>Almost there...</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td>finger</td>
+    <td><code>-s</code></td>
+    <td>When you want to feel your partner in sexy ways, first get a one-line summary of their info.</td>
+    <td>Let&rsquo;s do it.</td>
+    <td><code>L</code></td>
+  </tr>
+</table>
+
+<p>Reading the first letters of these in Ubuntu-distribution-order gives you the phrase <strong><code>ANSWER IS PENPAL</code></strong>.</p>
+{% endblock %}

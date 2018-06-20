@@ -1,0 +1,141 @@
+{%- macro visibility_class(visibilities, puzzle_id) -%}
+  {%- set status = visibilities.get(puzzle_id,{}).get("status","INVISIBLE") -%}
+  {%- if status == "UNLOCKED" -%}
+    ha-bigboard-unlocked
+  {%- elif status == "SOLVED" -%}
+    ha-bigboard-solved
+  {%- else -%}
+    ha-bigboard-locked
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro display_name(puzzles, puzzle_id) -%}
+  {{ puzzles[puzzle_id].get("puzzleProperties",{}).get("DisplayNameProperty",{}).get("displayName",puzzle_id) }}
+{%- endmacro -%}
+
+{% macro meta_box(team_id, puzzles, visibilities, puzzle, encounter='', display_title=True) %}
+  <div
+      class="ha-bigboard-meta-box {{ visibility_class(visibilities, puzzle) }} {{ extra_classes }}"
+      title="{{ display_name(puzzles, puzzle) }}">
+    {% if display_title %}
+      {{ display_name(puzzles, puzzle) }}
+    {% endif %}
+    {% if encounter and visibilities[puzzle].status == 'SOLVED' %}
+      <span class="ha-bigboard-encounter">
+        {% if visibilities[encounter].status == 'SOLVED' %}
+          <i class="fa fa-square" aria-hidden="true"></i>
+        {% else %}
+          <i class="fa fa-square-o" aria-hidden="true"></i>
+        {% endif %}
+      </span>
+    {% endif %}
+  </div>
+{% endmacro %}
+
+{% macro puzzle_list(team_id, all_puzzles, puzzles, visibilities) %}
+  {% for puzzle_id in puzzles %}
+    <div
+        class="ha-bigboard-puzzle-box {{ visibility_class(visibilities, puzzle_id) }}"
+        title="{{ display_name(all_puzzles, puzzle_id) }}"
+    >
+    </div>
+  {% endfor %}
+{% endmacro %}
+
+{% macro bigboard_team_box(team, puzzles, round_puzzle_map, visibilities, team_scores) %}
+  {% set team_id = team['teamId'] %}
+  <div class="ha-bigboard-team">
+    <div class="ha-bigboard-team-id">
+      <span title="{{ team_id }}">{{ team["teamName"] }}</span>
+    </div>
+    <div class="ha-bigboard-emotions-plus">
+      <div class="ha-bigboard-emotions">
+        <div class="ha-bigboard-round">
+          <div class="ha-bigboard-meta-row">
+            {% for character in round_puzzle_map.EMOTION_METAS %}
+              {{ meta_box(team_id, puzzles, visibilities, character, 'encounter-%s' % (character,)) }}
+            {% endfor %}
+          </div>
+          <div class="ha-bigboard-puzzle-row">
+            {{ puzzle_list(team_id, puzzles, round_puzzle_map.EMOTION_PUZZLES, visibilities) }}
+          </div>
+        </div>
+        <div class="ha-bigboard-meta-row">
+          {{ meta_box(team_id, puzzles, visibilities, round_puzzle_map.EMOTION_RUNAROUND) }}
+        </div>
+        <div class="ha-bigboard-meta-row">
+          {{ meta_box(team_id, puzzles, visibilities, 'emotional-finale') }}
+        </div>
+      </div>
+      <div class="ha-bigboard-misc">
+        <div>{{ team_scores.get('BRAINPOWER', 0) }} BP</div>
+        <div>{{ (team_scores.get('BUZZY_BUCKS', 0)/1000)|round|int }}K B$</div>
+      </div>
+    </div>
+    <div class="ha-bigboard-islands">
+      {# Pokemon #}
+      <div class="ha-bigboard-round">
+        <div class="ha-bigboard-meta-row">
+          {{ meta_box(team_id, puzzles, visibilities, round_puzzle_map.POKEMON_SUPERMETA, 'pokemon-recovery') }}
+        </div>
+        <div class="ha-bigboard-meta-row">
+          {% for puzzle_id in round_puzzle_map.POKEMON_SUBMETAS %}
+            {{ meta_box(team_id, puzzles, visibilities, puzzle_id, display_title=False) }}
+          {% endfor %}
+        </div>
+        <div class="ha-bigboard-puzzle-row">
+          {{ puzzle_list(team_id, puzzles, round_puzzle_map.POKEMON_PUZZLES, visibilities) }}
+        </div>
+      </div>
+
+      {# Games #}
+      <div class="ha-bigboard-round">
+        <div class="ha-bigboard-meta-row">
+          {{ meta_box(team_id, puzzles, visibilities, round_puzzle_map.GAMES_SUPERMETA, 'games-recovery') }}
+        </div>
+        <div class="ha-bigboard-meta-row">
+          {% for puzzle_id in round_puzzle_map.GAMES_SUBMETAS %}
+            {{ meta_box(team_id, puzzles, visibilities, puzzle_id) }}
+          {% endfor %}
+        </div>
+        <div class="ha-bigboard-puzzle-row">
+          {{ puzzle_list(team_id, puzzles, round_puzzle_map.GAMES_PUZZLES, visibilities) }}
+        </div>
+      </div>
+
+      {# Scifi #}
+      <div class="ha-bigboard-round">
+        <div class="ha-bigboard-meta-row">
+          {{ meta_box(team_id, puzzles, visibilities, round_puzzle_map.SCIFI_SUPERMETA, 'scifi-recovery') }}
+        </div>
+        <div class="ha-bigboard-meta-row ha-bigboard-meta-row-wrap">
+          {% for puzzle_id in round_puzzle_map.SCIFI_SUBMETAS %}
+            {{ meta_box(team_id, puzzles, visibilities, puzzle_id, display_title=False) }}
+          {% endfor %}
+        </div>
+        <div class="ha-bigboard-puzzle-row">
+          {{ puzzle_list(team_id, puzzles, round_puzzle_map.SCIFI_PUZZLES, visibilities) }}
+        </div>
+      </div>
+
+      {# Hacking #}
+      <div class="ha-bigboard-round">
+        <div class="ha-bigboard-meta-row">
+          {{ meta_box(team_id, puzzles, visibilities, round_puzzle_map.HACKING_SUPERMETA, 'hacking-recovery') }}
+        </div>
+        {% for phase, _ in round_puzzle_map.HACKING_PHASES|reverse %}
+          <div class="ha-bigboard-meta-row">
+            {{ meta_box(team_id, puzzles, visibilities, 'hacking-%s-meta' % (phase,)) }}
+            {{ meta_box(team_id, puzzles, visibilities, 'hacking-%s-runaround' % (phase,), display_title=False) }}
+          </div>
+          <div class="ha-bigboard-puzzle-row">
+            {{ puzzle_list(team_id, puzzles, round_puzzle_map.HACKING_PUZZLES_BY_PHASE[phase], visibilities) }}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="ha-bigboard-meta-row">
+      {{ meta_box(team_id, puzzles, visibilities, 'grand-finale') }}
+    </div>
+  </div>
+{% endmacro %}

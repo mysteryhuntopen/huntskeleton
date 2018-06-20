@@ -1,0 +1,129 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Justin Melvin and Elizabeth French{% endblock %}
+{% block solution %}PORTMANTEAU{% endblock %}
+
+{% block solution_content_block %}
+<p>These are <a href="http://enigma.puzzlers.org/guide/flat">NPL-style flats</a>. They each have 14 words, and each has a base part that refers to one of the 14 senses of the adjective &ldquo;flat&rdquo;, as hinted by the title and the flavortext.</p>
+
+<p>Their solutions are as follows:</p>
+
+<table class="solution-table">
+  <tr>
+    <th class="wrap">Flat def. sense</th>
+    <th>&ldquo;Flat&rdquo; base</th>
+    <th class="wrap">Other part of base</th>
+    <th>Wordplay type</th>
+    <th>Original flat</th>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>FIXED</td>
+    <td>FAXED</td>
+    <td>SECOND LETTER CHANGE</td>
+    <td>Our hi-pri docs cannot be CLAIR. &rsquo;Til CHAIR, we must send mail by air.</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>HORIZONTAL</td>
+    <td>ABHOR, CHORIZO, DENTAL</td>
+    <td>TELESTICHAL ENIGMA</td>
+    <td>Hate open crab? Use sausage anchor. With teeth, grin wide, Not up to rancor.</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>LEVEL</td>
+    <td>OLIVE OIL</td>
+    <td>CONSONANTCY</td>
+    <td>Canola is not my suggested choice grease. Instead, extra-virgin GAS ups food&rsquo;s taste GEESE.</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>LOW</td>
+    <td>OWL</td>
+    <td>HEAD-TO-TAIL SHIFT</td>
+    <td>Keep barn CATSs SCAT on gloves, not sky. In jesses, birds won&rsquo;t even fly.</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>MATTE</td>
+    <td>MATTER</td>
+    <td>CURTAILMENT</td>
+    <td>The first two cans&rsquo;re gloss, but then The pressing TEND: The third one&rsquo;s TEN!</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>MONOTONOUS</td>
+    <td>SUM</td>
+    <td>REVERSED PALINDROME DELETION</td>
+    <td>The drone goes on too long and DIVINE. In END, I execrate its whine.</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>OFF-KEY</td>
+    <td>COFFEE</td>
+    <td>SOUND SHIFT</td>
+    <td>Beer, tea, black VIEW all serve to move A singer&rsquo;s voice to sounding YOU&rsquo;VE</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>PROSTRATE</td>
+    <td>PROSTATE</td>
+    <td>DELETION</td>
+    <td>I do suggest for older guys To lay EYRES while doc checks your EYES</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>SHORT-HEELED</td>
+    <td>SH or the E LED</td>
+    <td>REBUS</td>
+    <td>I&rsquo;ve spools and kittens, leather pumps&mdash;I think that SOL shoes are for chumps.</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>SMOOTH</td>
+    <td>MOOT</td>
+    <td>TERMINAL DELETION</td>
+    <td>They put up new rugs that are BLAH. That older ones were rough&rsquo;s LA.</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>STABLE</td>
+    <td>SEAT BELT</td>
+    <td>LETTER BANK</td>
+    <td>My horse should have a ROEHRICH? Fair. I&rsquo;m clumsy on beasts from a CO-HEIR.</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>TAUT</td>
+    <td>TAUGHT</td>
+    <td>HOMONYM</td>
+    <td>We&rsquo;re BARE to string it BEAR to shoot, Avoiding your new shoes to boot!</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>TRACK</td>
+    <td>RACK</td>
+    <td>BEHEADMENT</td>
+    <td>To PAT down vintners, one just scans For wine ATs detailed in floor plans.</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>UNINFLECTED</td>
+    <td>UNINFECTED</td>
+    <td>DELETION</td>
+    <td>With negative culture and unchanging voice, I&rsquo;m BACH and my BATCH dialect&rsquo;s by choice.</td>
+  </tr>
+</table>
+
+<p>Order by the sense of the adjective &ldquo;flat&rdquo; in <a href="https://www.merriam-webster.com/">m-w.com</a> (or the print 11th Collegiate Dictionary) and take the nth word of each flat, where n is the sense of &ldquo;flat&rdquo; in each flat. You get:</p>
+
+<div><code>I open up my leather CHAIR</code></div>
+<div><code>And move in my new third floor CO-HEIR</code></div>
+
+<p>The cuewords clue this is a consonantcy. The solution is <code>APARTMENT</code>/<code>PORTMANTEAU</code>. Take the non-&ldquo;flat&rdquo; one to get the answer <strong><code>PORTMANTEAU</code></strong>.</p>
+{% endblock %}

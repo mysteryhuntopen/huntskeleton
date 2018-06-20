@@ -1,0 +1,27 @@
+{% extends "support_layout.html" %}
+{% block title_block %}Full Index{% endblock %}
+{% block screen_name_block %}Full Index{% endblock %}
+
+{% macro puzzle_listing(puzzle_id, puzzle_name) %}
+<li><a href="{{ url_for('full_puzzle', puzzle_id=puzzle_id) }}">{{ puzzle_name }}</a> (<a href="{{ url_for('full_solution', puzzle_id=puzzle_id) }}">solution</a>)</li>
+{% endmacro %}
+
+{% block page_body %}
+<div>
+  <h2>Rounds</h2>
+  <ul>
+    <li><a href="{{ url_for('full_island', island_id='index') }}">Memories</a></li>
+    <li><a href="{{ url_for('full_island', island_id='pokemon') }}">Pokémon</a></li>
+    <li><a href="{{ url_for('full_island', island_id='games') }}">Games</a></li>
+    <li><a href="{{ url_for('full_island', island_id='scifi') }}">Sci-Fi</a></li>
+    <li><a href="{{ url_for('full_island', island_id='hacking') }}">Hacking</a></li>
+  </ul>
+  <h2>Puzzles</h2>
+  <ul>
+    {% for puzzle_id in puzzle_ids %}
+      {{ puzzle_listing(puzzle_id, puzzle_id) }}
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
+

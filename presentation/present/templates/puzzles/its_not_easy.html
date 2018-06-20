@@ -1,0 +1,53 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .list:not(:last-child) {
+    margin-bottom: 20px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<p>This is a barred crossword with no specific grid symmetry.</p>
+
+<div class="list">
+  <div><b>Across:</b></div>
+  <div><b>1.</b> One of two repeated words throughout a Beastie Boys song</div>
+  <div><b>2.</b> Drones (abbr.) / Excite</div>
+  <div><b>3.</b> Thine, in Turin / Brunch cocktail</div>
+  <div><b>4.</b> Bury / Set of named constants</div>
+  <div><b>5.</b> Joined together / Earth Day mon.</div>
+  <div><b>6.</b> Antonio or Andreas / Type of penguin</div>
+  <div><b>7.</b> Riyadh resident / Ladder foothold</div>
+  <div><b>8.</b> Asian island about the size of Maryland / This precedes a switch</div>
+  <div><b>9.</b> Missile abbr. / Fundamental particles</div>
+  <div><b>10.</b> Ligotti&rsquo;s Masquerade subtitle (2 wds.)</div>
+  <div><b>11.</b> Brain recorder (abbr.) / On the same side of a molecular plane / It replaced WOV and LBW</div>
+  <div><b>12.</b> Temple ___ Brith / Traveling workers</div>
+  <div><b>13.</b> Even / Spread</div>
+  <div><b>14.</b> Elderly / Part of the Old World</div>
+  <div><b>15.</b> It administers the Clean Air Act / A general, in some parts / Radioactive, slangily</div>
+  <div><b>16.</b> WMO program / Production</div>
+  <div><b>17.</b> It connects heaven and earth (2 wds.)</div>
+  <div><b>18.</b> Part of a tea brand name</div>
+</div>
+
+<div class="list">
+  <div><b>Down:</b></div>
+  <div><b>A.</b> Wadi Sura II (3 wds.) / Get ready for a spacewalk (2 wds.)</div>
+  <div><b>B.</b> One of Corot or Kepler&rsquo;s discoveries / Mini-stroke (abbr.) / Yearly</div>
+  <div><b>C.</b> ESA mission to measure gravitational waves / An informative drawing / Standard of measure / Eggs</div>
+  <div><b>D.</b> Obscure / Blood group system / Palm fruit / ISP with a butterfly logo</div>
+  <div><b>E.</b> Site of Burke-Gaffney Observatory (abbr.) / Card drafting game themed around Japanese food (2 wds.) / Astronaut with four Stanford degrees / Excite</div>
+  <div><b>F.</b> Private instructor / Biblical leader / Raised, say / Spew</div>
+  <div><b>G.</b> &ldquo;P as ___&rdquo; (2 wds., <i>Friends</i>) / Having no chance for success (abbr.) / Russian ballerina Galina</div>
+  <div><b>H.</b> Song in <i>An American Tail</i> (2 wds.) / Eragon author / Bite / ___ error</div>
+  <div><b>I.</b> Leaves trash around / It was created at Yalta (2 wds.)</div>
+</div>
+{% endblock %}

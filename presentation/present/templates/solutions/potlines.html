@@ -1,0 +1,174 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Wesley Graybill{% endblock %}
+{% block solution %}RECREATIONAL USE{% endblock %}
+
+{% block solution_head_block %}
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Solvers are presented with pairs of images with a number of pots in between them. When solvers begin to identify the images, they realize that each image represents the name of a strain of marijuana. Reading down the first letter of the left-hand column strains, they’ll see the instructions <code>SMOKE OUT JOINT ANCESTOR</code>. In other words, find the ancestor shared by each pair of strains.</p>
+
+<p>When searching for these strains, solvers should have come across the site leafly.com and noticed that logo matches the image at the top of the puzzle. This should serve as confirmation that this is the correct data source. Referencing the identified strains on Leafly, solvers will notice that for each pair of strains, a parent or grandparent of one strain matches the parent or grandparent of the other strain. Taking the number of pots as an index into the ancestor name, you get the phrase <code>ANSWER RECREATIONAL USE</code>.</p>
+
+<table class="solution-table condensed-table">
+  <tr>
+    <th>Left Child</th>
+    <th>Right Child</th>
+    <th>Common Ancestor</th>
+    <th>Index</th>
+    <th>Letter</th>
+  </tr>
+  <tr>
+    <td>Scooby Snacks</td>
+    <td>Candyland</td>
+    <td>Platinum Girl Scout Cookies</td>
+    <td>3</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td>Medicine Woman</td>
+    <td>Gravity</td>
+    <td>Hash Plant</td>
+    <td>8</td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td>Ogre</td>
+    <td>Gorilla Biscuit</td>
+    <td>Sensi Star</td>
+    <td>4</td>
+    <td><code>S</code></td>
+  </tr>
+  <tr>
+    <td>Kill Bill</td>
+    <td>Alice in Wonderland</td>
+    <td>Willy&rsquo;s Wonder</td>
+    <td>1</td>
+    <td><code>W</code></td>
+  </tr>
+  <tr>
+    <td>Ether</td>
+    <td>Alien Abduction</td>
+    <td>Alien Dawg</td>
+    <td>4</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>Oregon Pineapple</td>
+    <td>Maui Mango Diesel</td>
+    <td>Ed Rosenthal Super Bud</td>
+    <td>3</td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td>UltraViolet OG</td>
+    <td>Kryptonite</td>
+    <td>North American Indica</td>
+    <td>3</td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td>Thelonious Skunk</td>
+    <td>Robert Plant</td>
+    <td>Rebel God Smoke</td>
+    <td>4</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>Jack the Ripper</td>
+    <td>Space Candy</td>
+    <td>Space Queen</td>
+    <td>4</td>
+    <td><code>C</code></td>
+  </tr>
+  <tr>
+    <td>Omega Dawg</td>
+    <td>Atomic Goat</td>
+    <td>Romulan</td>
+    <td>1</td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td>Ice Queen</td>
+    <td>Clockwork Orange</td>
+    <td>South American</td>
+    <td>8</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>Narnia</td>
+    <td>Jimi Hendrix</td>
+    <td>Jack Herer</td>
+    <td>2</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td>Thai-Tanic</td>
+    <td>Thaidal Wave</td>
+    <td>Thai</td>
+    <td>1</td>
+    <td><code>T</code></td>
+  </tr>
+  <tr>
+    <td>Alf</td>
+    <td>Electric Kool Aid</td>
+    <td>Cherry Pie</td>
+    <td>8</td>
+    <td><code>I</code></td>
+  </tr>
+  <tr>
+    <td>Night Nurse</td>
+    <td>Animal Cookies</td>
+    <td>Fire OG</td>
+    <td>5</td>
+    <td><code>O</code></td>
+  </tr>
+  <tr>
+    <td>Charlie Sheen</td>
+    <td>Green Lantern</td>
+    <td>Green Crack</td>
+    <td>5</td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td>Ewok</td>
+    <td>Alien Rock Candy</td>
+    <td>Tahoe Alien</td>
+    <td>2</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td>Snoop&rsquo;s Dream</td>
+    <td>Fighting Buddha</td>
+    <td>Blueberry</td>
+    <td>2</td>
+    <td><code>L</code></td>
+  </tr>
+  <tr>
+    <td>Tree of Life</td>
+    <td>Purple Monkey Balls</td>
+    <td>Mendocino Purps</td>
+    <td>11</td>
+    <td><code>U</code></td>
+  </tr>
+  <tr>
+    <td>Orange Blossom</td>
+    <td>Rolls Choice</td>
+    <td>OG Kush</td>
+    <td>5</td>
+    <td><code>S</code></td>
+  </tr>
+  <tr>
+    <td>Russian Assassin</td>
+    <td>Yoda&rsquo;s Brain</td>
+    <td>Skywalker</td>
+    <td>8</td>
+    <td><code>E</code></td>
+  </tr>
+</table>
+{% endblock %}

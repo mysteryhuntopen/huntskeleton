@@ -1,0 +1,50 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Alex Churchill{% endblock %}
+{% block solution %}PAIRWISE EXPANSION{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content img {
+    max-width: 100%;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>We have 19 hexagons on the left, 19 hexagons on the right, and a space in between them with room for 19 hexagons. The hexagons on the right are partially transparent&mdash;they have outlines of bars that match the bars on the left-side solid hexagons. If you play with the hexes interactively, you&rsquo;ll find that if you overlap them, the ones on the right always lie over the top of the ones on the left.</p>
+
+<p>This all suggests you need to put the 19 left-side hexagons into the layout space, and put the 19 right-side hexagons on top of them. You can tell the correct rotation for all the left-side solid hexes because of the shades of yellow/orange/brown, but you can’t yet tell the correct orientation for the right-side transparent hexes.</p>
+
+<p>Also, as you play with lining the hexagons up, you may find that any time you put three of them together to form a triangle, it forms an impossible tri-bar, also known as a <a href="https://en.wikipedia.org/wiki/Penrose_triangle">Penrose triangle</a>. If you form a quadrilateral with four of them, it’s a perfectly possible real-world structure, like a perspective view of a square picture frame. Five hexes produce an impossible shape known as the <a href="http://im-possible.info/english/articles/awif/chapter2.html#27">impossible four-bar</a>. Six hexes produce one of several real world possible structures, such as one that traces several edges of a cube.</p>
+
+<p>The leap at this point is to realize that the symbols floating on the transparent right-side hexes are meant to indicate whether the region they go on top of is possible or impossible. The smiley face with a tick indicates it&rsquo;s possible, the purple swirly reality vortex with a red tri-bar means impossible, and the blue-sky cloud means this area is connected to the background.</p>
+
+<img {{ img_src_for('solutions/disorientation/01.png') }}>
+
+<p>Armed with this interpretation, it&rsquo;s now possible to arrange all the hexes correctly. A helpful insight at this stage is that this piece:</p>
+
+<img {{ img_src_for('solutions/disorientation/02.png') }}>
+
+<p>needs to be the internal concave corner of a possible shape containing at least six hexes. It also helps to guess that the two pieces with two adjacent smiley faces might go next to each other:</p>
+
+<img {{ img_src_for('solutions/disorientation/03.png') }}>
+<img {{ img_src_for('solutions/disorientation/04.png') }}>
+
+<p>A little experimentation shows the only way to pair these two intersections to line up the colors is the way on the left (in the way on the right, the orange and brown are inverted).</p>
+
+<img {{ img_src_for('solutions/disorientation/05.png') }}>
+<img {{ img_src_for('solutions/disorientation/06.png') }}>
+
+<p>If this is correct, then the space underneath this pairing must be a possible space containing at least six hexes, so it seems likely the internal concave corner piece must nestle underneath these two pieces. From here you can logically assemble the rest of the figure.</p>
+
+<p>With the figure completed, how do you extract a message? At the top center, there&rsquo;s a prominent person shape. At a distant part of the figure there&rsquo;s a cyan door. It seems like you need to find a route to get the figure to the door. The figure will need to cross from one side of a bar to another a few times&mdash;the patches of curved lines going from one visible side of a bar to another provide enough crossings to do this. The route is drawn below:</p>
+
+<img {{ img_src_for('solutions/disorientation/07.png') }}>
+
+<p>This path crosses some of the letters, tracing out the final answer <strong><code>PAIRWISE EXPANSION</code></strong>.</p>
+{% endblock %}

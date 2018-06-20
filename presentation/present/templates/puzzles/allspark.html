@@ -1,0 +1,414 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .puzzle-content .transform-chain {
+      margin: 1em 0;
+      line-height: 2;
+    }
+
+    .puzzle-content #blank-transforms .transform-chain {
+      margin: 2em 0;
+    }
+
+    .puzzle-content .transform-grid {
+      border-collapse: collapse;
+      empty-cells: show;
+      display: inline-block;
+      vertical-align: middle;
+      font-family: monospace;
+      font-size: 1.25em;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .puzzle-content .transform-grid td {
+      width: 1.25em;
+      height: 1.25em;
+      text-align: center;
+      vertical-align: middle;
+      background-color: white;
+      border: 1px solid black;
+    }
+
+    .puzzle-content .transform-grid td.green {
+      background-color: #c4ffc4;
+    }
+
+    .puzzle-content .transform-grid td.red {
+      background-color: #ffd8d8;
+    }
+
+    .puzzle-content .transform-grid td.yellow {
+      background-color: #ffffb1;
+    }
+
+    @media print {
+      .puzzle-content .transform-grid td.green {
+        box-shadow: inset 0 0 0 1000px #c4ffc4;
+      }
+
+      .puzzle-content .transform-grid td.red {
+        box-shadow: inset 0 0 0 1000px #ffd8d8;
+      }
+
+      .puzzle-content .transform-grid td.yellow {
+        box-shadow: inset 0 0 0 1000px  #ffffb1;
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Everyone knows about the physical contortions that Enable turning
+  into a car, but what about all the random electronic gymnastics?
+{% endblock %}
+
+{% block puzzle_call_to_action_block %}
+  What can defeat Megatron?
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <p>Transformation is a complicated process. It takes place over a
+    series of discrete steps, each independent of the last, and
+    involves three types of transforms (represented here in different
+    colors). Examples of legal steps include:</p>
+
+  <div id="givenTransforms">
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td>T</td><td>R</td><td>A</td><td>N</td><td>S</td><td class="yellow">F</td><td class="red">O</td><td>R</td><td class="yellow">M</td><td class="red">E</td><td class="yellow">R</td><td>S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>T</td><td>R</td><td>A</td><td>N</td><td>S</td><td>G</td><td>R</td><td>E</td><td>S</td><td>S</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow">R</td><td>O</td><td class="yellow">B</td><td class="red">O</td><td>T</td><td>S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>S</td><td>O</td><td>R</td><td>T</td><td>S</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td>I</td><td class="green">N</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>I</td><td>N</td><td>N</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow">D</td><td class="yellow">I</td><td>S</td><td class="yellow">G</td><td class="red">U</td><td>I</td><td>S</td><td class="yellow">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>F</td><td>A</td><td>S</td><td>C</td><td>I</td><td>S</td><td>M</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="red">T</td><td class="yellow">R</td><td>A</td><td>N</td><td class="red">S</td><td class="yellow">F</td><td>O</td><td class="red">R</td><td class="yellow">M</td><td class="green">E</td><td>R</td><td>S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>B</td><td>A</td><td>N</td><td>D</td><td>O</td><td>L</td><td>E</td><td>E</td><td>R</td><td>S</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow">M</td><td class="yellow">O</td><td>R</td><td class="yellow">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>O</td><td>K</td><td>R</td><td>A</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow">T</td><td class="yellow">H</td><td>A</td><td class="yellow">N</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>D</td><td>I</td><td>A</td><td>L</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow">M</td><td class="yellow">E</td><td class="yellow">E</td><td class="yellow">T</td><td class="red">S</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>L</td><td>U</td><td>A</td><td>U</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow">T</td><td class="yellow">H</td><td class="red">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>P</td><td>I</td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow">E</td><td class="yellow">Y</td><td class="yellow">E</td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td>D</td><td>I</td><td>G</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <p>Now, can you help these twelve Transformers complete the process?</p>
+
+  <div id="blank-transforms">
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="red"></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td><td class="red"></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td></td><td class="yellow"></td><td class="yellow"></td><td></td><td class="green"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="red"></td><td class="yellow"></td><td class="red"></td><td class="yellow"></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="green"></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td></td><td></td><td class="yellow"></td><td class="red"></td><td class="red"></td><td class="yellow"></td><td></td><td class="red"></td><td class="red"></td><td class="yellow"></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td></td><td></td><td class="red"></td><td></td><td class="red"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="red"></td><td class="yellow"></td><td class="yellow"></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td class="yellow"></td><td></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="green"></td><td class="red"></td><td></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td></td><td class="red"></td><td class="green"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td class="red"></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="green"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td class="yellow"></td><td class="yellow"></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td></td><td></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td></td><td class="yellow"></td><td class="yellow"></td><td></td><td class="red"></td><td class="red"></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td></td><td class="red"></td><td></td><td class="red"></td><td class="yellow"></td><td></td><td></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td><td class="red"></td><td class="red"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="red"></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td></td><td class="yellow"></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="red"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td></td><td class="yellow"></td><td></td><td class="red"></td><td class="red"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td><td class="green"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td><td class="red"></td><td></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td><td class="red"></td><td></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="red"></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="red"></td><td class="yellow"></td><td class="red"></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td><td></td><td></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <div class="transform-chain">
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td class="green"></td><td class="yellow"></td><td class="red"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td class="green"></td><td class="yellow"></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td></td><td class="yellow"></td><td></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td class="yellow"></td><td></td><td></td><td class="red"></td><td class="yellow"></td><td class="yellow"></td></tr>
+      </table>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <table class="transform-grid">
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+  </div>  
+{% endblock %}

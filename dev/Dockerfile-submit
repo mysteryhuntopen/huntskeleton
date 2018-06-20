@@ -1,0 +1,12 @@
+FROM ubuntu:16.04
+
+RUN apt-get update && \
+  apt-get install --no-install-recommends -qy \
+    build-essential libffi-dev libssl-dev python-dev python-pip virtualenv
+
+ADD presentation/requirements.txt /
+RUN virtualenv /vendor && /vendor/bin/pip install -r /requirements.txt
+
+VOLUME /src
+EXPOSE 5001
+CMD ["/vendor/bin/python", "/src/presentation/run_submit.py"]

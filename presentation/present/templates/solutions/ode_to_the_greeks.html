@@ -1,0 +1,110 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Andrew Chen{% endblock %}
+{% block solution %}NEBULA{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content img {
+    width: 100%;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>The story describes classic stories from Greek mythology with the characters missing, starting with Heracles&rsquo;s first task of defeating the Nemean Lion. As Heracles is the great-grandson of Andromeda and Perseus, the story then describes how Cassiopeia&rsquo;s boastfulness and Cepheus&rsquo;s ineffectiveness required Perseus and his steed Pegasus to save Andromeda from the sea-monster Cetus. Each bracketed number corresponds to a character that is also a constellation of the night sky (numbered in alphabetical order).</p>
+
+<p>The Greek string for each character is a sequence of Bayer designations, the most common way of naming stars in a constellation (e.g. Alpha Centauri). Connecting the dots of each sequence within each constellation constructs a polygon that contains exactly one Bayer star and thus one Greek letter. (See below for examples.)</p>
+
+<p>Extracting these enscribed letters, we get:</p>
+
+<table class="solution-table">
+  <tr>
+    <th>ID</th>
+    <th>Story​ ​Order</th>
+    <th>Mythological Figure</th>
+    <th>Constellation</th>
+    <th>Greek​ ​String</th>
+    <th>Enscribed​ ​Star</th>
+  </tr>
+  <tr>
+    <td>[6]</td>
+    <td>1</td>
+    <td>Nemean Lion</td>
+    <td>Leo</td>
+    <td>&alpha;&eta;&psi;&omicron;&pi;&alpha;</td>
+    <td>&nu;</td>
+  </tr>
+  <tr>
+    <td>[5]</td>
+    <td>2</td>
+    <td>Heracles</td>
+    <td>Hercules</td>
+    <td>&delta;&pi;&eta;&zeta;&delta;</td>
+    <td>&epsilon;</td>
+  </tr>
+  <tr>
+    <td>[2]</td>
+    <td>3</td>
+    <td>Cassiopeia</td>
+    <td>Cassiopeia</td>
+    <td>&gamma;&theta;&chi;&delta;&gamma;</td>
+    <td>&phi;</td>
+  </tr>
+  <tr>
+    <td>[1]</td>
+    <td>4</td>
+    <td>Andromeda</td>
+    <td>Andromeda</td>
+    <td>&alpha;&zeta;&eta;&delta;&alpha;</td>
+    <td>&epsilon;</td>
+  </tr>
+  <tr>
+    <td>[3]</td>
+    <td>5</td>
+    <td>Cepheus</td>
+    <td>Cepheus</td>
+    <td>&delta;&xi;&nu;&mu;&zeta;&delta;</td>
+    <td>&lambda;</td>
+  </tr>
+  <tr>
+    <td>[8]</td>
+    <td>6</td>
+    <td>Perseus</td>
+    <td>Perseus</td>
+    <td>&beta;&pi;&rho;&xi;&epsilon;&beta;</td>
+    <td>&omega;</td>
+  </tr>
+  <tr>
+    <td>[7]</td>
+    <td>7</td>
+    <td>Pegasus</td>
+    <td>Pegasus</td>
+    <td>&beta;&omicron;&lambda;&tau;&beta;</td>
+    <td>&mu;</td>
+  </tr>
+  <tr>
+    <td>[4]</td>
+    <td>8</td>
+    <td>Cetus</td>
+    <td>Cetus</td>
+    <td>&gamma;&delta;&kappa;&lambda;&gamma;</td>
+    <td>&alpha;</td>
+  </tr>
+</table>
+
+<p>By ordering via the positions that the IDs appear in the story, the extracted letters read &ldquo;&nu;&epsilon;&phi;&epsilon;&lambda;&omega;&mu;&alpha;&rdquo;, which, translated from Greek, is our solution, <strong><code>NEBULA</code></strong>.</p>
+
+<img {{ img_src_for('solutions/ode_to_the_greeks/01.png') }}>
+<img {{ img_src_for('solutions/ode_to_the_greeks/02.png') }}>
+<img {{ img_src_for('solutions/ode_to_the_greeks/03.png') }}>
+<img {{ img_src_for('solutions/ode_to_the_greeks/04.png') }}>
+<img {{ img_src_for('solutions/ode_to_the_greeks/05.png') }}>
+<img {{ img_src_for('solutions/ode_to_the_greeks/06.png') }}>
+<img {{ img_src_for('solutions/ode_to_the_greeks/07.png') }}>
+<img {{ img_src_for('solutions/ode_to_the_greeks/08.png') }}>
+{% endblock %}

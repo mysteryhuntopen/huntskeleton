@@ -1,0 +1,1030 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Robin Diets and Laina Lomina{% endblock %}
+{% block solution %}MISFIT MATHEMATICIANS{% endblock %}
+
+{% block solution_head_block %}
+{# Table font size shrunk so that table content doesn't need to wrap #}
+<style>
+  .puzzle-content .differences-table {
+    font-size: 0.8em;
+  }
+
+  .puzzle-content .differences-table th {
+    word-wrap: break-word;
+  }
+
+  .puzzle-content .differences-table td {
+    padding: 0.8em;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>First, the solver needs to figure out the hexagonal drop quotes. They are all song lyrics with one color word changed. Then they need to identify that the replacement color comes from the list of <a href="https://www.w3schools.com/colors/colors_xkcd.asp">&ldquo;XKCD colors&rdquo;</a>:</p>
+
+<table class="solution-table">
+  <tr>
+    <th>
+      Order
+    </th>
+    <th>
+      Solution to Hex Quote
+    </th>
+    <th>
+      Original Lyrics
+    </th>
+    <th>
+      Original Color
+    </th>
+    <th>
+      XKCD color
+    </th>
+  </tr>
+  <tr>
+    <td>
+      1
+    </td>
+    <td>
+      I’LL MEET YOU BEFORE THE DEW HAS LEFT THE NASTYGREEN LEAVES
+    </td>
+    <td>
+      <a href="http://www.lyricsfreak.com/h/hawksley+workman/sweet+hallelujah_20348549.html">&ldquo;Sweet Hallelujah&rdquo;</a>
+    </td>
+    <td>
+      fern
+    </td>
+    <td>
+      nastygreen
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2
+    </td>
+    <td>
+      BLUEBERRY, CHERRY, APPLE, PUMPKIN AND PURPLISHBROWN CALL ME FOR DINNER HONEY I’LL BE THERE
+    </td>
+    <td>
+      <a href="https://www.azlyrics.com/lyrics/bobdylan/countrypie.html">&ldquo;Country Pie&rdquo;</a>
+    </td>
+    <td>
+      plum
+    </td>
+    <td>
+      purplishbrown
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3
+    </td>
+    <td>
+      THE PRIEST WAS THERE WITH YELLOWISH HAIR RELIGION BY HIS SIDE
+    </td>
+    <td>
+      <a href="https://www.lyrics.com/lyric/3354037/Neil+Young/Song+X">&ldquo;Song X&rdquo;</a>
+    </td>
+    <td>
+      sandy
+    </td>
+    <td>
+      yellowish
+    </td>
+  </tr>
+  <tr>
+    <td>
+      4
+    </td>
+    <td>
+      THERE’S A WEALTH OF HAPPINESS AND ROMANCE, ALL IN THE SLIMEGREEN AFTERNOON
+    </td>
+    <td>
+      <a href="https://www.lyrics.com/lyric/15679192/Disney/All+in+the+Golden+Afternoon">&ldquo;All in the Golden Afternoon&rdquo;</a>
+    </td>
+    <td>
+      golden
+    </td>
+    <td>
+      slimegreen
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5
+    </td>
+    <td>
+      AND BRIGHT SKIES TO PICNICS ON WARM JULYS TO DEEP GREENYYELLOW AUTUMNS AND WINTER GOODBYES
+    </td>
+    <td>
+      <a href="https://www.lyrics.com/lyric/1332091/Rosemary+Clooney/Time+Flies">&ldquo;Time Flies&rdquo;</a>
+    </td>
+    <td>
+      umber
+    </td>
+    <td>
+      greenyyellow
+    </td>
+  </tr>
+  <tr>
+    <td>
+      6
+    </td>
+    <td>
+      BUT MY COLOR COMES BACK; ONCE YOU GO BRITISHRACINGGREEN YOU NEVER GO BACK
+    </td>
+    <td>
+      <a href="https://www.lyrics.com/lyric/28224557/Gin+Wigmore/Black+Sheep">&ldquo;Black Sheep&rdquo;</a>
+    </td>
+    <td>
+      black
+    </td>
+    <td>
+      britishracinggreen
+    </td>
+  </tr>
+  <tr>
+    <td>
+      7
+    </td>
+    <td>
+      WHAT A DREAM I HAD PRESSED IN ORGANDY; CLOTHED IN CRINOLINE OF SMOKY MIDNIGHTPURPLE
+    </td>
+    <td>
+      <a href="https://www.lyrics.com/lyric/858903/Simon+%26+Garfunkel/For+Emily%2C+Whenever+I+May+Find+Her">&ldquo;For Emily, Whenever I May Find Her&rdquo;</a>
+    </td>
+    <td>
+      burgundy
+    </td>
+    <td>
+      midnightpurple
+    </td>
+  </tr>
+  <tr>
+    <td>
+      8
+    </td>
+    <td>
+      YOU ARE THE ONE MY YELLOWYGREEN GO-GO-GIRL; SHE LIKE A SHOW GIRL DELIGHTFUL DOLORES
+    </td>
+    <td>
+      <a href="https://www.lyrics.com/lyric/412824/Donovan/Maria+Magenta">&ldquo;Maria Magenta&rdquo;</a>
+    </td>
+    <td>
+      copper
+    </td>
+    <td>
+      yellowygreen
+    </td>
+  </tr>
+  <tr>
+    <td>
+      9
+    </td>
+    <td>
+      MOONLIGHT USED TO BATHE THE CONTOURS OF YOUR FACE, WHILE UGLYBROWN HAIR FELL ALL AROUND THE PILLOWCASE
+    </td>
+    <td>
+      <a href="https://www.lyrics.com/lyric/7263475/Harry+Belafonte/Empty+Chairs">&ldquo;Empty Chairs&rdquo;</a>
+    </td>
+    <td>
+      chestnut
+    </td>
+    <td>
+      uglybrown
+    </td>
+  </tr>
+  <tr>
+    <td>
+      10
+    </td>
+    <td>
+      ALL ALONG THE WATERFALL WITH YOU MY DIRTYPURPLE EYED GIRL
+    </td>
+    <td>
+      <a href="https://www.lyrics.com/lyric/31199379/Van+Morrison/Brown+Eyed+GIRL">&ldquo;Brown Eyed Girl&rdquo;</a>
+    </td>
+    <td>
+      brown
+    </td>
+    <td>
+      dirtypurple
+    </td>
+  </tr>
+</table>
+
+<p>Here are the relevant colors and the RGB values pulled from <a href="https://www.w3schools.com/colors/colors_xkcd.asp">&ldquo;the list of XKCD colors&rdquo;</a>:</p>
+
+<table class="solution-table">
+  <tr>
+    <th>
+      Color
+    </th>
+    <th>
+      Hex
+    </th>
+    <th>
+      R
+    </th>
+    <th>
+      G
+    </th>
+    <th>
+      B
+    </th>
+  </tr>
+  <tr>
+    <td>
+      black
+    </td>
+    <td>
+      #000000
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      britishracinggreen
+    </td>
+    <td>
+      #05480D
+    </td>
+    <td>
+      5
+    </td>
+    <td>
+      72
+    </td>
+    <td>
+      13
+    </td>
+  </tr>
+  <tr>
+    <td>
+      brown
+    </td>
+    <td>
+      #653700
+    </td>
+    <td>
+      101
+    </td>
+    <td>
+      55
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      burgundy
+    </td>
+    <td>
+      #610023
+    </td>
+    <td>
+      97
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      35
+    </td>
+  </tr>
+  <tr>
+    <td>
+      chestnut
+    </td>
+    <td>
+      #742802
+    </td>
+    <td>
+      116
+    </td>
+    <td>
+      40
+    </td>
+    <td>
+      2
+    </td>
+  </tr>
+  <tr>
+    <td>
+      copper
+    </td>
+    <td>
+      #B66325
+    </td>
+    <td>
+      182
+    </td>
+    <td>
+      99
+    </td>
+    <td>
+      37
+    </td>
+  </tr>
+  <tr>
+    <td>
+      dirtypurple
+    </td>
+    <td>
+      #734A65
+    </td>
+    <td>
+      115
+    </td>
+    <td>
+      74
+    </td>
+    <td>
+      101
+    </td>
+  </tr>
+  <tr>
+    <td>
+      fern
+    </td>
+    <td>
+      #63A950
+    </td>
+    <td>
+      99
+    </td>
+    <td>
+      169
+    </td>
+    <td>
+      80
+    </td>
+  </tr>
+  <tr>
+    <td>
+      golden
+    </td>
+    <td>
+      #F5BF03
+    </td>
+    <td>
+      245
+    </td>
+    <td>
+      191
+    </td>
+    <td>
+      3
+    </td>
+  </tr>
+  <tr>
+    <td>
+      greenyyellow
+    </td>
+    <td>
+      #C6F808
+    </td>
+    <td>
+      198
+    </td>
+    <td>
+      248
+    </td>
+    <td>
+      8
+    </td>
+  </tr>
+  <tr>
+    <td>
+      midnightpurple
+    </td>
+    <td>
+      #280137
+    </td>
+    <td>
+      40
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      55
+    </td>
+  </tr>
+  <tr>
+    <td>
+      nastygreen
+    </td>
+    <td>
+      #70B23F
+    </td>
+    <td>
+      112
+    </td>
+    <td>
+      178
+    </td>
+    <td>
+      63
+    </td>
+  </tr>
+  <tr>
+    <td>
+      plum
+    </td>
+    <td>
+      #580F41
+    </td>
+    <td>
+      88
+    </td>
+    <td>
+      15
+    </td>
+    <td>
+      65
+    </td>
+  </tr>
+  <tr>
+    <td>
+      purplishbrown
+    </td>
+    <td>
+      #6B4247
+    </td>
+    <td>
+      107
+    </td>
+    <td>
+      66
+    </td>
+    <td>
+      71
+    </td>
+  </tr>
+  <tr>
+    <td>
+      sandy
+    </td>
+    <td>
+      #F1DA7A
+    </td>
+    <td>
+      241
+    </td>
+    <td>
+      218
+    </td>
+    <td>
+      122
+    </td>
+  </tr>
+  <tr>
+    <td>
+      slimegreen
+    </td>
+    <td>
+      #99CC04
+    </td>
+    <td>
+      153
+    </td>
+    <td>
+      204
+    </td>
+    <td>
+      4
+    </td>
+  </tr>
+  <tr>
+    <td>
+      uglybrown
+    </td>
+    <td>
+      #7D7103
+    </td>
+    <td>
+      125
+    </td>
+    <td>
+      113
+    </td>
+    <td>
+      3
+    </td>
+  </tr>
+  <tr>
+    <td>
+      umber
+    </td>
+    <td>
+      #B26400
+    </td>
+    <td>
+      178
+    </td>
+    <td>
+      100
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      yellowish
+    </td>
+    <td>
+      #FAEE66
+    </td>
+    <td>
+      250
+    </td>
+    <td>
+      238
+    </td>
+    <td>
+      102
+    </td>
+  </tr>
+  <tr>
+    <td>
+      yellowygreen
+    </td>
+    <td>
+      #BFF128
+    </td>
+    <td>
+      191
+    </td>
+    <td>
+      241
+    </td>
+    <td>
+      40
+    </td>
+  </tr>
+</table>
+
+<p>Once both colors are identified, consider the colors around the hex itself. The colors are Red, Green, and Blue. For each hex, if you subtract the corresponding component (r, g, or b) values of the original from the replaced color, you will get two positive values from 1 through 26. These can be converted to A-Z bigrams.</p>
+
+<table class="solution-table differences-table">
+  <tr>
+    <th class="wrap">
+      Orig. Lyric
+    </th>
+    <th class="wrap">
+      XKCD Color
+    </th>
+    <th class="wrap">
+      Hex Color 1
+    </th>
+    <th class="wrap">
+      Hex Color 2
+    </th>
+    <th class="wrap">
+      RGB Value - XKCD Color 1
+    </th>
+    <th class="wrap">
+      RGB Value - Orig. Color 1
+    </th>
+    <th class="wrap">
+      Diff. 1
+    </th>
+    <th class="wrap">
+      RGB Value XKCD Color 2
+    </th>
+    <th class="wrap">
+      RGB Value Orig. Color 2
+    </th>
+    <th class="wrap">
+      Diff. 2
+    </th>
+    <th class="wrap">
+      Both Diffs
+    </th>
+    <th>
+      Bigram
+    </th>
+  </tr>
+  <tr>
+    <td>
+      fern
+    </td>
+    <td>
+      nastygreen
+    </td>
+    <td>
+      RED
+    </td>
+    <td>
+      GREEN
+    </td>
+    <td>
+      112
+    </td>
+    <td>
+      99
+    </td>
+    <td>
+      13
+    </td>
+    <td>
+      178
+    </td>
+    <td>
+      169
+    </td>
+    <td>
+      9
+    </td>
+    <td>
+      13,9
+    </td>
+    <td>
+      MI
+    </td>
+  </tr>
+  <tr>
+    <td>
+      plum
+    </td>
+    <td>
+      purplishbrown
+    </td>
+    <td>
+      RED
+    </td>
+    <td>
+      BLUE
+    </td>
+    <td>
+      107
+    </td>
+    <td>
+      88
+    </td>
+    <td>
+      19
+    </td>
+    <td>
+      71
+    </td>
+    <td>
+      65
+    </td>
+    <td>
+      6
+    </td>
+    <td>
+      19,6
+    </td>
+    <td>
+      SF
+    </td>
+  </tr>
+  <tr>
+    <td>
+      sandy
+    </td>
+    <td>
+      yellowish
+    </td>
+    <td>
+      RED
+    </td>
+    <td>
+      GREEN
+    </td>
+    <td>
+      250
+    </td>
+    <td>
+      241
+    </td>
+    <td>
+      9
+    </td>
+    <td>
+      238
+    </td>
+    <td>
+      218
+    </td>
+    <td>
+      20
+    </td>
+    <td>
+      9,20
+    </td>
+    <td>
+      IT
+    </td>
+  </tr>
+  <tr>
+    <td>
+      golden
+    </td>
+    <td>
+      slimegreen
+    </td>
+    <td>
+      GREEN
+    </td>
+    <td>
+      BLUE
+    </td>
+    <td>
+      204
+    </td>
+    <td>
+      191
+    </td>
+    <td>
+      13
+    </td>
+    <td>
+      4
+    </td>
+    <td>
+      3
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      13,1
+    </td>
+    <td>
+      MA
+    </td>
+  </tr>
+  <tr>
+    <td>
+      umber
+    </td>
+    <td>
+      greenyyellow
+    </td>
+    <td>
+      RED
+    </td>
+    <td>
+      BLUE
+    </td>
+    <td>
+      198
+    </td>
+    <td>
+      178
+    </td>
+    <td>
+      20
+    </td>
+    <td>
+      8
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      8
+    </td>
+    <td>
+      20,8
+    </td>
+    <td>
+      TH
+    </td>
+  </tr>
+  <tr>
+    <td>
+      black
+    </td>
+    <td>
+      britishracinggreen
+    </td>
+    <td>
+      RED
+    </td>
+    <td>
+      BLUE
+    </td>
+    <td>
+      5
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      5
+    </td>
+    <td>
+      13
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      13
+    </td>
+    <td>
+      5,13
+    </td>
+    <td>
+      EM
+    </td>
+  </tr>
+  <tr>
+    <td>
+      burgundy
+    </td>
+    <td>
+      midnightpurple
+    </td>
+    <td>
+      GREEN
+    </td>
+    <td>
+      BLUE
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      55
+    </td>
+    <td>
+      35
+    </td>
+    <td>
+      20
+    </td>
+    <td>
+      1,20
+    </td>
+    <td>
+      AT
+    </td>
+  </tr>
+  <tr>
+    <td>
+      copper
+    </td>
+    <td>
+      yellowygreen
+    </td>
+    <td>
+      RED
+    </td>
+    <td>
+      BLUE
+    </td>
+    <td>
+      191
+    </td>
+    <td>
+      182
+    </td>
+    <td>
+      9
+    </td>
+    <td>
+      40
+    </td>
+    <td>
+      37
+    </td>
+    <td>
+      3
+    </td>
+    <td>
+      9,3
+    </td>
+    <td>
+      IC
+    </td>
+  </tr>
+  <tr>
+    <td>
+      chestnut
+    </td>
+    <td>
+      uglybrown
+    </td>
+    <td>
+      RED
+    </td>
+    <td>
+      BLUE
+    </td>
+    <td>
+      125
+    </td>
+    <td>
+      116
+    </td>
+    <td>
+      9
+    </td>
+    <td>
+      3
+    </td>
+    <td>
+      2
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      9,1
+    </td>
+    <td>
+      IA
+    </td>
+  </tr>
+  <tr>
+    <td>
+      brown
+    </td>
+    <td>
+      dirtypurple
+    </td>
+    <td>
+      RED
+    </td>
+    <td>
+      GREEN
+    </td>
+    <td>
+      115
+    </td>
+    <td>
+      101
+    </td>
+    <td>
+      14
+    </td>
+    <td>
+      74
+    </td>
+    <td>
+      55
+    </td>
+    <td>
+      19
+    </td>
+    <td>
+      14,19
+    </td>
+    <td>
+      NS
+    </td>
+  </tr>
+</table>
+
+<p>The answer, read from top to bottom, is <strong><code>MISFIT MATHEMATICIANS</code></strong>.</p>
+
+<p>Solved grids:</p>
+
+<div id="grids">
+  <p><img src="{{ asset_url_for('solutions/fuch_sia/0.svg') }}" /></p>
+
+  <p><img src="{{ asset_url_for('solutions/fuch_sia/1.svg') }}" /></p>
+
+  <p><img src="{{ asset_url_for('solutions/fuch_sia/2.svg') }}" /></p>
+
+  <p><img src="{{ asset_url_for('solutions/fuch_sia/3.svg') }}" /></p>
+
+  <p><img src="{{ asset_url_for('solutions/fuch_sia/4.svg') }}" /></p>
+
+  <p><img src="{{ asset_url_for('solutions/fuch_sia/5.svg') }}" /></p>
+
+  <p><img src="{{ asset_url_for('solutions/fuch_sia/6.svg') }}" /></p>
+
+  <p><img src="{{ asset_url_for('solutions/fuch_sia/7.svg') }}" /></p>
+
+  <p><img src="{{ asset_url_for('solutions/fuch_sia/8.svg') }}" /></p>
+
+  <p><img src="{{ asset_url_for('solutions/fuch_sia/9.svg') }}" /></p>
+</div>
+{% endblock %}

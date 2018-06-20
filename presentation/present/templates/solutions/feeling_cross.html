@@ -1,0 +1,2509 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Grant Elliott{% endblock %}
+{% block solution %}AUSTERE TYPEFACE{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content table.solution-table {
+    margin-bottom: 20px;
+  }
+
+  .puzzle-content .monospace {
+    font-family: monospace;
+  }
+
+  .puzzle-content table.solution-grid {
+    padding: 0;
+    border-collapse: collapse;
+    margin: 60px auto;
+    table-layout: fixed;
+  }
+  
+  .puzzle-content table.solution-grid td {
+    padding: 0;
+    border: 1px solid #888;
+    background-color: #888;
+  }
+
+  .puzzle-content table.solution-grid td:after {
+    /* only way I know to force cell height */
+    content:'';
+    display:block;
+    width: 20px;
+    height: 20px;
+  }
+
+  .puzzle-content table.braille-grid td.y {
+    /* dot */
+    background-color: white;
+  }
+
+  .puzzle-content table.braille-grid td.y:after {
+    content: "\25cf";
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .puzzle-content table.braille-grid td.n {
+    /* no dot */
+    background-color: white;
+  }
+
+  .puzzle-content table.letter-grid td.l {
+    /* 2x3 cell with a letter in it */
+    background-color: white;
+    text-align: center;
+    vertical-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: sans-serif;
+  }
+
+  .puzzle-content table.letter-grid td.l:after {
+    /* only necessary because of the kludge above */
+    content: none;
+  }
+
+  .puzzle-content table.letter-grid td.b {
+    /* in-use cell that isn't part of an entry in this direction */
+    background-color: white;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>This is a diagramless criss-cross in braille, with single dot resolution, so frames can be aligned differently and intersections do not necessarily represent the same letter(s) in both words. The “apropos” clues all refer to blind characters. The given numbers are just standard crossword numbering.</p>
+
+<p>That task complete, simply record the areas of the block squares around the perimeter of the puzzle, as hinted by 20 down. For instance, an unused space of area 1 would correspond to A, an unused space of area 20 would correspond to T, and so on. Reading clockwise from the upper right corner, they spell <strong><code>AUSTERE TYPEFACE</code></strong>, which braille certainly is.</p>
+
+<p>Crossword clue answers and completed grids follow below:</p>
+
+<b>Across</b>
+<table class="solution-table">
+  <tr>
+    <th>
+      Numbering
+    </th>
+    <th>
+      Clue
+    </th>
+    <th>
+      Answer
+    </th>
+    <th>
+      Answer length
+    </th>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Expectant mother (2 words)</td>
+    <td class="monospace">PREGNANTWOMAN</td>
+    <td>13</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>Stylishly luxurious</td>
+    <td class="monospace">POSH</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>Not near</td>
+    <td class="monospace">FAR</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>Apropos superhero</td>
+    <td class="monospace">DAREDEVIL</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>Animal-filled attraction</td>
+    <td class="monospace">ZOO</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>Proteges and Tributes</td>
+    <td class="monospace">MAZDAS</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td>Leftover or bonus</td>
+    <td class="monospace">EXTRA</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>18</td>
+    <td>It may be criminal or supreme</td>
+    <td class="monospace">COURT</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td>Apropos Enterprise officer (last name)</td>
+    <td class="monospace">LAFORGE</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>23</td>
+    <td>Measure of distance or beer</td>
+    <td class="monospace">YARD</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>24</td>
+    <td>Apropos rock opera character</td>
+    <td class="monospace">TOMMY</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>25</td>
+    <td>Affirmative</td>
+    <td class="monospace">YES</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>26</td>
+    <td>Riceless preparation of 27-Across</td>
+    <td class="monospace">SASHIMI</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>27</td>
+    <td>Gold or cat, for example</td>
+    <td class="monospace">FISH</td>
+    <td>4</td>
+  </tr>
+</table>
+
+<b>Down</b>
+<table class="solution-table">
+  <tr>
+    <th>
+      Numbering
+    </th>
+    <th>
+      Clue
+    </th>
+    <th>
+      Answer
+    </th>
+    <th>
+      Answer length
+    </th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Container for three men</td>
+    <td class="monospace">TUB</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Positions in the armed forces</td>
+    <td class="monospace">RANKS</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>You and I</td>
+    <td class="monospace">WE</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>One who plays CDs</td>
+    <td class="monospace">DJ</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Zags’ partner</td>
+    <td class="monospace">ZIGS</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>TV sports award</td>
+    <td class="monospace">ESPY</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Like some TVs before 4K</td>
+    <td class="monospace">HD</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>Came into bloom</td>
+    <td class="monospace">FLOWERED</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>“I do,” for example</td>
+    <td class="monospace">VOW</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>Vertical line on a toggle switch</td>
+    <td class="monospace">ON</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>Violent chaos</td>
+    <td class="monospace">MAYHEM</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>Personal icon, online</td>
+    <td class="monospace">AVATAR</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td>Guitar predecessor</td>
+    <td class="monospace">LUTE</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>20</td>
+    <td>Slight advantage, or where your answer lies</td>
+    <td class="monospace">EDGE</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>21</td>
+    <td>Wise bird</td>
+    <td class="monospace">OWL</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>22</td>
+    <td>Egg cells</td>
+    <td class="monospace">OVA</td>
+    <td>3</td>
+  </tr>
+</table>
+
+<b>Braille grid</b>
+<table class="solution-grid braille-grid">
+  <tbody>
+    <tr>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+    </tr>
+    <tr>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+    </tr>
+    <tr>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+    </tr>
+    <tr>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+    </tr>
+    <tr>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="y"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="y"></td>
+    </tr>
+    <tr>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="y"></td>
+      <td class="n"></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="n"></td>
+      <td class="n"></td>
+    </tr>
+  </tbody>
+</table>
+
+<b>Reading Across clues</b>
+<table class="solution-grid letter-grid">
+  <tbody>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">P</td>
+      <td class="l" colspan="2" rowspan="3">R</td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td class="l" colspan="2" rowspan="3">G</td>
+      <td class="l" colspan="2" rowspan="3">N</td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="l" colspan="2" rowspan="3">N</td>
+      <td class="l" colspan="2" rowspan="3">T</td>
+      <td class="l" colspan="2" rowspan="3">W</td>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td class="l" colspan="2" rowspan="3">M</td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="l" colspan="2" rowspan="3">N</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">P</td>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td class="l" colspan="2" rowspan="3">S</td>
+      <td class="l" colspan="2" rowspan="3">H</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">F</td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="l" colspan="2" rowspan="3">R</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">D</td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="l" colspan="2" rowspan="3">R</td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td class="l" colspan="2" rowspan="3">D</td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td class="l" colspan="2" rowspan="3">V</td>
+      <td class="l" colspan="2" rowspan="3">I</td>
+      <td class="l" colspan="2" rowspan="3">L</td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="l" colspan="2" rowspan="3">Z</td>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">M</td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="l" colspan="2" rowspan="3">Z</td>
+      <td class="l" colspan="2" rowspan="3">D</td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="l" colspan="2" rowspan="3">S</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td class="l" colspan="2" rowspan="3">X</td>
+      <td class="l" colspan="2" rowspan="3">T</td>
+      <td class="l" colspan="2" rowspan="3">R</td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="l" colspan="2" rowspan="3">C</td>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td class="l" colspan="2" rowspan="3">U</td>
+      <td class="l" colspan="2" rowspan="3">R</td>
+      <td class="l" colspan="2" rowspan="3">T</td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">L</td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="l" colspan="2" rowspan="3">F</td>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td class="l" colspan="2" rowspan="3">R</td>
+      <td class="l" colspan="2" rowspan="3">G</td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">Y</td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="l" colspan="2" rowspan="3">R</td>
+      <td class="l" colspan="2" rowspan="3">D</td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">T</td>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td class="l" colspan="2" rowspan="3">M</td>
+      <td class="l" colspan="2" rowspan="3">M</td>
+      <td class="l" colspan="2" rowspan="3">Y</td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">Y</td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td class="l" colspan="2" rowspan="3">S</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td class="l" colspan="2" rowspan="3">S</td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="l" colspan="2" rowspan="3">S</td>
+      <td class="l" colspan="2" rowspan="3">H</td>
+      <td class="l" colspan="2" rowspan="3">I</td>
+      <td class="l" colspan="2" rowspan="3">M</td>
+      <td class="l" colspan="2" rowspan="3">I</td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">F</td>
+      <td class="l" colspan="2" rowspan="3">I</td>
+      <td class="l" colspan="2" rowspan="3">S</td>
+      <td class="l" colspan="2" rowspan="3">H</td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+  </tbody>
+</table>
+
+<b>Reading Down clues</b>
+<table class="solution-grid letter-grid">
+  <tbody>
+    <tr>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">T</td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">R</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">W</td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">D</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">Z</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">U</td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">J</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">I</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">S</td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">H</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">F</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">B</td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">N</td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">G</td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">P</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">V</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">D</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">L</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">K</td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">S</td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">Y</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">S</td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">M</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">N</td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">W</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">W</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">V</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">L</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">Y</td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">U</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">R</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">H</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">T</td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">O</td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">D</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">T</td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+    </tr>
+    <tr>
+      <td class="l" colspan="2" rowspan="3">W</td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">V</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">G</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">D</td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="l" colspan="2" rowspan="3">L</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="l" colspan="2" rowspan="3">M</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">R</td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">A</td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="l" colspan="2" rowspan="3">E</td>
+    </tr>
+    <tr>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td class="b"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}

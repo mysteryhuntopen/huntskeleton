@@ -1,0 +1,58 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Nathan Fung{% endblock %}
+{% block solution %}PANDORA{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content pre {
+    white-space: pre-wrap;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Each thank you note is both missing a word and also references a location on campus where there is a class gift (whether this location is described at the beginning or the end of the note is indicated by where the exclamation points are). The first letters of the missing words in order spell the first part of a clue phrase <code>HER NAME IS</code>. When the missing word is reinserted into the note, all the notes have the same number of letters and numbers (150). This is the same as the number of graduating classes there have been at MIT since the first graduating class of 1868. Indexing into the note by the graduating class number spells out <code>ALL GIVING</code> when ordered by graduating year. The overall clue is <code>HER NAME IS ALL GIVING</code>, cluing <code>PANDORA</code>.</p>
+
+<p>Completed notes follow:</p>
+
+<div>Class of 1985 Garden (Class of 1985, 118th year):</div>
+
+<div><pre>Awesome! I was outside seated on a bench (two trash containers before me). To my left, I see a brick non-building wall. Over a plant, the right sign&rsquo;s dedicated fondly to a <b>husband</b> who is loving.</pre></div>
+
+<div>Wiesner Gallery (Class of 1983, 116th year)</div>
+
+<div><pre>I go past a wavy, multicolored bench, went down the stairs by the <b>eleventh</b> president sign, turned around and went back up and went left. There&rsquo;s a great place to find red places to sit! Neato!</pre></div>
+
+<div>Smoot commemoration plaque on the north end of Harvard Bridge (Class of 1962, 95th year)</div>
+
+<div><pre>I go past this plaque on my left indicating it was <b>reconstructed</b> in 1988&ndash;1990 and after crossing the street, looked left and saw an amazing description of a unit. Thanks so much for this!</pre></div>
+
+<div>Clock outside the Student Center (Class of 2000, 133rd year)</div>
+
+<div><pre>I sat on a couch underneath a head, MIT <b>Newspapers</b> Only sign in front of me. I had to go outside, so I went up the stairs past the doors. I turned, looked up and discovered I wasn&rsquo;t late after all!</pre></div>
+
+<div>Water fountain in basement of Walker (Class of 1906, 39th year)</div>
+
+<div><pre>I start by entering the basement and I pass the <b>Amnesty</b> International office. Down the hall in the sitting area, I see a way I can use both of my thumbs to make streams of water appear! Whee!</pre></div>
+
+<div>Class of 2002 Peace Garden (Class of 2002, 135th year)</div>
+
+<div><pre>I think this place is awesome! I was sitting on a bench here outside watching the water just barely cover the rocks. Beyond it, there&rsquo;s the bridge from Alexandria in <b>Minnesota</b> going over.</pre></div>
+
+<div>World War II Memorial in Lobby 10 (Class of 1921, 54th year)</div>
+
+<div><pre>I was exiting a place for getting in. Directly across, I spot a sign listing at the bottom three things that were negative <b>exposed</b>. I turn right and on my left I see a lot of names on the wall!</pre></div>
+
+<div>Lounge on the Infinite (Class of 2005, 138th year)</div>
+
+<div><pre>I was looking at a room from above. I go down the stairs that turn left partway down. I go left. I see a glass sign mentioning a larger <b>institute</b> program in front of a sleeping place for some!</pre></div>
+
+<div>Map on Mass Ave (Class of 1987, 120th year)</div>
+
+<div><pre>I was very lost by a No <b>Storage</b> Allowed sign. I go outside after going around a pillar and up a ramp (elevator signs pointing where I came from). Now, I have to cross the street; I know where I am!</pre></div>
+{% endblock %}

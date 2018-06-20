@@ -1,0 +1,141 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}
+  By Nathan Fung, Justin Melvin, Robin Deits, and Elizabeth French<br>
+  Based on a puzzle by Henry Wong and Undine Leopold
+{% endblock %}
+{% block solution %}{{ puzzle.puzzleProperties.AnswersProperty.answers.0.canonicalAnswer }}{% endblock %}
+
+{% block solution_head_block %}
+  <style>
+    .puzzle-content img {
+      width: 100%;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <p>This puzzle consists of 6 origami squares. Each square has two
+    diagonal mountain fold lines and one horizontal and one vertical
+    valley fold lines. When folded, each square thus makes a small
+    four-pointed pyramid.</p>
+
+  <p>Along the diagonal lines are written various nouns. These can be
+    combined in the form “X in the Y.” The complete set of pairs is:</p>
+
+  <ul>
+    <li>BAT in the BELFRY</li>
+    <li>BUTTERFLY in the STOMACH</li>
+    <li>FOX in the HENHOUSE</li>
+    <li>SNAKE in the GRASS</li>
+    <li>PIG in the POKE</li>
+    <li>CAT in the BAG</li>
+    <li>BEE in the BONNET</li>
+    <li>FROG in the THROAT</li>
+    <li>FISH in the BARREL</li>
+    <li>FLY in the OINTMENT</li>
+    <li>DEER in the HEADLIGHTS</li>
+    <li>ELEPHANT in the ROOM</li>
+  </ul>
+
+  <p>Combined with the title, these pairs suggest that you should try
+    physically placing the X word inside the Y word. In fact, it is
+    possible to assemble all of the pyramids such that every X is
+    tucked inside every Y, creating a cubic structure:</p>
+
+  <img {{ img_src_for('solutions/wolf_in_the_fold/cube.png') }}>
+
+  <p>With the cube correctly assembled, there are 24 additional words
+    shown on the interior corners. Within each set of 3 words, two are
+    a <a href="https://en.wikipedia.org/wiki/Spoonerism">Spoonerism</a> of
+    an animal, and one is a word that rhymes with a number, providing
+    an index into the animal name. Hidden underneath one of the words
+    in each corner is a number, which provides the order. The inner
+    corner words are:</p>
+
+  <table class="solution-table condensed-table">
+    <thead>
+      <tr>
+        <th>Word 1</th>
+        <th>Word 2</th>
+        <th>Number word</th>
+        <th>Animal</th>
+        <th>Index</th>
+        <th>Letter</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>GONE</td>
+      <td>MOOSE</td>
+      <td>SHUN</td>
+      <td>MONGOOSE</td>
+      <td>1</td>
+      <td><code>M</code></td>
+    </tr>
+    <tr>
+      <td>RARE</td>
+      <td>PUTT</td>
+      <td>ROO</td>
+      <td>PARROT</td>
+      <td>2</td>
+      <td><code>A</code></td>
+    </tr>
+    <tr>
+      <td>BACK</td>
+      <td>BLARE</td>
+      <td>HIVE</td>
+      <td>BLACKBEAR</td>
+      <td>5</td>
+      <td><code>K</code></td>
+    </tr>
+    <tr>
+      <td>DOLL</td>
+      <td>BEAGLE</td>
+      <td>FINE</td>
+      <td>BALDEAGLE</td>
+      <td>9</td>
+      <td><code>E</code></td>
+    </tr>
+    <tr>
+      <td>RING</td>
+      <td>STAY</td>
+      <td>BUN</td>
+      <td>STINGRAY</td>
+      <td>1</td>
+      <td><code>S</code></td>
+    </tr>
+    <tr>
+      <td>HOOPERS</td>
+      <td>CAULK</td>
+      <td>WREN</td>
+      <td>COOPERSHAWK</td>
+      <td>10</td>
+      <td><code>W</code></td>
+    </tr>
+    <tr>
+      <td>FLAGON</td>
+      <td>DRY</td>
+      <td>FLEA</td>
+      <td>DRAGONFLY</td>
+      <td>3</td>
+      <td><code>A</code></td>
+    </tr>
+    <tr>
+      <td>CLIENT</td>
+      <td>JAM</td>
+      <td>SNORE</td>
+      <td>GIANTCLAM</td>
+      <td>4</td>
+      <td><code>N</code></td>
+    </tr>
+  </table>
+
+  <p>Reading the letters in order yields the instruction <code>MAKE
+    SWAN</code>. Upon presenting HQ with an origami swan, teams are
+    given the answer
+    <strong><code>{{ puzzle.puzzleProperties.AnswersProperty.answers.0.canonicalAnswer}}</code></strong>.</p>
+{% endblock %}

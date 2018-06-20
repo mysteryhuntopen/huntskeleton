@@ -1,0 +1,136 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .signoff {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .puzzle-content .indented {
+    text-indent: 2em;
+  }
+
+  .puzzle-content li {
+    margin-top: 1em;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<p><i>Dear Editor,</i></p>
+<p class="indented"><i>I’ve been a long-time reader and I was very disappointed with your recent crossword puzzle, especially after seeing the purported solution. First of all, I question the wisdom of having a puzzle where you’re told to remove one letter from each word before entering it in the grid. What’s the point of that? And also I’m a stickler for crossword conventions, so I can’t let it pass unmentioned that the central square in your 9x9 grid has no down clue passing through it. The choice to have a few black squares in the first line preceding square 1 is also questionable.</i></p>
+<p class="indented"><i>But my biggest complaint is with the clues themselves. I could go through every single one and explain why the capitalized answer in your solution lists is completely nonsensical, or perhaps only corresponds to a portion of the clue. In fact, maybe I’ll just do that.</i></p>
+<ul>
+  <li>
+    <b>1A</b> So&hellip;the clue here is ‘Acquire a near miss.’ But I don’t see how you can get the answer of EARN out of having someone “acquire” a narrowly avoided collision.
+  </li>
+  <li>
+    <b>4A</b> Sure, a YAP is a particular type of “bark”, to quote a portion of your clue, but is it really one that’s done in revenge?
+  </li>
+  <li>
+    <b>6A</b> What is even going on here? Someone sermonizes but isn’t entitled to have “fruit”? I guess PEACHES is that fruit but I’m lost with why.
+  </li>
+  <li>
+    <b>10A</b> Oh man, I love PHIL, or “singer Collins” as you call him! How could anyone ever get tired of his music being played?
+  </li>
+  <li>
+    <b>12A</b> No clue why this one is DEARTH, but this is reminding me of my “insufficiency” at fixing my jammed sewing machine. Grr...
+  </li>
+  <li>
+    <b>13A</b> I admit I’m not familiar with Middle Eastern cellular companies but is this one’s “nemesis” really named ENEMY? That can’t be good for business.
+  </li>
+  <li>
+    <b>15A</b> So... I’m supposed to “glance” at the cartoon skunk? I’d rather PEEP at that cat he chases.
+  </li>
+  <li>
+    <b>16A</b> Sure, a “nettender” will encourage their team, but I don’t think every GOALIE plays college soccer for the Flames in Tennessee.
+  </li>
+  <li>
+    <b>18A</b> A specific “song”? I don’t have many albums from animated features, but it seems there would be more than one TUNE on them.
+  </li>
+  <li>
+    <b>20A</b> I can understand any Boston fan who “hollers” or YELLS at their all-star outfielder who was signed away to the Yankees.
+  </li>
+  <li>
+    <b>23A</b> So someone’s continuing to “supply” their side even when they’ve capitulated? It’s hard to RENDER a verdict on how I feel about this one.
+  </li>
+  <li>
+    <b>26A</b> I’m in the market for a new pair of SKIS, but if acquiring some “alpine downhill footwear” means I have to get my soul sucked out in Azkaban, no thanks.
+  </li>
+  <li>
+    <b>27A</b> Reading this about this “religious devotee” doing his job while drinking beer makes being an APOSTLE sound fun. A lot more than trying this crossword was.
+  </li>
+  <li>
+    <b>29A</b> Huh? The “fellows” of quantities like 5, 37, 167, and 691 are... all MEN? Is math the popular thing among guys these days?
+  </li>
+  <li>
+    <b>30A</b> The value of a bond held until the call date doesn’t seem to have a lot to do with a SEED. The author of these is definitely a “nut, for one”.
+  </li>
+  <li>
+    <b>1D</b> Hey! I get that “once around the track” is a LAP, but don’t tell me to go clockwise, buddy!
+  </li>
+  <li>
+    <b>2D</b> I guess a buck or doe might eat a “bog stick”, but it’s a bit silly to think they’d point the roots of a REED towards the sky.
+  </li>
+  <li>
+    <b>3D</b> Who is this NATE guy and am I to believe he’s accusing the first woman in space of sneaking “silver” onboard her flight?
+  </li>
+  <li>
+    <b>4D</b> She’s not my TYPE, but I appreciate the “style” of that 2017 album Witness.
+  </li>
+  <li>
+    <b>5D</b> So a PINE “tree” is not even a vertebrate creature, obviously it doesn’t have scoliosis.
+  </li>
+  <li>
+    <b>7D</b> I feel bad for these HARPIES or “bird women”, their markers are going to dry out if they lose the caps.
+  </li>
+  <li>
+    <b>8D</b> I’ve never been to a “lake” in Cleveland or Buffalo, so I can’t relate to the author who says he was in ERIE once in the past.
+  </li>
+  <li>
+    <b>9D</b> No, Dorothy’s metal friend from Oz is not a “League of Legends Character”, and he wasn’t named SHEN.
+  </li>
+  <li>
+    <b>11D</b> You want offers of some exemplars of “stories” of LEGENDS, huh? Try how legendarily bad this clue is!
+  </li>
+  <li>
+    <b>14D</b> EMO is not my favorite “rock style”, but I bet this cocktail from The Simpsons would make it more palatable (and probably make these clues easier to read, too!)
+  </li>
+  <li>
+    <b>17D</b> I’ll agree that the lead singer of Electric Light Orchestra is pretty FLY, but does he really “glide”?
+  </li>
+  <li>
+    <b>18D</b> A “journey” without pants is a rubbish idea for a TRIP, I agree. But this still isn’t a good clue.
+  </li>
+  <li>
+    <b>19D</b> Okay, you can make all of the proclamations you want, but I won’t believe that NEON nor any other “noble gas” would be able to support a leg joint atop it.
+  </li>
+  <li>
+    <b>21D</b> LIKE Malcolm X after his Hajj? I’m not sure I know of anyone “similar”.
+  </li>
+  <li>
+    <b>22D</b> Ugh, I hate LINT, and I never want to get “clothing fluff” anywhere near my digestive tract.
+  </li>
+  <li>
+    <b>24D</b> Is this saying DITS and “Dashes’ partner”, whoever they are, can fix the light body damage on my car?
+  </li>
+  <li>
+    <b>25D</b> I once had the ROLE where I had to take a record of attendance - I had to “position” myself to the front of the class.
+  </li>
+  <li>
+    <b>28D</b> Whew, we’re finally at the END of our list! Which apparently has something to do with the “terminus” of some boulders at Gettysburg.
+  </li>
+</ul>
+<p><i>And finally, what am I supposed to do with these blanks?</i></p>
+<img src="{{ asset_url_for('puzzles/clueless/blanks.png') }}"/>
+<div class="signoff">
+  <div><i>Sincerely,</i></div>
+  <div class="signature"><i><b>Mrs. Z. Pointe</b></i></div>
+</div>
+<a href="http://www.puzzazz.com/how-to/cryptic-crosswords"><img src="{{ asset_url_for('puzzles/clueless/postit.png') }}"/></a>
+{% endblock %}

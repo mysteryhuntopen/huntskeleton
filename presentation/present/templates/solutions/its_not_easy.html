@@ -1,0 +1,762 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Kevin Hwang, Sid Creutz, Rachel Bowens-Rubin, Tim Robertson, Ariel Schwartz{% endblock %}
+{% block solution %}STUMBLE{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content table {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  .puzzle-content td {
+    border-right: 1px solid rgba(0,0,0,.5);
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    border-collapse: collapse;
+  }
+
+  .puzzle-content td {
+    padding: 0.5em;
+    text-align: center;
+  }
+
+  .puzzle-content .border-right {
+    border-right-color: black;
+    border-right-width: 2px;
+  }
+
+  .puzzle-content .border-bottom {
+    border-bottom-color: black;
+    border-bottom-width: 2px;
+  }
+
+  .puzzle-content .blue {
+    background-color: lightblue;
+  }
+
+  .puzzle-content .blinky {
+    background-color: cyan;
+  }
+
+  .puzzle-content .purple {
+    background-color: plum;
+  }
+
+  .puzzle-content img {
+    display: inline;
+    width: 50%;
+    vertical-align: top;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Solvers are presented with two lists of clues, labeled Across and Down. The diagram is not given, but consists of a 9x18 grid with no black squares. The grid can be filled fairly simply, with the caveat that the across clues are numbered in reverse (such that 1 is the lowest row and 18 is the highest row). Filling in the clues provides the following filled grid:</p>
+
+<table>
+  <tr>
+    <td></td>
+    <td class="border-bottom"><b>A</b></td>
+    <td class="border-bottom"><b>B</b></td>
+    <td class="border-bottom"><b>C</b></td>
+    <td class="border-bottom"><b>D</b></td>
+    <td class="border-bottom"><b>E</b></td>
+    <td class="border-bottom"><b>F</b></td>
+    <td class="border-bottom"><b>G</b></td>
+    <td class="border-bottom"><b>H</b></td>
+    <td class="border-bottom"><b>I</b></td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>18</b></td>
+    <td>C</td>
+    <td>E</td>
+    <td>L</td>
+    <td>E</td>
+    <td>S</td>
+    <td>T</td>
+    <td>I</td>
+    <td>A</td>
+    <td>L</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>17</b></td>
+    <td>A</td>
+    <td>X</td>
+    <td>I</td>
+    <td>S</td>
+    <td>M</td>
+    <td>U</td>
+    <td>N</td>
+    <td>D</td>
+    <td>I</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>16</b></td>
+    <td>V</td>
+    <td>O</td>
+    <td class="border-right">S</td>
+    <td>O</td>
+    <td class="border-bottom">U</td>
+    <td>T</td>
+    <td>P</td>
+    <td>U</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>15</b></td>
+    <td>E</td>
+    <td>P</td>
+    <td class="border-bottom border-right">A</td>
+    <td>T</td>
+    <td>S</td>
+    <td class="border-right">O</td>
+    <td>H</td>
+    <td class="border-bottom">O</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>14</b></td>
+    <td>O</td>
+    <td>L</td>
+    <td class="border-right">D</td>
+    <td>E</td>
+    <td>U</td>
+    <td class="border-bottom">R</td>
+    <td>O</td>
+    <td>P</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>13</b></td>
+    <td>F</td>
+    <td>A</td>
+    <td>I</td>
+    <td class="border-right">R</td>
+    <td>S</td>
+    <td>M</td>
+    <td>E</td>
+    <td>A</td>
+    <td>R</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>12</b></td>
+    <td>B</td>
+    <td>N</td>
+    <td>A</td>
+    <td class="border-right">I</td>
+    <td>H</td>
+    <td>O</td>
+    <td>B</td>
+    <td>O</td>
+    <td class="border-bottom">S</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>11</b></td>
+    <td>E</td>
+    <td>E</td>
+    <td class="border-right">G</td>
+    <td class="border-bottom">C</td>
+    <td>I</td>
+    <td class="border-right">S</td>
+    <td class="border-bottom">E</td>
+    <td>L</td>
+    <td>W</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>10</b></td>
+    <td>A</td>
+    <td class="border-bottom">T</td>
+    <td>R</td>
+    <td>A</td>
+    <td>G</td>
+    <td>E</td>
+    <td>D</td>
+    <td>I</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>9</b></td>
+    <td>S</td>
+    <td>T</td>
+    <td class="border-right">A</td>
+    <td>B</td>
+    <td class="border-bottom">O</td>
+    <td class="border-bottom">S</td>
+    <td>O</td>
+    <td>N</td>
+    <td>S</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>8</b></td>
+    <td>T</td>
+    <td>I</td>
+    <td class="border-bottom">M</td>
+    <td class="border-bottom">O</td>
+    <td class="border-right">R</td>
+    <td>B</td>
+    <td class="border-bottom">A</td>
+    <td class="border-bottom">I</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>7</b></td>
+    <td class="border-bottom">S</td>
+    <td class="border-bottom">A</td>
+    <td>U</td>
+    <td>D</td>
+    <td class="border-right">I</td>
+    <td>R</td>
+    <td>U</td>
+    <td>N</td>
+    <td>G</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>6</b></td>
+    <td>S</td>
+    <td>A</td>
+    <td class="border-right">N</td>
+    <td>A</td>
+    <td>D</td>
+    <td>E</td>
+    <td>L</td>
+    <td>I</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>5</b></td>
+    <td>U</td>
+    <td>N</td>
+    <td>I</td>
+    <td>T</td>
+    <td class="border-bottom">E</td>
+    <td class="border-bottom border-right">D</td>
+    <td>A</td>
+    <td class="border-bottom">P</td>
+    <td>R</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>4</b></td>
+    <td>I</td>
+    <td>N</td>
+    <td class="border-bottom">T</td>
+    <td class="border-bottom">E</td>
+    <td class="border-right">R</td>
+    <td>E</td>
+    <td>N</td>
+    <td>U</td>
+    <td>M</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>3</b></td>
+    <td>T</td>
+    <td>U</td>
+    <td class="border-right">O</td>
+    <td>M</td>
+    <td>I</td>
+    <td>M</td>
+    <td>O</td>
+    <td>S</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>2</b></td>
+    <td>U</td>
+    <td>A</td>
+    <td>V</td>
+    <td class="border-right">S</td>
+    <td>L</td>
+    <td>I</td>
+    <td>V</td>
+    <td>E</td>
+    <td>N</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>1</b></td>
+    <td>P</td>
+    <td>L</td>
+    <td>A</td>
+    <td>N</td>
+    <td>E</td>
+    <td>T</td>
+    <td>A</td>
+    <td>R</td>
+    <td>Y</td>
+  </tr>
+</table>
+
+<p>At this point, solvers will have a 9x18 grid, with the across numbers going from bottom to top. In addition, there are directional anchors presented along the outer edge of the grid: <code>CELESTIAL</code> and <code>PLANETARY</code> form the top and bottom of the grid, and <code>EAST</code> and <code>WEST</code> can be found on the left and right edges of the grid. This combined information should point solvers to the actual grid in question, which is the Green Building (building 54), specifically the North side of the building (from building 16/56). This is also hinted by the title (which hints &ldquo;it&rsquo;s not easy being green&rdquo;).</p>
+
+<table>
+  <tr>
+    <td></td>
+    <td class="border-bottom"><b>A</b></td>
+    <td class="border-bottom"><b>B</b></td>
+    <td class="border-bottom"><b>C</b></td>
+    <td class="border-bottom"><b>D</b></td>
+    <td class="border-bottom"><b>E</b></td>
+    <td class="border-bottom"><b>F</b></td>
+    <td class="border-bottom"><b>G</b></td>
+    <td class="border-bottom"><b>H</b></td>
+    <td class="border-bottom"><b>I</b></td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>18</b></td>
+    <td class="blue">C</td>
+    <td class="blue">E</td>
+    <td class="blue">L</td>
+    <td class="blue">E</td>
+    <td class="blue">S</td>
+    <td class="blue">T</td>
+    <td class="blue">I</td>
+    <td class="blue">A</td>
+    <td class="blue">L</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>17</b></td>
+    <td>A</td>
+    <td>X</td>
+    <td>I</td>
+    <td>S</td>
+    <td>M</td>
+    <td>U</td>
+    <td>N</td>
+    <td>D</td>
+    <td>I</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>16</b></td>
+    <td>V</td>
+    <td>O</td>
+    <td class="border-right">S</td>
+    <td>O</td>
+    <td class="border-bottom">U</td>
+    <td>T</td>
+    <td>P</td>
+    <td>U</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>15</b></td>
+    <td>E</td>
+    <td>P</td>
+    <td class="border-bottom border-right">A</td>
+    <td>T</td>
+    <td>S</td>
+    <td class="border-right">O</td>
+    <td>H</td>
+    <td class="border-bottom">O</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>14</b></td>
+    <td>O</td>
+    <td>L</td>
+    <td class="border-right">D</td>
+    <td>E</td>
+    <td>U</td>
+    <td class="border-bottom">R</td>
+    <td>O</td>
+    <td>P</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>13</b></td>
+    <td>F</td>
+    <td>A</td>
+    <td>I</td>
+    <td class="border-right">R</td>
+    <td>S</td>
+    <td>M</td>
+    <td>E</td>
+    <td>A</td>
+    <td>R</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>12</b></td>
+    <td>B</td>
+    <td>N</td>
+    <td>A</td>
+    <td class="border-right">I</td>
+    <td>H</td>
+    <td>O</td>
+    <td>B</td>
+    <td>O</td>
+    <td class="border-bottom">S</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>11</b></td>
+    <td class="blue">E</td>
+    <td>E</td>
+    <td class="border-right">G</td>
+    <td class="border-bottom">C</td>
+    <td>I</td>
+    <td class="border-right">S</td>
+    <td class="border-bottom">E</td>
+    <td>L</td>
+    <td class="blue">W</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>10</b></td>
+    <td class="blue">A</td>
+    <td class="border-bottom">T</td>
+    <td>R</td>
+    <td>A</td>
+    <td>G</td>
+    <td>E</td>
+    <td>D</td>
+    <td>I</td>
+    <td class="blue">E</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>9</b></td>
+    <td class="blue">S</td>
+    <td>T</td>
+    <td class="border-right">A</td>
+    <td>B</td>
+    <td class="border-bottom">O</td>
+    <td class="border-bottom">S</td>
+    <td>O</td>
+    <td>N</td>
+    <td class="blue">S</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>8</b></td>
+    <td class="blue">T</td>
+    <td>I</td>
+    <td class="border-bottom">M</td>
+    <td class="border-bottom">O</td>
+    <td class="border-right">R</td>
+    <td>B</td>
+    <td class="border-bottom">A</td>
+    <td class="border-bottom">I</td>
+    <td class="blue">T</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>7</b></td>
+    <td class="border-bottom">S</td>
+    <td class="border-bottom">A</td>
+    <td>U</td>
+    <td>D</td>
+    <td class="border-right">I</td>
+    <td>R</td>
+    <td>U</td>
+    <td>N</td>
+    <td>G</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>6</b></td>
+    <td>S</td>
+    <td>A</td>
+    <td class="border-right">N</td>
+    <td>A</td>
+    <td>D</td>
+    <td>E</td>
+    <td>L</td>
+    <td>I</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>5</b></td>
+    <td>U</td>
+    <td>N</td>
+    <td>I</td>
+    <td>T</td>
+    <td class="border-bottom">E</td>
+    <td class="border-bottom border-right">D</td>
+    <td>A</td>
+    <td class="border-bottom">P</td>
+    <td>R</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>4</b></td>
+    <td>I</td>
+    <td>N</td>
+    <td class="border-bottom">T</td>
+    <td class="border-bottom">E</td>
+    <td class="border-right">R</td>
+    <td>E</td>
+    <td>N</td>
+    <td>U</td>
+    <td>M</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>3</b></td>
+    <td>T</td>
+    <td>U</td>
+    <td class="border-right">O</td>
+    <td>M</td>
+    <td>I</td>
+    <td>M</td>
+    <td>O</td>
+    <td>S</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>2</b></td>
+    <td>U</td>
+    <td>A</td>
+    <td>V</td>
+    <td class="border-right">S</td>
+    <td>L</td>
+    <td>I</td>
+    <td>V</td>
+    <td>E</td>
+    <td>N</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>1</b></td>
+    <td class="blue">P</td>
+    <td class="blue">L</td>
+    <td class="blue">A</td>
+    <td class="blue">N</td>
+    <td class="blue">E</td>
+    <td class="blue">T</td>
+    <td class="blue">A</td>
+    <td class="blue">R</td>
+    <td class="blue">Y</td>
+  </tr>
+</table>
+
+<p>Solvers would now head towards the building itself to figure out in what way the building has been used. On the north side of the building, solvers would see the following (image taken from adjacent to building 16):</p>
+
+<img {{ img_src_for('solutions/its_not_easy/1.png') }} ><img {{ img_src_for('solutions/its_not_easy/2.png') }} >
+
+<p>During Hunt, there was a blinking arrow in the window pointing down and to the right. If that clue is interpreted within the confines of the actual grid, the path spells the word <strong><code>STUMBLE</code></strong>, which is the answer to the puzzle.</p>
+
+<table>
+  <tr>
+    <td></td>
+    <td class="border-bottom"><b>A</b></td>
+    <td class="border-bottom"><b>B</b></td>
+    <td class="border-bottom"><b>C</b></td>
+    <td class="border-bottom"><b>D</b></td>
+    <td class="border-bottom"><b>E</b></td>
+    <td class="border-bottom"><b>F</b></td>
+    <td class="border-bottom"><b>G</b></td>
+    <td class="border-bottom"><b>H</b></td>
+    <td class="border-bottom"><b>I</b></td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>18</b></td>
+    <td class="blue">C</td>
+    <td class="blue">E</td>
+    <td class="blue">L</td>
+    <td class="blue">E</td>
+    <td class="blue">S</td>
+    <td class="blue">T</td>
+    <td class="blue">I</td>
+    <td class="blue">A</td>
+    <td class="blue">L</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>17</b></td>
+    <td>A</td>
+    <td class="blinky">X</td>
+    <td>I</td>
+    <td>S</td>
+    <td>M</td>
+    <td>U</td>
+    <td>N</td>
+    <td>D</td>
+    <td>I</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>16</b></td>
+    <td>V</td>
+    <td>O</td>
+    <td class="border-right purple">S</td>
+    <td>O</td>
+    <td class="border-bottom">U</td>
+    <td>T</td>
+    <td>P</td>
+    <td>U</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>15</b></td>
+    <td>E</td>
+    <td>P</td>
+    <td class="border-bottom border-right">A</td>
+    <td class="purple">T</td>
+    <td>S</td>
+    <td class="border-right">O</td>
+    <td>H</td>
+    <td class="border-bottom">O</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>14</b></td>
+    <td>O</td>
+    <td>L</td>
+    <td class="border-right">D</td>
+    <td>E</td>
+    <td class="purple">U</td>
+    <td class="border-bottom">R</td>
+    <td>O</td>
+    <td>P</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>13</b></td>
+    <td>F</td>
+    <td>A</td>
+    <td>I</td>
+    <td class="border-right">R</td>
+    <td>S</td>
+    <td class="purple">M</td>
+    <td>E</td>
+    <td>A</td>
+    <td>R</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>12</b></td>
+    <td>B</td>
+    <td>N</td>
+    <td>A</td>
+    <td class="border-right">I</td>
+    <td>H</td>
+    <td>O</td>
+    <td class="purple">B</td>
+    <td>O</td>
+    <td class="border-bottom">S</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>11</b></td>
+    <td class="blue">E</td>
+    <td>E</td>
+    <td class="border-right">G</td>
+    <td class="border-bottom">C</td>
+    <td>I</td>
+    <td class="border-right">S</td>
+    <td class="border-bottom">E</td>
+    <td class="purple">L</td>
+    <td class="blue">W</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>10</b></td>
+    <td class="blue">A</td>
+    <td class="border-bottom">T</td>
+    <td>R</td>
+    <td>A</td>
+    <td>G</td>
+    <td>E</td>
+    <td>D</td>
+    <td>I</td>
+    <td class="purple">E</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>9</b></td>
+    <td class="blue">S</td>
+    <td>T</td>
+    <td class="border-right">A</td>
+    <td>B</td>
+    <td class="border-bottom">O</td>
+    <td class="border-bottom">S</td>
+    <td>O</td>
+    <td>N</td>
+    <td class="blue">S</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>8</b></td>
+    <td class="blue">T</td>
+    <td>I</td>
+    <td class="border-bottom">M</td>
+    <td class="border-bottom">O</td>
+    <td class="border-right">R</td>
+    <td>B</td>
+    <td class="border-bottom">A</td>
+    <td class="border-bottom">I</td>
+    <td class="blue">T</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>7</b></td>
+    <td class="border-bottom">S</td>
+    <td class="border-bottom">A</td>
+    <td>U</td>
+    <td>D</td>
+    <td class="border-right">I</td>
+    <td>R</td>
+    <td>U</td>
+    <td>N</td>
+    <td>G</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>6</b></td>
+    <td>S</td>
+    <td>A</td>
+    <td class="border-right">N</td>
+    <td>A</td>
+    <td>D</td>
+    <td>E</td>
+    <td>L</td>
+    <td>I</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>5</b></td>
+    <td>U</td>
+    <td>N</td>
+    <td>I</td>
+    <td>T</td>
+    <td class="border-bottom">E</td>
+    <td class="border-bottom border-right">D</td>
+    <td>A</td>
+    <td class="border-bottom">P</td>
+    <td>R</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>4</b></td>
+    <td>I</td>
+    <td>N</td>
+    <td class="border-bottom">T</td>
+    <td class="border-bottom">E</td>
+    <td class="border-right">R</td>
+    <td>E</td>
+    <td>N</td>
+    <td>U</td>
+    <td>M</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>3</b></td>
+    <td>T</td>
+    <td>U</td>
+    <td class="border-right">O</td>
+    <td>M</td>
+    <td>I</td>
+    <td>M</td>
+    <td>O</td>
+    <td>S</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>2</b></td>
+    <td>U</td>
+    <td>A</td>
+    <td>V</td>
+    <td class="border-right">S</td>
+    <td>L</td>
+    <td>I</td>
+    <td>V</td>
+    <td>E</td>
+    <td>N</td>
+  </tr>
+  <tr>
+    <td class="border-right"><b>1</b></td>
+    <td class="blue">P</td>
+    <td class="blue">L</td>
+    <td class="blue">A</td>
+    <td class="blue">N</td>
+    <td class="blue">E</td>
+    <td class="blue">T</td>
+    <td class="blue">A</td>
+    <td class="blue">R</td>
+    <td class="blue">Y</td>
+  </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,611 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .images {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .puzzle-content img {
+    object-fit: contain;
+  }
+
+  .puzzle-content hr {
+    margin: 20px 0px;
+  }
+
+  .puzzle-content .row {
+    display: flex;
+    width: 100%;
+  }
+
+  .puzzle-content .numbered {
+    position: relative;
+  }
+
+  .puzzle-content .number {
+    position: absolute;
+    color: white;
+    font-size: 24pt;
+    /* Text stroke for both Webkit and things that are not Webkit. */
+    text-shadow:
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+  }
+
+  /* Image specific position adjustments */
+  .puzzle-content img {
+    position: relative;
+  }
+
+  .puzzle-content .row-01 {
+    height: 533px;
+  }
+
+  .puzzle-content .number-01 {
+    top: 85%;
+    left: 10%;
+    transform: translate(-85%, -10%);
+  }
+
+  .puzzle-content .number-02 {
+    top: 90%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+  }
+
+  .puzzle-content .number-03 {
+    top: 90%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+  }
+
+  .puzzle-content .number-04 {
+    top: 90%;
+    left: 95%;
+    transform: translate(-90%, -95%);
+  }
+
+  .puzzle-content .row-02 {
+    height: 348px;
+  }
+
+  .puzzle-content .number-05 {
+    top: 5%;
+    left: 5%;
+    transform: translate(-5%, -5%);
+  }
+
+  .puzzle-content .number-06 {
+    top: 5%;
+    left: 5%;
+    transform: translate(-5%, -5%);
+  }
+
+  .puzzle-content .row-03 {
+    height: 432px;
+  }
+
+  .puzzle-content .number-07 {
+    top: 90%;
+    left: 5%;
+    transform: translate(-90%, -5%)
+  }
+
+  .puzzle-content .image-08 {
+    left: -107px;
+    top: 100px;
+  }
+
+  .puzzle-content .number-08 {
+    top: 15%;
+    left: 95%;
+    transform: translate(-15%, -95%);
+  }
+
+  .puzzle-content .number-09 {
+    top: 10%;
+    left: 90%;
+    transform: translate(-10%, -90%);
+  }
+
+  .puzzle-content .row-04 {
+    height: 339px;
+  }
+
+  .puzzle-content .number-10 {
+    top: 5%;
+    left: 40%;
+    transform: translate(-5%, -40%);
+  }
+
+  .puzzle-content .number-11 {
+    top: 10%;
+    left: 80%;
+    transform: translate(-10%, -80%);
+  }
+
+  .puzzle-content .number-12 {
+    top: 90%;
+    left: 10%;
+    transform: translate(-90%, -10%);
+  }
+
+  .puzzle-content .row-05 {
+    height: 527px;
+  }
+
+  .puzzle-content .number-13 {
+    top: 90%;
+    left: 10%;
+    transform: translate(-90%, -10%);
+  }
+
+  .puzzle-content .row-06 {
+    height: 396px;
+  }
+
+  .puzzle-content .number-14 {
+    top: 10%;
+    left: 10%;
+    transform: translate(-10%, -10%);
+  }
+
+  .puzzle-content .image-15 {
+    left: -138px;
+  }
+
+  .puzzle-content .number-15 {
+    top: 15%;
+    left: 90%;
+    transform: translate(-15%, -90%);
+  }
+
+  .puzzle-content .row-07 {
+    height: 472px;
+  }
+
+  .puzzle-content .number-16 {
+    top: 10%;
+    left: 10%;
+    transform: translate(-10%, -10%);
+  }
+
+  .puzzle-content .row-08 {
+    height: 312px;
+  }
+
+  .puzzle-content .number-17 {
+    top: 90%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+  }
+
+  .puzzle-content .image-18 {
+    align-self: flex-end;
+    bottom: -4px;
+  }
+
+  .puzzle-content .number-18 {
+    top: 90%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+  }
+
+  .puzzle-content .row-09 {
+    height: 316px;
+  }
+
+  .puzzle-content .number-19 {
+    top: 90%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+  }
+
+  .puzzle-content .number-20 {
+    top: 10%;
+    left: 10%;
+    transform: translate(-10%, -10%);
+  }
+
+  .puzzle-content .row-10 {
+    height: 270px;
+  }
+
+  .puzzle-content .number-21 {
+    top: 15%;
+    left: 90%;
+    transform: translate(-15%, -90%);
+  }
+
+  .puzzle-content .number-22 {
+    top: 5%;
+    left: 5%;
+    transform: translate(-5%, -5%);
+  }
+
+  .puzzle-content .row-11 {
+    height: 317px;
+  }
+
+  .puzzle-content .number-23 {
+    top: 5%;
+    left: 5%;
+    transform: translate(-5%, -5%);
+  }
+
+  .puzzle-content .image-24 {
+    left: -32px;
+  }
+
+  .puzzle-content .number-24 {
+    top: 90%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+  }
+
+  .puzzle-content .row-12 {
+    height: 301px;
+  }
+
+  .puzzle-content .number-25 {
+    top: 15%;
+    left: 90%;
+    transform: translate(-15%, -90%);
+  }
+
+  .puzzle-content .number-26 {
+    top: 15%;
+    left: 90%;
+    transform: translate(-15%, -90%);
+  }
+
+  .puzzle-content .number-27 {
+    top: 90%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+  }
+
+  .puzzle-content .row-13 {
+    height: 311px;
+  }
+
+  .puzzle-content .number-28 {
+    top: 90%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+  }
+
+  .puzzle-content .row-14 {
+    height: 578px;
+  }
+
+  .puzzle-content .number-29 {
+    top: 10%;
+    left: 90%;
+    transform: translate(-10%, -90%);
+  }
+
+  .puzzle-content .number-30 {
+    top: 10%;
+    left: 90%;
+    transform: translate(-10%, -90%);
+  }
+
+  .puzzle-content .row-15 {
+    height: 406px;
+  }
+
+  .puzzle-content .number-31 {
+    top: 10%;
+    left: 10%;
+    transform: translate(-10%, -10%);
+  }
+
+  .puzzle-content .number-32 {
+    top: 90%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+  }
+
+  .puzzle-content .row-16 {
+    height: 312px;
+  }
+
+  .puzzle-content .number-33 {
+    top: 90%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+  }
+
+  .puzzle-content .number-34 {
+    top: 10%;
+    left: 10%;
+    transform: translate(-10%, -10%);
+  }
+
+  .puzzle-content .number-35 {
+    top: 5%;
+    left: 5%;
+    transform: translate(-5%, -5%);
+  }
+
+  .puzzle-content .number-36 {
+    top: 90%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+  }
+
+  .puzzle-content .row-17 {
+    height: 612px;
+  }
+
+  .puzzle-content .image-37 {
+    align-self: flex-end;
+    bottom: -4px;
+  }
+
+  .puzzle-content .number-37 {
+    top: 5%;
+    left: 5%;
+    transform: translate(-5%, -5%);
+  }
+
+  .puzzle-content .number-38 {
+    top: 5%;
+    left: 5%;
+    transform: translate(-5%, -5%);
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="images">
+  <div class="row row-01">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/01.png') }}>
+      <span class="number number-01">1</span>
+    </div>
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/02.png') }}>
+      <span class="number number-02">2</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="numbered picture-03">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/03.png') }}>
+      <span class="number number-03">3</span>
+    </div>
+    <div class="numbered picture-04">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/04.png') }}>
+      <span class="number number-04">4</span>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="images">
+  <div class="row row-02">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/05.png') }}>
+      <span class="number number-05">5</span>
+    </div>
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/06.png') }}>
+      <span class="number number-06">6</span>
+    </div>
+  </div>
+  <div class="row row-03">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/07.png') }}>
+      <span class="number number-07">7</span>
+    </div>
+    <div class="numbered image-08">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/08.png') }}>
+      <span class="number number-08">8</span>
+    </div>
+  </div>
+  <div class="numbered picture-09">
+    <img {{ img_src_for('puzzles/the_universs_and_everythinn/09.png') }}>
+    <span class="number number-09">9</span>
+  </div>
+</div>
+
+<hr>
+
+<div class="images">
+  <div class="row row-04">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/10.png') }}>
+      <span class="number number-10">10</span>
+    </div>
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/11.png') }}>
+      <span class="number number-11">11</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/12.png') }}>
+      <span class="number number-12">12</span>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="images">
+  <div class="row row-05">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/13.png') }}>
+      <span class="number number-13">13</span>
+    </div>
+  </div>
+  <div class="row row-06">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/14.png') }}>
+      <span class="number number-14">14</span>
+    </div>
+    <div class="numbered image-15">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/15.png') }}>
+      <span class="number number-15">15</span>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="images">
+  <div class="row row-07">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/16.png') }}>
+      <span class="number number-16">16</span>
+    </div>
+    <div class="numbered image-18">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/18.png') }}>
+      <span class="number number-18">18</span>
+    </div>
+  </div>
+  <div class="row row-08">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/17.png') }}>
+      <span class="number number-17">17</span>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="images">
+  <div class="row row-09">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/19.png') }}>
+      <span class="number number-19">19</span>
+    </div>
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/20.png') }}>
+      <span class="number number-20">20</span>
+    </div>
+  </div>
+  <div class="row row-10">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/21.png') }}>
+      <span class="number number-21">21</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/22.png') }}>
+      <span class="number number-22">22</span>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="images">
+  <div class="row row-11">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/23.png') }}>
+      <span class="number number-23">23</span>
+    </div>
+    <div class="numbered image-24">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/24.png') }}>
+      <span class="number number-24">24</span>
+    </div>
+  </div>
+  <div class="row row-12">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/25.png') }}>
+      <span class="number number-25">25</span>
+    </div>
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/26.png') }}>
+      <span class="number number-26">26</span>
+    </div>
+  </div>
+  <div class="numbered">
+    <img {{ img_src_for('puzzles/the_universs_and_everythinn/27.png') }}>
+    <span class="number number-27">27</span>
+  </div>
+</div>
+
+<hr>
+
+<div class="images">
+  <div class="row row-13">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/28.png') }}>
+      <span class="number number-28">28</span>
+    </div>
+  </div>
+  <div class="row row-14">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/29.png') }}>
+      <span class="number number-29">29</span>
+    </div>
+  </div>
+  <div class="numbered">
+    <img {{ img_src_for('puzzles/the_universs_and_everythinn/30.png') }}>
+    <span class="number number-30">30</span>
+  </div>
+</div>
+
+<hr>
+
+<div class="images">
+  <div class="row row-15">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/31.png') }}>
+      <span class="number number-31">31</span>
+    </div>
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/32.png') }}>
+      <span class="number number-32">32</span>
+    </div>
+  </div>
+  <div class="row row-16">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/33.png') }}>
+      <span class="number number-33">33</span>
+    </div>
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/34.png') }}>
+      <span class="number number-34">34</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/35.png') }}>
+      <span class="number number-35">35</span>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="images">
+  <div class="row row-17">
+    <div class="numbered">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/36.png') }}>
+      <span class="number number-36">36</span>
+    </div>
+    <div class="numbered image-37">
+      <img {{ img_src_for('puzzles/the_universs_and_everythinn/37.png') }}>
+      <span class="number number-37">37</span>
+    </div>
+  </div>
+  <div class="numbered">
+    <img {{ img_src_for('puzzles/the_universs_and_everythinn/38.png') }}>
+    <span class="number number-38">38</span>
+  </div>
+</div>
+{% endblock %}

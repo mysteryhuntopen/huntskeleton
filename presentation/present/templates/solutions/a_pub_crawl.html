@@ -1,0 +1,301 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Mark Leach{% endblock %}
+{% block solution %}SOLERA{% endblock %}
+
+{% block solution_content_block %}
+<p>This puzzle is about the board game <a href="http://slugfestgames.com/games/rdi/" target="_blank"><i>Red Dragon Inn</i></a>. This is clued by the inclusion of Fortitude and Alcohol on the citations and by the character names in the flavor text.</p>
+
+<p>The flavor text also includes conspicuous shortening of some words, and the word &ldquo;u &rsquo;n&rsquo; tapp&rsquo;d&rdquo; can be found stretched across a few words. <a href="https://untappd.com" target="_blank">Untappd</a> is a beer tracking app, and searching for the characters in untappd will lead to the four users: <a href="https://untappd.com/user/Deirdre_the_Priestess" target="_blank">Deirdre_the_Priestess</a>, <a href="https://untappd.com/user/Fiona_the_Volatile" target="_blank">Fiona_the_Volatile</a>, <a href="https://untappd.com/user/Gerki_the_Sneak" target="_blank">Gerki_the_Sneak</a>, and <a href="https://untappd.com/user/Zot_and_Pooky" target="_blank">Zot_and_Pooky</a>.</p>
+
+<p>At this point, solvers will play through the game of <i>Red Dragon Inn</i>, as shown with the untappd check-ins. Each beer corresponds to a drink in the deck, each location change and 30 minute time span indicates a new round.</p>
+
+<p>When a player takes an action early in a round they will sometimes target a player who has not yet checked in for that round on their profile. In these cases the action will appear as a comment on a check in for a previous round, but the timestamp makes it clear that the action was taken during the current round.</p>
+
+<p>Drinks are as follows (in order of first check-in):</p>
+
+<table class="solution-table">
+  <tr>
+    <th>Game drink</th>
+    <th>Untappd drink</th>
+    <th>Brewery</th>
+  </tr>
+  <tr>
+    <td>Elven Wine</td>
+    <td>Dark Elf Chocolate Mint Porter</td>
+    <td>Periodic Brewing</td>
+  </tr>
+  <tr>
+    <td>Wine</td>
+    <td>Brewers Reserve Barley Wine</td>
+    <td>Lervig</td>
+  </tr>
+  <tr>
+    <td>Dark Ale</td>
+    <td>Rutamaya Dark</td>
+    <td>Atwater Brewing</td>
+  </tr>
+  <tr>
+    <td>Dirty Dishwater</td>
+    <td>The Dirty Mayor</td>
+    <td>Citizen Cider</td>
+  </tr>
+  <tr>
+    <td>Troll Swill</td>
+    <td>Happy Troll</td>
+    <td>Ethereal Meads</td>
+  </tr>
+  <tr>
+    <td>Light Ale</td>
+    <td>Narragansett Light</td>
+    <td>Narragansett</td>
+  </tr>
+  <tr>
+    <td>Wizard&rsquo;s Brew</td>
+    <td>Space Wizard</td>
+    <td>Arkane Aleworks</td>
+  </tr>
+  <tr>
+    <td>Orcish Rotgut</td>
+    <td>Symmetric Orchestra</td>
+    <td>Modern Times</td>
+  </tr>
+  <tr>
+    <td>Dragon&rsquo;s Breath</td>
+    <td>Dragonstooth Stout</td>
+    <td>Elysian</td>
+  </tr>
+  <tr>
+    <td>Holy Water</td>
+    <td>Holy Water Citra IPA</td>
+    <td>Sumerian</td>
+  </tr>
+</table>
+
+<p>If solvers read the first letter of the breweries in check-in order, they will find a clue phrase: <code>PLACE NAMES</code>.</p>
+
+<p>Careful solvers will play through the game and find the end results as:</p>
+
+<table class="solution-table">
+  <tr>
+    <th>Place</th>
+    <th>Name</th>
+    <th>Fortitude</th>
+    <th>Alcohol</th>
+    <th>Last check-in</th>
+  </tr>
+  <tr>
+    <td>4th</td>
+    <td>Zot</td>
+    <td>6</td>
+    <td>7</td>
+    <td>Microsoft 1 Cambridge Center</td>
+  </tr>
+  <tr>
+    <td>3rd</td>
+    <td>Gerki</td>
+    <td>9</td>
+    <td>10</td>
+    <td>Hogan&rsquo;s Alley</td>
+  </tr>
+  <tr>
+    <td>2nd</td>
+    <td>Fiona</td>
+    <td>18</td>
+    <td>19</td>
+    <td>Intersystems Corporation</td>
+  </tr>
+  <tr>
+    <td>1st</td>
+    <td>Deirdre</td>
+    <td>18</td>
+    <td>14</td>
+    <td>Intersystems Corporation</td>
+  </tr>
+</table>
+
+<p>If solvers index by Fortitude and Alcohol content into the last check-in place name, they will get a bigram for each character:</p>
+
+<ul>
+  <li>Zot: <code>S O</code></li>
+  <li>Gerki: <code>L E</code></li>
+  <li>Fiona: <code>R A</code></li>
+  <li>Deirdre: <code>R O</code></li>
+</ul>
+
+<p>Discounting Deirdre, since she did not pass out, the final solution is <strong><code>SOLERA</code></strong>.</p>
+
+<hr>
+
+<p><b>Red Dragon Inn Playthrough</b></p>
+
+<p><b>Round 1:</b> MIT Museum (Building 52)</p>
+
+<p>Deirdre plays &ldquo;Let&rsquo;s toast the Goddess!&rdquo;, so Deirdre drinks Elven Wine, Fiona drinks Wine, Gerki drinks Dark Ale + chaser of Dirty Dishwater, and Zot drinks Wine + chaser of Troll Swill. Deirdre then drinks a Dark Ale for her round drink.</p>
+
+<p>Fiona plays &ldquo;Who says I&rsquo;m not a lady?&rdquo; on Gerki, then drinks Light Ale.</p>
+
+<p>Gerki plays &ldquo;That&rsquo;s not healing salve! It&rsquo;s contact poison!&rdquo; on Zot, then drinks Wizard&rsquo;s Brew.</p>
+
+<p>Zot plays &ldquo;How many times have I told you? Keep your hands off my wand!&rdquo; on Gerki, then drinks Light Ale.</p>
+
+<p>
+  <div>Deirdre: F: 20, A: 4</div>
+  <div>Fiona: F:20, A: 3</div>
+  <div>Gerki: F:17, A: 3</div>
+  <div>Zot: F:17, A: 4</div>
+</p>
+
+<p><b>Round 2:</b> Memorial Drive</p>
+
+<p>Deirdre plays &ldquo;My Goddess made me do it!&rdquo; on Zot, who responds with &ldquo;The stars say, &lsquo;No!&rsquo;&rdquo;, then drinks Orcish Rotgut.</p>
+
+<p>Fiona plays &ldquo;Hey! No more chainmail bikini jokes!&rdquo; on Zot, then drinks Dragon&rsquo;s Breath Ale.</p>
+
+<p>Gerki performs no action and drinks Elven Wine, negated by &ldquo;Luckily for me I had this antidote brewed up!&rdquo;</p>
+
+<p>Zot plays &ldquo;I told you not to distract me!&rdquo; on Fiona. She responds with &ldquo;Sorry about that, I just instinctively aim for the head&hellip;&rdquo;, then drinks Light Ale. Gerki plays &ldquo;A little somethin&rsquo; extra.&rdquo; and Zot responds with &ldquo;The wench thinks you should stop playing with the drinks.&rdquo;</p>
+
+<p>Barmaid: &ldquo;When the party leaves Memorial Drive, Gerki has one less Fortitude than Deirdre and two fewer Alcohol than Zot.&rdquo;</p>
+
+<p>
+  <div>Deirdre: F: 18, A: 4</div>
+  <div>Fiona: F: 18, A: 7</div>
+  <div>Gerki: F: 17. A: 3</div>
+  <div>Zot: F: 13, A: 5</div>
+</p>
+
+<p><b>Round 3:</b> Stata Center Food Court</p>
+
+<p>Deirdre plays &ldquo;My Goddess heals me.&rdquo; then drinks Wine and plays &ldquo;Wine into Water&rdquo; to negate it.</p>
+
+<p>Fiona plays &ldquo;You wanna arm wrestle?&rdquo; to Deirdre and drinks Elven Wine.</p>
+
+<p>Gerki plays no action, then draws a Drinking Contest. Gerki drinks Light Ale, Zot draws Wine and plays &ldquo;Teleport beverage!&rdquo; to Fiona. She responds with &ldquo;This is just the thing to get the rust off my armor!&rdquo;. Deirdre drinks Dark Ale, Fiona drinks Holy Water.</p>
+
+<p>Zot plays &ldquo;I told you not to distract me!&rdquo; on Fiona, she responds with &ldquo;Luckily for me, I was wearing my armor!&rdquo;. Zot then draws Dark Ale and plays &ldquo;Oh, Barmaid! I think Pooky had an accident!&rdquo;</p>
+
+<p>
+  <div>Deirdre: F: 19, A: 5</div>
+  <div>Fiona: F: 20, A: 10</div>
+  <div>Gerki: F: 17, A: 4</div>
+  <div>Zot: F: 13, A: 5</div>
+</p>
+
+<p><b>Round 4:</b> MIT Kresge Auditorium (Building W16)</p>
+
+<p>Deirdre plays &ldquo;Oh no! I think that growth on your arm might be Mummy Rot!&rdquo; on Zot, then draws Dragon&rsquo;s Breath Ale but negates it with &ldquo;Not now! These men are interested in my religion.&rdquo;</p>
+
+<p>Fiona plays &ldquo;We&rsquo;re at an inn and you&rsquo;re not drinking. What&rsquo;s wrong with you!?&rdquo; on Zot to send him a Light Ale, and he responds with &ldquo;Not now, I&rsquo;m meditating.&rdquo; She then drinks Orcish Rotgut, which she negates with &ldquo;This is just the thing to get the blood off my sword!&rdquo;</p>
+
+<p>Gerki plays &ldquo;That&rsquo;s not healing salve! It&rsquo;s contact poison!&rdquo; on Zot and drinks Elven Wine.</p>
+
+<p>Zot plays &ldquo;Watch out! Don&rsquo;t step on Pooky!&rdquo; on Fiona, then drinks Light Ale. Gerki plays &ldquo;A little somethin&rsquo; extra&rdquo; and Zot responds with &ldquo;Bad Pooky! Don&rsquo;t drink that!&rdquo;</p>
+
+<p>Barmaid: &ldquo;When the party leaves MIT Kresge Auditorium, Zot has the lowest Fortitude and Deirdre the highest, but they have the same Alcohol.&rdquo;</p>
+
+<p>
+  <div>Deirdre: F: 19, A: 5</div>
+  <div>Fiona: F: 18, A: 10</div>
+  <div>Gerki: F: 17, A: 7</div>
+  <div>Zot: F: 9, A: 5</div>
+</p>
+
+<p><b>Round 5:</b> Microsoft 1 Cambridge Center</p>
+
+<p>Deirdre plays &ldquo;My Goddess made me do it!&rdquo; on Zot and drinks Dragon&rsquo;s Breath Ale</p>
+
+<p>Fiona plays &ldquo;It&rsquo;ll hurt more if you do it like this!&rdquo; on Zot and drinks Wine and plays &ldquo;Nothing like a little belt of liquid courage!&rdquo;</p>
+
+<p>Gerki plays &ldquo;Have you seen my poison? I left it in a mug right here&hellip;&rdquo; on Fiona then drinks Light Ale + chaser of Troll Swill</p>
+
+<p>Zot plays &ldquo;Pooky thinks you look thirsty&hellip;&rdquo; on Fiona with a Light Ale. She responds with &ldquo;Come, my friend, sit and drink with me!&rdquo; Zot plays &ldquo;I don&rsquo;t think so!&rdquo; Fiona plays &ldquo;This is just the thing to get the blood off my sword!&rdquo; Zot draws Light Ale and plays &ldquo;Not now, I&rsquo;m meditating.&rdquo; Fiona plays &ldquo;Drink up, friend!&rdquo; and Zot draws Wine and passes out.</p>
+
+<p>
+  <div>Deirdre: F: 19, A: 9</div>
+  <div>Fiona: F: 17, A: 10</div>
+  <div>Gerki: F: 16, A: 9</div>
+  <div><b>Zot: F: 6, A: 7</b></div>
+</p>
+
+<p><b>Round 6:</b> MIT Building 46</p>
+
+<p>Deirdre plays no action and draws Dark Ale and plays &ldquo;You look like you need this more than I do!&rdquo; to send it to Fiona, who plays &ldquo;The Wench thinks you should stop playing with the drinks.&rdquo;</p>
+
+<p>Fiona plays &ldquo;So then I got the ogre in a headlock like this!&rdquo; on Gerki and drinks Elven Wine.</p>
+
+<p>Gerki plays no action and draws Wine and negates it with &ldquo;Dump it on the floor.&rdquo;</p>
+
+<p>Zot is out.</p>
+
+<p>Barmaid: &ldquo;When the party leaves MIT Building 46, Gerki has the lowest of both Alcohol and Fortitude.&rdquo;</p>
+
+<p>
+  <div>Deirdre: F: 19, A: 10</div>
+  <div>Fiona: F: 17, A: 13</div>
+  <div>Gerki: F: 13, A: 9</div>
+</p>
+
+<p><b>Round 7:</b> MIT Jack Barry Astroturf Field</p>
+
+<p>Deirdre plays &ldquo;I&rsquo;m not that kind of priestess!&rdquo; on Gerki and drinks Dark Ale.</p>
+
+<p>Fiona plays &ldquo;I&rsquo;m a quick healer.&rdquo; and drinks Wine.</p>
+
+<p>Gerki plays &ldquo;How did this get stuck in your back?&rdquo; on Fiona and draws Dark Ale and plays &ldquo;Hey! Where&rsquo;d the little guy go?&rdquo;</p>
+
+<p>Zot is out.</p>
+<p>
+  <div>Deirdre: F: 19, A: 11</div>
+  <div>Fiona: F: 17, A: 15</div>
+  <div>Gerki: F: 11, A: 9</div>
+</p>
+
+<p><b>Round 8:</b> Hogan&rsquo;s Alley</p>
+
+<p>Deirdre plays no action and drinks Dirty Dishwater.</p>
+
+<p>Fiona plays &ldquo;You&rsquo;re at an inn, and you&rsquo;re not drinking. What&rsquo;s wrong with you!?&rdquo; to send Dark Ale to Gerki, then draws Drinking Contest. Fiona drinks Light Ale, Gerki drinks Orcish Rotgut, Deirdre drinks Elven Wine.</p>
+
+<p>Gerki passes out.</p>
+
+<p>Zot is out.</p>
+
+<p>Barmaid: &ldquo;When the party leaves Hogan&rsquo;s Alley, the totals of Fiona&rsquo;s and Deirdre&rsquo;s Alcohol and Fortitude differ by one.&rdquo;</p>
+
+<p>
+  <div>Deirdre: F: 18, A: 14</div>
+  <div>Fiona: F: 17, A: 16</div>
+  <div><b>Gerki: F: 9, A: 10</b></div>
+</p>
+
+<p><b>Round 9:</b> MIT Wood Sailing Pavilion (Building 51)</p>
+
+<p>Deirdre plays &ldquo;Mass Heal!&rdquo; and drinks a Light Ale.</p>
+
+<p>Fiona plays no action and drinks Holy Water.</p>
+
+<p>Gerki is out.</p>
+
+<p>Zot is out.</p>
+
+<p>
+  <div>Deirdre: F: 19, A: 15</div>
+  <div>Fiona: F: 20, A: 16</div>
+</p>
+
+<p><b>Round 10:</b> Intersystems Corporation</p>
+
+<p>Deirdre plays &ldquo;Oh no! I think that growth on your arm might be Mummy Rot!&rdquo; Fiona responds with &ldquo;Luckily for me, I was wearing my armor!&rdquo;, negated by Deirdre playing &ldquo;I don&rsquo;t think so!&rdquo; Deirdre drinks Dark Ale.</p>
+
+<p>Fiona plays no action, drinks Elven Wine and passes out.</p>
+
+<p>
+  <div>Deirdre: F: 19, A: 16</div>
+  <div><b>Fiona: F: 18, A: 19</b></div>
+</p>
+{% endblock %}

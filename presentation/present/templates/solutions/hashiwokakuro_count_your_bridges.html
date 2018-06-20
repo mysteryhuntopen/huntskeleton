@@ -1,0 +1,79 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Denis Auroux{% endblock %}
+{% block solution %}IMPROVISED RAFT{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content img {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .puzzle-content .container {
+    width: 100%;
+
+    margin-top: 20px;
+  }
+
+  .puzzle-content .container div {
+    text-align: center;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Each of the 7 &ldquo;main&rdquo; grids can be solved uniquely with the given rules, and gives two values for the missing sums. Indexing those into the alphabet gives two letters.</p>
+
+<div class="container">
+  <img {{ img_src_for('solutions/hashiwokakuro_count_your_bridges/1.svg') }} >
+  <div>? = 6, 20</div>
+  <div>&rArr; <code>F</code>, <code>T</code>.</div>
+</div>
+<div class="container">
+  <img {{ img_src_for('solutions/hashiwokakuro_count_your_bridges/2.svg') }} >
+  <div>? = 18, 1</div>
+  <div>&rArr; <code>R</code>, <code>A</code>.</div>
+</div>
+<div class="container">
+  <img {{ img_src_for('solutions/hashiwokakuro_count_your_bridges/3.svg') }} >
+  <div>? = 16, 18</div>
+  <div>&rArr; <code>P</code>, <code>R</code></div>
+</div>
+<div class="container">
+  <img {{ img_src_for('solutions/hashiwokakuro_count_your_bridges/4.svg') }} >
+  <div>? = 9, 13</div>
+  <div>&rArr; <code>I</code>, <code>M</code></div>
+</div>
+<div class="container">
+  <img {{ img_src_for('solutions/hashiwokakuro_count_your_bridges/5.svg') }} >
+  <div>? = 5, 4</div>
+  <div>&rArr; <code>E</code>, <code>D</code></div>
+</div>
+<div class="container">
+  <img {{ img_src_for('solutions/hashiwokakuro_count_your_bridges/6.svg') }} >
+  <div>? = 15, 22</div>
+  <div>&rArr; <code>O</code>, <code>V</code></div>
+</div>
+<div class="container">
+  <img {{ img_src_for('solutions/hashiwokakuro_count_your_bridges/7.svg') }} >
+  <div>? = 9, 19</div>
+  <div>&rArr; <code>I</code>, <code>S</code></div>
+</div>
+
+<p>Taking the letter from the vertical (upward) missing sum first, then the letter from the horizontal (left-to-right) missing sum second, the grids give: 1: <code>FT</code>, 2: <code>RA</code>, 3: <code>PR</code>, 4: <code>IM</code>, 5: <code>ED</code>, 6: <code>OV</code>, 7: <code>IS</code>.</p>
+
+<p>The final grid represents the intercontinental network, which has one twist over the previous rules: since it represents a map of a planet, the East and West directions connect at opposite ends (the layout on the other hand ensures no passage through the North and South poles). This is of course the only way to achieve the given sum 10. With this understood, the solution to the final grid is:</p>
+
+<img {{ img_src_for('solutions/hashiwokakuro_count_your_bridges/8.svg') }} >
+
+<p>Replacing each continent with the corresponding pair of letters, we get:</p>
+
+<img {{ img_src_for('solutions/hashiwokakuro_count_your_bridges/9.svg') }} >
+
+<p>Reading in the usual order, this gives the answer <strong><code>IMPROVISED RAFT</code></strong>.</p>
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Ben Weissmann{% endblock %}
+{% block solution %}SKYSCRAPER{% endblock %}
+
+{% block solution_head_block %}
+{% endblock %}
+
+{% block solution_content_block %}
+  <p>Solving this puzzle requires three steps:</p>
+  
+  <ol>
+    <li>Figuring out which vote-counting method is being used to
+      determine each of the three winners</li>
+    <li>Using that knowledge, fill in the empty spaces on the ballots</li>
+    <li>Extract the answer</li>
+  </ol>
+
+  <p><b>1: Figuring out vote-counting methods</b></p>
+
+  <p>There are many ways to complete this part. By constructing
+    ballots and scoring these mock elections, you can determine that
+    the three winners are determined using three classic counting
+    methods:</p>
+
+  <ul>
+    <li>Winner #1 is using a <a href="https://en.wikipedia.org/wiki/Borda_count">Borda
+      Count</a>. This method scores each ballot, giving 5 points to
+      the first candidate, 4 points to the second, 3 to the third, 2
+      to the fourth, and 1 to the fifth. The candidate with the most
+      total points wins.</li>
+    <li>Winner #2 is using <a href="https://en.wikipedia.org/wiki/Instant-runoff_voting">Instant
+      Runoff Voting</a>. This is an iterated method where in each
+      iteration, the candidate(s) with the fewest first-place votes
+      are eliminated, and all ballots are adjusted to remove those
+      candidates. The process repeats until only one candidate
+      remains.</li>
+    <li>Winner #3 is using <a href="https://en.wikipedia.org/wiki/First-past-the-post_voting">First-Past-The-Post</a>. In
+      this method, the winner is the candidate with the most
+      first-place votes.</li>
+  </ul>
+
+  <p><b>2: Filling in the ballots</b></p>
+  <p>This stage is a straightforward logic puzzle. There's only one
+    way to fill in the ballots so that the winners match the given
+    winners. Here's the solutions for the blank spaces:</p>
+
+  <p>George (6)<br>
+    Donald (5)</p>
+
+  <p>Donald (3)<br>
+    George (2)</p>
+
+  <p>George (3)<br>
+    Rutherford (4)</p>
+
+  <p>Donald (2)<br>
+    Rutherford (6)<br>
+    John (3)</p>
+
+  <p>Donald (2)<br>
+    John (2)</p>
+
+  <p>Benjamin (1)<br>
+    George (6)</p>
+
+  <p>Rutherford (5)<br>
+    John (2)</p>
+
+  <p>Donald (4)<br>
+    Rutherford (5)<br>
+    George (6)</p>
+
+  <p>George (6)<br>
+    John (5)</p>
+
+  <p>George (5)<br>
+    Rutherford (1)</p>
+
+  <p>You can check this solution by scoring the filled-in ballots as a
+    mock election, and verifying that the results of the mock election
+    match the actual result.</p>
+
+  <p><b>3: Extraction</b></p>
+
+  <p>At this point, you may notice that the given indices cannot be
+    used to index into the names (because index 5 is given for
+    John). Instead, notice that the five names (George, Rutherford,
+    Donald, John, and Benjamin) are the names of the five presidential
+    candidates who won the election, but did not win the popular vote:
+    George W. Bush, Rutherford B. Hayes, Donald Trump, John Quincy
+    Adams, and Benjamin Harrison. Substituting their names for the names
+    of the candidates who won the popular vote in that election
+    (respectively: Albert Gore, Samuel Tilden, Hillary Clinton, Andrew
+    Jackson, and Grover Cleveland), we get the following names and
+    indices:</p>
+
+  <ul>
+    <li>Albert (6)</li>
+    <li>Hillary (5)</li>
+    <li>Hillary (3)</li>
+    <li>Albert (2)</li>
+    <li>Albert (3)</li>
+    <li>Samuel (4)</li>
+    <li>Hillary (2)</li>
+    <li>Samuel (6)</li>
+    <li>Andrew (3)</li>
+    <li>Hillary (2)</li>
+    <li>Andrew (2)</li>
+    <li>Grover (1)</li>
+    <li>Albert (6)</li>
+    <li>Samuel (5)</li>
+    <li>Andrew (2)</li>
+    <li>Hillary (4)</li>
+    <li>Samuel (5)</li>
+    <li>Albert (6)</li>
+    <li>Albert (6)</li>
+    <li>Andrew (5)</li>
+    <li>Albert (5)</li>
+    <li>Samuel (1)</li>
+  </ul>
+
+  <p>Indexing into these substituted names gives the clue phrase <code>TALL
+    BUILDING TEN LETTERS</code>, which clues the answer,
+    <strong><code>SKYSCRAPER</code></strong>.</p>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Robin Deits{% endblock %}
+{% block solution %}WOODSTOCK{% endblock %}
+
+{% block solution_content_block %}
+  <p>This puzzle consists of an image of a record. A track listing is
+    given on the record, but only the artists are provided, which
+    suggests that the solver ought to be looking for the song
+    titles. Since this is, in fact, a record, the only thing to do is
+    to try to play it. Playing the record involves sampling the image
+    itself in a spiral pattern, from out to in, just as a real record
+    needle would. In order to do this, solvers need to figure out a
+    few things:</p>
+
+  <ul>
+    <li>The spacing of the record grooves: This can be determined by
+      visual inspection or by guessing and checking. It turns out to be
+      15 pixels.</li>
+    <li>An appropriate sample rate (in samples per second): Any
+      reasonable audio sample rate from 8kHz to 40kHz will work fine.</li>
+    <li>The record&rsquo;s turn rate (in RPM): This is given in the puzzle
+      title as 33 RPM.</li>
+  </ul>
+
+  <p>With this information, it&rsquo;s possible to write code to play
+    the record, similar to <a href="{{ asset_url_for('solutions/33_rpm/sample_code.py') }}">this
+    Python code</a>.</p>
+
+  <audio controls>
+    <source src="{{ asset_url_for('solutions/33_rpm/33_rpm.mp3') }}" type="audio/mpeg">
+  </audio>
+
+  <p>The tracks on the record can be identified as songs by the
+    artists provided on the record:</p>
+
+  <ul>
+    <li>&ldquo;Revolution #9&rdquo;</li>
+    <li>&ldquo;Hard Times&rdquo;</li>
+    <li>&ldquo;Hymn 43&rdquo;</li>
+    <li>&ldquo;Good Times&rdquo;</li>
+    <li>&ldquo;When I&rsquo;m 64&rdquo;</li>
+    <li>&ldquo;Glad All Over&rdquo;</li>
+    <li>&ldquo;Days of 49&rdquo;</li>
+  </ul>
+
+  <p>Taken together, sections of the titles give a mathematical
+    formula: &ldquo;9 times 43 times 64 over 49&rdquo;</p>
+
+  <p>The result of the formula is approximately 505.5. This is not the
+    answer to the puzzle. Instead, it&rsquo;s a hint to repeat the
+    mechanic (with the word &ldquo;Revolution&rdquo; in the first song
+    title as a further hint that this has something to do with
+    revolutions). Playing the record back at 505.5 RPM reveals that
+    there is an additional track layered on top of the record, but at
+    a much higher speed:</p>
+
+  <audio controls>
+    <source src="{{ asset_url_for('solutions/33_rpm/5055_rpm.mp3') }}" type="audio/mpeg">
+  </audio>
+
+  <p>The fast track can be identified as &ldquo;Woodstock&rdquo; by
+    Joni Mitchell. Thus, <strong><code>WOODSTOCK</code></strong> is
+    the answer to the puzzle.</p>
+{% endblock %}

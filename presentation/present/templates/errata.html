@@ -1,0 +1,35 @@
+{% extends "support_layout.html" %}
+{% block title_block %}Errata{% endblock %}
+{% block screen_name_block %}Errata{% endblock %}
+{% block header_content %}{% endblock %}
+
+{% block page_head_block %}
+{% endblock %}
+
+
+{% block page_body %}
+{% set target = 'full_puzzle' if session.usertype == 'writingteam' else 'puzzle' %}
+<p><b>Birds of a Feather:</b> An erratum was published for this puzzle at 6:55 PM EST 01/12/2018. Please see the <a href="{{ url_for(target, puzzle_id='birds_of_a_feather') }}">puzzle page</a> for additional information.</p>
+
+<p><b>Feeling Cross:</b> An erratum was published for this puzzle at 8:55 PM EST 01/12/2018. Please see the <a href="{{ url_for(target, puzzle_id='feeling_cross') }}">puzzle page</a> for additional information.</p>
+
+<p><b>Bulletin Boards:</b> An erratum was published for these puzzles at 10:20 AM EST 01/13/2018. Some digital bulletin boards had a typo. The word &ldquo;make&rdquo; should have been &ldquo;made.&rdquo; This does not in any way affect the puzzle, but grammar is important. It has been rectified.
+
+<p><b>Wolf in the Fold:</b> An erratum was published for this puzzle at 11:05 AM EST 01/13/2018. It only affects users who are using Safari. Please see the <a href="{{ url_for(target, puzzle_id='wolf_in_the_fold') }}">puzzle page</a> for additional information.</p>
+
+<p><b>Brainstorm:</b> Due to maintenance work at MIT, a location that was previously accessible is no longer accessible. We will provide alternate instructions for teams as needed. Teams that have already completed this puzzle do not need to take any action.</p>
+
+<p><b>Naquadah Generator:</b> An erratum was published for this puzzle at 11:55 AM EST 01/13/2018. Please see the <a href="{{ url_for(target, puzzle_id='naquadah_generator') }}">puzzle page</a> for additional information.</p>
+
+<p><b>Vain Snowball:</b> An erratum was published for this puzzle at 3:53 AM EST 1/14/2018. Please see the <a href="{{ url_for(target, puzzle_id='vain_snowball') }}">puzzle page</a> for additional information.</p>
+
+<p><b>Vain Snowball:</b> An erratum was published for this puzzle at 5:40 AM EST 1/14/2018. Please see the <a href="{{ url_for(target, puzzle_id='vain_snowball') }}">puzzle page</a> for additional information.</p>
+
+<p><b>Zelma &amp; Frank:</b> An erratum was published for this puzzle at 12:30 PM EST 1/14/2018. Please see the <a href="{{ url_for(target, puzzle_id='zelma_frank') }}">puzzle page</a> for additional information.</p>
+
+<p><b>GRATIA PLENA:</b> An erratum was published for this puzzle at 7:30 PM EST 1/14/2018. Please see the <a href="{{ url_for(target, puzzle_id='gratia_plena') }}">puzzle page</a> for additional information.</p>
+
+<p><b>Birds of a Feather:</b> An erratum was published for this puzzle after the end of Mystery Hunt. Please see the <a href="{{ url_for(target, puzzle_id='birds_of_a_feather') }}">puzzle page</a> for additional information.</p>
+
+<p>This is not a puzzle.</p>
+{% endblock %}

@@ -1,0 +1,9623 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Leland Aldridge, Anisa Schardl, and Claire Moore-Cantwell{% endblock %}
+{% block solution %}BRAZENLY EVIL{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .duck-zone {
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  .puzzle-content .duck-zone td {
+    border: 1px solid #8A8B8C;
+    width: 2.5em;
+    height: 2.5em;
+    text-align: center;
+  }
+
+  .puzzle-content .purple {
+    background-color: magenta;
+  }
+
+  .puzzle-content .red {
+    background-color: #A31F34;
+  }
+
+  .puzzle-content .flexbox {
+    display: flex;
+  }
+
+  .puzzle-content .flexbox table {
+    margin-right: 20px;
+  }
+
+  .puzzle-content .flexbox span {
+    width: 330px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>In typical <a href="http://www.mit.edu/~puzzle/2000/set5/6/Puzzle.html" target="_blank">Duck Konundrum</a> tradition, all you have to do is follow the instructions. Also, there are ducks.</p>
+
+<p>Initially, Y is a consonant, and it switches to vowel when the first block is placed. Y is a vowel in duck phases of odd-numbered steps and a consonant in duck phases of even-numbered steps.</p>
+
+<p>Ducks alternate turning right and left. All of them will turn left first except for the two initially in row 7.</p>
+
+<div>Initial arrangement and direction of ducks:</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D6<</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D4<</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>D7<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D8<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5^</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Setup.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 1: Place block 8</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D6<</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D4<</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>D7<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2^</td>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D8<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5^</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D6<</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D4<</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>D7<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">D5^</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D8<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D4 moves west</div>
+    <div>D6 moves west</div>
+    <div>D5 moves north, climbing onto a block</div>
+    <div>D2 moves north</div>
+    <div>D8 moves west</div>
+    <div>D1 moves south</div>
+    <div>D3 moves east</div>
+    <div>D7 moves west</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step1.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 2: Place block 18</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D6<</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D4<</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D7<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">D5^</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D8<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D6<</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D4<</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>D7></td>
+      <td></td>
+      <td></td>
+      <td>D1v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5^</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>D8<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves north, climbing off a block</div>
+    <div>D4 moves west</div>
+    <div>D6 moves west</div>
+    <div>D2 moves north</div>
+    <div>D3 moves east</div>
+    <div>D1 moves south</div>
+    <div>D8 moves west</div>
+    <div>D7 reaches an edge and turns around</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step2.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 3: Place block 12</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D6<</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D4<</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D7></td>
+    <td></td>
+    <td></td>
+    <td>D1v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5^</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>D8<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D6<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D4<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>D7></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2<</td>
+      <td></td>
+      <td>D5^</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>D8<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves north</div>
+    <div>D4 moves west</div>
+    <div>D6 moves west</div>
+    <div>D2 sees D4 and turns left</div>
+    <div>D3 moves east</div>
+    <div>D1 moves south</div>
+    <div>D8 moves west</div>
+    <div>D7 moves east</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step3.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 4: Place block 10</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D6<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D4<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>D7></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2<</td>
+    <td></td>
+    <td>D5^</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D8<</td>
+    <td></td>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D6<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D4<</td>
+      <td></td>
+      <td></td>
+      <td>D5^</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>D7></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>D8></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves north</div>
+    <div>D2 moves west</div>
+    <div>D4 moves west</div>
+    <div>D6 moves west</div>
+    <div>D3 moves east</div>
+    <div>D1 moves south</div>
+    <div>D7 moves east</div>
+    <div>D8 reaches an edge and turns around</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step4.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 5: Place block 9</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D6<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td>D4<</td>
+    <td></td>
+    <td></td>
+    <td>D5^</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D7></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D8></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td>D6<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5^</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D4<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>D7^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>D8></td>
+      <td></td>
+      <td class="red">D1v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves north</div>
+    <div>D2 sees D7 and turns right</div>
+    <div>D4 moves west</div>
+    <div>D6 moves west</div>
+    <div>D3 moves east</div>
+    <div>D1 moves south, climbing onto a block</div>
+    <div>D7 sees D2 and turns left</div>
+    <div>D8 moves east</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step5.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 6: Place block 32</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x2</td>
+    <td></td>
+    <td></td>
+    <td>D6<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5^</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D4<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D7^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>D8></td>
+    <td></td>
+    <td class="red">D1v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5^</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td>D6<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td>D7^</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D4<</td>
+      <td></td>
+      <td>D2^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>D8></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves north</div>
+    <div>D2 moves north</div>
+    <div>D3 moves east</div>
+    <div>D4 moves west, rolling a block</div>
+    <div>D6 moves west</div>
+    <div>D1 moves south, climbing off a block</div>
+    <div>D7 moves north</div>
+    <div>D8 moves east</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step6.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 7: Place block 30</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5^</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td>D6<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="purple">x2</td>
+    <td>D7^</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D4<</td>
+    <td></td>
+    <td>D2^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D8></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5v</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>D7^</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td>D6<</td>
+      <td></td>
+      <td></td>
+      <td>D2^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D4<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">D8></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 reaches an edge and turns around</div>
+    <div>D3 moves east</div>
+    <div>D2 moves north</div>
+    <div>D4 moves west, rolling a block</div>
+    <div>D6 moves west</div>
+    <div>D1 reaches the edge and turns around</div>
+    <div>D8 moves east, climbing onto a block</div>
+    <div>D7 moves north</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step7.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 8: Place block 4</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5v</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D7^</td>
+    <td></td>
+    <td class="purple">x3</td>
+    <td>D6<</td>
+    <td></td>
+    <td></td>
+    <td>D2^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D4<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">D8></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td>D6<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5v</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D4v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D8></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves south</div>
+    <div>D3 moves east</div>
+    <div>D2 moves north</div>
+    <div>D4 sees an image of a duck and turns left</div>
+    <div>D6 topples the x3 tower, crushing D7, and chain-reacting the x2 tower</div>
+    <div>Write down <code>B</code></div>
+    <div>D1 moves north, rolling a block</div>
+    <div>D8 moves east, climbing off a block</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step8.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 9: Place block 19</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td>D6<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5v</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D4v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D8></td>
+    <td class="purple"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D6<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D4<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5v</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">D8></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves south</div>
+    <div>D3 moves east</div>
+    <div>D2 reaches the edge and turns around</div>
+    <div>D4 sees an image of a duck and turns right</div>
+    <div>D6 moves west</div>
+    <div>D8 moves east, climbing onto a block (Y is a vowel)</div>
+    <div>D1 sees an image of a duck and turns left</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step9.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 10: Place block 20</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D6<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x2</td>
+    <td>D4<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5v</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">D8></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">D6<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td>D4v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5v</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D8></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>D1<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+    </tr>
+  </table>
+  <span>
+    <div>D3 moves east</div>
+    <div>D5 moves south</div>
+    <div>D2 moves south</div>
+    <div>D8 moves east, climbing off a block</div>
+    <div>D4 sees an image of a duck and turns left</div>
+    <div>D6 moves west, climbing onto a block</div>
+    <div>D1 moves west</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step10.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 11: Place block 7</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">D6<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td>D4v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5v</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D8></td>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D1<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td>D6<</td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td>D4<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5v</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td>D8></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>D1<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3<</td>
+    </tr>
+  </table>
+  <span>
+    <div>D3 reaches an edge and turns around</div>
+    <div>D5 moves south</div>
+    <div>D2 sees an image of a duck and turns left</div>
+    <div>D8 moves east</div>
+    <div>D4 sees an image of a duck and turns right</div>
+    <div>D6 moves east, climbing off a block</div>
+    <div>D1 moves west</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step11.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 12: Place block 28</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td>D6<</td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td>D4<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5v</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td>D8></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>D1<</td>
+    <td></td>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3<</td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td>D6v</td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td>D4v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">D8></td>
+      <td></td>
+      <td></td>
+      <td>D5v</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>D1<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3<</td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D3 moves west</div>
+    <div>D5 moves south, rolling a block</div>
+    <div>D2 moves east</div>
+    <div>D8 moves east, climbing onto a block</div>
+    <div>D4 sees an image of a duck and turns left</div>
+    <div>D6 sees an image of a duck and turns left</div>
+    <div>D1 moves west</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step12.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 13: Place block 21 at the bottom</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td>D6v</td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x3</td>
+    <td>D4v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red">D8></td>
+    <td></td>
+    <td></td>
+    <td>D5v</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D1<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3<</td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>D6v</td>
+      <td></td>
+      <td class="red">x3</td>
+      <td>D4<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D8></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>D1></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">D5v</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3<</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D3 moves west</div>
+    <div>D5 moves south, climbing onto a block</div>
+    <div>D2 moves east</div>
+    <div>D8 moves east, climbing off a block</div>
+    <div>D4 sees an image of a duck and turns right</div>
+    <div>D6 moves south</div>
+    <div>D1 reaches an edge and turns around</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step13.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 14: Place block 27</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D6v</td>
+    <td></td>
+    <td class="red">x3</td>
+    <td>D4<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D8></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D1></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">D5v</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3<</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td>D4<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td>D8></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>D1></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3<</td>
+      <td></td>
+      <td>D5v</td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves south, climbing off a block</div>
+    <div>D3 moves west</div>
+    <div>D2 moves east</div>
+    <div>D8 moves east</div>
+    <div>D4 topples x3 tower, crushing D6</div>
+    <div>Write down <code>R</code></div>
+    <div>D1 moves east</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step14.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 15: Place block 6</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td>D2></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td>D4<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td>D8></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>D1></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3<</td>
+    <td></td>
+    <td>D5v</td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td>D2></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D4<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td>D8></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>D1></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3<</td>
+      <td></td>
+      <td></td>
+      <td>D5^</td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 reaches an edge and turns around</div>
+    <div>D2 moves east</div>
+    <div>D8 moves east</div>
+    <div>D3 moves west</div>
+    <div>D4 moves west</div>
+    <div>D1 moves east</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step15.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 16: Place block 33</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td>D2></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D4<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td>D8></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D1></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3<</td>
+    <td></td>
+    <td></td>
+    <td>D5^</td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td>D2<</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">D4<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5^</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D2 reaches an edge and turns around</div>
+    <div>D5 moves north, rolling a block, crushing D8</div>
+    <div>Write down <code>A</code></div>
+    <div>D3 moves west</div>
+    <div>D4 moves west, climbing onto a block</div>
+    <div>D1 moves east</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step16.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 17: Place block 15 underneath the block that is already there</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td>D2<</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">D4<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="purple">x2</td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5^</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td>D2<</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td>D4<</td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D2 moves west</div>
+    <div>D5 sees D2 and turns right</div>
+    <div>D3 moves west</div>
+    <div>D1 moves east, rolling a block</div>
+    <div>D4 moves west, climbing off a block</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step17.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 18: Place block 2</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td>D2<</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td>D4<</td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td class="purple">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D2<</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red">D4<</td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">D1></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves east</div>
+    <div>D2 moves west</div>
+    <div>D3 moves west</div>
+    <div>D1 moves east, climbing onto a block</div>
+    <div>D4 moves west, climbing onto a block</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step18.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 19: Place block 11</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D2<</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red">D4<</td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">D1></td>
+    <td></td>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D2<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>D4<</td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D1></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5<</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 reaches an edge and turns around</div>
+    <div>D2 moves west, rolling a block</div>
+    <div>D3 moves west</div>
+    <div>D1 moves east, climbing off a block</div>
+    <div>D4 moves west, climbing off a block</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step19.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 20: Place block 17</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D2<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D4<</td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D1></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5<</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D2<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>D4></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td>D1></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td>D5<</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves west</div>
+    <div>D2 moves west, rolling a block</div>
+    <div>D1 moves east</div>
+    <div>D3 moves west</div>
+    <div>D4 reaches an edge and turns around</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step20.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 21: Place block 36</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D2<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D4></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td>D1></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td>D5<</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D2<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red">D4></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">D1></td>
+      <td></td>
+      <td>D5<</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>D3<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves west</div>
+    <div>D2 moves west, rolling a block</div>
+    <div>D1 moves east, climbing onto a block</div>
+    <div>D3 moves west</div>
+    <div>D4 moves east, climbing onto a block</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step21.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 22: Place block 24</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D2<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red">D4></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red">D1></td>
+    <td></td>
+    <td>D5<</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D3<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D2^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td>D4></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D1></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>D3<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 moves west</div>
+    <div>D1 moves east, stepping on top of D5</div>
+    <div>D2 sees an image of a duck and turns right</div>
+    <div>D3 moves west</div>
+    <div>D4 moves east, climbing off a block</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step22.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 23: Place block 26</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x2</td>
+    <td>D2^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td>D4></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D1></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>D3<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">D4></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D5<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td>D1></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>D3<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D5 sidesteps from under D1</div>
+    <div>D1 moves east</div>
+    <div>D2 moves north</div>
+    <div>D4 moves east, climbing onto a block</div>
+    <div>D3 moves west</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step23.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 24: Place block 25</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">D4></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D5<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td>D1></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D3<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">D4^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red"></td>
+      <td>D5<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td>D1></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 moves east</div>
+    <div>D5 moves west, rolling a block</div>
+    <div>D2 reaches an edge and turns around</div>
+    <div>D3 reaches an edge and turns around</div>
+    <div>D4 sees an image of a duck and turns left</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step24.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 25: Place block 34</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">D4^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="purple">x3</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td class="red"></td>
+    <td>D5<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td>D1></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">D4^</td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td>D2v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red">D5<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 moves east</div>
+    <div>D2 moves south</div>
+    <div>D5 moves west, climbing onto a block</div>
+    <div>D4 moves north</div>
+    <div>D3 moves east</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step25.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 26: Place block 35</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">D4^</td>
+    <td></td>
+    <td></td>
+    <td class="purple">x3</td>
+    <td>D2v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td class="red">D5<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D4^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2v</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red">D5v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1<</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 reaches an edge and turns around</div>
+    <div>D5 sees an image of a duck and turns left</div>
+    <div>D2 moves south</div>
+    <div>D4 moves north, climbing off block</div>
+    <div>D3 moves east</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step26.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 27: Place block 5</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D4^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2v</td>
+    <td></td>
+    <td class="purple">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td class="red">D5v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1<</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D4v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2v</td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td>D5v</td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td>D1<</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 moves west</div>
+    <div>D5 moves south, climbing off a block</div>
+    <div>D2 topples the x2 tower</div>
+    <div>D4 reaches edge and turns around</div>
+    <div>D3 moves east</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step27.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 28: Place block 29 underneath the blocks already in that cell</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D4v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2v</td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x3</td>
+    <td></td>
+    <td>D5v</td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td>D1<</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">D4v</td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td>D1<</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 moves west</div>
+    <div>D5 moves south</div>
+    <div>D2 moves south</div>
+    <div>D3 sees D5 and turns left</div>
+    <div>D4 moves south, climbing onto a block</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step28.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 29: Place block 16</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">D4v</td>
+    <td></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td class="purple">x3</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td>D1<</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">D4v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">D2v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3^</td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D1<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D5^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 moves west</div>
+    <div>D5 reaches edge, turns around</div>
+    <div>D2 moves south, climbing onto a block</div>
+    <div>D3 moves north</div>
+    <div>D4 moves south</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step29.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 30: Place block 13</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">D4v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">D2v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td class="red">x2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="purple"></td>
+    <td></td>
+    <td>D3^</td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D1<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D5^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td class="red">D2v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td>D3^</td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td class="red">D1<</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 moves west, climbing onto a block</div>
+    <div>D5 moves north</div>
+    <div>D2 moves south, rolling a block off a cliff and crushing D5</div>
+    <div>Write down <code>Z</code></div>
+    <div>D3 topples the x3 tower and crushes D4</div>
+    <div>Write down <code>E</code></div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step30.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 31: Place block 1</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x4</td>
+    <td></td>
+    <td class="red">D2v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td>D3^</td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td class="red">D1<</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x4</td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td>D3></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td>D2v</td>
+      <td class="red">D1^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 sees duck image and turns right</div>
+    <div>D2 moves south, hopping down off a block</div>
+    <div>D3 sees an image of a duck, and turns right</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step31.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 32: Place block 31</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x4</td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td>D3></td>
+    <td></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td>D2v</td>
+    <td class="red">D1^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">x4</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x4</td>
+      <td></td>
+      <td class="red"></td>
+      <td>D1^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2v</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 moves north, climbing off block</div>
+    <div>D2 moves south</div>
+    <div>D3 moves east</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step32.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 33: Place block 3</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red">x4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x4</td>
+    <td></td>
+    <td class="red"></td>
+    <td>D1^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2v</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">x4</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x4</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D1^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x4</td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D3></td>
+      <td class="red"></td>
+      <td class="red"></td>
+      <td class="red">x2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D2^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 moves north</div>
+    <div>D2 reaches an edge and turns around</div>
+    <div>D3 topples x3 tower, last block lands on an existing block, making an x2 tower</div>
+    <div>The existing block had an image of a duck on top, eliciting a gasp of surprise from the solver</div>
+    <div>D3, in the same row, is startled and takes an additional step forward</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step33.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 34: Place block 14</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red">x4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D1^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x4</td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D3></td>
+    <td class="red"></td>
+    <td class="red"></td>
+    <td class="purple">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D2^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">x4</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x4</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td>D1^</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x4</td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">D3></td>
+      <td>D2^</td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 moves north</div>
+    <div>D2 moves north, rolling a line of three blocks</div>
+    <div>D3 moves east, climbing onto a block</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step34.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 35: Place block 22</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="red">x4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td>D1^</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x5</td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">D3></td>
+    <td>D2^</td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td class="red">x4</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>D1^</td>
+      <td class="red">x4</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">x5</td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red">D3^</td>
+      <td>D2<</td>
+      <td class="red">x3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 moves north</div>
+    <div>D2 sees an image of a duck and turns left</div>
+    <div>D3 sees an image of a duck and turns left</div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step35.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Step 36: Place block 23</div>
+<table class="duck-zone">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td class="purple">x5</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>D1^</td>
+    <td class="red">x4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">x5</td>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="red"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="red">D3^</td>
+    <td>D2<</td>
+    <td class="red">x3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div>Duck Phase</div>
+<div class="flexbox">
+  <table class="duck-zone">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td class="red"></td>
+      <td class="red"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td class="red"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <span>
+    <div>D1 moves north</div>
+    <div>D2 moves west, rolling block and D3 to the west (Y is a consonant)</div>
+    <div>D3 topples the top four blocks of the tower</div>
+    <div>This causes a chain reaction of topples, crushing every duck</div>
+    <div>Write down <code>N</code></div>
+    <div>Write down <code>L</code></div>
+    <div>Write down <code>Y</code></div>
+  </span>
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step36emotions.jpg') }}" target="_blank">Photo of emotions</a><br /><br />
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step37_1.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>
+  <a href="{{ asset_url_for('solutions/fowlty_towers/Step37_2.jpg') }}" target="_blank">Photo</a><br /><br />
+</div>
+
+<div>Look at the south faces of the 4 southernmost blocks and write down <code>EVIL</code>.</div>
+
+
+<p>Answer is <strong><code>BRAZENLY EVIL</code></strong>.</p>
+{% endblock %}

@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+import errno
+import hashlib
+import multiprocessing.dummy as multiprocessing
+import os
+import subprocess
+
+devnull = open('/dev/null', 'rw')
+
+def optimize_image(path):
+    print('Optimizing {}'.format(path))
+    if path.endswith('.png'):
+        subprocess.check_call(['optipng', path], stdout=devnull, stderr=devnull)
+    elif path.endswith('.jpg'):
+        subprocess.check_call(['jpegoptim', path], stdout=devnull, stderr=devnull)
+    elif path.endswith('.svg'):
+        subprocess.check_call(['svgo', '--disable=convertStyleToAttrs', '--disable=convertPathData', '--disable=removeHiddenElems', '--disable=removeViewBox', path], stdout=devnull, stderr=devnull)
+    else:
+        return None
+
+    with open(path, 'rb') as f:
+        return hashlib.sha1(f.read()).hexdigest()
+
+def main():
+    os.chdir(os.path.join(os.path.dirname(__file__), '..'))
+    try:
+        with open('assets/.optimized') as f:
+            optimized = set(line.strip() for line in f)
+    except IOError as exc:
+        if exc.errno != errno.ENOENT:
+            raise
+        optimized = set()
+
+    needs_optimization = []
+
+    for root, _dir, files in os.walk('assets'):
+        for filename in files:
+            if not (filename.endswith('.png') or filename.endswith('.jpg') or filename.endswith('.svg')):
+                continue
+
+            fullpath = os.path.join(root, filename)
+            with open(fullpath, 'rb') as f:
+                filehash = hashlib.sha1(f.read()).hexdigest()
+
+            if filehash in optimized:
+                continue
+
+            needs_optimization.append(fullpath)
+
+    pool = multiprocessing.Pool()
+    optimized.update(pool.map(optimize_image, needs_optimization))
+    pool.close()
+    with open('assets/.optimized.new', 'w') as f:
+        f.write('\n'.join(sorted(optimized)))
+    os.rename('assets/.optimized.new', 'assets/.optimized')
+
+if __name__ == '__main__':
+    main()

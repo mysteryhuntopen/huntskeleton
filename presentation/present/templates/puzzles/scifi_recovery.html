@@ -1,0 +1,60 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block byline %}By Peter Lorenz and Liz Chhouk{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content img {
+    width: 49%;
+    height: 250px;
+    margin: 0px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+{% if site_mode() == "solution" %}
+<div id="main-page-content">
+  <p>Based on the phrase <strong><code>IN FLUX</code></strong>, teams have determined that the orb is part of the flux capacitor that is part of Marty McFly&rsquo;s DeLorean from <i>Back to the Future</i>.</p>
+
+  <p>When teams arrive at the interaction room (the &ldquo;garage&rdquo; where the DeLorean is kept), the car is missing! It seems that Doc Brown is away and Marty has taken the DeLorean for a spin and gotten himself stranded somewhere in the past, as indicated in the <a href="{{ asset_url_for('puzzles/scifi_recovery/letter.pdf') }}" target="_blank">letter</a> he left the team. The orb itself is still in the garage, but while the DeLorean is in use, the orb will be inaccessible due to being stuck in a constant state of flux.</p>
+
+  <p>Teams are presented with a <a href="{{ asset_url_for('puzzles/scifi_recovery/layout.pdf') }}">demarcated floor area</a> for building an &ldquo;optical processor&rdquo;. They are given three colored inputs (Red, Green, Blue), four colored outputs (Yellow, Blue, Green, Cyan), a &ldquo;splitter&rdquo; and two &ldquo;mixers&rdquo;, and a large number of colored dominoes.</p>
+
+  <p>
+    <div>Splitter:</div>
+    <div><img {{ img_src_for('puzzles/scifi_recovery/splitter.png') }}></div>
+  </p>
+
+  <p>
+    <div>Mixers:</div>
+    <div>
+      <img {{ img_src_for('puzzles/scifi_recovery/mixer1.png') }}>
+      <img {{ img_src_for('puzzles/scifi_recovery/mixer2.png') }}>
+    </div>
+  </p>
+
+  <p>Teams had to lay out the dominos so that when the dominoes at the input were pushed over, the dominoes at the outputs would be the right color. Dominoes were only allowed to hit other dominoes of the same color, except at mixers, where two primary colors of &ldquo;input&rdquo; would combine additively to produce one color of &ldquo;output&rdquo;, and at splitters, where a secondary color of &ldquo;input&rdquo; would split to produce two colors of &ldquo;output&rdquo;.</p>
+
+  <p>Detailed instructions, with diagrams, can be found <a href="{{ asset_url_for('puzzles/scifi_recovery/instructions.pdf') }}" target="_blank">here</a>.</p>
+
+  <p>When teams successfully knocked over all their dominoes, the room monitors would press a button to unlock the Flux Capacitor and allow teams to view the core memory orb.</p>
+
+  <p>&ldquo;Back in Time&rdquo; by Huey Lewis and the News, the <i>Back to the Future</i> theme song, was played on repeat during this interaction.</p>
+
+  <p class="video-title">The Team to Be Named Later</p>
+  <video id="video" controls>
+    <source src="{{ asset_url_for('puzzles/scifi_recovery/teamtobe.mp4') }}" type="video/mp4">
+  </video>
+
+  <p class="video-title">Setec Astronomy timelapse</p>
+  <video id="video" controls>
+    <source src="{{ asset_url_for('puzzles/scifi_recovery/setec.mp4') }}" type="video/mp4">
+  </video>
+</div>
+{% endif %}
+{% endblock %}

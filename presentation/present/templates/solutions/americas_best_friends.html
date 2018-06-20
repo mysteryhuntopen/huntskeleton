@@ -1,0 +1,398 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Wesley Graybill{% endblock %}
+{% block solution %}JONATHAN EDWARDS{% endblock %}
+
+{% block solution_content_block %}
+
+<p>
+  Solvers are presented with a list of cryptic crossword clues, all of which are missing the
+  definition component. When they start to solve a few of the clues, they&rsquo;ll realize that all
+  of the answers are the names of Presidential pets (America&rsquo;s Best Friends). If they solve
+  all of the clues, sort by the order in which the pets&rsquo; owners were president, and index 
+  into the pet names using the given index, they arrive at the cluephrase &ldquo;Name of Teddy&rsquo;s 
+  bear&rdquo;. This clues the answer <strong><code>JONATHAN EDWARDS</strong></code>.
+</p>
+<table class="solution-table">
+  <tr>
+    <th>
+      Letter
+    </th>
+    <th>
+      Clue
+    </th>
+    <th>
+      Answer
+    </th>
+    <th>
+      President #
+    </th>
+    <th>
+      Index
+    </th>
+    <th>
+      Annotated
+    </th>
+  </tr>
+  <tr>
+    <td>
+      N
+    </td>
+    <td>
+      Company nurse took
+      back adage about sick
+    </td>
+    <td>
+      CORNWALLIS
+    </td> 
+    <td>
+      1
+    </td> 
+    <td>
+      4
+    </td> 
+    <td>
+      CO (company) + RN (nurse) +
+      WA(LLI)S (adage = SAW; sick =
+      ILL)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      A
+    </td> 
+    <td>
+      Two consecutive
+      elements stuck into
+      succulent
+    </td> 
+    <td>
+      CARACTACUS
+    </td> 
+    <td>
+      3
+    </td> 
+    <td>
+      7
+    </td> 
+    <td>
+      CAraCTacUS (CACTUS +
+      Radium + Actinium)
+    </td>
+  <tr>
+    <td>
+      M
+    </td> 
+    <td>
+      End of Federer&rsquo;s current
+      match is not
+      commencing
+    </td> 
+    <td>
+      SAM PATCH 
+    </td> 
+    <td>
+      7
+    </td> 
+    <td>
+      3
+    </td> 
+    <td>
+      S (end of FEDERER&rsquo;S) + AMP
+      (current) + ATCH (MATCH is not
+      commencing)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      E 
+    </td> 
+    <td>
+      Gray and snowy yard
+    </td> 
+    <td>
+      OLD WHITEY
+    </td> 
+    <td>
+      12
+    </td> 
+    <td>
+      8
+    </td> 
+    <td>
+      OLD (gray) + WHITE (snowy) + Y
+      (yard)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      O
+    </td> 
+    <td>
+      Short flute note bearing
+      piece of Idomeneo
+    </td> 
+    <td>
+      PICCOLOMINI
+    </td> 
+    <td>
+      19
+    </td> 
+    <td>
+      5
+    </td> 
+    <td>
+      PICCOLO (short flute) + MI (note)
+      + N (bearing) + I (piece of
+      Idomeneo)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      F
+    </td> 
+    <td>
+      Row trendy disheveled
+      vegans around Robert
+    </td> 
+    <td>
+      FIGHTING BOB
+      EVANS
+    </td> 
+    <td>
+      26
+    </td> 
+    <td>
+      1
+    </td> 
+    <td>
+      FIGHT (row) + IN (trendy) +
+      G(BOB)EVANS (disheveled
+      VEGANS around Robert = BOB)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      T
+    </td> 
+    <td>
+      Oman unit transformed
+      young man
+    </td> 
+    <td>
+      MOUNTAIN BOY
+    </td> 
+    <td>
+      28
+    </td> 
+    <td>
+      5
+    </td> 
+    <td>
+      MOUNTAIN (OMAN UNIT
+      anagram) + BOY (young man)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      E
+    </td> 
+    <td>
+      Dissident loses a pound
+      but gains one hundred,
+      about 
+    </td> 
+    <td>
+      REBECCA
+    </td> 
+    <td>
+      30
+    </td> 
+    <td>
+      2
+    </td> 
+    <td>
+      REBEL (dissident) - L (a pound) +
+      C (one hundred) + CA (about)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      D
+    </td> 
+    <td>
+      Producers start to hire to
+      hold position 
+    </td> 
+    <td>
+      PRESIDENT
+    </td> 
+    <td>
+      32
+    </td> 
+    <td>
+      6
+    </td> 
+    <td>
+      P + RE(SIDE)NT (hire = RENT;
+      position = SIDE)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      D
+    </td> 
+    <td>
+      Greeting circled around
+      cast
+    </td> 
+    <td>
+      HEIDI
+    </td> 
+    <td>
+      34
+    </td> 
+    <td>
+      4
+    </td> 
+    <td>
+      H(EID)I (around cast = DIE
+      backward; greeting = HI)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Y
+    </td>
+    <td>
+      Bravo. Sheer speed
+    </td>
+    <td>
+      BUTTERFLY
+    </td>
+    <td>
+      35
+    </td>
+    <td>
+      9
+    </td>
+    <td>
+      B (Bravo in NATO) + UTTER
+      (sheer) + FLY (speed)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      S
+    </td> 
+    <td>
+      Cook taking out the
+      stuffing is received in
+      praise
+    </td> 
+    <td>
+      CHECKERS
+    </td> 
+    <td>
+      37
+    </td> 
+    <td>
+      8
+    </td> 
+    <td>
+      CHEERS (praise) + CooK (COOK
+      with middle removed)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      B
+    </td> 
+    <td>
+      Backs of ideal Iraqi hijab
+      drape pretty evenly
+    </td> 
+    <td>
+      LIBERTY
+    </td> 
+    <td>
+      38
+    </td> 
+    <td>
+      3
+    </td> 
+    <td>
+      LIBE (backs of ideaL IraqI hijaB
+      drapE) + RTY (pReTtY evenly)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      E
+    </td> 
+    <td>
+      Drunken bowlers win
+    </td> 
+    <td>
+      LEWIS BROWN
+    </td> 
+    <td>
+      39
+    </td> 
+    <td>
+      2
+    </td> 
+    <td>
+      (BOWLERS WIN anagram)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      A
+    </td> 
+    <td>
+      Hermione loses weight
+    </td> 
+    <td>
+      RANGER
+    </td> 
+    <td>
+      41
+    </td> 
+    <td>
+      2
+    </td> 
+    <td>
+      GRANGER (Hermione) - G
+      (weight)
+    </td> 
+  </tr>
+  <tr>
+    <td>
+      R
+    </td> 
+    <td>
+      Common type of owl, I
+      heard, doesn&rsquo;t have a tail
+    </td> 
+    <td>
+      BARNEY
+    </td> 
+    <td>
+      43
+    </td> 
+    <td>
+      3
+    </td> 
+    <td>
+      BARN (Common type of owl) +
+      EYe (I heard, doesn&rsquo;t have a tail)
+    </td>
+  </tr>
+</table>
+
+{% endblock %}

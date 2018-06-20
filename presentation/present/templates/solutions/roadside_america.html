@@ -1,0 +1,216 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Emilie Josephs{% endblock %}
+{% block solution %}EXCURSION{% endblock %}
+
+{% block solution_head_block %}
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Each of the provided postcards describe goofy roadside attractions,
+  documented at <a href="http://www.roadsideamerica.com/" target="_blank">
+  RoadsideAmerica.com</a>. In the order they are described, here are
+  each of the attractions:</p>
+
+<table class="solution-table condensed-table">
+  <thead>
+    <tr>
+      <th>Attraction</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cadillac Ranch</td>
+      <td>Amarillo, TX</td>
+    </tr>
+    <tr>
+      <td>Oscar Getz Museum of Whiskey History</td>
+      <td>Bardstown, KY</td>
+    </tr>
+    <tr>
+      <td>Carhenge</td>
+      <td>Alliance, NE</td>
+    </tr>
+    <tr>
+      <td>Evel Kneivel Museum</td>
+      <td>Topeka, KS</td>
+    </tr>
+    <tr>
+      <td>Prahbupada&rsquo;s Palace of Gold</td>
+      <td>New Vrindaban, WV</td>
+    </tr>
+    <tr>
+      <td>Cody Dug Up Gun Museum</td>
+      <td>Cody, WY</td>
+    </tr>
+    <tr>
+      <td>Dungeons and Dragons Park (Castle Park)</td>
+      <td>Carbondale, IL</td>
+    </tr>
+    <tr>
+      <td>Grave of the Confederate Camel</td>
+      <td>Vicksburg, MS</td>
+    </tr>
+    <tr>
+      <td>International Church of Cannabis</td>
+      <td>Denver, CO</td>
+    </tr>
+    <tr>
+      <td>The Gum Wall</td>
+      <td>Seattle, WA</td>
+    </tr>
+    <tr>
+      <td>Beer Can House</td>
+      <td>Houston, TX</td>
+    </tr>
+    <tr>
+      <td>Toilet Neptune</td>
+      <td>Guerneville, CA</td>
+    </tr>
+    <tr>
+      <td>Cathedral of Junk</td>
+      <td>Austin, TX</td>
+    </tr>
+    <tr>
+      <td>Elvis Fight Site Mini-Monument</td>
+      <td>Madison, WI</td>
+    </tr>
+    <tr>
+      <td>Trees of Mystery</td>
+      <td>Klamath, CA</td>
+    </tr>
+    <tr>
+      <td>Abstract Monument to Fluoridation</td>
+      <td>Grand Rapids, MI</td>
+    </tr>
+    <tr>
+      <td>The Mob Museum</td>
+      <td>Las Vegas, NV</td>
+    </tr>
+    <tr>
+      <td>Sistine Chapel in Spray Paint</td>
+      <td>Waterloo, IA</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Each of Terry&rsquo;s friends only wrote two postcards. Solvers
+  must group the postcards by author:</p>
+
+<table class="solution-table condensed-table">
+  <thead>
+    <tr>
+      <th>Friend</th>
+      <th>Location 1</th>
+      <th>Location 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sammie</td>
+      <td>Trees of Mystery</td>
+      <td>Toilet Neptune</td>
+    </tr>
+    <tr>
+      <td>Jack</td>
+      <td>Cody Dug Up Gun Museum</td>
+      <td>The Gum Wall</td>
+    </tr>
+    <tr>
+      <td>Ryan</td>
+      <td>The Mob Museum</td>
+      <td>Church of Cannabis</td>
+    </tr>
+    <tr>
+      <td>Louise</td>
+      <td>Carhenge</td>
+      <td>Evel Kneivel Museum</td>
+    </tr>
+    <tr>
+      <td>Veronica</td>
+      <td>Cathedral of Junk</td>
+      <td>Cadillac Ranch</td>
+    </tr>
+    <tr>
+      <td>Susan</td>
+      <td>Beer Can House</td>
+      <td>Grave of the Confederate Camel</td>
+    </tr>
+    <tr>
+      <td>Tim</td>
+      <td>Elvis Fight Site Mini-Monument</td>
+      <td>D &amp; D Park</td>
+    </tr>
+    <tr>
+      <td>Sarah</td>
+      <td>Sistine Chapel in Spray Paint</td>
+      <td>Oscar Getz Museum of Whiskey History</td>
+    </tr>
+    <tr>
+      <td>Gregory</td>
+      <td>Abstract Monument to Fluoridation</td>
+      <td>Prahbupada&rsquo;s Palace of Gold</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For each pair, a line drawn between the two attractions crosses
+  only one letter:</p>
+
+<p><img width="100%" src="{{ asset_url_for('solutions/roadside_america/map.png') }}" /></p>
+
+<table class="solution-table condensed-table">
+  <thead>
+    <tr>
+      <th>Friend</th>
+      <th>Letter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sammie</td>
+      <td><code>E</code></td>
+    </tr>
+    <tr>
+      <td>Jack</td>
+      <td><code>X</code></td>
+    </tr>
+    <tr>
+      <td>Ryan</td>
+      <td><code>C</code></td>
+    </tr>
+    <tr>
+      <td>Louise</td>
+      <td><code>U</code></td>
+    </tr>
+    <tr>
+      <td>Veronica</td>
+      <td><code>R</code></td>
+    </tr>
+    <tr>
+      <td>Susan</td>
+      <td><code>S</code></td>
+    </tr>
+    <tr>
+      <td>Tim</td>
+      <td><code>I</code></td>
+    </tr>
+    <tr>
+      <td>Sarah</td>
+      <td><code>O</code></td>
+    </tr>
+    <tr>
+      <td>Gregory</td>
+      <td><code>N</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Reading the crossed letters in order from west-to-east yields the
+  answer, <strong><code>EXCURSION</code></strong>.</p>
+{% endblock %}

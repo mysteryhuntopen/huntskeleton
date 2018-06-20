@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% block page_body %}
+{% set interaction_request = interaction_request %}
+{% set canonical_answers = puzzle.get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers',[]) %}
+{% set canonical_answer = canonical_answers[0].get('canonicalAnswer','') if canonical_answers|length else '' %}
+<div class="ha-page-section">
+  <table>
+    <tr>
+      <td>Request Time</td>
+      <td>{{ interaction_request.timestamp | datetime }}</td>
+    </tr>
+    <tr>
+      <td>Team ID</td>
+      <td><a target="_blank" href="{{ url_for('team', team_id=interaction_request.teamId) }}">{{ interaction_request.teamId }}</a></td>
+    </tr>
+    <tr>
+      <td>Team Name</td>
+      <td>{{ team.teamName }}</td>
+    </tr>
+    <tr>
+      <td>Team Primary Phone</td>
+      <td>{{ team.primaryPhone }}</td>
+    </tr>
+    <tr>
+      <td>Team Secondary Phone</td>
+      <td>{{ team.secondaryPhone }}</td>
+    </tr>
+    <tr>
+      <td>Team Email</td>
+      <td>{{ team.email }}</td>
+    </tr>
+    <tr>
+      <td>Team Headquarters</td>
+      <td>{{ team.headquarters }}</td>
+    </tr>
+    <tr>
+      <td>Puzzle ID</td>
+      <td>{{ interaction_request.puzzleId }}</td>
+    </tr>
+    <tr>
+      <td>Puzzle Name</td>
+      <td>
+        {% if 'puzzleProperties' in puzzle and 'DisplayNameProperty' in puzzle.puzzleProperties %}
+          {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}
+        {% else %}
+          unknown
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>Request</td>
+      <td>{{ interaction_request.request }}</td>
+    </tr>
+    <tr>
+      <td>Assigned to Caller</td>
+      <td>{{ interaction_request.callerUsername }}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{ interaction_request.status }}</td>
+    </tr>
+    <tr>
+      <td>Response</td>
+      <td>{{ interaction_request.response }}</td>
+    </tr>
+  </table>
+  {% if interaction_request.status == 'REQUESTED' %}
+    <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
+      <input type="hidden" name="status" value="ASSIGNED">
+      <input type="submit" value="Assign to Me">
+    </form>
+  {% elif interaction_request.status in ['ASSIGNED', 'SCHEDULED'] %}
+    {% if interaction_request.callerUsername == session['username'] %}
+      {% if interaction_request.status == 'ASSIGNED' %}
+        <h3>If the submitted instruction is correct, call {{ team.teamName }} at {{ team.primaryPhone }}</h3>
+        <p>
+          Make sure you are talking to the correct team.
+        </p>
+        <p>
+          <b>Do not say either the team&rsquo;s submission or the answer</b>. Tell the team:
+          <div class="ha-indented">&ldquo;Hi {{ team.teamName if team.teamName else "[Team Name]" }}, this is Cranium Command. I&rsquo;m calling about your submission for the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}. <i>[Break for acknowledgement.]</i> Your instruction for the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }} is correct, congratulations.&rdquo;</div>
+        </p>
+
+        <div class="line"></div>
+
+        {% if canonical_answer %}
+          <h3>If incorrect, figure out if the instruction is an answer rather than an instruction.</h3>
+          <table id="request-comparison">
+            <tr>
+              <td>Submission</td>
+              <td class="request-entry">
+                {{ interaction_request.request  }}
+              </td>
+            </tr>
+            <tr>
+              <td>Answer</td>
+              <td class="request-entry">{{ canonical_answer }}</td>
+            </tr>
+          </table>
+          <p>Computer says this answer is: <span id="ha-call-queue-answer-status"></span> (but double-check)</p>
+
+          <h3>If the team has submitted the puzzle answer, call {{ team.teamName }} at {{ team.primaryPhone }}.</h3>
+          <p>
+            Make sure you are talking to the correct team.
+          </p>
+
+          <p>
+            <b>Do not say either the team&rsquo;s submission or the answer</b>. Tell the team:
+            <div class="ha-indented">&ldquo;Hi {{ team.teamName if team.teamName else "[Team Name]" }}, this is Cranium Command. I&rsquo;m calling about your submission for the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}. <i>[Break for acknowledgement.]</i> You submitted an incorrect <i>instruction</i>, but that sounds like a really good <i>answer</i>.&rdquo;</div>
+          </p>
+ 
+          <p>Put "Incorrect instruction" in the response box and mark this request as complete.</p>
+          <div class="line"></div>
+        {% endif %}
+
+        <h3>If it seems like the team is attempting to ask a question about this puzzle's instruction (as opposed to reporting an erratum or asking a general question), call {{ team.teamName }} at {{ team.primaryPhone }}.</h3>
+        <p>
+          Make sure you are talking to the correct team.
+        </p>
+
+        <p>
+          <b>Do not say either the team&rsquo;s submission or the answer</b>. Tell the team:
+          <div class="ha-indented">&ldquo;Hi {{ team.teamName if team.teamName else "[Team Name]" }}, this is Cranium Command. I&rsquo;m calling about your submission for the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}. <i>[Break for acknowledgement.]</i> Your instruction for the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }} is incorrect, sorry.&rdquo;</div>
+        </p>
+
+        <p>Put "Incorrect instruction" in the response box and mark this request as complete.</p>
+
+        <div class="line"></div>
+
+        <h3>Figure out if it seems like the team is attempting to report an erratum or ask a question about out-of-game content.</h3>
+        <p>If so, please escalate to Puzzle-On-Call.</p>
+
+        <script>
+          function cleanAnswer(answer) {
+            return answer.toLowerCase().replace(/[^a-z0-9]/g,'');
+          }
+          var interactionRequest = cleanAnswer("{{ interaction_request.request }}");
+          var canonicalAnswer = cleanAnswer("{{ canonical_answer }}");
+          var floaterInstruction = cleanAnswer("{{ puzzles_with_instructions[puzzle.puzzleProperties.DisplayIdProperty.displayId] }}")
+          function checkCorrect(expectCorrect) {
+            if (expectCorrect && interactionRequest != floaterInstruction) {
+              return confirm("Please DOUBLE CHECK that {{ interaction_request.request }} actually matches {{ floaterInstruction }}! If it doesn't, press cancel.");
+            }
+            if (!expectCorrect && interactionRequest == canonicalAnswer) {
+              return confirm("Please DOUBLE CHECK that {{ interaction_request.request }} does NOT MATCH {{ floaterInstruction }}! If it DOES MATCH, press cancel.");
+            }
+            return true;
+          }
+          if (interactionRequest == canonicalAnswer) {
+            $('#ha-call-queue-answer-status').addClass('ha-call-queue-status-correct').text('✅ THE ANSWER!');
+          } else {
+            $('#ha-call-queue-answer-status').addClass('ha-call-queue-status-incorrect').text('❌ NOT THE ANSWER!');
+          }
+          if (floaterInstruction && interactionRequest == floaterInstruction) {
+            $('#ha-call-queue-instruction-status').addClass('ha-call-queue-status-correct').text('✅ CORRECT!');
+          } else {
+            $('#ha-call-queue-instruction-status').addClass('ha-call-queue-status-incorrect').text('❌ INCORRECT!');
+          }
+        </script>
+      {% endif %}
+
+      {% if interaction_request.status == 'SCHEDULED' %}
+        <h3>An interaction is currently scheduled.</h3>
+        <p>
+          Details: &ldquo;{{ interaction_request.response }}&rdquo;
+        </p>
+        <p>
+          If you need to make changes to this scheduled interaction, call the team at
+          {{ team.primaryPhone }} to inform them of the change, then use the form
+          below to make the change. You may change this interaction request to
+          Assigned if you are not currently able to schedule it.
+        </p>
+        {% if puzzle.puzzleProperties.DisplayIdProperty.displayId in puzzles_with_instructions %}
+          {% if is_authorized('visibilities:update:%s' % team.teamId) %}
+          <div class="ha-indented">
+            <h3>Special Instructions for {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}</h3>
+            <p>
+              {% include 'interactions/%s.html' % puzzle.puzzleProperties.DisplayIdProperty.displayId %}
+            </p>
+          </div>
+          {% else %}
+            <p>You can't complete the interaction for them, so what are you doing here? Get real Dispatch to do this.</p>
+          {% endif %}
+        {% else %}
+            <p>
+              If this interaction is now over, use the form below to mark this interaction
+              as Complete.
+            </p>
+        {% endif %}
+      {% endif %}
+
+      <script>
+        $('#canonical-answer').text('{{ canonical_answer }}');
+      </script>
+
+      <div class="line"></div>
+      <p>Opens in a new tab: <a target="_blank" href="{{ url_for('team', team_id=interaction_request.teamId) }}">team page</a><br/></p>
+      <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
+        <p>
+          Response to the team (may include scheduling details like time and place):
+          <input type="text" name="response" size="100" value="{{ interaction_request.response }}">
+        </p>
+        <select name="status">
+          <option value="ASSIGNED" {% if interaction_request.status == 'ASSIGNED' %}selected{% endif %}>Assigned</option>
+          <option value="SCHEDULED" {% if interaction_request.status == 'SCHEDULED' %}selected{% endif %}>Scheduled</option>
+          <option value="COMPLETE" {% if interaction_request.status == 'COMPLETE' %}selected{% endif %}>Complete</option>
+        </select>
+        <input type="submit" value="Respond">
+      </form>
+    {% endif %}
+    <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
+      <input type="hidden" name="status" value="REQUESTED">
+      <p>
+        If the assigned user is no longer able to handle this interaction request, please click
+        <input type="submit" value="Unassign">.
+      </p>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}

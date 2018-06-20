@@ -1,0 +1,35 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block byline %}By Peter Lorenz and Liz Chhouk{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_content_block %}
+{% if site_mode() == "solution" %}
+<div id="main-page-content">
+  <p>Based on the phrase <strong><code>IN A FORBIDDEN DESERT</code></strong>, teams have determined that the orb has been locked away behind an esoteric contraption watched over by four unhappy ancient Egyptian gods.</p>
+
+  <p>Teams were presented with a cabinet containing the core memory orb, a weigh station with four platters and an LED, a <a href="{{ asset_url_for('puzzles/games_recovery/riddle.pdf') }}">riddle</a>, and a journal scrap with a <a href="{{ asset_url_for('puzzles/games_recovery/puzzle.pdf') }}">logic puzzle</a> on it. They will also have access to a large amount of clay and a digital scale.</p>
+
+  <p>This riddle describes the shape and relative weight of four statues that participants will need to make out of the clay. Thoth should get the largest statue, in the shape of a snake. Ptah should get the second-largest statue, in the shape of an obelisk. Seshat should get the third-largest statue, in the shape of coins. Bes should get the smallest statue, in the shape of grapes.</p>
+
+  <p>When solved, the logic puzzle indicates that the statues should be arranged in the following order, from left to right:</p>
+
+  <p>Seshat &rarr; Bes &rarr; Thoth &rarr; Ptah</p>
+
+  <p>When the statues, at the correct relative weights, are placed on the weigh station platters in the correct order, the magnetic lock on the orb cabinet releases and the participants can view the core memory orb.</p>
+
+  <p>During this interaction, the tracks &ldquo;Pharaoh Ramses II&rdquo;, &ldquo;Scorpion Desert&rdquo;, &ldquo;Egyptian Warriors&rdquo;, and &ldquo;Sultan&rsquo;s Palace&rdquo; by instrumental composer Derek Fiechter were played.</p>
+
+  <p class="video-title">Providence Transplantations</p>
+  <video id="video" controls>
+    <source src="{{ asset_url_for('puzzles/games_recovery/providence_transplantations.mp4') }}" type="video/mp4">
+  </video>
+</div>
+{% endif %}
+{% endblock %}

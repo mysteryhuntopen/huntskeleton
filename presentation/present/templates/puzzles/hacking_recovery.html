@@ -1,0 +1,28 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block byline %}By Peter Lorenz and Liz Chhouk{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_content_block %}
+{% if site_mode() == "solution" %}
+<div id="main-page-content">
+  <p>Based on the phrase <strong><code>ON A CALTECH CANNONBALL RUN</code></strong>, teams have determined that the orb has been shot out of the Fleming Cannon (from its rightful place in the East Campus courtyard) back towards Caltech.</p>
+
+  <p>When teams arrive at the interaction room, they are presented with a set of bicycle pedals connected to a control box, across an aisle from an <a href="{{ asset_url_for('puzzles/hacking_recovery/instructions.pdf') }}" target="_blank">instruction booklet</a>.</p>
+
+  <p>They are informed that this set of pedals is a warp-capable bicycle, and can transport its rider at stupendous speed through the very fabric of time and space itself (except for a very few junctions, where the rider must choose whether to turn right or left). Teams need to catch up to the orb in flight and catch it as it lands at Caltech.</p>
+
+  <p>The participant piloting the bicycle, not knowing the way to Caltech by heart, has to look at the highway signs shown on the screen of the control box. The highway signs are comprised of symbols. The pilot must describe the symbols to the navigator, the participant holding the instruction booklet. The navigator must tell the pilot whether to turn left or right based on what the instruction booklet says about the symbol.</p>
+
+  <p>When the pilot reaches Caltech, the warp-capable bicycle automatically locks on to and captures the orb, and the control box opens, revealing the orb.</p>
+
+  <p>Queen&rsquo;s &ldquo;Bicycle Race&rdquo; was played on repeat during this interaction.</p>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_errata_block %}
+<p><b>Errata:</b> At 8:55pm EST 01/12/2018, the clue &ldquo;Expectant Mother (2 words)&rdquo; was changed to &ldquo;Expectant mother (2 words)&rdquo;.</p>
+{% endblock %}
+
+{% block puzzle_head_block %}
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/crossword.css') }}">
+<style>
+  .puzzle-content .flexbox {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .puzzle-content .clues {
+    margin-bottom: 20px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+These tunnels are so confusing - it’s too dark to see and the intersections are often framed in surprising ways. I wonder about the areas outside the tunnels.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="flexbox clues">
+  <div>
+    <b>Across</b>
+    <div><b>7.</b> Expectant mother (2 words)</div>
+    <div><b>8.</b> Stylishly luxurious</div>
+    <div><b>10.</b> Not near</div>
+    <div><b>12.</b> Apropos superhero</div>
+    <div><b>14.</b> Animal-filled attraction</div>
+    <div><b>15.</b> Proteges and Tributes</div>
+    <div><b>17.</b> Leftover or bonus</div>
+    <div><b>18.</b> It may be criminal or supreme</div>
+    <div><b>19.</b> Apropos Enterprise officer (last name)</div>
+    <div><b>23.</b> Measure of distance or beer</div>
+    <div><b>24.</b> Apropos rock opera character</div>
+    <div><b>25.</b> Affirmative</div>
+    <div><b>26.</b> Riceless preparation of 27-Across</div>
+    <div><b>27.</b> Gold or cat, for example</div>
+  </div>
+  <div>
+    <b>Down</b>
+    <div><b>1.</b> Container for three men</div>
+    <div><b>2.</b> Positions in the armed forces</div>
+    <div><b>3.</b> You and I</div>
+    <div><b>4.</b> One who plays CDs</div>
+    <div><b>5.</b> Zags’ partner</div>
+    <div><b>6.</b> TV sports award</div>
+    <div><b>9.</b> Like some TVs before 4K</div>
+    <div><b>10.</b> Came into bloom</div>
+    <div><b>11.</b> “I do,” for example</div>
+    <div><b>13.</b> Vertical line on a toggle switch</div>
+    <div><b>15.</b> Violent chaos</div>
+    <div><b>16.</b> Personal icon, online</div>
+    <div><b>19.</b> Guitar predecessor</div>
+    <div><b>20.</b> Slight advantage, or where your answer lies</div>
+    <div><b>21.</b> Wise bird</div>
+    <div><b>22.</b> Egg cells</div>
+  </div>
+</div>
+<div>
+  <table class="crossword">
+    {% for r in range(30) %}
+      <tr>
+        {% for c in range(30) %}
+          <td></td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

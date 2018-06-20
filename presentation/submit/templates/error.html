@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Head Hunters: Error</title>
+    <link rel="shortcut icon" href="{{ asset_url_for('images/favicon.ico') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/bootstrap-reduced.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/support.css') }}">
+    <style>
+      @media screen {
+        body {
+          background-color: #92959f;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed-header">
+      <div class="fixed-header-inner">
+        <div class="header-links">
+          <div class="header-link"><a href="/">Control Room</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="overall-layout-body">
+      <div class="title-text">Error</div>
+      <div id="main-page-content">
+        <p>
+          You've lost your marbles.
+          <a class="standard-link" href="/">Return to your senses</a>.
+        </p>
+        <p style="font-size: 0.75em">Error detail: {{ error }}</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Eric Broder and Sue Broder{% endblock %}
+{% block solution %}INSIGHT{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .poem {
+    padding-left: 2em;
+    text-indent: -1em;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Each of the provided poems describes an animal. Specifically, they
+  describe a Beanie Baby, as suggested both by the title of the puzzle
+  and the flavor text (suggesting both fads and collecting). Each of
+  these animals was only produced once as a Beanie Baby.</p>
+
+<p>The poems are stylistically similar to the poems on the tags for
+  Beanie Babies, and in fact contain the same number of words in each
+  line as the original poem. In each poem, one word is in the same
+  position as it occurred in the original poem, highlighted here:</p>
+
+<table class="solution-table">
+  <thead>
+    <tr>
+      <th>Beanie Baby</th>
+      <th>Puzzle poem</th>
+      <th>Original poem</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>Patti the Platypus</td>
+    <td class="poem">
+      <p>Went <code>INTO</code> the Outback for a thrill</p>
+      <p>Spotted a creature with duck&rsquo;s bill</p>
+      <p>Waddling her way through the lake</p>
+      <p>Wanting to hide to avoid a snake!</p>
+    </td>
+    <td class="poem">
+      <p>Ran <code>INTO</code> Patti one day while walking</p>
+      <p>Believe me she wouldn&rsquo;t stop talking</p>
+      <p>Listened and listened to her speak</p>
+      <p>That would explain her extra large beak!</p>
+    </td>
+  </tr>
+  <tr>
+    <td>Twitterbug the Cicada</td>
+    <td class="poem">
+      <p>You hear us as nighttime falls</p>
+      <p>You think we&rsquo;re crickets with their chirpy calls</p>
+      <p>Some years we all make <code>NOISE</code> obscene</p>
+      <p>Then we die, it&rsquo;s our routine!</p>
+    </td>
+    <td class="poem">
+      <p>Once every dozen years or more</p>
+      <p>It&rsquo;s time for me to hit the door</p>
+      <p>I make a lot of <code>NOISE</code> because</p>
+      <p>That is what a cicada does!</p>
+    </td>
+  </tr>
+  <tr>
+    <td>Buzzy the Buzzard</td>
+    <td class="poem">
+      <p>Moving through a <code>SKY</code> that&rsquo;s sunny and bright</p>
+      <p>Scouting where I&rsquo;ll go for a bite</p>
+      <p>Where dead meat lays upon the ground</p>
+      <p>That&rsquo;s the place where I will be found!</p>
+    </td>
+    <td class="poem">
+      <p>Up in the <code>SKY</code> is where I fly</p>
+      <p>I love to soar way up high</p>
+      <p>When I swoop down, don&rsquo;t run away</p>
+      <p>&rsquo;cause all I want to do is play!</p>
+    </td>
+  </tr>
+  <tr>
+    <td>Sledge the Hammerhead Shark</td>
+    <td class="poem">
+      <p>Sometimes you see me swimming in a school</p>
+      <p>Thinking I&rsquo;m quite a tool</p>
+      <p>If you look and see my fin glide</p>
+      <p>You&rsquo;ll want to disappear <code>INSIDE</code>!</p>
+    </td>
+    <td class="poem">
+      <p>Of all the sharks to swim the sea</p>
+      <p>The most unusual is me</p>
+      <p>My head is flat, my eyes are wide</p>
+      <p>But I am beautiful <code>INSIDE</code>!</p>
+    </td>
+  </tr>
+  <tr>
+    <td>Glow the Lightning Bug</td>
+    <td class="poem">
+      <p>I&rsquo;m easily spotted though I don&rsquo;t make sound</p>
+      <p>Because I flicker to help <code>GUIDE</code> you around</p>
+      <p>I&rsquo;m always flashing so you can see</p>
+      <p>To chase around and try to catch me!</p>
+    </td>
+    <td class="poem">
+      <p>To find me when you want to play</p>
+      <p>Look for my light to <code>GUIDE</code> the way</p>
+      <p>I&rsquo;ll be the brightest in the park</p>
+      <p>I&rsquo;m the Beanie that glows in the dark!</p>
+    </td>
+  </tr>
+  <tr>
+    <td>Hornsly the Triceratops</td>
+    <td class="poem">
+      <p>With three <code>HORNS</code> I looked so odd</p>
+      <p>The frill completed an awesome bod</p>
+      <p>To keep my health I didn&rsquo;t eat meat</p>
+      <p>My species still went down in defeat!</p>
+    </td>
+    <td class="poem">
+      <p>I have <code>HORNS</code>, I&rsquo;m quite a sight</p>
+      <p>Some people run away in fright</p>
+      <p>But I don&rsquo;t want to scare you away</p>
+      <p>All I want to do is play!</p>
+    </td>
+  </tr>
+  <tr>
+    <td>Tracker the Basset Hound</td>
+    <td class="poem">
+      <p>Known for <code>TRACKING</code> with my nose</p>
+      <p>Not too tall from head to toes</p>
+      <p>With sagging skin and drooping ears</p>
+      <p>I get excited as the rabbit nears!</p>
+    </td>
+    <td class="poem">
+      <p>Sniffing and <code>TRACKING</code> and following trails</p>
+      <p>Tracker the basset always wags his tail</p>
+      <p>It doesn&rsquo;t matter what you do</p>
+      <p>He&rsquo;s always happy when he&rsquo;s with you!</p>
+    </td>
+  </tr>
+</table>
+
+<p>Reading the first letter of each word in order yields the answer,
+  <strong><code>INSIGHT</code></strong>.
+{% endblock %}

@@ -1,0 +1,196 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Justin Melvin{% endblock %}
+{% block solution %}REPTILES{% endblock %}
+
+{% block solution_head_block %}
+  <style>
+    .puzzle-container #sounds {
+      display: none;
+    }
+
+    .puzzle-container .sound-player {
+      cursor: pointer;
+    }
+  </style>
+  <script type="text/javascript">
+    function playSound(name) {
+      $("#sound-" + name)[0].play()
+    }
+  </script>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div id="sounds">
+    <audio id="sound-aint-i-a-stinker" src="{{ asset_url_for('solutions/joyful_songs/aint-i-a-stinker.mp3') }}"/>
+    <audio id="sound-be-very-quiet" src="{{ asset_url_for('solutions/joyful_songs/be-very-quiet.mp3') }}"/>
+    <audio id="sound-i-thought-i-saw-a-pussycat" src="{{ asset_url_for('solutions/joyful_songs/i-thought-i-saw-a-pussycat.mp3') }}"/>
+    <audio id="sound-permit-me-to-introduce" src="{{ asset_url_for('solutions/joyful_songs/permit-me-to-introduce.mp3') }}"/>
+    <audio id="sound-say-yer-prayers" src="{{ asset_url_for('solutions/joyful_songs/say-yer-prayers.mp3') }}"/>
+    <audio id="sound-thats-a-joke" src="{{ asset_url_for('solutions/joyful_songs/thats-a-joke.mp3') }}"/>
+    <audio id="sound-thats-all-folks" src="{{ asset_url_for('solutions/joyful_songs/thats-all-folks.mp3') }}"/>
+    <audio id="sound-youre-despicable" src="{{ asset_url_for('solutions/joyful_songs/youre-despicable.mp3') }}"/>
+
+    <audio id="sound-reptiles" src="{{ asset_url_for('solutions/joyful_songs/reptiles.mp3') }}"/>
+  </div>
+
+  <p>As suggested by the title, this puzzle is about Looney Tunes. As
+    confirmation, there are hints in the flavor text (&ldquo;crazy
+    song&rdquo; referring to Looney Tunes, and &ldquo;bugs&rdquo;
+    referring to Bugs Bunny).</p>
+
+  <p>The first sentence of the flavor text says that both the
+    individual lines have been mixed up (i.e., this is an anaquote
+    puzzle) and that the characters have mixed up their lines
+    (i.e. each character is saying a catchphrase of another
+    character).</p>
+
+  <p>Rearrange the IPA trigrams to form a Looney Tunes catchphrase being
+    spoken in the dialect of a different character:</p>
+
+  <table class="solution-table">
+    <thead>
+      <tr>
+        <th>Anaquote</th>
+        <th>Rearranged</th>
+        <th>In the dialect of</th>
+        <th>Original quote</th>
+        <th>Catchphrase of</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>abw des juw pɪk</td>
+      <td>
+        juw despɪkabw
+        <i class="sound-player fa fa-volume-up" onclick="playSound('youre-despicable')"></i>
+      </td>
+      <td>Elmer Fudd</td>
+      <td>You&rsquo;re despicable</td>
+      <td>Daffy Duck</td>
+    </tr>
+    <tr>
+      <td>aɪæ aɪs ɛlf ɪdm ɪnt itu mjʌ nuw pʌm usm ʌvə wəd</td>
+      <td>
+        pʌmɪd mi tu ɪntwədus maɪsɛlf aɪ æm jʌ nu wʌvə
+        <i class="sound-player fa fa-volume-up" onclick="playSound('permit-me-to-introduce')"></i>
+      </td>
+      <td>Tweety Bird</td>
+      <td>Permit me to introduce myself: I am your new lover</td>
+      <td>Pep&eacute; Le Pew</td>
+    </tr>
+    <tr>
+      <td>aɪæ dʒi mlə ŋkə ɹnɔ̃ stɪ</td>
+      <td>
+        dʒi aɪ æm lə stɪŋkəɹ nɔ̃
+        <i class="sound-player fa fa-volume-up" onclick="playSound('aint-i-a-stinker')"></i>
+      </td>
+      <td>Pep&eacute; Le Pew</td>
+      <td>Eh, ain&rsquo;t I a stinker?</td>
+      <td>Bugs Bunny</td>
+    </tr>
+    <tr>
+      <td>aɪs aɪθ ɔəp kæt ppp sss ʊsi θɔt θθθ</td>
+      <td>
+        aɪ θθθθθɔt aɪ ssssɔ ə ppppʊsikæt
+        <i class="sound-player fa fa-volume-up" onclick="playSound('i-thought-i-saw-a-pussycat')"></i>
+      </td>
+      <td>Porky Pig</td>
+      <td>I thought I saw a pussy cat</td>
+      <td>Tweety Bird</td>
+    </tr>
+    <tr>
+      <td>ɑmə biv ɛɹə hʌn ɪtɑ ɪts kwɑ ɹæb sɛɪ tɪn</td>
+      <td>
+        bi vɛɹə kwɑɪt ɑ sɛɪ ɑm əhʌntɪn ɹæbɪts
+        <i class="sound-player fa fa-volume-up" onclick="playSound('be-very-quiet')"></i>
+      </td>
+      <td>Foghorn Leghorn</td>
+      <td>Be very, very quiet&mdash;I&rsquo;m hunting rabbits</td>
+      <td>Elmer Fudd</td>
+    </tr>
+    <tr>
+      <td>ðæt lfo ʪʪɔ ʊkʪ</td>
+      <td>
+        ðætʪʪ ɔl foʊkʪ
+        <i class="sound-player fa fa-volume-up" onclick="playSound('thats-all-folks')"></i>
+      </td>
+      <td>Daffy Duck</td>
+      <td>That&rsquo;s all, folks</td>
+      <td>Porky Pig</td>
+    </tr>
+    <tr>
+      <td>dgə eəs eɪj əlɔ lut ŋiɹ ɹeɪ ʌəp zja</td>
+      <td>
+        eə seɪ jʌə pɹeɪz jaə lɔŋiɹd gəlut
+        <i class="sound-player fa fa-volume-up" onclick="playSound('say-yer-prayers')"></i>
+      </td>
+      <td>Bugs Bunny</td>
+      <td>Say your prayers, you long-eared galoot!</td>
+      <td>Yosemite Sam</td>
+    </tr>
+    <tr>
+      <td>dʒo kaɪ klʊ sɛd sʌn tad tsə uðæ uðæ ʒok</td>
+      <td>
+        u ðæts ə dʒok lʊk aɪ sɛd u ðæt a dʒok sʌn
+        <i class="sound-player fa fa-volume-up" onclick="playSound('thats-a-joke')"></i>
+      </td>
+      <td>Yosemite Sam</td>
+      <td>That&rsquo;s a joke, I say, that&rsquo;s a joke, son</td>
+      <td>Foghorn Leghorn</td>
+    </tr>
+  </table>
+
+  <p>Order the quotes by chaining the speaker of the catchphrase
+    (starting with Bugs) to the speaker of the anaquote, and use the
+    provided indexes to extract an IPA letter:</p>
+
+  <table class="solution-table condensed-table">
+    <thead>
+      <tr>
+        <th>Original speaker</th>
+        <th>Indexed IPA letter</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>Bugs Bunny</td>
+      <td><code>ɹ</code></td>
+    </tr>
+    <tr>
+      <td>Pep&eacute; Le Pew</td>
+      <td><code>ɛ</code></td>
+    </tr>
+    <tr>
+      <td>Tweety Bird</td>
+      <td><code>p</code></td>
+    </tr>
+    <tr>
+      <td>Porky Pig</td>
+      <td><code>t</code></td>
+    </tr>
+    <tr>
+      <td>Daffy Duck</td>
+      <td><code>a</code></td>
+    </tr>
+    <tr>
+      <td>Elmer Fudd</td>
+      <td><code>ɪ</code></td>
+    </tr>
+    <tr>
+      <td>Foghorn Leghorn</td>
+      <td><code>l</code></td>
+    </tr>
+    <tr>
+      <td>Yosemite Sam</td>
+      <td><code>z</code></td>
+    </tr>
+  </table>
+
+  <p>Reading the IPA letters in order yields <code>ɹɛptaɪlz</code>
+    <i class="sound-player fa fa-volume-up"
+       onclick="playSound('reptiles')"></i>, or
+    <strong><code>REPTILES</code></strong>.</p>
+{% endblock %}

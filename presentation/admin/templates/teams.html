@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block page_body %}
+{% if is_authorized('teams:create:*') %}
+<div class="ha-control-boxes-container">
+  <form class="ha-column-control-box" action="{{ url_for('teams') }}" method="post">
+    <span class="ha-control-box-title">
+      Add New Team
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <input type="text" name="teamId" pattern="^[a-zA-Z0-9_\-]+$">
+      </label>
+      <label>
+        Team Name
+        <input type="text" name="teamName">
+      </label>
+      <label>
+        Password
+        <input type="text" name="password">
+      </label>
+      <label>
+        Email
+        <input type="email" name="email">
+      </label>
+      <label>
+        Headquarters
+        <input type="text" name="headquarters">
+      </label>
+      <label>
+        Primary Phone
+        <input type="text" name="primaryPhone">
+      </label>
+      <label>
+        Secondary Phone
+        <input type="text" name="secondaryPhone">
+      </label>
+    </div>
+    <input type="submit" value="Add Team">
+  </form>
+</div>
+{% endif %}
+<div class="ha-page-section">
+  <table class="ha-table">
+    <thead>
+      <tr>
+	<th>Team ID</th>
+  <th>Team Name</th>
+	<th>Email</th>
+	<th>Headquarters</th>
+	<th>Primary Phone</th>
+	<th>Secondary Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in teams %}
+      <tr>
+	<td><a href="{{ url_for('team', team_id=t.teamId) }}">{{ t.teamId }}</a></td>
+  <td>{{ t.teamName }}</td>
+	<td>{{ t.email }}</td>
+	<td>{{ t.headquarters }}</td>
+	<td>{{ t.primaryPhone }}</td>
+        <td>{{ t.secondaryPhone }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

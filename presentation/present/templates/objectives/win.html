@@ -1,0 +1,83 @@
+{% extends "objective.html" %}
+
+{# Dependent on: 
+     Puzzles
+       emotional-finale
+       grand-finale
+       hacking-recovery
+       scifi-recovery
+       pokemon-recovery
+       games-recovery
+#}
+
+{# Originally, this objective was unlocked concurrently with the Grand Finale
+   Now it unlocks early, once all islands are unlocked and all but one is complete
+   This way, teams have significant advanced notice that the end is near.
+#}
+
+{% set numIslands = counts['islands']['total'] %}
+{% set numOpenedIslands = counts['islands']['opened'] %}
+{% set numSolvedIslands = counts['islands']['solved'] %}
+{% set numRecoveredMemories = counts['islands']['recovered'] %}
+
+{% set objective_id = "win" %}
+{% set objective_name = "Finish the 2018 Health & Safety Hunt" %}
+{% set objective_video_id = 'xg7WSuzkGSY' %}
+{% set objective_unlocked = ((statuses['emotional-finale'] == 'SOLVED') and 
+                            (numOpenedIslands == numIslands) and 
+                            (numRecoveredMemories >= numIslands-1)) %}
+{% set objective_complete = statuses['grand-finale'] == 'SOLVED' %}
+{% set objective_video_visible = objective_complete %}
+
+{% block objective_action_item_1 %}
+  {% if (numRecoveredMemories == numIslands) %}
+    Visit the emotions in the Control Room
+  {% elif numSolvedIslands == numIslands %}
+    Get ready to visit the emotions in the Control Room
+  {% else %}
+    Find and recover the final core memory
+  {% endif %}
+{% endblock %}
+  
+{% block objective_action_item_2 %}
+  {% if numRecoveredMemories != numIslands and numSolvedIslands == numIslands %}
+    Recover the final core memory
+  {% endif %}
+{% endblock %}
+
+{% block objective_body %}
+  {% if (numRecoveredMemories == numIslands) %}
+    <p>
+      Thanks to you, everything is back to normal in the Control Room: the memories are repaired,
+      the core memories are back on their pedestal, and most importantly the emotions are all 
+      home.  With Fear leading the other emotions, Terry&rsquo;s team might have a shot at 
+      winning the 2018 MIT Health and Safety Hunt!
+    </p>
+    {% if statuses['grand-finale'] == 'SOLVED' %}
+      <p>
+        After solving the final meta, Fear just wanted to go to bed.  The other emotions were
+        able to hot-wire the console to wake Terry up, but piloting Terry manually proved tricky
+        to say the least.  Fortunately, you saved the day one last time, completing the Mystery
+        Hunt and forming a brand new core memory!
+      </p>
+      <p>
+        This headhunt is at an end, but you&rsquo;ve proven yourself a worthy member of the
+        Cranium Command!
+      </p>
+    {% else %}
+      <p>Come help the emotions solve puzzles in the Control Room.</p>
+    {% endif %}
+  {% elif numSolvedIslands == numIslands %}
+    <p>
+      Thanks to you, everything is nearly back to normal in the Control Room.  As soon as you recover 
+      the last Core Memory, the emotions want you to come to the Control Room and help them finish
+      the 2018 MIT Health and Safety Hunt!
+    </p>
+  {% else %}
+    <p>
+      Thanks to you, everything is nearly back to normal in the Control Room.  If you can recover the
+      final Core Memory quickly, there may still be time to finish the 2018 MIT Health and Safety
+      Hunt!
+    </p>
+  {% endif %}
+{% endblock %}

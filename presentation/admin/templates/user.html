@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block page_body %}
+{% set editable = is_authorized('users:update:%s' % user.username) %}
+{% set roles_editable = is_authorized('userroles:update:%s' % user.username) %}
+<div class="ha-control-boxes-container">
+  <form class="ha-column-control-box" action="{{ url_for('user', username=user.username) }}" method="post">
+    <span class="ha-control-box-title">
+      Change User
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Username
+        <span>{{ user.username }}</span>
+      </label>
+      <label>
+        Password
+        <input type="text" name="password" {% if not editable %}disabled{% endif %}>
+      </label>
+      <label>
+        Roles
+        <label>
+          <input type="checkbox" name="role_writingteam" {% if 'writingteam' in user.roles %} checked {% endif %} {% if not roles_editable %}disabled{% endif %}>
+          writingteam
+        </label>
+        <label>
+          <input type="checkbox" name="role_admin" {% if 'admin' in user.roles %} checked {% endif %} {% if not roles_editable %}disabled{% endif %}>
+          admin
+        </label>
+      </label>
+    </div>
+    <input type="submit" value="Change User" {% if not editable %}disabled{% endif %}>
+  </form>
+</div>
+{% endblock %}

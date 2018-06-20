@@ -1,0 +1,105 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Grant Elliott and Robin Deits{% endblock %}
+{% block solution %}REAL LIFE{% endblock %}
+
+{% block solution_head_block %}
+  <style>
+    .puzzle-content #puzzle-boxes {
+      display: flex;
+    }
+
+    .puzzle-content #puzzle-boxes div {
+      padding: 5px;
+    }
+
+    .puzzle-content #puzzle-boxes img {
+      max-width: 100%;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <p>Each of the puzzles on the same side of the Borg Cube as the Blue
+    Sun Trace Compression Block has between 1 and 4 small boxes on
+    their blast door:</p>
+
+  <div id="puzzle-boxes">
+    <div>
+      <img {{ img_src_for('solutions/blue_sun_6v4_178_b31_trace_compression_block/boxes-1.png') }}>
+    </div>
+    <div>
+      <img {{ img_src_for('solutions/blue_sun_6v4_178_b31_trace_compression_block/boxes-2.png') }}>
+    </div>
+    <div>
+      <img {{ img_src_for('solutions/blue_sun_6v4_178_b31_trace_compression_block/boxes-3.png') }}>
+    </div>
+    <div>
+      <img {{ img_src_for('solutions/blue_sun_6v4_178_b31_trace_compression_block/boxes-4.png') }}>
+    </div>
+  </div>
+
+  <p>These boxes provide an order for the four answers that comprise
+    this meta. In this order, they are:</p>
+
+  <ul>
+    <li><code>INITIAL THREAT</code></li>
+    <li><code>AUSTERE TYPEFACE</code></li>
+    <li><code>PAIRWISE EXPANSION</code></li>
+    <li><code>SMALL NOVEL</code></li>
+  </ul>
+
+  <p>Each answer contains a word which is a synonym (hinted by the
+    parentheticals in the flavor text) for a character in the
+    television show <i>Firefly</i> (“they have character”). The shading of
+    the boxes (left or right) indicates which word is the synonym
+    (first or second).</p>
+
+  <p>The other word is the same length as the last name of the actor
+    who played that role (“act up”). The last name of each actor
+    contains exactly one double letter (“twin powerplants”). Collect
+    the letters from the answer word in the same position as the
+    double letter in the actor’s name:</p>
+
+  <table class="solution-table condensed-table">
+    <thead>
+      <tr>
+        <th>Answer</th>
+        <th>Character</th>
+        <th>Actor</th>
+        <th>Overlapping Letters</th>
+      </tr>
+    </thead>
+    <tr>
+      <td><code>INITIAL TH<u>RE</u>AT</code></td>
+      <td><a href="http://firefly.wikia.com/wiki/Jubal_Early">Jubal Early</a></td>
+      <td>Richard Br<u>oo</u>ks</td>
+      <td><code>RE</code></td>
+    </tr>
+    <tr>
+      <td><code>AUSTERE TYP<u>EF</u>ACE</code></td>
+      <td><a href="http://firefly.wikia.com/wiki/Stark">Stark</a></td>
+      <td>John Tha<u>dd</u>eus</td>
+      <td><code>EF</code></td>
+    </tr>
+    <tr>
+      <td><code>P<u>AI</u>RWISE EXPANSION</code></td>
+      <td><a href="http://firefly.wikia.com/wiki/Atherton_Wing">Atherton Wing</a></td>
+      <td>Edward A<u>tt</u>erton</td>
+      <td><code>AI</code></td>
+    </tr>
+    <tr>
+      <td><code>SMA<u>LL</u> NOVEL</code></td>
+      <td><a href="http://firefly.wikia.com/wiki/Derrial_Book">Derrial Book</a></td>
+      <td>Ron Gla<u>ss</u></td>
+      <td><code>LL</code></td>
+    </tr>
+  </table>
+
+  <p>Finally, pull a Crazy Ivan—read down and then up—to get the
+    answer, <strong><code>REAL LIFE</code></strong>.
+{% endblock %}

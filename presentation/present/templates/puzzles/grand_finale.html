@@ -1,0 +1,95 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block byline %}
+By Tucker Elliott, Peter Lorentz, Quentin Smith, Emilie Josephs, Grant Elliott, Caroline Hilburn, and Nicole Berdy
+<br/>
+Operated by Ben &ldquo;Fuzzy&rdquo; Weissmann, Emilie Josephs, David Greenspan, and Peter Lorentz
+<br/>
+Terry performed by Steven Vanderveer, Sid Creutz, Liz Chhouk, Mark Leach, Tim Robertson, and John Silvio
+{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #byline {
+    font-size: 18px;
+  }
+  .pic {
+    margin: 20px 0;
+  }
+  .pic img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .pic .caption {
+    text-align: center;
+    font-style: italic;
+    margin-top: 8px;
+  }
+  .header {
+    font-size: 28px;
+    line-height: 28px;
+    font-family: 'Orbitron', sans-serif;
+    font-style: italic;
+    margin: 40px 0 6px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+{% if site_mode() == "solution" %}
+  <div id="main-page-content">
+    <p>Once a team has completed the emotional finale and all four core memory recovery missions, Joy invites them to the Control Room as Terry struggles with the final meta of the <i>2018 MIT Health &amp; Safety Hunt</i>.  As the team take their seats, the emotions banter with them as the Consciousness Screen recounts their successes.</p>
+    <p>After solving the meta and unlocking the final walkaround, Fear decides it&rsquo;s time for Terry to sleep, before leaving the control room.  Joy&apos;s attempt to manually wake Terry results in a system crash and the team is recruited to enter manual control mode and guide Terry on her epic walkaround.</p>
+    <p>The game consists of four components:
+      <ul>
+        <li><b>The Consciousness Screen</b> which displays Terry&rsquo;s first-person view of the MIT campus.</li>
+        <li><b>The Console</b> which contains a large number of buttons, joysticks, knobs, levers, switches, pedals, and patch-cords, each labelled with medical silliness (such as &ldquo;Biological Clock&rdquo; or &ldquo;Yakovlevian Forcer&rdquo;).  The Console is too large for any one person to operate alone.</li>
+        <li><b>The Manual Control Screen</b> which displays navigational options with corresponding instructions, which are also named after medical silliness (such as &ldquo;Watch Yo GABA GABA&rdquo; and &ldquo;Cross Optic Chiasm&rdquo;).  The screen cannot be seen from the Console.</li>
+        <li><b>The Emergency Protocol Manual</b> which maps instructions on the Manual Control Screen to inputs on the Console.  The manual is printed on the walls, too far from the Console to simultaneously read the manual and operate the controls.</li>
+      </ul>
+    </p>
+    <p>Making progress in the game requires working together as a team &mdash; deciding how to move based on the Consciousness Screen, translating that to an instruction using the Manual Control Screen, mapping that to control input using the Emergency Protocol Manual, and finally inputting the command on the Console.  The Emotions provide assistance when necessary, particularly if a single control is wrong or a team starts to navigate in the wrong direction.  The emotions can also provide instruction on portions of the game that require special knowledge, including anatomical axes, musical chords, and Street Fighter moves.</p>
+    <div class="pic">
+      <img {{img_src_for('puzzles/grand_finale/setup.jpg')}}/>
+      <div class="caption">The setup at the start of the game, showing the Consciousness Screen, Console, and Manual Control Screen (far left)</div>
+    </div>
+    <div class="pic">
+      <img {{img_src_for('puzzles/grand_finale/screen.png')}}/>
+      <div class="caption">The Manual Control Screen during the game</div>
+    </div>
+    <div class="pic">
+      <img {{img_src_for('puzzles/grand_finale/manual.jpg')}}/>
+      <div class="caption">The Emergency Protocol Manual on the wall</div>
+    </div>
+    <p>Once Terry reaches the coin, taped to the plaque of George Eastman in front of 6-120, the Manual Control Screen offers &ldquo;Take Coin&rdquo; as a navigational option.  Upset at seeing any other option, Anger strikes the screen, which updates to replace every navigational option with &ldquo;Take Coin&rdquo;.  Unfortunately, the corresponding instruction &ldquo;Release Adrenaline&rdquo; is not in the Emergency Protocol Manual.  At just the right moment, Fear re-enters the control room and explains that this simply requires operating an as-yet unused purple toggle switch, safely protected by a flip-back cover.  (When possible, Fear instructs a young member of the team in this task.)</p>
+    <p>On the Consciousness Screen, Terry&rsquo;s hand reaches for the Health &amp; Safety Coin and James appears to congratulate her.  A new joyous core memory of winning the <i>2018 Health &amp; Safety Hunt</i> is formed and presented to the team.</p>
+    <p>Runner-up teams find the tape on the plaque to be empty, as the <i>Health &amp; Safety Hunt&rsquo;s</i> coin has already been found.  A new core-memory is nonetheless formed, but now in yellow and blue &mdash; the bittersweet memory of finishing, but not winning the hunt.  Joy and Sadness agree that they&rsquo;re looking forward to Mystery Hunt Island.</p>
+    <p>The winning team is later presented with glass core memories for each team member to take home.</p>
+    <div class="pic">
+      <img {{img_src_for('puzzles/grand_finale/coin.jpg')}}/>
+      <div class="caption">The glass core memory given to members of the winning team</div>
+    </div>
+    <p>An abridged recording of <i>Setec Astronomy's</i> playthrough follows.  The actual game lasted about 45 minutes.  (Later teams were given a closer starting point.)</p>
+    <iframe id="video" src="https://www.youtube.com/embed/xg7WSuzkGSY?modestbranding=1&playsinline=1&rel=0&showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    <div class="header">Behind the Scenes</div>
+    <p>The Console was fully instrumented and the game mostly functioned automatically.  An operator behind the shelves monitored inputs on a laptop, fed hints to the emotions if the team made an error, and could manually advance the team if necessary (This was very rarely used).  The operator also passed instructions to Terry, wearing a live-streaming camera, and her handler.  The game automatically reported a successful input, but only advanced to the next intersection once the operator reported that Terry was in position.  The game supported taking Terry all over main campus but, to keep things moving, the emotions heavily discouraged wrong turns.</p>
+    <div class="pic">
+      <img {{img_src_for('puzzles/grand_finale/wiring.jpg')}}/>
+      <div class="caption">Console wiring</div>
+    </div>
+    <div class="pic">
+      <img {{img_src_for('puzzles/grand_finale/terry.jpg')}}/>
+      <div class="caption">A Terry and her handler, along with James, just before the end of the game</div>
+    </div>
+    <div class="pic">
+      <img {{img_src_for('puzzles/grand_finale/operator.png')}}/>
+      <div class="caption">Part of the Operator&rsquo;s view of the game</div>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

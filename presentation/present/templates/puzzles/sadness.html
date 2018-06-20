@@ -1,0 +1,14 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Hang in there, Sadness!
+{% endblock %}
+
+{% block puzzle_call_to_action_block %}
+How can Sadness get back into the Control Room?
+{% endblock %}

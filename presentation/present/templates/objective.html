@@ -1,0 +1,33 @@
+{% if objective_unlocked %}
+  <div class="objective {% if objective_complete %} complete {% endif %}" data-objective-id="{{ objective_id }}">
+    <div class="objective-title-bar">
+      <div class="objective-name">{{ objective_name | safe}}</div>
+      <div class="objective-marks">
+        {% if objective_video_visible and objective_video_id %}
+          <div class="objective-mark objective-film-mark"><a class="objective-film-link" data-video-id="{{objective_video_id}}" href="https://www.youtube.com/watch?v={{objective_video_id}}"><i class="fa fa-fw fa-film"></i></a></div>
+        {% endif %}
+        {% if objective_complete %}
+          <div class="objective-mark objective-check-mark"><i class="fa fa-fw fa-check"></i></div>
+        {% else %}
+           <div class="objective-mark objective-none"></div>
+        {% endif %}
+      </div>
+    </div>
+    {% if not objective_complete %}
+      <div class="objective-action-items">
+        <div class="objective-action-item">
+          {% block objective_action_item_1 %}
+          {% endblock %}
+        </div>
+        <div class="objective-action-item">
+          {% block objective_action_item_2 %}
+          {% endblock %}
+        </div>
+      </div>
+    {% endif %}
+    <div class="objective-body">
+      {% block objective_body %}
+      {% endblock %}
+    </div>
+  </div>
+{% endif %}

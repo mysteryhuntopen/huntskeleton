@@ -1,0 +1,100 @@
+{# Can't get names, locations, or times from Cube, because this has to work before game start #}
+
+{% set text = {
+  'event-1': {
+    'name': 'Care and Feeding of Your Mystery Hunt Team',
+    'location': 'Lobdell Dining Hall',
+    'day': 'Friday',
+    'time': '1900 hours',
+    'description': 'Healthy eating habits are always important, especially during times of stress.',
+    'incomplete' : 'Send two recruits without food allergies to learn all about proper nutrition. Please bring along an ingredient from each food group.',
+    'complete': 'You learned all about proper nutrition and earned some Buzzy Bucks!',
+    'calltoaction': 'To keep safe from slipping in the kitchen, Fear recommends that you…',
+  },
+  'event-2': {
+    'name': 'Effective Resource Management in High Stress Situations',
+    'location': 'La Sala de Puerto Rico',
+    'day': 'Friday',
+    'time': '2200 hours',
+    'description': 'When faced with a stressful situation, you’ve got to know how to think fast as the clock counts down.',
+    'incomplete' : 'Send two recruits who don’t hesitate when faced with a serious conundrum.',
+    'complete': 'You learned how to manage time on a deadline and earned some Buzzy Bucks!',
+    'calltoaction': 'Fear congratulates you on completing your training in the…'
+  },
+  'event-3': {
+    'name': 'Covering Your Ass With Caution Tape',
+    'location': 'Lobdell Dining Hall',
+    'day': 'Saturday',
+    'time': '0900 hours',
+    'description': 'Caution tape is how the world says &ldquo;danger,&rdquo; but it can say so much more.',
+    'incomplete' : 'Send two recruits with an eye for style to show how they express themselves. Bring along a pair of scissors.',
+    'complete': 'You learned the versatility of caution tape and earned some Buzzy Bucks!',
+    'calltoaction': 'Remember, when securing your surroundings, Fear suggests that you…',
+  },
+  'event-4': {
+    'name': 'Stretching and Calisthenics',
+    'location': 'La Sala de Puerto Rico',
+    'day': 'Saturday',
+    'time': '1400 hours',
+    'description': 'Reach up! And down! And up! And down!',
+    'incomplete' : 'Send two recruits who could use a good stretch.',
+    'complete': 'You learned to channel your inner rubber balloon and earned some Buzzy Bucks!',
+    'calltoaction': 'After a solid stretch, Fear thinks you deserve a…',
+  },
+  'event-5': {
+    'name': 'Communication and Cooperation for Proper Teamwork',
+    'location': 'Lobdell (NOTE: Changed from The Green Building Dot)',
+    'day': 'Saturday',
+    'time': '1900 hours',
+    'description': 'We need to unite to find order within a mayhem-filled world.',
+    'incomplete' : 'Send two warmly-dressed recruits with good communication skills to create order out of mayhem. Bring an internet-enabled device.',
+    'complete': 'You learned the value of teamwork and earned some Buzzy Bucks!',
+    'calltoaction': 'Fear recommends that if you feel light-headed…',
+  },
+} %}
+
+{% macro name(eventId) %}
+  {{- text[eventId]['name']|safe -}}
+{% endmacro %}
+
+{% macro location(eventId) %}
+  {{- text[eventId]['location']|safe -}}
+{% endmacro %}
+
+{% macro description(eventId, complete = false) %}
+  {{- text[eventId]['description']|safe }} {{ (text[eventId]['complete'] if complete else text[eventId]['incomplete']) | safe -}}
+{% endmacro %}
+
+{% macro calltoaction(eventId) %}
+  {{- text[eventId]['calltoaction']|safe -}}
+{% endmacro %}
+
+{% macro short_start_time(eventId) %}
+  {{- text[eventId]['time'] -}}
+{% endmacro %}
+
+{% macro start_time(eventId) %}
+  {{- text[eventId]['day'] }} {{ text[eventId]['time'] -}}
+{% endmacro %}
+
+{% macro generate_puzzle_page_icon(eventId) %}
+  <img class="{{puzzle_visibility.status|lower}}" {{img_src_for('/images/logo.svg')}}/>
+{% endmacro %}
+
+{% macro generate_puzzle_styles(eventId) %}
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+{% endmacro %}
+
+{% macro generate_event_content(eventId) %}
+  <div class="event-block">
+    <div class="event-place-and-time">
+      {{ location(eventId) }}, {{ start_time(eventId) }}
+    </div>
+    <div class="event-body">
+      <p>{{ description(eventId, false) }}</p>
+    </div>
+    <div class="call-to-action">
+      {{ calltoaction(eventId) }}
+    </div>
+  </div>
+{% endmacro %}

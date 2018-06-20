@@ -1,0 +1,167 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Robin Deits, Nathan Fung, Michele Pratusevich{% endblock %}
+{% block solution %}ROUGH DATE{% endblock %}
+
+{% block solution_head_block %}
+{% endblock %}
+
+{% block solution_content_block %}
+<p>The interface presented looks like Tinder, which means you can
+  swipe left or right on each profile presented to you, with a picture
+  and a screenname. Swiping through the interface reveals a full
+  binary tree 4 layers deep:</p>
+
+<a href="{{ asset_url_for('solutions/just_keep_swiping/picture-ids.pdf') }}">
+  <img src="{{ asset_url_for('solutions/just_keep_swiping/picture-ids.png') }}" width="100%" />
+</a>
+
+<p>Each of the left and right pairs shares a common &ldquo;root&rdquo;
+  (a word which is only one letter different from each of the
+  two). Labelling each node with the root node gives the following
+  graph:</p>
+
+<a href="{{ asset_url_for('solutions/just_keep_swiping/screennames.pdf') }}">
+  <img src="{{ asset_url_for('solutions/just_keep_swiping/screennames.png') }}" width="100%" />
+</a>
+
+<p>The set of screennames that solvers are provided at depth 4 of the
+  tree use words beginning with L's and R's to clue solvers about
+  tracing specific paths through the image tree. For instance, the
+  screenname "LoneLifetimeLotus" would clue LLL, or three swipes to
+  the left. Solvers follow each of these paths in order, solve for the
+  correct screen name at the indicated locations, and index into the
+  screen name using the number of steps taken to reach each of
+  them. The details are provided in the following table:</p>
+
+<table class="solution-table condensed-table">
+  <thead>
+    <tr>
+      <th>Screenname</th>
+      <th>Instruction</th>
+      <th>Common word</th>
+      <th>Depth</th>
+      <th>Letter</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>LoneLifetimeLotus</td>
+    <td>LLL</td>
+    <td>CAP</td>
+    <td>3</td>
+    <td><code>P</code></td>
+  </tr>
+  <tr>
+    <td>Radiohead</td>
+    <td>R</td>
+    <td>HEATH</td>
+    <td>1</td>
+    <td><code>H</code></td>
+  </tr>
+  <tr>
+    <td>LongLastingRocket</td>
+    <td>LLR</td>
+    <td>BOOM</td>
+    <td>3</td>
+    <td><code>O</code></td>
+  </tr>
+  <tr>
+    <td>LovingRussianLion</td>
+    <td>LRL</td>
+    <td>CONE</td>
+    <td>3</td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td>LikesRoughRides</td>
+    <td>LRR</td>
+    <td>OVER</td>
+    <td>3</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>Lightweight</td>
+    <td>L</td>
+    <td>ICE</td>
+    <td>1</td>
+    <td><code>I</code></td>
+  </tr>
+  <tr>
+    <td>LacyLassie</td>
+    <td>LL</td>
+    <td>INK</td>
+    <td>2</td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td>RocketLeagueLegend</td>
+    <td>RLL</td>
+    <td>EAR</td>
+    <td>3</td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td>LusciousLipRosie</td>
+    <td>LLR</td>
+    <td>BOOM</td>
+    <td>3</td>
+    <td><code>O</code></td>
+  </tr>
+  <tr>
+    <td>LadyRight</td>
+    <td>LR</td>
+    <td>BUSH</td>
+    <td>2</td>
+    <td><code>U</code></td>
+  </tr>
+  <tr>
+    <td>RichLesbianRogue</td>
+    <td>RLR</td>
+    <td>FIGHT</td>
+    <td>3</td>
+    <td><code>G</code></td>
+  </tr>
+  <tr>
+    <td>Ravishing</td>
+    <td>R</td>
+    <td>HEATH</td>
+    <td>1</td>
+    <td><code>H</code></td>
+  </tr>
+  <tr>
+    <td>RaunchyRomanLegion</td>
+    <td>RRL</td>
+    <td>BAD</td>
+    <td>3</td>
+    <td><code>D</code></td>
+  </tr>
+  <tr>
+    <td>RugbyLeague</td>
+    <td>RL</td>
+    <td>GAZE</td>
+    <td>2</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td>RideRiseRepeat</td>
+    <td>RRR</td>
+    <td>FAT</td>
+    <td>3</td>
+    <td><code>T</code></td>
+  </tr>
+  <tr>
+    <td>RockyRoad</td>
+    <td>RR</td>
+    <td>TEA</td>
+    <td>2</td>
+    <td><code>E</code></td>
+  </tr>
+</table>
+
+<p>Reading the letters in order spells out <code>PHONE IN <strong>ROUGH
+  DATE</strong></code>.</p>
+{% endblock %}

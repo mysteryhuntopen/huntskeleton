@@ -1,0 +1,263 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% block title_block %}In Memoriam: Solution{% endblock %}
+{% block puzzle_name_block %}In Memoriam: Solution{% endblock %}
+
+{% block byline %}By Kawika Pierson{% endblock %}
+{% block solution %}ISLAND OF OPPORTUNITY{% endblock %}
+
+{% block solution_head_block %}
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Each of the numbered entries is a quote from a famous person
+  encoded with a simple cipher. The first step in solving the puzzle
+  is to identify each cipher and decode each quote. The correct
+  ciphers, quotes, and people for the entries are:</p>
+
+<table class="solution-table condensed-table">
+  <thead>
+    <tr>
+      <th>Entry</th>
+      <th>Cipher</th>
+      <th>Quote</th>
+      <th>Person</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><a href="https://en.wikipedia.org/wiki/Atbash">Atbash</a></td>
+      <td>Maoists want a directly elected president, but this will give birth to an autocrat.</td>
+      <td class="nowrap">Sushil Koirala</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><a href="http://www.suegrafton.com/bookshelf.php">Grafton novels</a></td>
+      <td>When a man spends his relief checks on green whiskey his children have a way of crying from hunger pains.</td>
+      <td class="nowrap">Harper Lee</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><a href="http://www.dcode.fr/navajo-code">Navajo</a></td>
+      <td>I never, never in my life took a course in economics.</td>
+      <td class="nowrap">Lloyd Shapley</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><a href="http://bionicle.wikia.com/wiki/Matoran_Alphabet">Matoran (Bionicle) alphabet</a></td>
+      <td>Most of my life I feel I have been Unicycling at the Edge of the Abyss.</td>
+      <td class="nowrap">Jon Polito</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><a href="https://theinfosphere.org/Alien_languages#AL1">Alien Language 1 from Futurama</a></td>
+      <td>I do take my work seriously and the way to do that is not to take yourself too seriously.</td>
+      <td class="nowrap">Alan Rickman</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><a href="https://en.wikipedia.org/wiki/Moon_type">Moon type</a></td>
+      <td>You want to grab a politician by the scruff of the neck and drag him a quarter of a million miles out and say, Look at that, you son of a bitch.</td>
+      <td class="nowrap">Edgar Mitchell</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><a href="https://mothereff.in/html-entities">HTML entities</a></td>
+      <td>Now this first SLIIIDE... shows a very, very interesting thing: our main building.</td>
+      <td class="nowrap">George Gaynes</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><a href="http://i.imgur.com/gSEBUIX.png">Wingdings</a></td>
+      <td>Just say no!</td>
+      <td class="nowrap">Nancy Reagan</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><a href="https://en.wikipedia.org/wiki/Polybius_square">Polybius square</a></td>
+      <td>I been getting good crowds. It only took 50 years.</td>
+      <td class="nowrap">Mose Allison</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar shift by 2</a></td>
+      <td>We were not able to realize that with the machete you can create a genocide.</td>
+      <td class="nowrap">Boutros Boutros-Ghali</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><a href="http://www.asciitable.com/">Hexadecimal-encoded Unicode codepoints</a></td>
+      <td>Many of the problems which we face today are the eventual result of short-run measures taken as long as two or three decades ago.</td>
+      <td class="nowrap">Jay Wright Forrester</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><a href="http://www.asciitable.com/">Octal-encoded Unicode codepoints</a></td>
+      <td>Me dio hasta vergüenza decir que esta obra era mía.</td>
+      <td class="nowrap">Sixto Durán Ballén</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td><a href="http://www.dcode.fr/gold-bug-poe">Gold-Bug cipher</a></td>
+      <td>I am a marvelous housekeeper. Every time I leave a man, I keep his house.</td>
+      <td class="nowrap">Zsa Zsa Gabor</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td><a href="http://elderscrolls.wikia.com/wiki/Daedric_Alphabet">Daedric alphabet</a></td>
+      <td>I got two words for you; You Suck!</td>
+      <td class="nowrap">Chyna</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td><a href="http://www.dcode.fr/dancing-men-cipher">Dancing Men code</a></td>
+      <td>Life is just a party and parties weren&rsquo;t meant to last.</td>
+      <td class="nowrap">Prince</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td><a href="https://en.wikipedia.org/wiki/Morse_code">Morse code</a></td>
+      <td>If science is to advance, some sacrifices must be made.</td>
+      <td class="nowrap">Bernard Fox</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td><a href="https://en.wikipedia.org/wiki/Base64">Base64</a></td>
+      <td>As I said earlier, there are no writers who could create a literary vision of the new reality.</td>
+      <td class="nowrap">Andrzej Wajda</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Telephone Number to Letter</td>
+      <td>Self-awareness and self-esteem. Those aren&rsquo;t female issues, those are human issues.</td>
+      <td class="nowrap">Curtis Hanson</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td><a href="http://www.dcode.fr/music-sheet-cipher">Music Sheet Cipher</a></td>
+      <td>I swear I won&rsquo;t tease you.</td>
+      <td class="nowrap">George Michael</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All of these people share a common fate&mdash;they all died in
+  2016. The flavor text is also encoded with a simple cipher: it uses
+  the digits 01-26 to encode letters. Decoding the message yields <code>TODAY
+  IS A GOOD DAY TO DIE</code>, which suggests that the days on which
+  these people died will be important.</p>
+
+<p>Taking the day of the month on which each person died as indexes
+  into the alphabet gives:</p>
+
+<table class="solution-table condensed-table">
+  <thead>
+    <tr>
+      <th>Person</th>
+      <th>Death Day</th>
+      <th>Letter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sushil Koirala</td>
+      <td>9</td>
+      <td><code>I</code></td>
+    </tr>
+    <tr>
+      <td>Harper Lee</td>
+      <td>19</td>
+      <td><code>S</code></td>
+    </tr>
+    <tr>
+      <td>Lloyd Shapley</td>
+      <td>12</td>
+      <td><code>L</code></td>
+    </tr>
+    <tr>
+      <td>Jon Polito</td>
+      <td>1</td>
+      <td><code>A</code></td>
+    </tr>
+    <tr>
+      <td>Alan Rickman</td>
+      <td>14</td>
+      <td><code>N</code></td>
+    </tr>
+    <tr>
+      <td>Edgar Mitchell</td>
+      <td>4</td>
+      <td><code>D</code></td>
+    </tr>
+    <tr>
+      <td>George Gaynes</td>
+      <td>15</td>
+      <td><code>O</code></td>
+    </tr>
+    <tr>
+      <td>Nancy Reagan</td>
+      <td>6</td>
+      <td><code>F</code></td>
+    </tr>
+    <tr>
+      <td>Mose Allison</td>
+      <td>15</td>
+      <td><code>O</code></td>
+    </tr>
+    <tr>
+      <td>Boutros Boutros-Ghali</td>
+      <td>16</td>
+      <td><code>P</code></td>
+    </tr>
+    <tr>
+      <td>Jay Wright Forrester</td>
+      <td>16</td>
+      <td><code>P</code></td>
+    </tr>
+    <tr>
+      <td>Sixto Durán Ballén</td>
+      <td>15</td>
+      <td><code>O</code></td>
+    </tr>
+    <tr>
+      <td>Zsa Zsa Gabor</td>
+      <td>18</td>
+      <td><code>R</code></td>
+    </tr>
+    <tr>
+      <td>Chyna</td>
+      <td>20</td>
+      <td><code>T</code></td>
+    </tr>
+    <tr>
+      <td>Prince</td>
+      <td>21</td>
+      <td><code>U</code></td>
+    </tr>
+    <tr>
+      <td>Bernard Fox</td>
+      <td>14</td>
+      <td><code>N</code></td>
+    </tr>
+    <tr>
+      <td>Andrzej Wajda</td>
+      <td>9</td>
+      <td><code>I</code></td>
+    </tr>
+    <tr>
+      <td>Curtis Hanson</td>
+      <td>20</td>
+      <td><code>T</code></td>
+    </tr>
+    <tr>
+      <td>George Michael</td>
+      <td>25</td>
+      <td><code>Y</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Reading these in order gives the answer, <strong><code>ISLAND OF
+  OPPORTUNITY</code></strong>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+<style>
+  .puzzle-content {
+    font-family: 'Satisfy', cursive;
+  }
+
+  .puzzle-content img:not(.dots-image) {
+    width: 100%;
+  }
+
+  .puzzle-content img.dots-image {
+    width: 300px;
+    margin-top: 20px;
+  }
+
+  .puzzle-content .container {
+    position: relative;
+  }
+
+  .puzzle-content span {
+    position: absolute;
+    width: 35%;
+    font-size: 16px;
+    word-wrap: break-word;
+    hyphens: manual;
+  }
+
+  .puzzle-content .text-01, .puzzle-content .text-03, .puzzle-content .text-05, .puzzle-content .text-07, .puzzle-content .text-09{
+    top: 90px;
+    left: 120px;
+  }
+
+  .puzzle-content .text-02, .puzzle-content .text-04, .puzzle-content .text-06, .puzzle-content .text-08, .puzzle-content .text-10 {
+    top: 90px;
+    left: 500px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="container">
+  <img {{ img_src_for('puzzles/cartography/1.png') }} >
+  <span class="text-01">
+    <b>August: A lobster-filled day of adventure on an island.<br /><br />He saw us pee endlessly at the rendezvous yesterday, I see. The short-handed officer had no trump so we beat him easily. Lacking any sweet alcoholic beverage we plead for a fun trip home. A bee with adrenoleukodystrophy flew by. We saw fish lungs with no end bit and more! To heal them we had to use deception to trick the first of needlefish into the emergency rooms. They asked us if we wanted tea before our messed up infrared commercial. For the Russian among us it was yes, why?</b>
+  </span>
+  <span class="text-02">
+    <b>August: We left late at night <br />to explore the caldera. <br /><br />We waved to the watchman as <br />we set out. As our guide, Mr Hillman, <br />pointed out the stars, the red cones of light from our flashlights played over the desert, cone-billed tanagers and grouse sleepily complaining when we stepped too close to their resting spots. Down the slope I spotted a path of white pumice, pointing west toward the dead forest as though accusing it of being a skell, conning us all into thinking it living timber.</b>
+  </span>
+</div>
+<div class="container">
+  <img {{ img_src_for('puzzles/cartography/1.png') }} >
+  <span class="text-03">
+    <b>July: We started out for our northern icy adventure! <br /><br />Being skint lately, we decided to walk to the long fell owned by my neighbor&rsquo;s estate. Seeing something weird in the distance I said, &ldquo;Slava, ugh, the hell is that?!&rdquo; furrowing my brow. &ldquo;Nothing I want to stick around. Perhaps a withdrawal tonight is in order.&rdquo; I took out my camera to film, but I tripped over a log and fell backwards on a pack of CDs. &ldquo;Careful with the di&hellip; Video evidence is all we have!&rdquo; Slava said as I fell.</b>
+  </span>
+  <span class="text-04">
+    <b>June: What an educational <br />day near a massive hole! <br /><br />What a teacher we had today: <br />This knighted Scottish geologist <br />introduced the theory of uniformitarianism <br />to the masses. It described the exploits of a Spanish explorer who looked for the Seven Cities of Cibola. The trip continued as we threw heavy metal objects in a game where close is sometimes good enough. We cracked the lock to his statue room: it was the Old High German name for a one-eyed god frequently depicted with a pair of ravens. The most awesome statue was of a deity, part of a triumvirate, responsible for restoring the balance of good and evil in troubled times. The related statue next to it was a multi-headed god of creation&mdash;downright eerie to look at&mdash;what if it grew more heads?</b>
+  </span>
+</div>
+<div class="container">
+  <img {{ img_src_for('puzzles/cartography/1.png') }} >
+  <span class="text-05">
+    <b>August: There were explosive quantities of fun on our trip! <br /><br />We fly into an expanded airfield, flying over farmers with a tall rake as our destination looms immensely in the distance. Travel can make me feel iller long after arriving, like when I went to the huge Dimond Gorge in Australia or when I visited an immense Conad store in Italy. &ldquo;Wellyouknow&rdquo;, my fast-talking friend says, &ldquo;IfFord&rdquo; (giant automaker) &ldquo;caredaboutmotionsicknessthey&shy;woulddosomethingaboutit.&rdquo; The situation can really addle with a head.</b>
+  </span>
+  <span class="text-06">
+    <b>November: In the rainy <br />northern climate we had a <br />frightening coastal sojourn. <br /><br />I told Chris to lean a little closer. &ldquo;We <br />can steal his wand&rdquo;. The night shaman said he was a moon caster which wasn&rsquo;t Christ-y enough for the Christians among us. The shaman in the vest made them cry. Stall, we did. Then I whispered: &ldquo;Chris, tee us up an excuse to leave. We&rsquo;re trapped - can&rsquo;t you see?!&rdquo; &ldquo;Addle them with your wisdom and watch as he quits!&rdquo; It only worked for a little while, dur! The suggestion wasn&rsquo;t worth a cent. In El Toro&rsquo;s mind we were his captives now.</b>
+  </span>
+</div>
+<div class="container">
+  <img {{ img_src_for('puzzles/cartography/1.png') }} >
+  <span class="text-07">
+    <b>September: This adventure was off to a rocky start&hellip; <br /><br />We were attacked by a medium-sized game bird from the grouse family as soon as we landed in the air force base south-east of Washington DC. With the help of the girl from Wonderland we trapped it in an eastern tiered temple and caught it. We took the game to Johnny&rsquo;s Cambridge restaurant where, to fight off our iron deficiency anemia (abbr.), we traded it for their museum exhibit sample of the rough cut of meat from a beef shoulder. Finally, we sent a postcard to the all girl&rsquo;s school in Manhattan to let our kids know we were safe.</b>
+  </span>
+  <span class="text-08">
+    <b>August: This adventure <br />started with a drive along <br />the skyline. <br /><br />In the sun I basked, clad oddly <br />enough in swimwear. I get sick of the outdoors sometimes and wish, with a magic &ldquo;zap!&rdquo;, hotel beds would appear. Alas, I can see it now: amenities they hawk, bills unfortunately I pay. I can think of some silly antonyms of a hotel that reflect my position: Bad Place Inn, &ldquo;Drag, Lo!&rdquo; (terrible), Incoherent Flub (F is your grade), and maybe most of all, Stupid Hubs For People Who Cannot Sleep Well On Dirt.</b>
+  </span>
+</div>
+<div class="container">
+  <img {{ img_src_for('puzzles/cartography/1.png') }} >
+  <span class="text-09">
+    <b>August: In the canyon of granite monoliths we had a ghostly adventure! <br /><br />Gerald asked: &ldquo;Yellow lights or red?&rdquo; &ldquo;Like you&rsquo;d enjoy lemony limelight!&rdquo; Flashlights ominously, eerily reflected shadowing the east riverbank. Leery of night ghosts, Henry offered frightened families more assurances: &ldquo;Need not worry about these knights if not scared!&rdquo;. Slowing their agonizing riverdance required knowing intricately nuanced ghosts. Bloodcurdling, ululating evocations nagged apparitions visibly. I succeed today, amen!</b>
+  </span>
+  <span class="text-10">
+    <b>Conclusion: <br /><br /><br /><br />&ldquo;It&rsquo;s the journey not the destination <br />that helps you soar to great heights&rdquo;.</b>
+    <a href="{{ asset_url_for('puzzles/cartography/2.png') }}" target="_blank"><img class="dots-image" {{ img_src_for('puzzles/cartography/2.png') }} ></a>
+  </span>
+</div>
+{% endblock %}

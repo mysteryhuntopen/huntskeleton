@@ -1,0 +1,23 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "objective_macros.html" as objective_macros %}
+{% import "island_macros.html" as island_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block byline %}
+Buzzy played by Ben Sena / Molly Frey / Paul Hlebowitsh / Conor Lenahan
+{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_content_block %}
+{% if site_mode() == "solution" %}
+<div id="main-page-content">
+  <p>After a team solves all five emotion metas, Buzzy pays a visit to their headquarters and explains that, though the emotions is back in the Control Room, they still aren't cooperating.</p>
+  <p>Buzzy sends the team into <a href="{{ url_for('full_puzzle' if session.usertype == 'writingteam' else 'puzzle', puzzle_id='the_brainstorm') }}">The Brainstorm</a> to collect fragments of an idea that the emotions can all get behind.</p>
+</div>
+{% endif %}
+{% endblock %}

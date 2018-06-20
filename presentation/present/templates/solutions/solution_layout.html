@@ -1,0 +1,11 @@
+{% extends "/puzzles/puzzle_layout.html" %}
+{% import "/macros.html" as macro with context %}
+
+{% block puzzle_head_block %}
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/solution.css') }}">
+    {% block solution_head_block %}{% endblock %}
+{% endblock %}
+
+{% block puzzle_content_block %}
+{% block solution_content_block %}{% endblock %}
+{% endblock %}

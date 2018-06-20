@@ -1,0 +1,21 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Witch Doctor, I&rsquo;ve got a new issue and I don&rsquo;t know what to do. Doo yoo?
+{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content img {
+    width: 100%;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<img {{ img_src_for('puzzles/bloodroots/image.png') }} >
+{% endblock %}

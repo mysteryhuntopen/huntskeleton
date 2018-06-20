@@ -1,0 +1,170 @@
+{% extends "objective.html" %}
+{% import "objective_macros.html" as macros %}
+
+{# Dependent on:
+    openIslands
+    Puzzles:
+      hacking-scout-meta
+      hacking-scout-runaround
+      hacking-build-meta
+      hacking-build-runaround
+      hacking-deploy-meta
+      hacking-deploy-runaround
+      hacking-supermeta
+      hacking-recovery
+#}
+
+{% set stages = ['scout','build','deploy'] %}
+{% set numStages = counts['hacking_submetas']['total'] %}
+{% set numMetasSolved = counts['hacking_submetas']['solved'] %}
+{% set numRunaroundsSolved = counts['hacking_submetas']['mapped'] %}
+
+{% set objective_id = "hacking" %}
+{% set objective_name = "Recover the Hacking Core Memory" %}
+{% set objective_video_id = None %}
+{% set objective_video_visible = false %}
+{% set objective_unlocked = ('hacking' in core_display_data['openIslands']) %}
+{% set objective_complete = statuses['hacking-recovery'] == 'SOLVED' %}
+
+{# A stage being open is synonymous with its submeta being at least unlocked.  This could change. #}
+{% set meta_text = {
+  'scout': {
+    'past': 'scouted',
+    'intro': 'Planning a hack is like shopping for real estate: it&rsquo;s all about location, 
+      location, location.  The tunnels beneath campus provide a great way to {name} the campus,',
+    'unlocked': 'but with your skills you can come up with an even better approach.',
+    'solved': ' and reaching out of the way places is even easier with your new {answer}.',
+  },
+  'build': {
+    'past': 'built',
+    'intro': 'The workshop has all the tools you need to {name} your hack,',
+    'unlocked': ' but you set about finding a faster way to put everything together.',
+    'solved': ' but the work went faster once you made an {answer} to fasten parts with no need for
+      nuts and bolts.',
+  },
+  'deploy': {
+    'past': 'deployed',
+    'intro': 'It&rsquo;s always tricky to {name} a hack.  This staging area is good for preparing
+      without getting caught,',
+    'unlocked': ' but you should take a moment to think through your strategy.',
+    'solved': ' and your new {answer} is foolproof.',
+  },
+} %}
+
+{% set end_text = {
+  'supermeta': {
+    'name': 'Flee',
+    'unlocked': 'Even with your hack deployed, the hard part is still ahead - you still have to
+      {name} the roof without getting caught.',
+    'solved': 'Even with your hack deployed, the hard part was still ahead - you still had to
+      {name} the roof without getting caught, but you made it back to the ground with surprising
+      spryness.  On the way down you spotted the core memory {answer}!',
+  },
+  'recovery': {
+    'unlocked': 'Find some fast wheels and follow that orb!',
+    'solved': 'After a high speed chase, you caught up with the Hacking Core Memory and returned it to its rightful
+      place on the pedestal, saving Hacking Island!',
+  },
+  'maps': {
+    'searching': 'You also came across a strange set of instructions.  Perhaps they lead to
+      something interesting.',
+    'found': 'You also came across a strange set of instructions that led to a page of plans.',
+    'future': 'Along the way you found {maps-indefinite} that may be useful later.',
+    'now': '{maps-definite} you found should prove useful now.',
+    'now-none': 'Perhaps you should follow some of the strange instructions you&rsquo;ve found.',
+  }
+} %}
+
+{% macro pretty_count_maps(cnt, definite = False) -%}
+  {%- if cnt == 0 -%}
+    no pages
+  {%- elif cnt == 1 -%}
+    {{'the' if definite else 'a' }} page of plans
+  {%- else -%}
+    {{'the' if definite else '' }} {{ macros.pretty_number(cnt) }} pages of plans
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro list_stages_past() %}
+  {%- for stage in stages if statuses['hacking-' + stage + '-meta'] == 'SOLVED' -%}
+    {%- if loop.index > 1 and loop.last %} and{% endif -%}
+    {{- ' '+meta_text[stage]['past'] -}}
+    {%- if loop.length > 2 and not loop.last -%},{%- endif -%}
+  {%- endfor -%}
+{% endmacro %}
+
+{% block objective_action_item_1 %}
+  {% if numMetasSolved == 0 %}
+    Your hack hasn&rsquo;t made any progress yet
+  {% else %}
+    Your hack has been {{ list_stages_past() }}
+    {% if statuses['hacking-supermeta'] == 'SOLVED' %}
+      &mdash; and you've fled the scene
+    {%- endif -%}
+  {% endif %}
+{% endblock %}
+
+{% block objective_action_item_2 %}
+  {% if statuses['hacking-supermeta'] == 'SOLVED' %}
+    Recover the core memory
+  {% elif statuses['hacking-supermeta'] == 'UNLOCKED' and numMetasSolved == numStages %}
+    Flee the deployment site
+  {% elif numMetasSolved < numStages %}
+    {{ stages[numMetasSolved] | capitalize }} your hack 
+  {% endif %}
+{% endblock %}
+
+{% block objective_body %}
+  <p>
+    On Hacking Island, mind workers are constantly planning every stage of the perfect hack.  In
+    your search for the hacking core memory, you decided to join them in the execution of one.
+  </p>
+  {% for stage in stages %}
+    {% if statuses['hacking-' + stage + '-meta'] in ['UNLOCKED','SOLVED'] %}
+      {%- set meta = 'hacking-' + stage + '-meta' -%}
+      {%- set runaround = 'hacking-' + stage + '-runaround' -%}
+      {%- set stage_text = meta_text[stage] -%}
+      {%- set substitutions = {
+        'name': macros.format_meta(names[meta]),
+        'answer': macros.format_answer(answers[meta]),
+      } -%}
+      <p>
+        {{- stage_text['intro'].format(**substitutions) | safe }}
+        {{ stage_text[statuses[meta] | lower].format(**substitutions) | safe }}
+        {{ end_text['maps']['found' if statuses[runaround]=='SOLVED' else 'searching'] | safe -}}
+      </p>
+    {% endif %}
+  {% endfor %}
+  
+  {% if statuses['hacking-supermeta'] in ['UNLOCKED', 'SOLVED'] %}
+    <p>
+      {%- set substitutions = {
+        'name': macros.format_meta(names['hacking-supermeta'], is_super = true),
+        'conjugation': 'was' if statuses['hacking-recovery'] == 'SOLVED' else 'is',
+        'answer': macros.format_answer(answers['hacking-supermeta']),
+      } -%}
+      {{- end_text['supermeta'][statuses['hacking-supermeta'] | lower].format(**substitutions) | safe -}}
+    </p>
+  {% endif %}
+  
+  {% if numRunaroundsSolved > 0 and statuses['hacking-supermeta'] != 'SOLVED' %}
+    <p>
+      {%- set variant = 'now' if statuses['hacking-supermeta'] == 'UNLOCKED' else 'future' -%}
+      {%- set substitutions = {
+        'maps-definite': pretty_count_maps(numRunaroundsSolved, definite=True) | capitalize,
+        'maps-indefinite': pretty_count_maps(numRunaroundsSolved, definite=False),
+      } -%}
+      {{- end_text['maps'][variant].format(**substitutions) | safe -}}
+    </p>
+  {% elif numRunaroundsSolved == 0 and numMetasSolved == numStages and statuses['hacking-supermeta'] != 'SOLVED' %}
+    {{- end_text['maps']['now-none'] | safe -}}
+  {% endif %}
+  
+  {% if statuses['hacking-recovery'] in ['UNLOCKED', 'SOLVED'] %}
+    <p>
+      {{- end_text['recovery'][statuses['hacking-recovery'] | lower] | safe -}}
+    </p>
+  {% endif %}
+  
+  
+{% endblock %}

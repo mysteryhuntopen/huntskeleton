@@ -1,0 +1,16 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_content_block %}
+<p>Cranium Command will contact your team shortly to arrange delivery of this puzzle.</p>
+
+{% if site_mode() == "solution" %}
+<p>This puzzle was distributed to teams in the format of a double-sided jigsaw puzzle. Links to the solved jigsaw puzzle follow:</p>
+<a href="{{ asset_url_for('solutions/is_there_a_draft_in_here/01.jpg') }}" target="_blank">Front</a>
+<a href="{{ asset_url_for('solutions/is_there_a_draft_in_here/02.jpg') }}" target="_blank">Back</a>
+{% endif %}
+
+{% endblock %}

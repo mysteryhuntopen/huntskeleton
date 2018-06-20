@@ -1,0 +1,818 @@
+{% extends "support_layout.html" %}
+{% block title_block %}Credits{% endblock %}
+{% block screen_name_block %}Credits{% endblock %}
+{% block header_content %}{% endblock %}
+
+{% block page_head_block %}
+  <style>
+    .support-header {
+      text-align: center;
+      border-bottom: 1px solid white;
+    }
+
+    .credits-block {
+      font-size: 18px;
+      margin: 16px 0;
+    }
+    .credits-large { font-size: 20px; }
+    
+    .credits-name {
+      font-variant: small-caps;
+    }
+    
+    .credits-stack+.credits-stack {
+      margin-top: 1em;
+    }
+    .credits-stack>.credits-role {
+      text-align: center;
+      margin-bottom: 0.2em;
+    }
+    .credits-stack>.credits-name {
+      text-align: center;
+    }
+    .credits-stack>.credits-name+.credits-name {
+      margin-top: 0.2em;
+    }
+    
+    .credits-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+    .credits-row+.credits-row {
+      margin-top: 2px;
+    }
+    .credits-row>.credits-role {
+      text-align: right;
+      margin-right: 0.5em;
+      flex: 0 0 50%;
+    }
+    .credits-row>.credits-name {
+      margin-left: 0.5em;
+      flex: 0 0 50%;
+    }
+    
+    .credits-list>.credits-role {
+      text-align: center;
+    }
+    .credits-list>.credits-names {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+    .credits-list>.credits-names>.credits-name {
+      flex: 0 0 25%;
+      text-align: center;
+      margin-top: 2px;
+    }
+    
+    .credits-blurb {
+      text-align: center;
+    }
+    
+  </style>
+{% endblock %}
+
+{% block page_body %}
+<div class="support-section">
+  <div class="support-header">Executive Committee</div>
+  <div class="credits-block credits-large">
+    <div class="credits-stack">
+      <div class="credits-role">Benevolent Dictator</div>
+      <div class="credits-name">James Douberley</div>
+    </div>
+    <div class="credits-stack">
+      <div class="credits-role">Benevolent Vice Dictator</div>
+      <div class="credits-name">Michele Pratusevich</div>
+    </div>
+    <div class="credits-stack">
+      <div class="credits-role">Editors-in-Chief</div>
+      <div class="credits-name">Henry Wong</div>
+      <div class="credits-name">Hubert Hwang</div>
+    </div>
+    <div class="credits-stack">
+      <div class="credits-role">Director of Operations</div>
+      <div class="credits-name">Molly Frey</div>
+    </div>
+    <div class="credits-stack">
+      <div class="credits-role">Director of Tech</div>
+      <div class="credits-name">Evan Broder</div>
+    </div>
+    <div class="credits-stack">
+      <div class="credits-role">Director of User Experience</div>
+      <div class="credits-name">Grant Elliott</div>
+    </div>
+  </div>
+</div>
+
+<div class="support-section">
+  <div class="support-header">Puzzles</div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Editors-in-Chief</div>
+      <div class="credits-name">Henry Wong</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Hubert Hwang</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Testing Lead</div>
+      <div class="credits-name">Anisa Schardl</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Memories and Emotions Round Captain</div>
+      <div class="credits-name">Henry Wong</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Pokemon Island Round Captains</div>
+      <div class="credits-name">Kevin Hwang</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">James Douberley</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Games Island Round Captains</div>
+      <div class="credits-name">Julian West</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Will Day</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Sci-Fi Island Round Captain</div>
+      <div class="credits-name">Nathan Fung</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Hacking Island Round Captain</div>
+      <div class="credits-name">Evan Broder</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Editors</div>
+      <div class="credits-name">Will Day</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Robin Deits</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">James Douberley</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Grant Elliott</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Nathan Fung</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Nicholas Georgiou</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">David Greenspan</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Paul Hlebowitsh</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Tanya Khovanova</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Jesse Moeller</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Kevin Simmons</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Julian West</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Validators</div>
+      <div class="credits-name">Simone Agha</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Leland Aldridge</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Anna Brunner</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Joanna Cheng</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Nathan Fung</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Kate Hart</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Emilie Josephs</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Chris Kennedy</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Li-Mei Lim</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Jesse Moeller</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Lex Nemzer</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Kawika Pierson</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Yelena Tsitkin</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Max Wolf</div>
+    </div>  
+  </div>
+  <div class="credits-block">
+    <div class="credits-list">
+      <div class="credits-role">Authors and Test-Solvers</div>
+      <div class="credits-names">
+        <div class="credits-name">Tal Achituv</div>
+        <div class="credits-name">Simone Agha</div>
+        <div class="credits-name">Kate-Laurel Agnew</div>
+        <div class="credits-name">Leland Aldridge</div>
+        <div class="credits-name">Corin Anderson</div>
+        <div class="credits-name">Denis Auroux</div>
+        <div class="credits-name">Brandon Avila</div>
+        <div class="credits-name">Zachary Barryte</div>
+        <div class="credits-name">Nicole Berdy</div>
+        <div class="credits-name">Sergei Bernstein</div>
+        <div class="credits-name">John Bohannon</div>
+        <div class="credits-name">Carles Boix</div>
+        <div class="credits-name">Rachel Bowens-Rubin</div>
+        <div class="credits-name">Jeremy Braun</div>
+        <div class="credits-name">Evan Broder</div>
+        <div class="credits-name">Eric Broder</div>
+        <div class="credits-name">Sue Broder</div>
+        <div class="credits-name">Aaron Broder</div>
+        <div class="credits-name">Dan Bronson</div>
+        <div class="credits-name">Anna Brunner</div>
+        <div class="credits-name">Wes Carroll</div>
+        <div class="credits-name">Andrew Chen</div>
+        <div class="credits-name">Liz Chen</div>
+        <div class="credits-name">Joanna Cheng</div>
+        <div class="credits-name">Liz Chhouk</div>
+        <div class="credits-name">Zachary Chroman</div>
+        <div class="credits-name">Alex Churchill</div>
+        <div class="credits-name">Enrique Cintron</div>
+        <div class="credits-name">Dan Collins</div>
+        <div class="credits-name">Jeremy Conrad</div>
+        <div class="credits-name">Sid Creutz</div>
+        <div class="credits-name">Stephanie D'Annibale</div>
+        <div class="credits-name">Will Day</div>
+        <div class="credits-name">Robin Deits</div>
+        <div class="credits-name">James Douberley</div>
+        <div class="credits-name">Sam Duffley</div>
+        <div class="credits-name">Lori Eich</div>
+        <div class="credits-name">Grant Elliott</div>
+        <div class="credits-name">Tucker Elliott</div>
+        <div class="credits-name">Cyrus Eyster</div>
+        <div class="credits-name">Alex Fernandes</div>
+        <div class="credits-name">Drew Fisher</div>
+        <div class="credits-name">&ldquo;Flat Luigi&rdquo;</div>
+        <div class="credits-name">Jasmine Florentine</div>
+        <div class="credits-name">Samuel Freilich</div>
+        <div class="credits-name">Elizabeth French</div>
+        <div class="credits-name">Molly Frey</div>
+        <div class="credits-name">Nathan Fung</div>
+        <div class="credits-name">Ian Gallagher</div>
+        <div class="credits-name">Nicholas Georgiou</div>
+        <div class="credits-name">Amanda Giermann</div>
+        <div class="credits-name">Wesley Graybill</div>
+        <div class="credits-name">David Greenspan</div>
+        <div class="credits-name">Kate Hart</div>
+        <div class="credits-name">Scott Harvey-Arnold</div>
+        <div class="credits-name">Ben Haytack</div>
+        <div class="credits-name">Caroline Hilburn</div>
+        <div class="credits-name">Paul Hlebowitsh</div>
+        <div class="credits-name">Kevin Hwang</div>
+        <div class="credits-name">Hubert Hwang</div>
+        <div class="credits-name">Brad Johnson</div>
+        <div class="credits-name">Emilie Josephs</div>
+        <div class="credits-name">Chris Kennedy</div>
+        <div class="credits-name">Tanya Khovanova</div>
+        <div class="credits-name">Yonatan Kogan</div>
+        <div class="credits-name">Young Jae Koh</div>
+        <div class="credits-name">David LaMacchia</div>
+        <div class="credits-name">Mark Leach</div>
+        <div class="credits-name">Undine Leopold</div>
+        <div class="credits-name">Li-Mei Lim</div>
+        <div class="credits-name">Colin Liotta</div>
+        <div class="credits-name">Laina Lomina</div>
+        <div class="credits-name">Peter Lorenz</div>
+        <div class="credits-name">Genie Luzwick</div>
+        <div class="credits-name">Alison Mandible</div>
+        <div class="credits-name">Justin Melvin</div>
+        <div class="credits-name">Jesse Moeller</div>
+        <div class="credits-name">Claire Moore-Cantwell</div>
+        <div class="credits-name">Lyndsey Jane Moulds</div>
+        <div class="credits-name">Oliver Mulley</div>
+        <div class="credits-name">Lex Nemzer</div>
+        <div class="credits-name">Erica Newman</div>
+        <div class="credits-name">Quan Nguyen</div>
+        <div class="credits-name">Laura Nicholson</div>
+        <div class="credits-name">Julie E. Norville</div>
+        <div class="credits-name">Melinda T. Owens</div>
+        <div class="credits-name">Arthur Petron</div>
+        <div class="credits-name">&ldquo;phyphor&rdquo;</div>
+        <div class="credits-name">Kawika Pierson</div>
+        <div class="credits-name">Chris Post</div>
+        <div class="credits-name">Michele Pratusevich</div>
+        <div class="credits-name">Xavid Pretzer</div>
+        <div class="credits-name">Erin Price</div>
+        <div class="credits-name">Hugh Price</div>
+        <div class="credits-name">Valerie Price</div>
+        <div class="credits-name">Chris Pringle</div>
+        <div class="credits-name">Kendra Pugh</div>
+        <div class="credits-name">Nathan Ramesh</div>
+        <div class="credits-name">Hannah Robertson</div>
+        <div class="credits-name">Tim Robertson</div>
+        <div class="credits-name">Chris Roske</div>
+        <div class="credits-name">Nathan Savir</div>
+        <div class="credits-name">Matt Scanlan</div>
+        <div class="credits-name">Ben Schaffner</div>
+        <div class="credits-name">Anisa Schardl</div>
+        <div class="credits-name">Ariel Schwartz</div>
+        <div class="credits-name">Ben &ldquo;Curly&rdquo; Sena</div>
+        <div class="credits-name">Sabrina Shemet</div>
+        <div class="credits-name">Kevin Simmons</div>
+        <div class="credits-name">Quentin Smith</div>
+        <div class="credits-name">Alex Smith</div>
+        <div class="credits-name">Charles Steinhardt</div>
+        <div class="credits-name">Jack Tagye</div>
+        <div class="credits-name">John Toomey</div>
+        <div class="credits-name">Yelena Tsitkin</div>
+        <div class="credits-name">Steven Vanderveer</div>
+        <div class="credits-name">Ryan Veeder</div>
+        <div class="credits-name">Antonio Vicente</div>
+        <div class="credits-name">Helena Wang</div>
+        <div class="credits-name">Ben &ldquo;Fuzzy&rdquo; Weissmann</div>
+        <div class="credits-name">Sebastian Wernicke</div>
+        <div class="credits-name">Julian West</div>
+        <div class="credits-name">Max Wolf</div>
+        <div class="credits-name">Henry Wong</div>
+      </div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-stack">
+      <div class="credits-role">Production Baby</div>
+      <div class="credits-name">Oliver Leopold Wong</div>
+    </div>
+  </div>
+</div>
+
+<div class="support-section">
+  <div class="support-header">Operations</div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Director of Operations</div>
+      <div class="credits-name">Molly Frey</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">HQ Bosses</div>
+      <div class="credits-name">Michele Pratusevich</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Li-Mei Lim</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">HQ Boss pro tem</div>
+      <div class="credits-name">Kate-Laurel Agnew</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Puzzle-on-Call</div>
+      <div class="credits-name">Robin Deits</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Nathan Fung</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Kevin Hwang</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Jesse Moeller</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Craft Services</div>
+      <div class="credits-name">Jess Liotta</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Dispatchers</div>
+      <div class="credits-name">Jeremy Braun</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Anna Brunner</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Enrique Cintron</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Will Day</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Alex Fernandes</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">David Greenspan</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Emilie Josephs</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Chris Kennedy</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Colin Liotta</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Kevin Simmons</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">John Toomey</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Yelena Tsitkin</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Helena Wang</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Physical Puzzle Production</div>
+      <div class="credits-name">Enrique Cintron</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Robin Deits</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Colin Liotta</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Maddie Hickman</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Kevin Hwang</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Mark Leach</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Laina Lomina</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Michele Pratusevich</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Xavid Pretzer</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Erin Price</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Tim Robertson</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Kevin Simmons</div>
+    </div>
+  </div>
+</div>
+
+<div class="support-section">
+  <div class="support-header">Tech</div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Director of Tech</div>
+      <div class="credits-name">Evan Broder</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Puzzle Tech Lead</div>
+      <div class="credits-name">Ben &ldquo;Fuzzy&rdquo; Weissmann</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Streaming Video</div>
+      <div class="credits-name">Quentin Smith</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Web Lead</div>
+      <div class="credits-name">Ariel Schwartz</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Web Developers</div>
+      <div class="credits-name">Colin Liotta</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Yonatan Kogan</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Drew Fisher</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Evan Broder</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Grant Elliott</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Molly Frey</div>
+    </div>
+  </div>
+</div>
+
+<div class="support-section">
+  <div class="support-header">User Experience</div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Director of User Experience</div>
+      <div class="credits-name">Grant Elliott</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Deputy Director of User Experience</div>
+      <div class="credits-name">Nicole Berdy</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Events Lead</div>
+      <div class="credits-name">Wesley Graybill</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Core Memory Recovery Missions</div>
+      <div class="credits-name">Liz Chhouk</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Peter Lorenz</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Art Lead</div>
+      <div class="credits-name">Simone Agha</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Artists</div>
+      <div class="credits-name">Zachary Barryte</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Ryan Veeder</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Anna Brunner</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Coin Design</div>
+      <div class="credits-name">Ben &ldquo;Curly&rdquo; Sena</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Productions Lead</div>
+      <div class="credits-name">Tucker Elliott</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Sets &amp; Props Lead</div>
+      <div class="credits-name">Emilie Josephs</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Special Effects</div>
+      <div class="credits-name">Chris Post</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Chris Pentacoff</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Sam Duffley</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Robin Deits</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Peter Lorenz</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Quentin Smith</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Grant Elliott</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Costumes Lead</div>
+      <div class="credits-name">Li-Mei Lim</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Costumers</div>
+      <div class="credits-name">Sue Broder</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Anisa Schardl</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Nicole Berdy</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Joy</div>
+      <div class="credits-name">Erin Price</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Joanna Cheng</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Anger</div>
+      <div class="credits-name">Hubert Hwang</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Anisa Schardl</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Disgust</div>
+      <div class="credits-name">Simone Agha</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Rachel Bowens-Rubin</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Sadness</div>
+      <div class="credits-name">Kendra Pugh</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Max Wolf</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Fear</div>
+      <div class="credits-name">Zachary Barryte</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Laura Nicholson</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Buzzy</div>
+      <div class="credits-name">Ben &ldquo;Curly&rdquo; Sena</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Molly Frey</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Buzzy pro tem</div>
+      <div class="credits-name">Paul Hlebowitsh</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role"></div>
+      <div class="credits-name">Conor Lenahan</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Push-up Recruit</div>
+      <div class="credits-name">Tim Robertson</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-row">
+      <div class="credits-role">Himself</div>
+      <div class="credits-name">James Douberley</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Health &amp; Safety Stagehand</div>
+      <div class="credits-name">Michele Pratusevich</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Health &amp; Safety Medic</div>
+      <div class="credits-name">Emilie Josephs</div>
+    </div>
+    <div class="credits-row">
+      <div class="credits-role">Terry&rsquo;s Team Captain</div>
+      <div class="credits-name">Robin Deits</div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-list">
+      <div class="credits-role">Extras</div>
+      <div class="credits-names">
+        <div class="credits-name">Tal Achituv</div>
+        <div class="credits-name">Liz Chen</div>
+        <div class="credits-name">Liz Chhouk</div>
+        <div class="credits-name">Nathan Fung</div>
+        <div class="credits-name">Caroline Hilburn</div>
+        <div class="credits-name">Li-Mei Lim</div>
+        <div class="credits-name">Peter Lorenz</div>
+        <div class="credits-name">Jesse Moeller</div>
+        <div class="credits-name">Chris Pentacoff</div>
+        <div class="credits-name">Ariel Schwartz</div>
+      </div>
+    </div>
+  </div>
+  <div class="credits-block">
+    <div class="credits-blurb">
+      &ldquo;Frozen Star,&rdquo; &ldquo;Monkeys Spinning Monkeys,&rdquo; &ldquo;Industrious Ferret,&rdquo; &ldquo;Sneaky,&rdquo; and &ldquo;Darkness Speaks&rdquo;<br/>
+      by <a href="http://incompetech.com" target="new">Kevin MacLeod</a> are licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="new">CC BY 3.0</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

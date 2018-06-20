@@ -1,0 +1,629 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block puzzle_errata_block %}
+<p><b>Errata:</b> An erratum was published for this puzzle at 12:30 PM EST 1/14/2018. In the grid at the very bottom of this puzzle, the indicators pointing from the drawings to locations on the grid appeared at different locations depending on what browser you were using and what zoom level your browser was set to. This issue has been corrected; the grid, drawings, and indicators are now displayed as a single image that renders correctly across browsers at any zoom level.</p>
+{% endblock %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .flexbox {
+    width: 100%;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .puzzle-content .flexbox > div {
+    flex: 0 1 auto;
+  }
+
+  .puzzle-content .flexbox div:not(.group) img {
+    width: 100%;
+  }
+
+  .puzzle-content .flexbox div.fixed-size, .puzzle-content .flex-group span.fixed-size {
+    flex: 0 0 auto;
+    margin: 0px 20px;
+  }
+
+  .puzzle-content .group {
+    max-width: 460px;
+  }
+
+  .puzzle-content .group img {
+    max-width: 100%;
+  }
+
+  .puzzle-content .flex-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .puzzle-content .flex-group img {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  .puzzle-content .rule {
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    margin: 20px;
+  }
+
+  .puzzle-content .large-text {
+    font-size: 60px;
+  }
+
+  .puzzle-content .container {
+    position: relative;
+    padding: 200px 0px;
+  }
+
+  .puzzle-content .container > a {
+    position: absolute;
+  }
+
+  .puzzle-content .container svg {
+    stroke: rgba(0,0,0,0.5);
+    stroke-width: 1px;
+    position: absolute;
+    overflow: visible;
+  }
+
+  .puzzle-content table {
+    border-collapse: collapse;
+    margin: auto;
+  }
+
+  .puzzle-content td {
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+    width: 1em;
+    height: 1em;
+  }
+
+  .puzzle-content td.white {
+    border-width: 0px;
+  }
+
+  .puzzle-content td.no-top-border {
+    border-top-width: 0px;
+  }
+
+  .puzzle-content td.no-right-border {
+    border-right-width: 0px;
+  }
+
+  .puzzle-content td.no-bottom-border {
+    border-bottom-width: 0px;
+  }
+
+  .puzzle-content td.no-left-border {
+    border-left-width: 0px;
+  }
+
+  .puzzle-content td.thick-top-border {
+    border-top: 2px solid #BEBEBE;
+  }
+
+  .puzzle-content td.thick-right-border {
+    border-right: 2px solid #BEBEBE;
+  }
+
+  .puzzle-content td.thick-bottom-border {
+    border-bottom: 2px solid #BEBEBE;
+  }
+
+  .puzzle-content td.thick-left-border {
+    border-left: 2px solid #BEBEBE;
+  }
+
+  @media print {
+    .puzzle-content {
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact !important;
+    }
+
+    .puzzle-content div {
+      page-break-inside: avoid;
+    }
+  }
+
+  .puzzle-content .image-01 {
+    margin-left: 20px;
+  }
+
+  .puzzle-content .image-02 {
+    margin-top: -50px;
+  }
+
+  .puzzle-content .image-03 {
+    margin-left: 100px;
+    width: 400px;
+  }
+
+  .puzzle-content .image-04 {
+    margin-top: -200px;
+  }
+
+  .puzzle-content .image-05 {
+    margin-top: -50px;
+    margin-left: 100px;
+  }
+
+  .puzzle-content .image-06 {
+    width: 350px;
+    margin-left: 50px;
+  }
+
+  .puzzle-content .image-07 {
+    margin-top: -50px;
+  }
+
+  .puzzle-content .image-08 {
+    position: relative;
+    z-index: 3;
+  }
+
+  .puzzle-content .image-09 {
+    vertical-align: top;
+    margin-left: -20px;
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .puzzle-content .image-10 {
+    margin-top: -140px;
+    margin-left: 120px;
+  }
+
+  .puzzle-content .image-11 {
+    margin-left: 100px;
+    margin-top: -50px;
+  }
+
+  .puzzle-content .image-12 {
+    margin-top: -150px;
+  }
+
+  .puzzle-content .image-13 {
+    position: relative;
+    z-index: 0;
+  }
+
+  .puzzle-content .image-14 {
+    margin-top: -50px;
+    width: 400px;
+    margin-left: 60px;
+  }
+
+  .puzzle-content .image-15 {
+    display: block;
+  }
+
+  .puzzle-content .image-16 {
+    display: block;
+    margin-top: -50px;
+    margin-left: 100px;
+  }
+
+  .puzzle-content .image-17 {
+    position: relative;
+    z-index: 3;
+  }
+
+  .puzzle-content .image-18 {
+    margin-left: -20px;
+  }
+
+  .puzzle-content .image-19 {
+    float: right;
+    margin-top: -200px;
+  }
+
+  .puzzle-content .image-20 {
+    position: relative;
+    z-index: 2;
+  }
+
+  .puzzle-content .image-21 {
+    margin-top: -50px;
+    margin-left: 150px;
+  }
+
+  .puzzle-content .image-22 {
+    position: relative;
+    z-index: 2;
+  }
+
+  .puzzle-content .image-23 {
+    margin-top: -50px;
+    margin-left: 250px
+  }
+
+  .puzzle-content .image-24 {
+    top: 0%;
+    left: 0%;
+    outline: 1px solid rgba(0,0,0,0.5);
+  }
+
+  .puzzle-content .image-25 {
+    top: 0%;
+    left: 50%;
+    outline: 1px solid rgba(0,0,0,0.5);
+  }
+
+  .puzzle-content .image-26 {
+    top: 10%;
+    left: 70%;
+    outline: 1px solid rgba(0,0,0,0.5);
+  }
+
+  .puzzle-content .image-27 {
+    top: 25%;
+    left: 87%;
+    outline: 1px solid rgba(0,0,0,0.5);
+    z-index: 2;
+  }
+
+  .puzzle-content .image-28 {
+    left: 70%;
+    outline: 1px solid rgba(0,0,0,0.5);
+    z-index: 2;
+  }
+
+  .puzzle-content .image-29 {
+    left: 25%;
+    outline: 1px solid rgba(0,0,0,0.5);
+    z-index: 2;
+  }
+
+  .puzzle-content .group-01 {
+    width: 300px;
+  }
+
+  .puzzle-content .group-02 {
+    margin-left: 50px;
+  }
+
+  .puzzle-content .group-03 {
+    width: 400px;
+  }
+
+  .puzzle-content .group-04 {
+    width: 400px;
+  }
+
+  .puzzle-content .group-05 {
+    width: 300px;
+  }
+
+  .puzzle-content .lines-1 {
+    top: 158px;
+  }
+
+  .puzzle-content .lines-1 {
+    top: 158px;
+  }
+
+  .puzzle-content .lines-2 {
+    top: 117px;
+    left: 50%;
+  }
+
+  .puzzle-content .lines-3 {
+    top: 236px;
+    left: 70%;
+  }
+
+  .puzzle-content .lines-4 {
+    top: 503px;
+    left: 87%;
+  }
+
+  .puzzle-content .lines-5 {
+    left: 70%;
+  }
+
+  .puzzle-content .lines-6 {
+    left: 25%;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/02.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/03.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/04.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div class="group">
+    <img class="image-01" {{ img_src_for('puzzles/zelma_frank/05.png') }} >
+    <img class="image-02" {{ img_src_for('puzzles/zelma_frank/06.png') }} >
+  </div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/07.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/08.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/09.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/08.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/09.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/10.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/10.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/11.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/11.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/10.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/10.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/07.png') }} ></div>
+</div>
+
+<div class="rule"></div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/12.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/13.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/14.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/15.png') }} ></div>
+</div>
+
+<div class="rule"></div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/16.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div class="group">
+    <img class="image-03" {{ img_src_for('puzzles/zelma_frank/17.png') }} >
+    <img class="image-04" {{ img_src_for('puzzles/zelma_frank/18.png') }} >
+  </div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/19.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/20.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/09.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/19.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div class="group">
+    <img {{ img_src_for('puzzles/zelma_frank/21.png') }} >
+    <img class="image-05" {{ img_src_for('puzzles/zelma_frank/22.png') }} >
+  </div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div class="group">
+    <img class="image-06" {{ img_src_for('puzzles/zelma_frank/17.png') }} >
+    <img class="image-07" {{ img_src_for('puzzles/zelma_frank/23.png') }} >
+  </div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/09.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/24.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/16.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/25.png') }} ></div>
+</div>
+
+<div class="rule"></div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/26.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/27.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div class="group group-01">
+    <img class="image-08" {{ img_src_for('puzzles/zelma_frank/28.png') }} >
+    <img class="image-09" {{ img_src_for('puzzles/zelma_frank/29.png') }} >
+    <img class="image-10" {{ img_src_for('puzzles/zelma_frank/30.png') }} >
+  </div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/31.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/32.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/33.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div class="group">
+    <div class="flexbox">
+      <img {{ img_src_for('puzzles/zelma_frank/34.png') }} >
+      <div class="fixed-size large-text">-</div>
+      <img {{ img_src_for('puzzles/zelma_frank/35.png') }} >
+    </div>
+    <div class="group group-02">
+      <img {{ img_src_for('puzzles/zelma_frank/36.png') }} >
+      <img class="image-11" {{ img_src_for('puzzles/zelma_frank/37.png') }} >
+    </div>
+  </div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/33.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div class="group group-03">
+    <img {{ img_src_for('puzzles/zelma_frank/38.png') }} >
+    <img class="image-12" {{ img_src_for('puzzles/zelma_frank/39.png') }} >
+  </div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/12.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/12.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div class="group group-04">
+    <img class="image-13" {{ img_src_for('puzzles/zelma_frank/40.png') }} >
+    <img class="image-14" {{ img_src_for('puzzles/zelma_frank/41.png') }} >
+  </div>
+</div>
+
+<div class="flexbox">
+  <div class="group">
+    <img class="image-15" {{ img_src_for('puzzles/zelma_frank/42.png') }} >
+    <img class="image-16" {{ img_src_for('puzzles/zelma_frank/43.png') }} >
+  </div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/44.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/45.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div class="group">
+    <img class="image-17" {{ img_src_for('puzzles/zelma_frank/28.png') }} >
+    <img class="image-09" {{ img_src_for('puzzles/zelma_frank/29.png') }} >
+    <img class="image-18" {{ img_src_for('puzzles/zelma_frank/30.png') }} >
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/46.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/47.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/48.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div class="group">
+    <img {{ img_src_for('puzzles/zelma_frank/49.png') }} >
+    <img class="image-19" {{ img_src_for('puzzles/zelma_frank/50.png') }} >
+  </div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/51.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/52.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/15.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div class="group group-05">
+    <img class="image-20" {{ img_src_for('puzzles/zelma_frank/53.png') }} >
+    <img class="image-21" {{ img_src_for('puzzles/zelma_frank/54.png') }} >
+  </div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/55.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/56.png') }} ></div>
+</div>
+
+<div class="rule"></div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/57.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div class="group">
+    <img class="image-22" {{ img_src_for('puzzles/zelma_frank/58.png') }} >
+    <img class="image-23" {{ img_src_for('puzzles/zelma_frank/59.png') }} >
+  </div>
+</div>
+
+<div class="flexbox">
+  <div class="flex-group">
+    <img {{ img_src_for('puzzles/zelma_frank/13.png') }} >
+    <span class="fixed-size large-text">/</span >
+    <img {{ img_src_for('puzzles/zelma_frank/60.png') }} >
+  </div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/12.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/15.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/61.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/62.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/63.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/12.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/64.png') }} ></div>
+</div>
+
+<div class="flexbox">
+  <div><img {{ img_src_for('puzzles/zelma_frank/15.png') }} ></div>
+  <div class="fixed-size"><img {{ img_src_for('puzzles/zelma_frank/01.png') }} ></div>
+  <div><img {{ img_src_for('puzzles/zelma_frank/65.png') }} ></div>
+</div>
+
+<div class="rule"></div>
+
+<div class="container">
+  <img usemap="#zelma-frank-image-map" style="width: 920px; height: 1075px" {{ img_src_for('puzzles/zelma_frank/72.png') }} >
+  <map name="zelma-frank-image-map">
+    <area target="_blank" alt="" title="" href="{{ asset_url_for('puzzles/zelma_frank/66-large.png') }}" coords="64,13,210,168" shape="rect">
+    <area target="_blank" alt="" title="" href="{{ asset_url_for('puzzles/zelma_frank/67-large.png') }}" coords="300,8,516,172,80,33,225,65" shape="rect">
+    <area target="_blank" alt="" title="" href="{{ asset_url_for('puzzles/zelma_frank/68-large.png') }}" coords="598,106,880,229" shape="rect">
+    <area target="_blank" alt="" title="" href="{{ asset_url_for('puzzles/zelma_frank/69-large.png') }}" coords="750,343,880,510" shape="rect">
+    <area target="_blank" alt="" title="" href="{{ asset_url_for('puzzles/zelma_frank/70-large.png') }}" coords="492,906,634,1037" shape="rect">
+    <area target="_blank" alt="" title="" href="{{ asset_url_for('puzzles/zelma_frank/71-large.png') }}" coords="151,899,343,1043" shape="rect">
+  </map>
+</div>
+{% endblock %}

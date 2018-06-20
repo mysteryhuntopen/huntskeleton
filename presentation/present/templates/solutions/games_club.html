@@ -1,0 +1,180 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Tanya Khovanova and Sergei Bernstein{% endblock %}
+{% block solution %}PARTICIPATE{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .center {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .puzzle-content .width-33 {
+    width: 33.333333%;
+  }
+
+  .puzzle-content .indent {
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+
+  .puzzle-content .game {
+    margin-top: 2.5em;
+  }
+
+  .puzzle-content .final-solution {
+    margin-top: 2.5em;
+  }
+
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p><i>This puzzle was inspired by research in combinatorial game theory done by participants in the <a href="http://math.mit.edu/research/highschool/primes/step.php">MIT PRIMES STEP</a> program in 2016-2017. The program introduces middle-school students to research in mathematics.</i></p>
+
+<p>
+  The opening paragraph explicitly says where to start: for each game find the longest optimal game.
+</p>
+
+<p class="game">
+  <b>Game 1.</b> BrokenHeart and SteadyTears are playing a game that starts with two piles of tokens containing 10 and 7 tokens, respectively. On each turn a player removes any number of tokens from one of the piles or the same number of tokens from both piles.
+</p>
+<p>
+  <b>Strategy.</b> This is <a href="https://en.wikipedia.org/wiki/Wythoff%27s_game">Wythoff&rsquo;s game</a>. The P-positions are (1,2), (2,1), (3,5), (5,3), (4,7), (7,4), (6,10), (10,6) and so on. The <i>i</i>-th pair of P-positions has difference equal to <i>i</i> and the smaller number in the pair is the smallest natural number that has not appeared yet. There is a beautiful theory of this game that relates it to Fibonacci numbers and the golden ratio, but that is not necessary for the puzzle.
+</p>
+<p>
+  The starting position is an N-position. To guarantee a win the first player must move to a P-position, which is one of the three (4,7), (7,4) and (10,6). From a P-position the longest game is played by reducing the difference between two piles by 1 in two moves. That means the first move should be to (10,6); and they play eight more moves after that. BrokenHeart wins in 9 moves.
+</p>
+
+<p class="game">
+  <b>Game 2.</b> CryMeARiver and NeedANapkin are playing a game with a 3 by 3 chocolate bar. On each move a player breaks one piece of chocolate along a grid line, thereby splitting one rectangular piece into two rectangular pieces.
+</p>  
+
+<p>
+  <b>Strategy.</b> Folks are often surprised to discover that this is a no-strategy game. Whatever you do, the game takes 8 moves. Indeed, each move increases the number of chocolate pieces by 1. At the beginning you have 1 piece; at the end you have 9 pieces. NeedANapkin wins in 8 moves.
+</p>
+
+<p class="game">
+  <b>Game 3.</b> FullDespair and SomberState are playing a game that starts with tokens at the vertices of a regular 22-gon. On each turn, a player can remove 2 tokens that belong to the same edge of the starting 22-gon.
+</p>
+
+<p>
+  <b>Strategy.</b> The second player can guarantee a win by playing centrally symmetric to the first player. This way, after the second player&rsquo;s move, the game stays centrally symmetric and the second player will always have a move. The longest such game must end with two tokens in opposite vertices. SomberState wins in 10 moves.
+</p>
+
+<p class="game">
+  <b>Game 4.</b> GloomyEarth and SadSadWorld play a game that starts with 12 SET cards. Each player removes one set on their turn.
+</p>
+
+<p>
+  <b>Strategy.</b> There are 6 sets on the board. It is easy to see that the game can&rsquo;t be finished in one move: for every set, there exists another set that doesn&rsquo;t overlap with it. To prove that the game always finishes in 2 moves, we should notice that every set contains either the 3-striped-purple-oval card or the 2-empty-red-oval card. SadSadWorld wins in 2 moves.
+</p>
+
+<p class="game">
+  <b>Game 5.</b> GoodbyeLove and LostForever are putting non-attacking kings on a 4 by 4 chess-board.
+</p>
+
+<p>
+  <b>Strategy.</b> Let us divide the board into four 2 by 2 squares. A king placed inside such a square attacks the whole square. That means we can&rsquo;t put more than 4 kings. On the other hand, a king placed in one such square attacks exactly one corner of the board. This means we can always place four kings. LostForever wins in 4 moves.
+</p>
+
+<p class="game">
+  <b>Game 6.</b> ILostMyHope and IMissMyMama are playing a game that starts with four piles of cookies containing 1, 4, 4, and 5 cookies correspondingly. On their move a player removes any number of cookies from any one pile.
+</p>
+
+<p>
+  <b>Strategy.</b> This game is Nim. The P-positions are formed by sets of numbers that XOR to zero. The starting position is an N-position, so for the first player to win they must move to a P-position first. The two options are (1,4,4,1) or (1,4,5,0). After that it is possible to continue an optimal game taking one cookie at a time. ILostMyHope wins in 11 moves.
+</p>
+
+<p class="game">
+  <b>Game 7.</b> NothingMore and Nonexistent are playing a game that starts with 8 quarters arranged into a two by four rectangle. On their move a player removes a full square of quarters: either one quarter or four quarters forming a two by two square.
+</p>
+
+<p>
+  <b>Strategy.</b> The winner in this game is determined by the parity of the number of 2 by 2 squares removed. The only way for the first player to win is to make sure that exactly one 2 by 2 square is removed during the game. The first player can guarantee this if they remove the middle square on the first turn. NothingMore wins in 5 moves.
+</p>
+
+<p class="game">
+  <b>Game 8.</b> PoorAndSick and DownAndGlum are playing a game on a rectangular 3 by 4 chocolate bar made up of smaller square blocks. Specifically, the player picks a square block and chomps it and every square that is above it, right of it, or both. Traditionally, the players eat the chomped squares.
+</p>
+
+<p>
+  <b>Strategy.</b> This game pretends to be <a href="https://en.wikipedia.org/wiki/Chomp">Chomp</a>, but it is not. The description matches the wikipedia description for Chomp with the sentence about the poisonous square missing. Chomp is a non-trivial game, but the lack of poison makes it way simpler. In this variation a player can take the whole bar at any point in the game. That means the only winning move for the first player is to take the whole bar. PoorAndSick wins in 1 move.
+</p>
+
+<p class="game">
+  <b>Game 9.</b> SorrowLives and Unfortunate start with the three words &ldquo;death and mayhem&rdquo;. On each turn a player picks one word and anagrams it into several words, thus increasing the total number of words. The players use the SOWPODS dictionary.
+</p>
+
+<p>
+  <b>Strategy.</b> The SOWPODS dictionary doesn&rsquo;t contain one-letter words. That means the players can&rsquo;t split AND and can split DEATH exactly once (for example AD and THE). For the first player to win, they need to split MAYHEM into two words of length two and four, so that the four-letter word is splittable. This can be done: MY and AHEM. Then AHEM is split into AM and HE. SorrowLives wins in 3 moves.
+</p>
+
+<p class="game">
+  <b>Game 10.</b> Unhappiness and Despondency put non-overlapping dominoes onto a 4 by 4 board. The first player puts vertical dominoes on the board, while the second player puts horizontal dominoes on the board.
+</p>
+
+<p>
+  <b>Strategy.</b> We describe the first three moves and leave the rest for the reader. The first player starts by putting a domino into the middle of the second column. After that there are four moves, up to symmetry, for the second player.
+</p>
+
+<p class="indent">
+  Case 1. The second player claims the left part of the first row. Then the first player takes the bottom of the first column.
+</p>
+<p class="indent">
+  Case 2. The second player claims the middle part of the first row. Then the first player takes the bottom of the third column.
+</p>
+<p class="indent">
+  Case 3. The second player claims the right part of the first row. Then the first player takes the bottom of the third column.
+</p>
+<p class="indent">
+  Case 4. The second player claims the right part of the second row. Then the first player takes the bottom of the third column.
+</p>
+
+<p>
+  The first player can block the second player from placing four dominoes. Unhappiness wins in 7 moves.
+</p>
+
+<p class="game">
+  <b>Game 11.</b> WretchedGuy and SuperCryMan are playing a game on a square 3 by 3 grid. On each move a player draws a new dot in the center of one of the small square cells so that no four dots form a square with edges parallel to the grid.
+</p>
+
+<p>
+  <b>Strategy.</b> Up to symmetries and rotations there are five positions without moves shown in the picture:
+</p>
+
+<img class="center width-33" src="{{ asset_url_for('solutions/games_club/01.png') }}"/>
+
+<p>
+  The position with seven dots misses the center and one corner. The position with five dots misses four corners. The rest are positions with 6 dots. For the second player to force six moves, it is enough to avoid positions with 5 and 7 dots. The second player can use two moves to claim the center and a corner, which guarantees a win. SuperCryMan wins in 6 moves.
+</p>
+
+<p class="final-solution">
+  <b>Final Extraction.</b> The numbers of moves are distinct integers from 1 to 11. They provide a natural ordering. Here is the list of winners in that ordering:
+</p>
+
+<p>
+  <code>
+POORANDSICK<br>
+SADSADWORLD<br>
+SORROWLIVES<br>
+LOSTFOREVER<br>
+NOTHINGMORE<br>
+SUPERCRYMAN<br>
+UNHAPPINESS<br>
+NEEDANAPKIN<br>
+BROKENHEART<br>
+SOMBERSTATE<br>
+ILOSTMYHOPE
+  </code>
+</p>
+
+<p>
+  Now we index the number of moves into the winner, or, equivalently, read the diagonal. The answer is <b><code>PARTICIPATE</code></b>.
+</p>
+{% endblock %}

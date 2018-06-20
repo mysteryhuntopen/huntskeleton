@@ -1,0 +1,650 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .header {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .puzzle-content table {
+    border-collapse: collapse;
+    margin: 0 auto 20px auto;
+  }
+
+  .puzzle-content tr:not(:last-child) {
+    border-bottom: 1px solid black;
+  }
+
+  .puzzle-content th:not(:last-child), .puzzle-content td:not(:last-child) {
+    border-right: 1px solid black;
+  }
+
+  .puzzle-content th:not(:first-child), .puzzle-content td {
+    padding: 0% 0.5em 0% 0.5em;
+  }
+
+  .puzzle-content td:not(:first-child) {
+    text-align: center;
+  }
+
+  @media print {
+    .puzzle-content > div {
+      page-break-inside: avoid;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <div class="header">Tournament 1 (12 o&rsquo;clock start)</div>
+  <table>
+    <tr>
+      <th>Teams</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Goals For</th>
+      <th>Goals Against</th>
+    </tr>
+    <tr>
+      <td>The Finishers</td>
+      <td>3</td>
+      <td>0</td>
+      <td>9</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>The Oinkers</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>The Right of Way</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>The Eagle Has Landed</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>The Avatars</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>The Centrifuges</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <div class="header">Tournament 2 (1 o&rsquo;clock start)</div>
+  <table>
+    <tr>
+      <th>Teams</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Goals For</th>
+      <th>Goals Against</th>
+    </tr>
+    <tr>
+      <td>The Half Life Threes</td>
+      <td>3</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>The Tom Tom Toms</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The Escalators</td>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The Aortas</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>The Man Wholes</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>The Cacophony</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <div class="header">Tournament 3 (12 o&rsquo;clock start)</div>
+  <table>
+    <tr>
+      <th>Teams</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Goals For</th>
+      <th>Goals Against</th>
+    </tr>
+    <tr>
+      <td>The All</td>
+      <td>3</td>
+      <td>0</td>
+      <td>6</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>The Losers</td>
+      <td>3</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>The Cock-a-Doodle-Doos</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The Unkind</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>The Lefties</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>The Aardvarks</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <div class="header">Tournament 4 (12 o&rsquo;clock start)</div>
+  <table>
+    <tr>
+      <th>Teams</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Goals For</th>
+      <th>Goals Against</th>
+    </tr>
+    <tr>
+      <td>The Tchotchkes</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>The Eggo My Legos</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>The TF Twos</td>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The Hi-hats</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The Ersatz</td>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>The Tsunamis</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <div class="header">Tournament 5 (12 o&rsquo;clock start)</div>
+  <table>
+    <tr>
+      <th>Teams</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Goals For</th>
+      <th>Goals Against</th>
+    </tr>
+    <tr>
+      <td>The Obliterators</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The Tots Taters</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>The Angles Are In Radians</td>
+      <td>3</td>
+      <td>2</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>The Leagues</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>The Nimbus</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>The Usurpers</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <div class="header">Tournament 6 (1 o&rsquo;clock start)</div>
+  <table>
+    <tr>
+      <th>Teams</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Goals For</th>
+      <th>Goals Against</th>
+    </tr>
+    <tr>
+      <td>The MS Painters</td>
+      <td>4</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>The Bee Movies</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>The Escapers</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The RTS Games</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>The Ohms</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>The Fender Benders</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>6</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <div class="header">Tournament 7 (1 o&rsquo;clock start)</div>
+  <table>
+    <tr>
+      <th>Teams</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Goals For</th>
+      <th>Goals Against</th>
+    </tr>
+    <tr>
+      <td>The Gusto</td>
+      <td>4</td>
+      <td>0</td>
+      <td>7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>The Oats</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>The Ants</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The Laurel Resters</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>The Synthesizers</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>The Integrators</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <div class="header">Tournament 8 (12 o&rsquo;clock start)</div>
+  <table>
+    <tr>
+      <th>Teams</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Goals For</th>
+      <th>Goals Against</th>
+    </tr>
+    <tr>
+      <td>The Nail Guns</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>The Tmeses</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The Heirs</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>The Ennui</td>
+      <td>2</td>
+      <td>3</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>The Ion Cannons</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The Rwandans</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <div class="header">Tournament 9 (12 o&rsquo;clock start)</div>
+  <table>
+    <tr>
+      <th>Teams</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Goals For</th>
+      <th>Goals Against</th>
+    </tr>
+    <tr>
+      <td>The Hodge Podge</td>
+      <td>3</td>
+      <td>0</td>
+      <td>7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>The Irrationals</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>The Gamut</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The How Now Brown Cows</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>The Egregious</td>
+      <td>1</td>
+      <td>3</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>The Serums</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <div class="header">Tournament 10 (1 o&rsquo;clock start)</div>
+  <table>
+    <tr>
+      <th>Teams</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Goals For</th>
+      <th>Goals Against</th>
+    </tr>
+    <tr>
+      <td>The Temporal</td>
+      <td>5</td>
+      <td>0</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>The Seamen</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>The Ciphers</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>The Omniscient</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>The Riveters</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>The Index</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <div class="header">Tournament 11 (1 o&rsquo;clock start)</div>
+  <table>
+    <tr>
+      <th>Teams</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Goals For</th>
+      <th>Goals Against</th>
+    </tr>
+    <tr>
+      <td>The Ngultrums</td>
+      <td>4</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>The Go-Go Gadgets</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>The Galaxy</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The Amino Acids</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>The Metaphors</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>The Essence</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+  </table>
+</div>
+
+{% endblock %}

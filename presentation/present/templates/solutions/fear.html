@@ -1,0 +1,88 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}
+By James Douberley, Nathan Fung, Hubert Hwang, Kevin Hwang, and Henry Wong
+{% endblock %}
+{% block solution %}BOLDLY GO{% endblock %}
+
+{% block solution_content_block %}
+<p>After solving the Fear memory puzzles, solvers are presented
+  with the following answers (in alphabetical order):</p>
+
+<ul>
+  <li><code>EXCEPT</code></li>
+  <li><code>EXCURSION</code></li>
+  <li><code>MEDICAL EMERGENCY</code></li>
+  <li><code>NECESSARY</code></li>
+  <li><code>REGARDLESS</code></li>
+  <li><code>SOUNDS</code></li>
+  <li><code>STRATEGY</code></li>
+  <li><code>VOLUNTEER</code></li>
+</ul>
+
+<p>As suggested by the flavor text (&ldquo;consulted his
+  guidelines&rdquo;), each of these words occurs in the Health and
+  Safety guidelines provided to all teams at the start of the hunt
+  (and linked to from every page). The flavor text says that Fear
+  &ldquo;knew what&hellip;to do next&rdquo;, so look at the word
+  following the answer word or phrase:</p>
+
+<table class="solution-table">
+  <thead>
+    <tr>
+      <th>Answer</th>
+      <th>Relevant snippet</th>
+      <th>Subsequent word</th>
+    </tr>
+  </thead>
+  <tr>
+    <td><code>NECESSARY</code></td>
+    <td>&ldquo;For your team to play, a completed quiz is <u>necessary by</u> Sunday, January 8th.&rdquo;</td>
+    <td><code>BY</code></td>
+  </tr>
+  <tr>
+    <td><code>VOLUNTEER</code></td>
+    <td>&ldquo;One <u>volunteer on</u> each team should be designated as the &ldquo;Health &amp; Safety Marshal.&rdquo;&rdquo;</td>
+    <td><code>ON</code></td>
+  </tr>
+  <tr>
+    <td><code>MEDICAL EMERGENCY</code></td>
+    <td>&ldquo;Contact HQ if a &lsquo;real-life situation&rsquo; occurs and you don’t know what to do (<u>medical emergency, lost</u> team member, encounter with police, damage to MIT property, etc.).&rdquo;</td>
+    <td><code>LOST</code></td>
+  </tr>
+  <tr>
+    <td><code>SOUNDS</code></td>
+    <td>&ldquo;If an alarm <u>sounds, do</u> not continue working.&rdquo;</td>
+    <td><code>DO</code></td>
+  </tr>
+  <tr>
+    <td><code>EXCEPT</code></td>
+    <td>&ldquo;Please don’t enter restricted areas such as labs, <u>except locations</u> where events are scheduled or Hunt personnel explicitly let you in.&rdquo;</td>
+    <td><code>LOCATIONS</code></td>
+  </tr>
+  <tr>
+    <td><code>EXCURSION</code></td>
+    <td>&ldquo;Before sending team members on an <u>excursion, you</u> should ensure you can stay in touch with them (and vice versa).&rdquo;</td>
+    <td><code>YOU</code></td>
+  </tr>
+  <tr>
+    <td><code>STRATEGY</code></td>
+    <td>&ldquo;&ldquo;Work until burnout&rdquo; is an unacceptable <u>strategy. Getting</u> sleep is non-negotiable.&rdquo;</td>
+    <td><code>GETTING</code></td>
+  </tr>
+  <tr>
+    <td><code>REGARDLESS</code></td>
+    <td>&ldquo;The MIT Mystery Hunt is dedicated to providing a harassment-free experience for everyone, <u>regardless of</u> gender, gender identity and expression, sexual orientation, disability, physical appearance, body size, age, race, or religion.&rdquo;</td>
+    <td><code>OF</code></td>
+  </tr>
+</table>
+
+<p>Reading the first letter of each of those next words provides the
+  answer, <strong><code>BOLDLY GO</code></strong>.</p>
+  
+<p>Shortly after solving this puzzle, each team is <a href="{{ url_for('full_puzzle' if session.usertype == 'writingteam' else 'puzzle', puzzle_id='fear_encounter') }}">visited by Fear</a>.</p>
+{% endblock %}

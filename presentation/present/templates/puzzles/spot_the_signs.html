@@ -1,0 +1,37 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .puzzle-content img {
+      width: 100%;
+      margin-bottom: 2em;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Migrant workers traveled around our country, leaving behind markings
+  to communicate to those following behind them.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <a href="{{ asset_url_for('puzzles/spot_the_signs/1@2x.png') }}" target="_blank">
+    <img {{ img_src_for('puzzles/spot_the_signs/1.png') }}>
+  </a>
+
+  <a href="{{ asset_url_for('puzzles/spot_the_signs/2@2x.png') }}" target="_blank">
+    <img {{ img_src_for('puzzles/spot_the_signs/2.png') }}>
+  </a>
+
+  <a href="{{ asset_url_for('puzzles/spot_the_signs/3@2x.png') }}" target="_blank">
+    <img {{ img_src_for('puzzles/spot_the_signs/3.png') }}>
+  </a>
+
+  <a href="{{ asset_url_for('puzzles/spot_the_signs/4@2x.png') }}" target="_blank">
+    <img {{ img_src_for('puzzles/spot_the_signs/4.png') }}>
+  </a>
+{% endblock %}

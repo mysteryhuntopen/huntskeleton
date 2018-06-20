@@ -1,0 +1,145 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .warning {
+    margin-top: 0;
+    font-size: 0.75em;
+  }
+
+  .puzzle-content .game {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .puzzle-content #gameCanvas {
+    display: block;
+    width: 700px;
+    height: 600px;
+    border: 1px black solid;
+    background-color: black;
+  }
+
+  .puzzle-content #playbackControls {
+    display: none;
+  }
+
+  .puzzle-content #playbackControls > div {
+    margin: 0.5em 0;
+  }
+
+  .puzzle-content #playbackControls .replaySlider {
+    padding: 1em;
+    background-color: white;
+    margin: 0 0 1em 0;
+  }
+
+  .puzzle-content .replaySlider input {
+    width: 100%;
+  }
+
+  .puzzle-content .replaySlider, .puzzle-content .replayControl {
+    text-align: center;
+  }
+
+  .puzzle-content .sendUsNotice {
+    font-size: 0.8em;
+  }
+
+  .puzzle-content .controlInstructions {
+    font-size: 0.8em;
+    padding-left: 0.5em;
+  }
+
+  .puzzle-content .controlInstructions p.label {
+    margin-top: 0;
+    font-size: 1.25em;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<audio src="{{ asset_url_for('puzzles/asteroids/sound/YOURFIRE1.WAV') }}" id="player_fire" autostart="false"></audio>
+<audio src="{{ asset_url_for('puzzles/asteroids/sound/LARGEXPL1.WAV') }}" id="large_expl" autostart="false"></audio>
+<audio src="{{ asset_url_for('puzzles/asteroids/sound/MEDUMXPL1.WAV') }}" id="medium_expl" autostart="false"></audio>
+<audio src="{{ asset_url_for('puzzles/asteroids/sound/SMALLXPL1.WAV') }}" id="small_expl" autostart="false"></audio>
+<audio src="{{ asset_url_for('puzzles/asteroids/sound/BEAT11.WAV') }}" id="beat1" autostart="false"></audio>
+<audio src="{{ asset_url_for('puzzles/asteroids/sound/BEAT21.WAV') }}" id="beat2" autostart="false"></audio>
+<audio src="{{ asset_url_for('puzzles/asteroids/sound/LSAUCER.WAV') }}" id="lsaucer" autostart="false" loop=""></audio>
+<audio src="{{ asset_url_for('puzzles/asteroids/sound/SSAUCER.WAV') }}" id="ssaucer" autostart="false" loop=""></audio>
+<audio src="{{ asset_url_for('puzzles/asteroids/sound/UFOFIRE1.WAV') }}" id="ufo_fire" autostart="false"></audio>
+<audio src="{{ asset_url_for('puzzles/asteroids/sound/THRUST.WAV') }}" id="thrust" autostart="false" loop=""></audio>
+<audio src="{{ asset_url_for('puzzles/asteroids/sound/EXTRAMAN1.WAV') }}" id="extra" autostart="false" loop=""></audio>
+
+<p class="warning">(This puzzle requires a modern version of Chrome or
+  Firefox with Javascript enabled.)</p>
+
+<div class="game">
+  <div class="gameplay">
+    <canvas id="gameCanvas" width="700" height="600"></canvas>
+
+    <div id="playbackControls">
+      <div class="replaySlider">
+        <input type="range" min="0" max="100" value="0" class="slider" id="dvgPlaybackRange">
+      </div>
+      <div class="replayControl">
+        <button id="btn_prevFrame"><- Previous Frame </button>
+        <button id="btn_playPause"> Play / Pause </button>
+        <button id="btn_nextFrame"> Next Frame -></button>
+      </div>
+      <div class="downloadControl">
+        <button id="btn_download">Download Video (webm)</button>
+      </div>
+      <div class="sendUsNotice">
+        Had an epic game?<br/>
+        Download and send us the video file!<br/>
+        <a href="mailto:hunt2018asteroids@gmail.com">hunt2018asteroids@gmail.com</a>
+      </div>
+      <div class="restart">
+        <button id="btn_newGame">Reset game</button>
+      </div>
+    </div>
+  </div>
+  <div class="controlInstructions">
+    <p class="label"><b>Controls</b></p>
+
+    <p>(Some keys may conflict with your operating system; if they
+      don&rsquo;t work, try one of the alternatives.)</p>
+
+    <p><b>Rotate Left</b><br/>
+      Cursor Left, Z, or Y</p>
+
+    <p><b>Rotate Right</b><br/>
+      Cursor Right or X</p>
+
+    <p><b>Fire</b><br/>
+      Ctrl or M</p>
+
+    <p><b>Thrust</b><br/>
+      Up or N</p>
+
+    <p><b>Hyperspace</b><br/>
+      Space</p>
+
+    <p><b>Start</b><br/>
+      1</p>
+
+    <p><b>Pause Game</b><br/>
+      P</p>
+
+    <p><b>Unpause Game</b><br/>
+      Rotate or Fire</p>
+  </div>
+</div>
+
+<script src="{{ asset_url_for('puzzles/asteroids/js/memory6800.js') }}"></script>
+<script src="{{ asset_url_for('puzzles/asteroids/js/asteroids.min.js') }}"></script>
+<script>
+  {#- it would be nice if we didn't have to register this on body, but it seems to be the only thing that works #}
+  $('body').on('keydown', keyPressed).on('keyup', keyReleased);
+</script>
+{% endblock %}

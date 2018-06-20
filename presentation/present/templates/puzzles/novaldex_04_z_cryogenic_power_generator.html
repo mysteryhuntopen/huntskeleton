@@ -1,0 +1,63 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .puzzle-content #computer {
+      text-align: center;
+    }
+
+    .puzzle-content #computer img {
+      width: 80%;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  With the cryogenic power generator offline, the laws of motion have
+  the controls and you don’t even know where you are. If only there
+  were something else you could use, Luke.
+{% endblock %}
+
+{% block puzzle_call_to_action_block %}
+  Where is Luke?
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div id="computer">
+    <img {{ img_src_for('puzzles/novaldex_04_z_cryogenic_power_generator/computer.svg') }}>
+  </div>
+
+  <ul>
+    <li>Over</li>
+    <li>Klaxon</li>
+    <li>Some robots</li>
+    <li>Wake</li>
+    <li>Some ranged weapons</li>
+    <li>Move slightly</li>
+    <li>Bend</li>
+    <li>First role</li>
+    <li>Half of a rock band</li>
+    <li>Norse fire-stoker</li>
+    <li>Printer brand</li>
+    <li>Even</li>
+    <li>Smaller map</li>
+    <li>Sill</li>
+    <li>Type of hadron</li>
+    <li>Bottom</li>
+    <li>Random signal</li>
+    <li>Beginning</li>
+    <li>A birthstone</li>
+    <li>Prepared</li>
+    <li>Controvert</li>
+    <li>Like some beaches</li>
+    <li>A wrap</li>
+    <li>Astronauts</li>
+    <li>Group of bees</li>
+    <li>Spiral</li>
+    <li>Test</li>
+  </ul>
+{% endblock %}

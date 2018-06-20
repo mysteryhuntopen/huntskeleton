@@ -1,0 +1,144 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Justin Melvin{% endblock %}
+{% block solution %}ETRUSCAN GOD{% endblock %}
+
+{% block solution_content_block %}
+  <p>Solving the logic puzzle using English number names yields the
+    following results:</p>
+
+  <table class="solution-table condensed-table">
+    <thead>
+      <tr>
+        <th>Statement</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Letter</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>1</td><td>eighteen</td><td>18</td><td>R</td>
+    </tr>
+    <tr>
+      <td>2</td><td>five</td><td>5</td><td>E</td>
+    </tr>
+    <tr>
+      <td>3</td><td>sixteen</td><td>16</td><td>P</td>
+    </tr>
+    <tr>
+      <td>4</td><td>five</td><td>5</td><td>E</td>
+    </tr>
+    <tr>
+      <td>5</td><td>one</td><td>1</td><td>A</td>
+    </tr>
+    <tr>
+      <td>6</td><td>twenty</td><td>20</td><td>T</td>
+    </tr>
+    <tr>
+      <td>7</td><td>twentythree</td><td>23</td><td>W</td>
+    </tr>
+    <tr>
+      <td>8</td><td>nine</td><td>9</td><td>I</td>
+    </tr>
+    <tr>
+      <td>9</td><td>twenty</td><td>20</td><td>T</td>
+    </tr>
+    <tr>
+      <td>10</td><td>eight</td><td>8</td><td>H</td>
+    </tr>
+    <tr>
+      <td>11</td><td>nineteen</td><td>19</td><td>S</td>
+    </tr>
+    <tr>
+      <td>12</td><td>sixteen</td><td>16</td><td>P</td>
+    </tr>
+    <tr>
+      <td>13</td><td>one</td><td>1</td><td>A</td>
+    </tr>
+    <tr>
+      <td>14</td><td>fourteen</td><td>14</td><td>N</td>
+    </tr>
+    <tr>
+      <td>15</td><td>nine</td><td>9</td><td>I</td>
+    </tr>
+    <tr>
+      <td>16</td><td>nineteen</td><td>19</td><td>S</td>
+    </tr>
+    <tr>
+      <td>17</td><td>eight</td><td>8</td><td>H</td>
+    </tr>
+  </table>
+
+  <p>Using the numbers as indexes into the alphabet yields the
+  cluephrase <code>REPEAT WITH SPANISH</code>. Re-solving
+    the logic puzzle, but instead using the Spanish names for numbers,
+    yields the following results:</p>
+
+  <table class="solution-table condensed-table">
+    <thead>
+      <tr>
+        <th>Statement</th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Letter</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>1</td><td>uno</td><td>1</td><td>A</td>
+    </tr>
+    <tr>
+      <td>2</td><td>catorce</td><td>14</td><td>N</td>
+    </tr>
+    <tr>
+      <td>3</td><td>diecinueve</td><td>19</td><td>S</td>
+    </tr>
+    <tr>
+      <td>4</td><td>veintitres</td><td>23</td><td>W</td>
+    </tr>
+    <tr>
+      <td>5</td><td>cinco</td><td>5</td><td>E</td>
+    </tr>
+    <tr>
+      <td>6</td><td>dieciocho</td><td>18</td><td>R</td>
+    </tr>
+    <tr>
+      <td>7</td><td>cinco</td><td>5</td><td>E</td>
+    </tr>
+    <tr>
+      <td>8</td><td>viente</td><td>20</td><td>T</td>
+    </tr>
+    <tr>
+      <td>9</td><td>dieciocho</td><td>18</td><td>R</td>
+    </tr>
+    <tr>
+      <td>10</td><td>veintiuno</td><td>21</td><td>U</td>
+    </tr>
+    <tr>
+      <td>11</td><td>diecineuve</td><td>19</td><td>S</td>
+    </tr>
+    <tr>
+      <td>12</td><td>tres</td><td>3</td><td>C</td>
+    </tr>
+    <tr>
+      <td>13</td><td>uno</td><td>1</td><td>A</td>
+    </tr>
+    <tr>
+      <td>14</td><td>catorce</td><td>14</td><td>N</td>
+    </tr>
+    <tr>
+      <td>15</td><td>siete</td><td>7</td><td>G</td>
+    </tr>
+    <tr>
+      <td>16</td><td>quince</td><td>15</td><td>O</td>
+    </tr>
+    <tr>
+      <td>17</td><td>cuatro</td><td>4</td><td>D</td>
+    </tr>
+  </table>
+
+  <p>This gives the cluephrase <code>ANSWER <strong>ETRUSCAN GOD</strong></code>.</p>
+{% endblock %}

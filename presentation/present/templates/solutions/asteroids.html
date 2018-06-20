@@ -1,0 +1,143 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Tal Achituv and Charles Steinhardt{% endblock %}
+{% block solution %}LASER BEAM{% endblock %}
+
+{% block solution_head_block %}
+{% endblock %}
+
+{% block solution_content_block %}
+<p>This puzzle is a replica of the original Asteroids game released by Atari in 1979 with three modifications:</p>
+
+<ol>
+  <li>Only 1-player mode is enabled</li>
+  <li>Instead of the 2nd player&rsquo;s score, a counter of asteroids destroyed appears in the top-right.</li>
+  <li>Asteroids usually have standard scoring (20 points for big asteroids, 50 for medium, 100 for small), but some asteroids are given special scores that are distinctly different from normal scoring (in the thousands and hundreds of thousands).</li>
+</ol>
+
+<p>The asteroids that get special scoring are chosen by their number in the order in which asteroids are destroyed, such that regardless of which asteroid is hit 6th, it will have a special score. The special score is the same, regardless of asteroid size.</p>
+
+<p>The special scores are ID numbers for asteroids in the JPL Small-Body Database (<a href="https://ssd.jpl.nasa.gov/sbdb.cgi?orb=1;sstr=326290">example</a>). The difference between specially-scored asteroids is the index into that asteroid name.</p>
+
+<p>Letters appear at the bottom of the screen as the game progresses, spelling <code>ORDER BY SEMIMAJOR AXIS</code>. Ordering the asteroids for a full game by the <a href="https://en.wikipedia.org/wiki/Semi-major_and_semi-minor_axes">semi-major axes</a> of their orbits produces <code>ANSWER <strong>LASER BEAM</strong></code>.</p>
+
+<table class="solution-table">
+  <tr>
+    <th>Asteroid Name</th>
+    <th>Asteroid Number</th>
+    <th>Semimajor Axis (AU)</th>
+    <th>Index</th>
+    <th>Letter</th>
+  </tr>
+  <tr>
+    <td>Akhenaten</td>
+    <td>326290</td>
+    <td>0.879</td>
+    <td>6</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td>Munroe</td>
+    <td>4942</td>
+    <td>2.201</td>
+    <td>3</td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td>Torvalds</td>
+    <td>9793</td>
+    <td>2.255</td>
+    <td>8</td>
+    <td><code>S</code></td>
+  </tr>
+  <tr>
+    <td>Linshuhow</td>
+    <td>316020</td>
+    <td>2.279</td>
+    <td>9</td>
+    <td><code>W</code></td>
+  </tr>
+  <tr>
+    <td>Simon-Garfunkel</td>
+    <td>91287</td>
+    <td>2.289</td>
+    <td>13</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>Braille</td>
+    <td>9969</td>
+    <td>2.341</td>
+    <td>2</td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td>Stallman</td>
+    <td>9882</td>
+    <td>2.393</td>
+    <td>4</td>
+    <td><code>L</code></td>
+  </tr>
+  <tr>
+    <td>Lillianchin</td>
+    <td>28557</td>
+    <td>2.401</td>
+    <td>6</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td>Jonstewart</td>
+    <td>116939</td>
+    <td>2.407</td>
+    <td>4</td>
+    <td><code>S</code></td>
+  </tr>
+  <tr>
+    <td>James Bond</td>
+    <td>9007</td>
+    <td>2.473</td>
+    <td>4</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>Arthurdent</td>
+    <td>18610</td>
+    <td>2.548</td>
+    <td>2</td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td>Hammurabi</td>
+    <td>7207</td>
+    <td>2.577</td>
+    <td>8</td>
+    <td><code>B</code></td>
+  </tr>
+  <tr>
+    <td>Kenreimonin</td>
+    <td>5242</td>
+    <td>2.801</td>
+    <td>2</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>Steinhardt</td>
+    <td>201751</td>
+    <td>2.805</td>
+    <td>7</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td>Morganfreeman</td>
+    <td>224693</td>
+    <td>3.078</td>
+    <td>1</td>
+    <td><code>M</code></td>
+  </tr>
+</table>
+
+{% endblock %}

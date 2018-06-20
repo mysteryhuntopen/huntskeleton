@@ -1,0 +1,361 @@
+body {
+    margin: 0;
+    font-family: Helvetica;
+}
+
+form {
+    display: inline;
+}
+
+.line {
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin: 1em auto;
+}
+
+.emoji {
+    height: 1em;
+}
+
+.ha-navbar {
+    display: flex;
+    background-color: #cccccc;
+}
+
+.ha-navbar * {
+    padding: 0.5em;
+}
+
+.ha-navbar a {
+    color: black;
+    text-decoration: none;
+}
+
+.ha-navbar a.active {
+    background-color: #aaaaaa;
+}
+
+.ha-navbar-title {
+    margin-left: auto;
+}
+
+.ha-page-section {
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.ha-section-row {
+    display: flex;
+}
+
+.ha-section-row-box {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    padding: 0.5em;
+    background-color: #cccccc;
+}
+
+.ha-section-row-heading {
+    margin: 0;
+}
+
+.ha-error-bar {
+    margin: 1em;
+    border: 2px solid red;
+    background-color: #ffcccc;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ha-error-bar-title {
+    font-weight: bold;
+}
+
+.ha-error-bar * {
+    margin: 0.5em;
+}
+
+.ha-control-boxes-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.ha-control-box {
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    padding: 0.5em;
+    background-color: #cccccc;
+}
+
+.ha-control-box * + * {
+    margin-left: 0.5em;
+}
+
+.ha-column-control-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    padding: 0.5em;
+    background-color: #cccccc;
+}
+
+.ha-column-control-box * + * {
+    margin-top: 0.5em;
+}
+
+.ha-control-box-title {
+    font-weight: bold;
+}
+
+.ha-labeled-input-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.ha-table {
+    width: 100%;
+    table-layout: fixed;
+    border: 1px solid #888888;
+}
+
+.ha-table thead {
+    background-color: #cccccc;
+}
+
+.ha-table td {
+    text-align: center;
+}
+
+.ha-table tr {
+    height: 1.5em;
+}
+
+.ha-table tr:nth-child(even) {
+    background-color: #eeeeee;
+}
+
+@media (max-width: 600px) {
+    .ha-table-responsive table,
+    .ha-table-responsive tbody,
+    .ha-table-responsive td,
+    .ha-table-responsive tr {
+        display: block;
+    }
+
+    .ha-table-responsive thead,
+    .ha-table-responsive th {
+        display: none;
+    }
+
+    .ha-table-responsive tr {
+        height: auto;
+        padding: 0.5em;
+    }
+
+    .ha-table-responsive td {
+        border: none;
+        position: relative;
+    }
+}
+
+.ha-button-row button + button {
+    margin-left: 0.5em;
+}
+
+.ha-call-queue-correct-answer {
+    font-size: 0.75em;
+}
+
+.ha-call-queue-status-correct {
+    font-weight: bold;
+    color: #33c608;
+}
+
+.ha-call-queue-status-incorrect {
+    font-weight: bold;
+    color: #ed0b00;
+}
+
+.ha-bigboard-teams {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ha-bigboard-team {
+    box-sizing: border-box;
+    margin: 8px;
+    border: 1px solid black;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.ha-bigboard-team-id {
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    padding: 4px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ha-bigboard-round-row {
+    display: flex;
+}
+
+.ha-bigboard-puzzle-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ha-bigboard-emotions-plus, .ha-bigboard-islands {
+    display: flex;
+}
+
+.ha-bigboard-meta-row {
+    display: flex;
+}
+
+.ha-bigboard-meta-row-wrap {
+    flex-wrap: wrap;
+}
+
+.ha-bigboard-emotions {
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+}
+
+.ha-bigboard-round {
+    box-sizing: border-box;
+    border: 1px solid #aaaaaa;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin: 2px;
+}
+
+.ha-bigboard-islands .ha-bigboard-round {
+  width: 74px;
+}
+
+.ha-bigboard-meta-box {
+    box-sizing: border-box;
+    margin: 2px;
+    height: 8px;
+    min-width: 20px;
+    font-size: 7px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.ha-bigboard-meta-box:not(.ha-bigboard-solved) {
+  /* The border means we have less space than we otherwise would */
+  font-size: 6px;
+}
+
+.ha-bigboard-meta-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.ha-bigboard-puzzle-box {
+    box-sizing: border-box;
+    margin: 2px;
+    width: 8px;
+    height: 8px;
+}
+
+.ha-bigboard-locked {
+    border: 1px solid #aaaaaa;
+}
+
+.ha-bigboard-unlocked {
+    background-color: #aabbbb;
+}
+
+.ha-bigboard-solved {
+    background-color: #0000ff;
+    color: #ffffff;
+}
+
+.ha-bigboard-misc {
+    width: 86px;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    justify-content: center;
+    align-items: center;
+}
+
+.ha-team-selector-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ha-team-selector {
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+  border: 2px solid black;
+}
+
+.ha-team-selector-clickable-area {
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+}
+
+.ha-team-selector-status-line {
+  display: flex;
+  flex-direction: row;
+}
+
+.ha-team-selector-status-box {
+  font-size: 10px;
+  text-align: center;
+  height: 12px;
+  padding-top: 1px;
+  width: 24px;
+  margin-right: 2px;
+}
+
+.ha-team-selector-score-box {
+  font-size: 10px;
+  text-align: right;
+  height: 12px;
+  padding-top: 1px;
+  width: 36px;
+  margin-right: 2px;
+}
+
+.ha-small-text {
+  font-size: 10px;
+}
+
+.ha-indented {
+  margin-left: 2em;
+}
+
+table#submission-comparison, table#request-comparison {
+  border-collapse: collapse;
+}
+
+table#submission-comparison td, table#request-comparison td {
+  border: 2px solid black;
+  padding: 0.5em;
+}
+
+table#submission-comparison td.submission-entry, table#interaction-comparison td.request-entry {
+  font-family: monospace;
+}

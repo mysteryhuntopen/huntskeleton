@@ -1,0 +1,142 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Leland Aldridge, James Douberley, Nathan Fung, Hubert Hwang, Kevin Hwang, and Henry Wong{% endblock %}
+{% block solution %}BEAM UP{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .letter {
+    width: 1em;
+    display: inline-block;
+    text-align: center;
+    font-family: monospace;
+  }
+
+  .puzzle-content .box {
+    border: 1px solid black;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>After solving the Joy memory puzzles, solvers are presented with
+  the following answers (in alphabetical order):</p>
+
+<ul>
+  <li><code>ASCENSION</code></li>
+  <li><code>HORSES</code></li>
+  <li><code>INSIGHT</code></li>
+  <li><code>REAL FOOD</code></li>
+  <li><code>RITUAL</code></li>
+  <li><code>STRATEGY</code></li>
+</ul>
+
+<p>Solvers are also presented with a series of blanks. However, the
+  lengths of those blanks do not correspond to the lengths of the
+  answers.</p>
+
+<p>As suggested by the flavor text, each answer corresponds to a book
+  whose title is of the form &ldquo;The Joy of &hellip;&rdquo;
+  (although they are not used here, the most famous books in this
+  category are &ldquo;The Joy of Cooking&rdquo; and &ldquo;The Joy of
+  Sex&rdquo;).</p>
+
+<p>The last names of the authors of these books are unique in length
+  and do fit into the blanks, as follows:</p>
+
+<table class="solution-table">
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Author</th>
+      <th>Blanks</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>The Joy of <code>HORSES</code></td>
+    <td>Joy Roberts</td>
+    <td>
+      <span class="letter">R</span>
+      <span class="letter">O</span>
+      <span class="letter box">B</span>
+      <span class="letter">E</span>
+      <span class="letter">R</span>
+      <span class="letter">T</span>
+      <span class="letter">S</span>
+    </td>
+  </tr>
+  <tr>
+    <td>The Joy of <code>ASCENSION</code></td>
+    <td>Randall Weischedel</td>
+    <td>
+      <span class="letter">W</span>
+      <span class="letter box">E</span>
+      <span class="letter">I</span>
+      <span class="letter">S</span>
+      <span class="letter">C</span>
+      <span class="letter">H</span>
+      <span class="letter">E</span>
+      <span class="letter">D</span>
+      <span class="letter">E</span>
+      <span class="letter">L</span>
+    </td>
+  </tr>
+  <tr>
+    <td>The Joy of <code>REAL FOOD</code></td>
+    <td>Rowena Jayne</td>
+    <td>
+      <span class="letter">J</span>
+      <span class="letter box">A</span>
+      <span class="letter">Y</span>
+      <span class="letter">N</span>
+      <span class="letter">E</span>
+    </td>
+  </tr>
+  <tr>
+    <td>The Joy of <code>STRATEGY</code></td>
+    <td>Allison Rimm</td>
+    <td>
+      <span class="letter">R</span>
+      <span class="letter">I</span>
+      <span class="letter box">M</span>
+      <span class="letter">M</span>
+    </td>
+  </tr>
+  <tr>
+    <td>The Joy of <code>RITUAL</code></td>
+    <td>Barbara Biziou</td>
+    <td>
+      <span class="letter">B</span>
+      <span class="letter">I</span>
+      <span class="letter">Z</span>
+      <span class="letter">I</span>
+      <span class="letter">O</span>
+      <span class="letter box">U</span>
+    </td>
+  </tr>
+  <tr>
+    <td>The Joy of <code>INSIGHT</code></td>
+    <td>Victor Weisskopf</td>
+    <td>
+      <span class="letter">W</span>
+      <span class="letter">E</span>
+      <span class="letter">I</span>
+      <span class="letter">S</span>
+      <span class="letter">S</span>
+      <span class="letter">K</span>
+      <span class="letter">O</span>
+      <span class="letter box">P</span>
+      <span class="letter">F</span>
+    </td>
+  </tr>
+</table>
+
+<p>Reading the boxed letters in order spells out the answer,
+  <strong><code>BEAM UP</code></strong>.
+  
+<p>Shortly after solving this puzzle, each team is <a href="{{ url_for('full_puzzle' if session.usertype == 'writingteam' else 'puzzle', puzzle_id='joy_encounter') }}">visited by Joy</a>.</p>
+{% endblock %}

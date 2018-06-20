@@ -1,0 +1,130 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Kevin Hwang{% endblock %}
+{% block solution %}{{ puzzle.puzzleProperties.AnswersProperty.answers.0.canonicalAnswer }}{% endblock %}
+
+{% block solution_head_block %}
+  <style>
+    .puzzle-content .chalk-drawings, .puzzle-content .posters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .puzzle-content .chalk-drawings>div {
+      width: 400px;
+      margin: 20px;
+    }
+
+    .puzzle-content .posters img {
+      height: 500px;
+      width: auto;
+      margin: 20px;
+    }
+
+    .puzzle-content img.full-width {
+      width: 100%;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <p>Teams are presented with four photos of locations on MIT&rsquo;s
+    campus. Each photo has a chalk drawing somewhere within it:</p>
+
+  <div class="chalk-drawings">
+    <div>
+      <img class="full-width" {{ img_src_for('solutions/spot_the_signs/chalk-1.png') }}>
+      <p>16-2, by the elevators and the Course 20 pset drop box. A
+        large plus sign with a face is drawn on the elevator doors.</p>
+    </div>
+    <div>
+      <img class="full-width" {{ img_src_for('solutions/spot_the_signs/chalk-2.png') }}>
+      <p>6C basement (part of &ldquo;SPECTROSCOPY&rdquo; sign in the
+        Bldg 8 basement is visible at end of hallway, as a
+        landmark). A very poorly drawn cat is on the doorframe.</p>
+    </div>
+    <div>
+      <img class="full-width" {{ img_src_for('solutions/spot_the_signs/chalk-3.png') }}>
+      <p>7-1, just off of lobby 7, which is visible through double
+        doors. Two overlapping capital Ws are drawn on one of the room
+        doors.</p>
+    </div>
+    <div>
+      <img class="full-width" {{ img_src_for('solutions/spot_the_signs/chalk-4.png') }}>
+      <p>W20-4th floor, in the center lobby area facing the TCA
+        office. A symbol consisting of a top hat shape and a triangle
+        is on the TCA office door</p>
+    </div>
+  </div>
+
+  <p>As clued by the flavor text, these are hobo signs, which
+    historically were drawn with chalk on houses and such to pass
+    messages to following hobos. Each sign used has a particular
+    meaning, and these meanings can be found on sites talking about
+    hobo signs&mdash;not all websites detailing hobo signs draw them
+    identically (presumably, neither did the hobos), but some
+    searching should provide the full set of glyph meanings. Those
+    meanings are:</p>
+
+  <img class="full-width" {{ img_src_for('solutions/spot_the_signs/hobo-signs.png') }}>
+
+  <p>Sources:
+    <ul>
+      <li><a href="https://www.nsa.gov/about/cryptologic-heritage/museum/assets/files/hobo-signs-definitions.pdf">NSA National Cryptologic Museum</a></li>
+      <li><a href="http://www.angelfire.com/folk/famoustramp/signs.html">Hobo Signs</a></li>
+      <li><a href="http://cyberhobo.com/hobo-information/hobo-signs/">Cyberhobo</a></li>
+    </ul>
+  </p>
+
+  <p>Each of these photos has been taken directly in front of a
+    bulletin board, whose relevance is suggested by the flavor text
+    (&ldquo;those behind them&rdquo;). During Mystery Hunt, each of
+    the bulletin boards had a fake poster. Each poster had a prominent
+    image corresponding the the nearby hobo sign, some text, and a QR
+    code (each image here is linked to the URL in the QR code):</p>
+
+  <div class="posters">
+    <a href="https://imgur.com/xXt9lO7"><img {{ img_src_for('solutions/spot_the_signs/mitsfs-poster.png') }}></a>
+    <a href="https://imgur.com/NrbOrB2"><img {{ img_src_for('solutions/spot_the_signs/mit-cru-poster.png') }}></a>
+    <a href="https://imgur.com/ZLBsAM4"><img {{ img_src_for('solutions/spot_the_signs/puppy-lab-poster.png') }}></a>
+    <a href="https://imgur.com/Hy1CDLn"><img {{ img_src_for('solutions/spot_the_signs/ea-poster.png') }}></a>
+  </div>
+
+  <p>Each of the QR codes links to one fourth of a final image, which
+    is recognizably in the Stata Center, taken from underneath the
+    radar dish in 32-1, near the Dreyfoos entrance. Here is the
+    assembled image:</p>
+
+  <img class="full-width" {{ img_src_for('solutions/spot_the_signs/stata-assembled.png') }}>
+
+  <p>In the image, the pillar in front has another chalk symbol drawn
+    on it, although this symbol is not recognizable as one of the
+    original hobo signs, and there is no bulletin board nearby:</p>
+
+  <img {{ img_src_for('solutions/spot_the_signs/stata-sign.png') }}>
+
+  <p>Using the numbers in the title of the image to re-order the
+    captions provides the cluephrase &ldquo;NEW_SYMBOLS INSPIRED_BY
+    HOBO_SIGNS CIRCA_2002.&rdquo;</p>
+
+  <p>This sign is associated with <a href="https://en.wikipedia.org/wiki/Warchalking">&ldquo;Warchalking&rdquo;</a>,
+    which is the practice of drawing chalk symbols in public places to
+    advertise the presence of Wifi networks:</p>
+
+  <img height=500 {{ img_src_for('solutions/spot_the_signs/warchalking.svg') }}>
+
+  <p>The sign in the image means &ldquo;open Wifi network here,&rdquo;
+    and the circled section of the symbol represents the SSID of the
+    network. Scanning for available Wifi networks, reveals (in addition
+    to MIT-standard networks like &ldquo;MIT&rdquo; and
+    &ldquo;StataCenter&rdquo;) a network with the SSID
+    <code>{{ puzzle.puzzleProperties.AnswersProperty.answers.0.canonicalAnswer|replace(' ', '_') }}</code>. Therefore,
+    the answer to the puzzle is <strong><code>{{ puzzle.puzzleProperties.AnswersProperty.answers.0.canonicalAnswer}}</code></strong>
+
+{% endblock %}

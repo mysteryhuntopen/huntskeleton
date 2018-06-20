@@ -1,0 +1,236 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Will Day, Ben Haytack, Chris Pringle, Julian West, and Ian Gallagher{% endblock %}
+{% block solution %}IN A FORBIDDEN DESERT{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content img {
+    width: 100%;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>The answers to the component puzzles for this meta are as follows (alphabetized):</p>
+<ul>
+  <li><code>CODEX RUNICUS</code></li>
+  <li><code>DIRTY MARTINI</code></li>
+  <li><code>HACIENDA</code></li>
+  <li><code>INTERCOASTAL EMPIRE</code></li>
+  <li><code>JONATHAN EDWARDS</code></li>
+  <li><code>KEYBOAD PLAYER</code></li>
+  <li><code>MASTER AT ARMS</code></li>
+  <li><code>MEDIAN</code></li>
+  <li><code>MEMORIAL</code></li>
+  <li><code>ONSIGHT</code></li>
+  <li><code>PANDORA</code></li>
+  <li><code>PINNACLES</code></li>
+  <li><code>POCKET MONEY</code></li>
+  <li><code>PORTMANTEAU</code></li>
+  <li><code>SLEEPER AGENT</code></li>
+  <li><code>SPOT THE BALL</code></li>
+  <li><code>ULTIMATE FRISBEE</code></li>
+  <li><code>VALIDATOR</code></li>
+  <li><code>WHOOPEE</code></li>
+</ul>
+
+<p>Having entered the previous answer, the true meta for this island is revealed: The Robber, who seems to have hidden the core memory orb. Teams are presented with some additional instructions and 12 pentagons, containing short phrases. The phrases are <a href="https://en.wikipedia.org/wiki/Printer%27s_Devilry" target="_blank">Printer&rsquo;s Devilry</a> clues for a 4- or 5-letter word. The clues can be solved as follows:</p>
+
+<table class="solution-table">
+  <tr>
+    <th>Original clue</th>
+    <th>Missing word</th>
+    <th>Rearranged phrase</th>
+  </tr>
+  <tr>
+    <td>A scroll of genocide is still the best way to mass aches.</td>
+    <td><code>RELIC</code></td>
+    <td>A scroll of genocide is still the best way to massac<code>RE LIC</code>hes.</td>
+  </tr>
+  <tr>
+    <td>Boggle players try to shatter sin to words.</td>
+    <td><code>PELE</code></td>
+    <td>Boggle players try to sha<code>PE LE</code>tters in to words.</td>
+  </tr>
+  <tr>
+    <td>Careful card play can mean points fort, ever tricks.</td>
+    <td><code>AMINO</code></td>
+    <td>Careful card play can mean points for te<code>AM IN O</code>vertricks.</td>
+  </tr>
+  <tr>
+    <td>In Twisting Leper, son moves with each spin.</td>
+    <td><code>ERAS</code></td>
+    <td>In twist <code>ERA, S</code>ingle person moves with each spin.</td>
+  </tr>
+  <tr>
+    <td>In Victorian times, bow as a popular rhyming game.</td>
+    <td><code>CRAM</code></td>
+    <td>In Victorian times, <code>CRAM</code>bo was a popular rhyming game.</td>
+  </tr>
+  <tr>
+    <td>Many popular games using boards also have lid editions.</td>
+    <td><code>MITE</code></td>
+    <td>Many popular games using boards also have li<code>MITE</code>d editions.</td>
+  </tr>
+  <tr>
+    <td>Playing Jump rises your heart rate and promotes dexterity.</td>
+    <td><code>OPERA</code></td>
+    <td>Playing jump r<code>OPE RA</code>ises your heart rate and promotes dexterity.</td>
+  </tr>
+  <tr>
+    <td>Scenarios help players of small worlds palm seven-handedly.</td>
+    <td><code>LITRE</code></td>
+    <td>Scenarios help players of Smallworld sp<code>LIT RE</code>alm seven-handedly.</td>
+  </tr>
+  <tr>
+    <td>Scholars check map, sun wary players</td>
+    <td><code>TETRA</code></td>
+    <td>Scholar&rsquo;s checkma<code>TE TRA</code>ps unwary players</td>
+  </tr>
+  <tr>
+    <td>Some mag I&rsquo;m sad, done to attack Rolls.</td>
+    <td><code>CITE</code></td>
+    <td>Some magi<code>C ITE</code>ms add one to attack rolls.</td>
+  </tr>
+  <tr>
+    <td>The latest version of Monopoly hay model penguin.</td>
+    <td><code>SATIN</code></td>
+    <td>THe latest version of Monopoly ha<code>S A TIN</code>y model penguin.</td>
+  </tr>
+  <tr>
+    <td>Your counter must stop aces marked with a snake.</td>
+    <td><code>PONS</code></td>
+    <td>Your counter must sto<code>P ON S</code>paces marked with a snake.</td>
+  </tr>
+</table>
+
+<p>Solvers can now arrange the hexagons and pentagons into a <a href="https://en.wikipedia.org/wiki/truncated_icosahedron" target="_blank">truncated icosahedron</a>, such that the letters on the hexagons surrounding each pentagon spell out the answer word for that pentagon. The direction to read is indicated by whether the clue is written clockwise or counterclockwise. The 4-letter answers are bordered by the desert tile, which does not contain any letter.</p>
+
+<p>Since some of the letters occur more than once, solvers must have some way of deciding which tiles to place where. The flavor text mentions that in &ldquo;Australian rules Catan&rdquo;, adjacent resources must be different. This allows a unique placement of the tiles:</p>
+
+<img {{ img_src_for('solutions/the_robber/image.png') }} >
+
+<p>Teams have now constructed something that looks similar to a globe. &ldquo;Australian rules&rdquo; and &ldquo;extends across the world&rdquo; suggest looking at antipodal points. Extracting the indexed letter from the antipodal hexagon in the same order as the first part of the meta gives the final answer: the Robber has hidden the core memory <strong><code>IN A FORBIDDEN DESERT</code></strong>.</p>
+
+<table class="solution-table condensed-table">
+  <tr>
+    <th>Answer</th>
+    <th>Antipode</th>
+    <th>Index</th>
+    <th>Extraction</th>
+  </tr>
+  <tr>
+    <td><code>HACIENDA</code></td>
+    <td><code>MEDIAN</code></td>
+    <td>4</td>
+    <td><code>I</code></td>
+  </tr>
+  <tr>
+    <td><code>MEDIAN</code></td>
+    <td><code>HACIENDA</code></td>
+    <td>6</td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td><code>ULTIMATE FRISBEE</code></td>
+    <td><code>JONATHAN EDWARDS</code></td>
+    <td>7</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td><code>JONATHAN EDWARDS</code></td>
+    <td><code>ULTIMATE FRISBEE</code></td>
+    <td>9</td>
+    <td><code>F</code></td>
+  </tr>
+  <tr>
+    <td><code>MEMORIAL</code></td>
+    <td><code>PANDORA</code></td>
+    <td>5</td>
+    <td><code>O</code></td>
+  </tr>
+  <tr>
+    <td><code>CODEX RUNICUS</code></td>
+    <td><code>MASTER AT ARMS</code></td>
+    <td>10</td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td><code>VALIDATOR</code></td>
+    <td><code>SPOT THE BALL</code></td>
+    <td>8</td>
+    <td><code>B</code></td>
+  </tr>
+  <tr>
+    <td><code>PORTMANTEAU</code></td>
+    <td><code>DIRTY MARTINI</code></td>
+    <td>10</td>
+    <td><code>I</code></td>
+  </tr>
+  <tr>
+    <td><code>MASTER AT ARMS</code></td>
+    <td><code>CODEX RUNICUS</code></td>
+    <td>3</td>
+    <td><code>D</code></td>
+  </tr>
+  <tr>
+    <td><code>SPOT THE BALL</code></td>
+    <td><code>VALIDATOR</code></td>
+    <td>5</td>
+    <td><code>D</code></td>
+  </tr>
+  <tr>
+    <td><code>PANDORA</code></td>
+    <td><code>MEMORIAL</code></td>
+    <td>2</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td><code>SLEEPER AGENT</code></td>
+    <td><code>ONSIGHT</code></td>
+    <td>2</td>
+    <td><code>N</code></td>
+  </tr>
+  <tr>
+    <td><code>PINNACLES</code></td>
+    <td><code>KEYBOARD PLAYER</code></td>
+    <td>8</td>
+    <td><code>D</code></td>
+  </tr>
+  <tr>
+    <td><code>POCKET MONEY</code></td>
+    <td><code>WHOOPEE</code></td>
+    <td>7</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td><code>KEYBOARD PLAYER</code></td>
+    <td><code>PINNACLES</code></td>
+    <td>9</td>
+    <td><code>S</code></td>
+  </tr>
+  <tr>
+    <td><code>ONSIGHT</code></td>
+    <td><code>SLEEPER AGENT</code></td>
+    <td>4</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td><code>DIRTY MARTINI</code></td>
+    <td><code>PORTMANTEAU</code></td>
+    <td>3</td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td><code>WHOOPEE</code></td>
+    <td><code>POCKET MONEY</code></td>
+    <td>6</td>
+    <td><code>T</code></td>
+  </tr>
+</table>
+{% endblock %}

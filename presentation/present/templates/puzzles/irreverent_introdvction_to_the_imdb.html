@@ -1,0 +1,146 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}Irreverent Introdvction to the IMDb{% endblock %}
+{% block puzzle_name_block %}Irreverent Introdvction to the IMDb{% endblock %}
+
+{% block puzzle_head_block %}
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/support.css') }}">
+<style>
+  .puzzle-content {
+    background-color: white;
+    color: black;
+    padding: 20px;
+  }
+
+  .puzzle-content .x-small-text {
+    font-size: 0.6em;
+    margin-top: 5px;
+  }
+
+  .puzzle-content .small-text {
+    font-size: 0.8em;
+  }
+
+  .puzzle-content .large-text {
+    font-size: 1.2em;
+  }
+
+  .puzzle-content .x-large-text {
+    font-size: 1.4em;
+  }
+
+  .puzzle-content .grey-text {
+    color: grey;
+  }
+
+  .puzzle-content .blue-text {
+    color: blue;
+  }
+
+  .puzzle-content .grey {
+    background-color: #e3e3e3;
+  }
+
+  .puzzle-content .white {
+    background-color: white;
+  }
+
+  .puzzle-content .flexbox {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .puzzle-content .outlined {
+    border: 1px solid #e3e3e3;
+    margin-left: 20px;
+    height: 4.5em;
+  }
+
+  .puzzle-content .outlined > div {
+    padding: 5px;
+  }
+
+  .puzzle-content .border-bottom {
+    border-bottom: 1px solid #e3e3e3;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="flexbox">
+  <img {{ img_src_for('puzzles/irreverent_introdvction_to_the_imdb/image.png') }} >
+  <div class="outlined">
+    <div class="border-bottom"><span class="blue-text large-text"><u>House</u></span> <span class="grey-text">(2002&ndash;)</span></div>
+    <div class="x-large-text">Goofs</div>
+  </div>
+</div>
+<div class="grey grey-text">Showing all 16 items <b>(Latest season only)</b></div>
+<div class="small-text grey-text">Jump to: <span class="blue-text"><u>Revealing mistakes</u></span> (16)</div>
+<p class="grey-text"><b>Revealing Mistakes</b></p>
+<div class="grey">
+  <div>One episode has a new character visiting the hospital and being shown around the confusingly constructed and laid out building. As one of the residents leads the visitor down a flight of stairs towards a break room, some chalk text can be briefly seen on the wall next to them. This text is misspelled.</div>
+  <div class="x-small-text grey-text"><u>5 of 7 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="white">
+  <div>In the middle of one episode, several characters carry protest signs as they walk down a very long hallway. In the background of the crowd on the right, one protest sign&rsquo;s slogan (briefly visible) is not acceptable for network broadcast.</div>
+  <div class="x-small-text grey-text"><u>13 of 18 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="grey">
+  <div>The majority of one episode takes place over the course of a pizza party held for residents. Immediately after the party, during an interview scene with one character, a camera can be seen. The camera&rsquo;s brand is clearly visible along the bottom of the screen for several seconds.</div>
+  <div class="x-small-text grey-text"><u>3 of 5 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="white">
+  <div>In one episode a brand-new motivational wall is created and set up in the hallway. In one shot, a number of signs on it are shown quickly on camera, the most clearly visible reading &ldquo;You&rsquo;re a star.&rdquo; Directly to the left of that is a less easily readable sign. The message on that sign is actually an unprovable allegation.</div>
+  <div class="x-small-text grey-text"><u>10 of 15 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="grey">
+  <div>At the beginning of one episode, several characters are shown playing a game. Two players attempt to take a turn simultaneously, which ultimately leads to a fight. The game is being played incorrectly; simultaneous turns are not allowed by the rules.</div>
+  <div class="x-small-text grey-text"><u>2 of 3 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="white">
+  <div>In the musical episode of this season, two residents dressed in sports jerseys escort a singing character into an elevator. Upon close inspection, one of the two uniformed residents has a jersey number that is not allowed in regulation play. The name on the jersey is also not a real name.</div>
+  <div class="x-small-text grey-text"><u>2 of 11 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="grey">
+  <div>In one episode, two flag runs are scheduled and take place, although only the second is ever actually shown on film. This is immediately followed by a pan over a wall of photos, where a photo in the top row has been labeled with text. That text is not spelled correctly.</div>
+  <div class="x-small-text grey-text"><u>4 of 6 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="white">
+  <div>In one episode, a world map is prominently displayed on the wall, and shown off by another character. The map has been visibly edited in post-production. One country in particular is missing, and was apparently redrawn in permanent marker.</div>
+  <div class="x-small-text grey-text"><u>6 of 12 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="grey">
+  <div>About halfway through one episode, a character is filmed running through the building repeatedly shouting the name of a city. Immediately afterwards, the scene cuts to a shot of a pantry. The food prominently visible in that shot is never again mentioned or acknowledged in the episode.</div>
+  <div class="x-small-text grey-text"><u>4 of 10 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="white">
+  <div>In one episode a number of short clips are interspersed in particularly bizarre, haphazard fashion. In one particular scene, three characters are shown moving a bubble. Above them, a sign with green text is visible, but should be differently colored.</div>
+  <div class="x-small-text grey-text"><u>2 of 4 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="grey">
+  <div>Early in one episode (famously featuring an uncanny amount of dabs), a montage shows one character erasing a section of equations on a board and writing a new one in its place. The right hand side of the equation implies a violation of the first law of thermodynamics.</div>
+  <div class="x-small-text grey-text"><u>1 of 3 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="white">
+  <div>One episode has the residents of the hospital peforming a play, and subsequently creating a haunted house complete with traps and zombies. In one shot, a word is prominently written in blood on the wall; in reality this would be in violation of standard hospital safety protocols.</div>
+  <div class="x-small-text grey-text"><u>6 of 6 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="grey">
+  <div>One episode in this season was removed from rotation and is no longer available through official sources, but can still be found online. During this episode, the residents celebrate a holiday with a musical performance outside, near a park with a tire swing. This holiday is not actually fake, although it is admittedly fairly obscure.</div>
+  <div class="x-small-text grey-text"><u>15 of 15 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="white">
+  <div>One episode in this season is actually completely reused from a previous season. This episode contains, among other events, a basketball practice with city residents, and scenes from an open mic. The name of that open mic is inappropriate for an event held in a hospital setting.</div>
+  <div class="x-small-text grey-text"><u>4 of 8 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="grey">
+  <div>After a brief photo montage showing families, one episode abruptly switches back to a very brief scene set in an upper floor lounge, where several characters are watching a football game. Behind them, a number of post-it notes on a window spell out a message targeted at the hospital&rsquo;s newest residents. However, the message has been written backwards.</div>
+  <div class="x-small-text grey-text"><u>2 of 6 found this interesting</u> | <u>Share this</u></div>
+</div>
+<div class="white">
+  <div>Early in one episode, a brief montage contains scenes of outdoor preparation of smoothies, dance instruction, and then an indoor craft-making event. This is immediately followed by a close-up of a post-it note with instructions written on it. The instructions on the post-it note should not really need to be written down, and should honestly go without saying.</div>
+  <div class="x-small-text grey-text"><u>9 of 9 found this interesting</u> | <u>Share this</u></div>
+</div>
+{% endblock %}

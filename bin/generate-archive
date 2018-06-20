@@ -1,0 +1,165 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+
+import requests
+
+ASSET_REGEX = re.compile(r'http://localhost[-a-zA-Z0-9@:%_\+.~#?&//=]*')
+XLINK_REGEX = re.compile(r'xlink:href="(/[-a-zA-Z0-9@:%_\+.~#?&//=]*)"')
+QUERYSTRING_REGEX = re.compile(r'%3F([A-Za-z0-9=]+)\.html')
+
+
+def start_hunt():
+    with requests.Session() as s:
+        r = s.post('http://localhost:5002/login',
+                   data={'username': 'adminuser', 'password': 'adminpassword'})
+        r.raise_for_status()
+        r = s.post('http://localhost:5002/admintools',
+                   data={'action': 'HuntStart'})
+        r.raise_for_status()
+
+
+def get_cookie():
+    with requests.Session() as s:
+        r = s.post('http://localhost:5002/login',
+                   data={'username': 'adminuser', 'password': 'adminpassword'})
+        r.raise_for_status()
+        return s.cookies.get('session')
+
+def atomic_replace(path, contents):
+    with tempfile.NamedTemporaryFile(
+            dir=os.path.dirname(path),
+            delete=False) as f:
+        f.write(contents)
+        os.rename(f.name, path)
+
+
+def fetch_missing_assets(root, base, path):
+    full_path = os.path.join(base, path)
+    path_dir = os.path.dirname(full_path)
+    with open(full_path) as f:
+        contents = f.read()
+
+    urls = set(ASSET_REGEX.findall(contents))
+    if not urls:
+        return False
+
+    for u in urls:
+        destination = os.path.join(root, u[len('http://'):])
+        if not os.path.exists(os.path.dirname(destination)):
+            os.makedirs(os.path.dirname(destination))
+        if not os.path.exists(destination):
+            print('Fetching missing URL: {}'.format(u), file=sys.stderr)
+            response = requests.get(u)
+            response.raise_for_status()
+            with open(destination, 'w+b') as f:
+                f.write(response.content)
+
+        contents = contents.replace(
+            u, os.path.relpath(destination, path_dir))
+
+    print('Rewriting URLs in {}'.format(full_path), file=sys.stderr)
+    atomic_replace(full_path, contents)
+
+    return True
+
+
+def main():
+    start_hunt()
+
+    builddir = tempfile.mkdtemp()
+    try:
+        try:
+            subprocess.check_call(
+                [
+                    'wget',
+                    '--no-verbose',
+                    '--adjust-extension',
+                    '--convert-links',
+                    '--page-requisites',
+                    '--recursive',
+                    '--level', '50',
+                    '--header', 'Cookie: session={}'.format(get_cookie()),
+                    'localhost:5000/full/island/index'
+                ],
+                cwd=builddir
+                )
+        except subprocess.CalledProcessError as e:
+            print('wget returned {}'.format(e.returncode), file=sys.stderr)
+            raise
+
+        # Clean up query strings (from WASD2 solution)
+        for dirpath, dirnames, filenames in os.walk(builddir):
+            for f in filenames:
+                if '?' in f:
+                    os.unlink(os.path.join(dirpath, f))
+        for dirpath, dirnames, filenames in os.walk(builddir):
+            for path in filenames:
+                full_path = os.path.join(dirpath, path)
+                with open(full_path) as f:
+                    contents = f.read()
+                atomic_replace(
+                    full_path, QUERYSTRING_REGEX.sub(
+                        r'.html?\1', contents))
+
+        # Find assets that wget missed
+        while True:
+            updated = False
+            for dirpath, dirnames, filenames in os.walk(builddir):
+                for f in filenames:
+                    updated |= fetch_missing_assets(builddir, dirpath, f)
+
+            if not updated:
+                break
+
+        # Fix xlink:hrefs
+        for dirpath, dirnames, filenames in os.walk(builddir):
+            for f in filenames:
+                full_path = os.path.join(dirpath, f)
+
+                with open(full_path) as f:
+                    contents = f.read()
+
+                contents = XLINK_REGEX.sub(
+                    r'xlink:href="{}\1.html"'.format(os.path.relpath(
+                        os.path.join(builddir, 'localhost:5000'),
+                        os.path.dirname(full_path))),
+                    contents)
+                atomic_replace(full_path, contents)
+
+        # Move images
+        shutil.move(
+            os.path.join(builddir, 'localhost:5003'),
+            os.path.join(builddir, 'localhost:5000', 'assets'))
+        for dirpath, dirnames, filenames in os.walk(builddir):
+            for f in filenames:
+                full_path = os.path.join(dirpath, f)
+
+                with open(full_path) as f:
+                    contents = f.read()
+
+                atomic_replace(
+                    full_path,
+                    contents.replace('../localhost:5003', 'assets'))
+
+        shutil.move(
+            os.path.join(builddir, 'localhost:5000'),
+            os.path.join(builddir, 'archive'))
+
+        shutil.copy(
+            os.path.join(os.path.dirname(__file__), '../archive/index.html'),
+            os.path.join(builddir, 'archive', 'index.html'))
+    finally:
+        print(builddir)
+        #shutil.rmtree(builddir)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,30 @@
+FROM ubuntu:16.04
+
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key 3746C208A7317B0F 1646B01B86E50310 && \
+  echo "deb http://packages.cloud.google.com/apt cloud-sdk-xenial main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+  apt-get update && \
+  apt-get install --no-install-recommends -qy \
+    build-essential libffi-dev libssl-dev python-dev python-pip virtualenv curl graphicsmagick google-cloud-sdk apt-transport-https
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+  apt-get update && \
+  apt-get install --no-install-recommends -qy nodejs yarn
+
+WORKDIR /opt/src
+ADD package.json yarn.lock /opt/src/
+RUN yarn global add gulp-cli && yarn
+
+RUN mkdir -p /opt/src /opt/vendor
+ADD presentation/requirements.txt /opt/src/
+RUN virtualenv /opt/vendor && /opt/vendor/bin/pip install -r /opt/src/requirements.txt
+
+COPY .babelrc Gulpfile.babel.js /opt/src/
+COPY assets/ /opt/src/assets/
+RUN gulp --env production
+
+COPY presentation/ /opt/src/presentation/
+COPY prod/presentation/config.cfg prod/presentation/publish-and-run /opt/src/presentation/
+
+EXPOSE 5000
+CMD ["/opt/src/presentation/publish-and-run"]

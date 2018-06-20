@@ -1,0 +1,110 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Hubert Hwang{% endblock %}
+{% block solution %}SOUNDS{% endblock %}
+
+{% block solution_head_block %}
+{% endblock %}
+
+{% block solution_content_block %}
+<p>The audio tracks consist of vowel sounds&mdash;mostly
+  screaming. Each is a clip from a song whose title has something to
+  do with fear, and that has been in the Billboard Hot 100 at some
+  point. The comments provide additional clues towards the identities
+  of the artists involved, and the date gives the week that the song
+  hit its peak on the Billboard Hot 100 weekly chart.</p>
+
+<p>In each clip, one word is left out. Identify those words, and index
+  into those missing words using the star rating. (Solvers may also
+  notice that all of the missing words are five letters long, as an
+  additional confirmation.)</p>
+
+<table class="solution-table">
+  <thead>
+    <tr>
+      <th>Song</th>
+      <th>Artist</th>
+      <th>Lyrics (missing word in caps)</th>
+      <th>Star Rating</th>
+      <th>Letter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&ldquo;Don&rsquo;t Fear the Reaper&rdquo;</td>
+      <td>Blue Öyster Cult</td>
+      <td>
+        <p>All our <code>TIMES</code> have come</p>
+        <p>Here but now they&rsquo;re gone</p>
+        <p>Seasons don&rsquo;t fear the reaper</p>
+        <p>Nor do the wind, the sun, or the rain</p>
+      </td>
+      <td>★★★★★</td>
+      <td><code>S</code></td>
+    </tr>
+    <tr>
+      <td>&ldquo;I&rsquo;m Afraid of Americans&rdquo;</td>
+      <td>David Bowie</td>
+      <td>
+        <p>I&rsquo;m afraid of Americans</p>
+        <p>I&rsquo;m afraid of the <code>WORLD</code></p>
+        <p>I&rsquo;m afraid I can&rsquo;t help it</p>
+        <p>I&rsquo;m afraid I can&rsquo;t</p>
+      </td>
+      <td>★★☆☆☆</td>
+      <td><code>O</code></td>
+    </tr>
+    <tr>
+      <td>&ldquo;Not Afraid&rdquo;</td>
+      <td>Eminem</td>
+      <td>
+        <p>We&rsquo;ll walk this road together, through the storm</p>
+        <p>Whatever weather, cold or warm</p>
+        <p>Just lettin&rsquo; you know that you&rsquo;re not alone</p>
+        <p>Holler if you feel like <code>YOU&rsquo;VE</code> been down the same road</p>
+      </td>
+      <td>★★★☆☆</td>
+      <td><code>U</code></td>
+    </tr>
+    <tr>
+      <td>&ldquo;The Fear&rdquo;</td>
+      <td>Lily Allen</td>
+      <td>
+        <p>And when do you think it will all become clear?</p>
+        <p>&rsquo;Cause I&rsquo;m <code>BEING</code> taken over by the fear</p>
+      </td>
+      <td>★★★★☆</td>
+      <td><code>N</code></td>
+    </tr>
+    <tr>
+      <td>&ldquo;Not Afraid Anymore&rdquo;</td>
+      <td>Halsey</td>
+      <td>
+        <p>I am not afraid anymore</p>
+        <p>Standing in the eye of the storm</p>
+        <p>Ready to face this</p>
+        <p><code>DYING</code> to taste this sick sweet warmth</p>
+      </td>
+      <td>★☆☆☆☆</td>
+      <td><code>D</code></td>
+    </tr>
+    <tr>
+      <td>&ldquo;Fearless&rdquo;</td>
+      <td>Taylor Swift</td>
+      <td>
+        <p>And I don&rsquo;t know why but with you I&rsquo;d dance</p>
+        <p>In a storm in my best <code>DRESS</code>, fearless</p>
+      </td>
+      <td>★★★★☆</td>
+      <td><code>S</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Reading the letters in order yields the answer,
+  <strong><code>SOUNDS</code></strong>.</p>
+{% endblock %}

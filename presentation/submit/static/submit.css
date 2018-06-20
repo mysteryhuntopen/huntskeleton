@@ -1,0 +1,39 @@
+/* Submissions page */
+
+form {
+  margin-bottom: 0;
+}
+
+.submission-section-header {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.submission-section-header.use-pointer {
+  cursor: pointer;
+}
+
+.submission-section-explanation {
+  font-style: italic;
+  font-size: smaller;
+}
+
+.submission-section-previous-header {
+  font-weight: bold;
+}
+
+.submission-section-previous-correct {
+  font-weight: bold;
+}
+
+.submission-section-closed .submission-section-open-content {
+  display: none;
+}
+
+.submission-section-open .submission-section-closed-content {
+  display: none;
+}
+
+.support-section div+div {
+  margin-top: 12px;
+}

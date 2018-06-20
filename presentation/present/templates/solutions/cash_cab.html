@@ -1,0 +1,1024 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Erica Newman and Justin Melvin{% endblock %}
+{% block solution %}TAX DOCUMENTS{% endblock %}
+
+{% block solution_head_block %}
+<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ovo" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fanwood+Text" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Scheherazade" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+<style>
+  @media print {
+    /* Display ALL the background colors */
+    .puzzle-content {
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact!important;
+    }
+
+    .puzzle-content table:not(.grid) {
+      page-break-before: always;
+    }
+  }
+
+  /* Most of the content is in this font at this size. The rest is
+     handled specifically. */
+  .puzzle-content table {
+    font-family: "Crimson Text", serif;
+    font-size: 10pt;
+  }
+
+  .puzzle-content table:not(.grid) {
+    width: 720px;
+    border: 0px solid black;
+    border-collapse: collapse;
+    margin: 0px auto 50px auto;
+    background-color: white;
+  }
+
+  .puzzle-content td {
+    border: 1px solid black;
+    padding-left: 10px;
+  }
+
+  .puzzle-content td.outlined {
+    border-width: 3px;
+  }
+
+  .puzzle-content tr.no-top-border > td, td.no-top-border {
+    border-top-width: 0px;
+  }
+
+  .puzzle-content td.no-left-border {
+    border-left-width: 0px;
+  }
+
+  .puzzle-content td.no-right-border {
+    border-right-width: 0px;
+  }
+
+  .puzzle-content .borderless {
+    border-width: 0px;
+  }
+
+  .puzzle-content .flexbox {
+    display: flex;
+  }
+
+  .puzzle-content .column {
+    flex-direction: column;
+  }
+
+  .puzzle-content .flex-end {
+    align-self: flex-end;
+  }
+
+  .puzzle-content .right {
+    margin: auto 10px auto auto;
+  }
+
+  .puzzle-content .indented {
+    margin-left: 50px;
+  }
+
+  .puzzle-content .spacer {
+    height: 1.5em;
+  }
+
+  .puzzle-content .box {
+    height: 14px;
+    width: 14px;
+    border: 1px solid black;
+    margin-right: 5px;
+    background-color: #99AABB;
+    text-align: center;
+  }
+
+  .puzzle-content table.grid {
+    border-collapse: collapse;
+  }
+
+  .puzzle-content table.grid td {
+    height: 20px;
+    width: 20px;
+    padding: 0px;
+    text-align: center;
+  }
+
+  .puzzle-content .xx-small-text {
+    font-size: 6pt;
+  }
+
+  .puzzle-content .x-small-text {
+    font-size: 8pt;
+  }
+
+  .puzzle-content .small-text {
+    font-size: 12pt;
+  }
+
+  .puzzle-content .large-text {
+    font-size: 16px;
+  }
+
+  .puzzle-content .x-large-text {
+    font-size: 20pt;
+  }
+
+  .puzzle-content .centered {
+    text-align: center;
+    /* In general, we want td's to have padding, but not when we
+       want their contents to look centered */
+    margin-left: -10px;
+  }
+
+  .puzzle-content .default-serif {
+    font-family: serif;
+  }
+
+
+  .puzzle-content .word-header {
+    font-family: 'Merriweather', serif;
+  }
+
+  .puzzle-content .number-header {
+    font-family: 'Fanwood Text', serif;
+    font-size: 12pt;
+  }
+
+  .puzzle-content .special-elite {
+    font-family: 'Special Elite', cursive;
+  }
+
+  .puzzle-content .im-fell-dw-pica {
+    font-family: 'IM Fell DW Pica', serif;
+  }
+
+  .puzzle-content .ovo {
+    font-family: 'Ovo', serif;
+  }
+
+  .puzzle-content .scheherazade {
+    font-family: "Scheherazade", sans-serif;
+  }
+
+  .puzzle-content .courier {
+    font-family: "Courier New", monospace;
+  }
+
+  .puzzle-content .column-1 {
+    width: 17%;
+  }
+
+  .puzzle-content .column-2 {
+    width: 6%;
+  }
+
+  .puzzle-content .column-3 {
+    width: 15%;
+  }
+
+  .puzzle-content .column-4 {
+    width: 20%;
+  }
+
+  .puzzle-content .column-5 {
+    width: 15%;
+  }
+
+  .puzzle-content .column-6 {
+    width: 10%;
+  }
+
+  .puzzle-content .column-7 {
+    width: 10%;
+  }
+
+  .puzzle-content .column-8 {
+    width: 4%;
+  }
+
+  .puzzle-content .column-9 {
+    width: 4%;
+  }
+
+  .puzzle-content .grey {
+    background-color: #bfbfbf;
+  }
+
+  .puzzle-content .blue {
+    background-color: #daeef3;
+  }
+
+  .puzzle-content .light-grey {
+    background-color: #d9d9d9;
+  }
+
+  .puzzle-content .green {
+    background-color: #ccffcc;
+  }
+
+  .puzzle-content .dark-blue {
+    background-color: #b8cce4;
+  }
+
+  .puzzle-content .burgundy {
+    background-color: #a30101;
+  }
+
+  .puzzle-content .dark-green {
+    background-color: #46bb17;
+  }
+
+  .puzzle-content .yellow {
+    background-color: #ffd100;
+  }
+
+  .puzzle-content .purple {
+    background-color: #8200db;
+  }
+
+  .puzzle-content .mid-blue {
+    background-color: #4a86e8;
+  }
+
+  .puzzle-content .solution-text {
+    color: red;
+    font-family: "Courier New", monospace;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>The flavor text recalls a famous conversation between the mathematicians Hardy and the dying Ramanujan. In the original story, Hardy remarks to Ramanujan that he saw a dull number on the way to visit that was on a taxicab, the number 1729. Ramanujan convinced Hardy that this was indeed an interesting number, and 1729 became the known as the smallest of the &ldquo;taxicab numbers.&rdquo;</p>
+
+<p>In the flavor text, the &ldquo;Oh. Er, I See&rdquo; is meant to indicate to solvers that they should use the OEIS—the Online Encyclopedia of Integer Sequences.</p>
+
+<p>The presentation of the tax form for &ldquo;carriages and similar vehicles&rdquo; is another clue that the players are looking for taxicab (&ldquo;tax cab&rdquo;) numbers.</p>
+
+<p>If the solver does not understand the Ramanujan connection, they can instead search for the word &ldquo;cab&rdquo; in the OEIS and they will find taxicab numbers.</p>
+
+<p>In each minipuzzle that the solvers resolve, they will come up with an &ldquo;A&rdquo; series. Looking the A series up in the OEIS will give them a sequence of numbers. Each indicated sequence contains the number 1729 somewhere in it, in the 1-26 position. The position of 1729 in the sequence then corresponds to the letter that they should extract for the puzzle.</p>
+
+<p>Each of the minipuzzles relates to facts about Ramunajan or relatively famous results of his from different branches of mathematics, which are all documented on his Wikipedia page.</p>
+
+<p>Section I (Filing status) generates three separate series. Parts 1, 2, and 3 are solvable by checking Ramanujan&rsquo;s Wikipedia page. His age at death was 32 (Part 4). This section is meant to establish that the whole set of puzzles is about Ramanujan and his work, including, in this part, infinite series. The answers within the minipuzzles correspond to numbers highlighted in green, and Parts 5, 6, and 7 indicate how to calculate the numbers that are the A series answers.</p>
+
+<p>Section II (Blank) indicates that the solver should leave this answer blank (this is the break between two words).</p>
+
+<p>Section III (Income) says &ldquo;This section to be continued.&rdquo; This is a clue that solvers should rewrite the fraction as it is presented as a continued fraction. This step can be done online by searching for &ldquo;continued fractions&rdquo; and using a solver. The sequence of denominator terms (excluding repeating 1&rsquo;s, as indicated in the minipuzzle) will resolve to an A series. If the sequence is not in the 6-digit format of an A series, the solver is meant to pad the answer with leading zeroes. So, for example, 2498 would become A002498 in the OEIS.</p>
+
+<p>Section IV (Adjustments) is a magic square (another of Ramanujan&lsquo;s interests) where the solver fills out the numbers in the colored squares to make the sum of each column and the sum of each row the same. Then the solver organizes the resulting numbers in rainbow order (red to purple) and the result is the A series.</p>
+
+<p>Section V (Exemptions) presents Death Cab for Cutie song titles, mildly altered. This is related to the overall puzzle theme because it brings up cabs again (cluing taxicab numbers). Each song contains a number or the word &ldquo;nothing&rdquo; (indicating zero) or &ldquo;one&rdquo; (1).</p>
+
+<p>Section VI (Payments) says &ldquo;This section is a bit derisive.&rdquo; This minipuzzle flavor text is meant to indicate Ramanujan&lsquo;s mock modular forms. The text mimics an equation that is on Ramanujan&lsquo;s Wikipedia page that is related to the quantity Pi. The solver can easily calculate the answer by checking that equation.</p>
+
+<p>Section VII (Refund) is a minipuzzle where the solver takes the sequence of numbers given, searches for the OEIS series based on that sequence, and therefore finds the A series directly.</p>
+
+<p>&ldquo;Total Amount Owed&rdquo; has enough spaces for the solver to input all of the extracted letters including the blank from Section II to spell out <strong><code>TAX DOCUMENTS</code></strong>.</p>
+
+<p>Solved forms follow.</p>
+
+<table>
+  <tr class="no-top-border">
+    <td colspan="3">
+      <div class="xx-small-text scheherazade">Department of the Treasury&mdash;Internal Revenue Service</div>
+      <div class="large-text"><b>Estate Forms</b></div>
+    </td>
+    <td class="column-4">
+      <div class="x-large-text default-serif">Form &ldquo;A&rdquo;</div>
+    </td>
+    <td colspan="5">
+      <div class="flexbox column">
+        <div class="x-small-text im-fell-dw-pica flex-end">IRS use only&mdash;Do not write or staple in this space.</div>
+        <div class="im-fell-dw-pica flex-end">See separate instructions.</div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div class="xx-small-text scheherazade">For the year of Jan 1&ndash;Dec 31<sup>st</sup></div>
+      <div class="x-large-text special-elite">19<b>20</b></div>
+    </td>
+    <td class="column-3"></td>
+    <td colspan="5">
+      <div class="x-large-text default-serif">Carriages and Similar Vehicles</div>
+    </td>
+    <td class="column-9">
+      <div>P.1</div>
+    </td>
+  </tr>
+  <tr>
+    <td class="column-1 grey"></td>
+    <td class="column-2 grey"></td>
+    {#
+      There's an implicit fifth column in the layout that I need to
+      explicitly set the width of.
+    #}
+    <td colspan="2" class="no-right-border grey"></td>
+    <td class="column-5 no-left-border grey"> </td>
+    <td>
+      <div><b>Code</b></div>
+    </td>
+    <td>
+      <div><b>A Series</b></div>
+    </td>
+    <td class="column-8"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="blue word-header">
+      <div><b>I. Filing Status</b></div>
+    </td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue word-header">
+      <div><b>[This section may diverge off topic]</b></div>
+    </td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue"><i>Instructions: Check status boxes appropriately. Note the Code.</i></td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="number-header"><b>1</b></div>
+    </td>
+    <td colspan="3" class="blue">
+      <div class="flexbox column">
+        <div>Natural numbers, summation of*</div>
+        <div>*<i>in your own idiosyncratic way</i></div>
+      </div>
+    </td>
+    <td class="grey solution-text"><b>-1/12</b></td>
+    <td class="light-grey"></td>
+    <td colspan="2" class="no-right-border no-top-border"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue">
+      <div class="indented flexbox">
+        <div class="box solution-text"><b>X</b></div>
+        <div>Negative</div>
+      </div>
+    </td>
+    <td class="green">099500</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue">
+      <div class="indented flexbox">
+        <div class="box"></div>
+        <div>Positive</div>
+      </div>
+    </td>
+    <td class="green">005590</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue">
+      <div class="indented flexbox">
+        <div class="box"></div>
+        <div>Undefined</div>
+      </div>
+    </td>
+    <td class="green">095900</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="number-header"><b>2</b></div>
+    </td>
+    <td colspan="3" class="blue">
+      <div>Potential afflictions (<i>past and present</i>)</div>
+    </td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+    <td colspan="2" class="no-right-border"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="im-fell-dw-pica centered"><b>(a)</b></div>
+    </td>
+    <td colspan="3" class="blue">
+      <div class="indented flexbox">
+        <div class="box"></div>
+        <div>Aquagenic urticaria</div>
+      </div>
+    </td>
+    <td class="green">87</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="im-fell-dw-pica centered"><b>(b)</b></div>
+    </td>
+    <td colspan="3" class="blue">
+      <div class="indented flexbox">
+        <div class="box solution-text"><b>X</b></div>
+        <div>Dysentery</div>
+        <div class="solution-text right"><b>(0)</b></div>
+      </div>
+    </td>
+    <td class="green">0</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="im-fell-dw-pica centered"><b>(c)</b></div>
+    </td>
+    <td colspan="3" class="blue">
+      <div class="indented flexbox">
+        <div class="box solution-text"><b>X</b></div>
+        <div>Hepatic amoebiasis</div>
+        <div class="solution-text right"><b>(3)</b></div>
+      </div>
+    </td>
+    <td class="green">3</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="im-fell-dw-pica centered"><b>(d)</b></div>
+    </td>
+    <td colspan="3" class="blue">
+      <div class="indented flexbox">
+        <div class="box solution-text"><b>X</b></div>
+        <div>Hydrocele testis</div>
+        <div class="solution-text right"><b>(35)</b></div>
+      </div>
+    </td>
+    <td class="green">35</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="im-fell-dw-pica centered"><b>(e)</b></div>
+    </td>
+    <td colspan="3" class="blue">
+      <div class="indented flexbox">
+        <div class="box"></div>
+        <div>Progeria</div>
+      </div>
+    </td>
+    <td class="green">49</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="im-fell-dw-pica centered"><b>(f)</b></div>
+    </td>
+    <td colspan="3" class="blue">
+      <div class="indented flexbox">
+        <div class="box solution-text"><b>X</b></div>
+        <div>Vitamin deficiency</div>
+        <div class="solution-text right"><b>(02)</b></div>
+      </div>
+    </td>
+    <td class="green">02</td>
+    <td class="light-grey"></td>
+    <td colspan="2" class="no-top-border no-right-border"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="number-header"><b>3</b></div>
+    </td>
+    <td colspan="3" class="blue">Recurring forms</td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="im-fell-dw-pica centered"><b>(a)</b></div>
+    </td>
+    <td colspan="3" class="blue">1/2 + 1/4 + 1/8 + 1/16 +&hellip;</td>
+    <td class="grey solution-text"><b>(04)</b></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="im-fell-dw-pica centered"><b>(b)</b></div>
+    </td>
+    <td colspan="3" class="blue">1 - 1 + 1 - 1 + 1&hellip; <i>in your own style!</i></td>
+    <td class="grey solution-text"><b>(6)</b></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="im-fell-dw-pica centered"><b>(c)</b></div>
+    </td>
+    <td colspan="3" class="blue">Even number</td>
+    <td class="grey solution-text"><b>(25)</b></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="im-fell-dw-pica centered"><b>(d)</b></div>
+    </td>
+    <td colspan="3" class="blue">All known real valued parts to non-trival zeroes of the Riemann zeta function</td>
+    <td class="grey solution-text"><b>(6)</b></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue"><i>Instructions: Answer above with boxes provided below. Note the Code.</i></td>
+    <td class="green"></td>
+    <td class="light-grey"></td>
+    <td colspan="2" class="no-right-border"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="im-fell-dw-pica centered"><b>(a&ndash;d)</b></div>
+    </td>
+    <td colspan="3" class="blue">
+      <div class="flexbox indented">
+        <div class="box"></div>
+        <div>-1</div>
+      </div>
+    </td>
+    <td class="green">7</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue">
+      <div class="flexbox indented">
+        <div class="box"></div>
+        <div>0</div>
+      </div>
+    </td>
+    <td class="green">25</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue">
+      <div class="flexbox indented">
+        <div class="box"></div>
+        <div>&frac12;</div>
+      </div>
+    </td>
+    <td class="green">6</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue">
+      <div class="flexbox indented">
+        <div class="box"></div>
+        <div>1</div>
+      </div>
+    </td>
+    <td class="green">04</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue">
+      <div class="flexbox indented">
+        <div class="box"></div>
+        <div>Other/unknown</div>
+      </div>
+    </td>
+    <td class="green">18</td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="number-header"><b>4</b></div>
+    </td>
+    <td colspan="3" class="blue">Age at expected death</td>
+    <td class="dark-blue solution-text"><b>32</b></td>
+    <td class="light-grey"></td>
+    <td colspan="2" class="no-right-border"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="number-header"><b>5</b></div>
+    </td>
+    <td colspan="3" class="blue">Sum answer in part [4] with Code [1]</td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">099532</span></b></td>
+    <td colspan="2" class="borderless solution-text"><b>T</b></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="number-header"><b>6</b></div>
+    </td>
+    <td colspan="3" class="blue">Concatenate Codes part [2]</td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">033502</span></b></td>
+    <td colspan="2" class="borderless solution-text"><b>A</b></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="number-header"><b>7</b></div>
+    </td>
+    <td colspan="3" class="blue">Concatenate Codes part [3] (a)&ndash;(d)</td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">046256</span></b></td>
+    <td colspan="2" class="no-top-border no-right-border solution-text"><b>X</b></td>
+  </tr>
+  <tr>
+    <td class="light-grey word-header"><b>II. Blank</b></td>
+    <td class="light-grey">
+      <div class="number-header"><b>8</b></div>
+    </td>
+    <td colspan="3" class="light-grey word-header">
+      <b>[This section intentionally left blank]</b>
+    </td>
+    <td class="grey"></td>
+    <td class="light-grey solution-text"><b>BLANK</b></td>
+    <td colspan="2" class="borderless solution-text"><b>[]</b></td>
+  </tr>
+  <tr>
+    <td class="green word-header"><b>III. Income</b></td>
+    <td class="green"></td>
+    <td colspan="3" class="green word-header"><b>[This section to be continued]</b></td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless solution-text"><b>[continued fractions]</b></td>
+    <td class="green"></td>
+    <td colspan="3" class="green"><i>Instructions: Calculate your fraction of use. Ignore repeating &ldquo;1&rdquo;s.</i></td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+    <td colspan="2" class="no-top-border no-right-border"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="green">
+      <div class="number-header"><b>9</b></div>
+    </td>
+    <td colspan="3" class="green">[7708061 - &radic;5] / 7014298</td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">110921</span></b></td>
+    <td colspan="2" class="borderless solution-text"><b>D</b></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="green">
+      <div class="number-header"><b>10</b></div>
+    </td>
+    <td colspan="3" class="green">[166495 - &radic;5] / 51362</td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">003476</span></b></td>
+    <td colspan="2" class="borderless solution-text"><b>O</b></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="green">
+      <div class="number-header"><b>11</b></div>
+    </td>
+    <td colspan="3" class="green">[153333195 + &radic;5] / 18836890</td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">087788</span></b></td>
+    <td colspan="2" class="no-top-border no-right-border solution-text"><b>C</b></td>
+  </tr>
+</table>
+
+<table>
+  <tr class="no-top-border">
+    <td colspan="3">
+      <div class="xx-small-text scheherazade">Department of the Treasury&mdash;Internal Revenue Service</div>
+      <div class="large-text"><b>Estate Forms</b></div>
+    </td>
+    <td class="column-4">
+      <div class="x-large-text">Form &ldquo;A&rdquo;</div>
+    </td>
+    <td colspan="5">
+      <div class="flexbox column">
+        <div class="x-small-text im-fell-dw-pica flex-end">IRS use only&mdash;Do not write or staple in this space.</div>
+        <div class="im-fell-dw-pica flex-end">See separate instructions.</div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div class="xx-small-text scheherazade">For the year of Jan 1&ndash;Dec 31<sup>st</sup></div>
+      <div class="x-large-text im-fell-dw-pica">19<b>20</b></div>
+    </td>
+    <td class="column-3"></td>
+    <td colspan="5">
+      <div class="x-large-text">Carriages and Similar Vehicles</div>
+    </td>
+    <td class="column-9">
+      <div>P.2</div>
+    </td>
+  </tr>
+  <tr>
+    <td class="column-1 grey"></td>
+    <td class="column-2 grey"></td>
+    {#
+      There's an implicit fifth column in the layout that I need to
+      explicitly set the width of.
+    #}
+    <td colspan="2" class="no-right-border grey"></td>
+    <td class="column-5 no-left-border grey"> </td>
+    <td>
+      <div><b>Code</b></div>
+    </td>
+    <td>
+      <div><b>A Series</b></div>
+    </td>
+    <td class="column-8"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="blue word-header"><b>IV. Adjustments</b></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue word-header"><b>[This section: abracadabra!]</b></td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless solution-text"><b>[magic square]</b></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue"><i>Instructions: Pull some numbers out of your hat</i></td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+    <td colspan="2" class="no-top-border no-right-border"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue">
+      <div class="number-header"><b>12</b></div>
+    </td>
+    <td colspan="3">
+      <table class="grid im-fell-dw-pica large-text indented">
+        <tr>
+          <td>
+            18
+          </td>
+          <td class="burgundy solution-text">
+            <b>7</b>
+          </td>
+          <td>
+            8
+          </td>
+          <td class="dark-green solution-text">
+            <b>3</b>
+          </td>
+        </tr>
+        <tr>
+          <td class="yellow solution-text">
+            <b>2</b>
+          </td>
+          <td>
+            9
+          </td>
+          <td>
+            12
+          </td>
+          <td>
+            13
+          </td>
+        </tr>
+        <tr>
+          <td>
+            10
+          </td>
+          <td>
+            15
+          </td>
+          <td class="purple solution-text">
+            <b>0</b>
+          </td>
+          <td>
+            11
+          </td>
+        </tr>
+        <tr>
+          <td class="mid-blue solution-text">
+            <b>6</b>
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            16
+          </td>
+          <td>
+            9
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">072360</span></b></td>
+    <td colspan="2" class="no-top-border no-right-border solution-text"><b>U</b></td>
+  </tr>
+  <tr>
+    <td class="green word-header"><b>V. Exemptions</b></td>
+    <td class="green"></td>
+    <td colspan="3" class="green word-header"><b>[This section is adorable]</b></td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless solution-text"><b>[Death Cab for Cutie lyrics]</b></td>
+    <td class="green">
+      <div class="number-header"><b>13</b></div>
+    </td>
+    <td colspan="3" class="green">&ldquo;Home&rsquo;s a&rsquo;fire&rdquo; insurance</td>
+    <td class="grey"></td>
+    <td class="light-grey solution-text"><b>Nothing</b></td>
+  </tr>
+  <tr>
+    <td class="borderless solution-text"><b>[use numbers in songs]</td>
+    <td class="green">
+      <div class="number-header"><b>14</b></div>
+    </td>
+    <td colspan="3" class="green">&ldquo;Tiny vessels&rdquo; saving for surgery fund</td>
+    <td class="grey"></td>
+    <td class="light-grey solution-text"><b>2</b></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="green">
+      <div class="number-header"><b>15</b></div>
+    </td>
+    <td colspan="3" class="green">St. Peter&rsquo;s Cathedral restoration charity</td>
+    <td class="grey"></td>
+    <td class="light-grey solution-text"><b>Nothing</b></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="green">
+      <div class="number-header"><b>16</b></div>
+    </td>
+    <td colspan="3" class="green">&ldquo;Codes and keys&rdquo; musical cryptography after school program</td>
+    <td class="grey"></td>
+    <td class="light-grey solution-text"><b>1</b></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="green">
+      <div class="number-header"><b>17</b></div>
+    </td>
+    <td colspan="3" class="green">Scientist studies research and development credit</td>
+    <td class="grey"></td>
+    <td class="light-grey solution-text"><b>4</b></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="green">
+      <div class="number-header"><b>18</b></div>
+    </td>
+    <td colspan="3" class="green">Kelly Huckaby memorial fund</td>
+    <td class="grey"></td>
+    <td class="light-grey solution-text"><b>5</b></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="green">
+      <div class="number-header"><b>19</b></div>
+    </td>
+    <td colspan="3" class="green"><b>Total exemptions</b></td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">020145</span></b></td>
+    <td colspan="2" class="no-right-border solution-text"><b>M</b></td>
+  </tr>
+  <tr>
+    <td class="blue word-header"><b>VI. Payments</b></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue word-header"><b>[This section is a bit derisive]</b></td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless solution-text"><b>[famous equation on Ramanujan wiki page is a solution for pi. Rerranged, it becomes this number]</b></td>
+    <td class="blue">
+      <div class="number-header"><b>20</b></div>
+    </td>
+    <td colspan="3" class="blue">
+      Yo momma is so numeric that she multiplied pi by fifty-four point eight six nine three five oh six eight six nine and multiplied this by the sum from k equals zero to infinity of four k factorial times the quantity one thousand one hundred and three plus twenty-six thousand three hundred ninety k all over k factorial to the fourth power times three hundred ninety-six to the four kth power.
+    </td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="blue"></td>
+    <td colspan="3" class="blue"><b>Total payments</b></td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">190132</span></b></td>
+    <td colspan="2" class="no-right-border solution-text"><b>E</b></td>
+  </tr>
+  <tr>
+    <td class="green word-header"><b>VII. Refund</b></td>
+    <td class="green"></td>
+    <td colspan="3" class="green word-header"><b>[This section is refunded to you]</b></td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+  </tr>
+  <tr>
+    <td class="borderless solution-text"><b>[type series into OEIS for unique series]</b></td>
+    <td class="green"></td>
+    <td colspan="3" class="green"><i>Instructions: Found objects; find more</i></td>
+    <td class="grey"></td>
+    <td class="light-grey"></td>
+    <td colspan="2" class="no-right-border no-top-border"></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="green">
+      <div class="number-header"><b>21</b></div>
+    </td>
+    <td colspan="3" class="green courier small-text">121, 286, 561</td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">122780</span></b></td>
+    <td colspan="2" class="borderless solution-text"><b>N</b></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="green">
+      <div class="number-header"><b>22</b></div>
+    </td>
+    <td colspan="3" class="green courier small-text">19096, 23001, 26335</td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">231569</span></b></td>
+    <td colspan="2" class="borderless solution-text"><b>T</b></td>
+  </tr>
+  <tr>
+    <td class="borderless"></td>
+    <td class="green">
+      <div class="number-header"><b>23</b></div>
+    </td>
+    <td colspan="3" class="green courier small-text">4606, 250, 765</td>
+    <td class="grey"></td>
+    <td class="blue outlined"><b>A <span class="solution-text">061147</span></b></td>
+    <td colspan="2" class="borderless solution-text"><b>S</b></td>
+  </tr>
+  <tr class="grey spacer">
+    <td></td>
+    <td></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr class="grey spacer">
+    <td></td>
+    <td></td>
+    <td colspan="3"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="outlined"><b>Total Amount Owed</b></td>
+    <td class="outlined"></td>
+    <td colspan="3" class="outlined centered large-text courier">
+      <div class="solution-text"><b>T A X D O C U M E N T S</b></div>
+      <div><b>_ _ _ _ _ _ _ _ _ _ _ _</b></div>
+    </td>
+    <td class="outlined"></td>
+    <td colspan="3" class="outlined"></td>
+  </tr>
+</table>
+{% endblock %}

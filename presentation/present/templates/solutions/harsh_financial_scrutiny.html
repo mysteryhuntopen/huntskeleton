@@ -1,0 +1,297 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Kawika Pierson{% endblock %}
+{% block solution %}CEILING{% endblock %}
+
+{% block solution_head_block %}
+{% endblock %}
+
+{% block solution_content_block %}
+  <p>Each of the Pokémon terms in the puzzle corresponds to a standard
+    set of financial terms and ratios that can be used to perform
+    calculations. As confirmation, each Pokémon starts with the same
+    letter as the financial term it replaces, and contains the same
+    number of syllables:</p>
+
+  <table class="solution-table condensed-table">
+    <thead>
+      <tr>
+        <th>Term</th>
+        <th>Replacement</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>Accounts</td>
+      <td>Arboks</td>
+    </tr>
+    <tr>
+      <td>Assets</td>
+      <td>Aggrons</td>
+    </tr>
+    <tr>
+      <td>Current</td>
+      <td>Cubone</td>
+    </tr>
+    <tr>
+      <td>Dividends</td>
+      <td>Dragonairs</td>
+    </tr>
+    <tr>
+      <td>Earnings</td>
+      <td>Eevee</td>
+    </tr>
+    <tr>
+      <td>Equity</td>
+      <td>Espeon</td>
+    </tr>
+    <tr>
+      <td>Expense</td>
+      <td>Ekans</td>
+    </tr>
+    <tr>
+      <td>Goods</td>
+      <td>Glooms</td>
+    </tr>
+    <tr>
+      <td>Goodwill</td>
+      <td>Gastly</td>
+    </tr>
+    <tr>
+      <td>Income</td>
+      <td>Inkay</td>
+    </tr>
+    <tr>
+      <td>Interest</td>
+      <td>Ivysaur</td>
+    </tr>
+    <tr>
+      <td>Inventory</td>
+      <td>Incineroar</td>
+    </tr>
+    <tr>
+      <td>Margin</td>
+      <td>Mareep</td>
+    </tr>
+    <tr>
+      <td>Operating</td>
+      <td>Oranguru</td>
+    </tr>
+    <tr>
+      <td>Payable</td>
+      <td>Porygon</td>
+    </tr>
+    <tr>
+      <td>Profit</td>
+      <td>Pyroar</td>
+    </tr>
+    <tr>
+      <td>Ratio</td>
+      <td>Rattata</td>
+    </tr>
+    <tr>
+      <td>Revenue</td>
+      <td>Rapidash</td>
+    </tr>
+    <tr>
+      <td>Share</td>
+      <td>Shinx</td>
+    </tr>
+    <tr>
+      <td>Tax</td>
+      <td>Throh</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td>Tauros</td>
+    </tr>
+    <tr>
+      <td>Turnover</td>
+      <td>Tornadus</td>
+    </tr>
+  </table>
+
+  <p>Using this glossary, the provided financial statements can be
+    adjusted to use their proper terms, along with the ratios provided
+    in the puzzle. However, some of the ratios have differing
+    definitions depending on the source. Here are the definitions used
+    for this puzzle, along with the correct values:</p>
+
+  <table class="solution-table condensed-table">
+    <thead>
+      <tr>
+        <th>Term</th>
+        <th>Formula</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>Inventory Turnover</td>
+      <td>Cost of goods sold / Average Inventory</td>
+      <td>1.4759220</td>
+    </tr>
+    <tr>
+      <td>Dividends per Share</td>
+      <td>Dividends paid / Shares outstanding</td>
+      <td>1.0465680</td>
+    </tr>
+    <tr>
+      <td>Earnings per Share</td>
+      <td>(Net Income – Preferred Dividends) / Shares outstanding </td>
+      <td>1.1171060</td>
+    </tr>
+    <tr>
+      <td>Profit Margin</td>
+      <td>Net Income / Revenue</td>
+      <td>0.0986770</td>
+    </tr>
+    <tr>
+      <td>Gross Margin</td>
+      <td>Gross profit / Revenue</td>
+      <td>0.7267280</td>
+    </tr>
+    <tr>
+      <td>Asset Turnover</td>
+      <td>Revenue / Average Total Assets</td>
+      <td>1.4248470</td>
+    </tr>
+    <tr>
+      <td>R&amp;D to Revenue</td>
+      <td>Research and development expense / Revenue</td>
+      <td>0.0859610</td>
+    </tr>
+    <tr>
+      <td>Interest Coverage Ratio</td>
+      <td>Operating profit / Interest expense</td>
+      <td>1.6167070</td>
+    </tr>
+    <tr>
+      <td>Payables Turnover</td>
+      <td>(Cost of goods sold + 2018 Inventory - 2017 Inventory) / Average Accounts payable</td>
+      <td>1.0536500</td>
+    </tr>
+    <tr>
+      <td>Debt to Equity</td>
+      <td>Total liabilities / Total equity</td>
+      <td>1.1108050</td>
+    </tr>
+    <tr>
+      <td>Quick Ratio</td>
+      <td>(Cash and equivalents + Accounts receivable) / Total current liabilities</td>
+      <td>1.0141110</td>
+    </tr>
+    <tr>
+      <td>Operating Margin</td>
+      <td>Operating profit / Revenue</td>
+      <td>0.3145900</td>
+    </tr>
+    <tr>
+      <td>Current Ratio</td>
+      <td>Total current assets / Total current liabilities</td>
+      <td>1.3112410</td>
+    </tr>
+    <tr>
+      <td>Cash Ratio</td>
+      <td>Cash and equivalents / Total current liabilities</td>
+      <td>0.7327170</td>
+    </tr>
+  </table>
+
+  <p>Each of these ratios has a 0 in the seventh decimal place,
+    suggesting that only the first 6 digits matter. The term
+    &ldquo;Certified Internal Kantophile&rdquo; from the flavor text
+    suggests CIK numbers, which the
+    <a href="https://www.sec.gov/edgar/searchedgar/companysearch.html">SEC EDGAR</a> website
+    uses to identify companies. Each of the ratios is a valid CIK.</p>
+
+  <p>Finding the indicated companies and their ticker symbol (as
+    suggested by the inclusion of a ticker symbol for Meowth Corp)
+    produces a clue phrase:</p>
+
+  <table class="solution-table condensed-table">
+    <thead>
+      <tr>
+        <th>CIK</th>
+        <th>Company</th>
+        <th>Ticker</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>1475922</td>
+      <td>Primerica, Inc.</td>
+      <td>PRI</td>
+    </tr>
+    <tr>
+      <td>1046568</td>
+      <td>Career Education Corp.</td>
+      <td>CECO</td>
+    </tr>
+    <tr>
+      <td>1117106</td>
+      <td>NetSuite Inc</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>0098677</td>
+      <td>Tootsie Roll Industries, Inc.</td>
+      <td>TR</td>
+    </tr>
+    <tr>
+      <td>0726728</td>
+      <td>Realty Income Corp</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>1424847</td>
+      <td>Lorillard LLC</td>
+      <td>LO</td>
+    </tr>
+    <tr>
+      <td>0085961</td>
+      <td>Ryder System, Inc.</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <td>1616707</td>
+      <td>Wayfair Inc</td>
+      <td>W</td>
+    </tr>
+    <tr>
+      <td>1053650</td>
+      <td>Omega Protein Corporation</td>
+      <td>OME</td>
+    </tr>
+    <tr>
+      <td>1110805</td>
+      <td>NuStar Energy L.P.</td>
+      <td>NS</td>
+    </tr>
+    <tr>
+      <td>1014111</td>
+      <td>Glassbridge Enterprises Inc</td>
+      <td>GLA</td>
+    </tr>
+    <tr>
+      <td>0314590</td>
+      <td>Sasol Limited (ADR)</td>
+      <td>SSL</td>
+    </tr>
+    <tr>
+      <td>1311241</td>
+      <td>Intermolecular Inc</td>
+      <td>IMI</td>
+    </tr>
+    <tr>
+      <td>0732717</td>
+      <td>AT&amp;T Inc.</td>
+      <td>T</td>
+    </tr>
+  </table>
+
+  <p>This yields the clue phrase <code>PRICE CONTROL OR WOMENS GLASS
+    LIMIT</code>, cluing the answer
+    <strong><code>CEILING</code></strong>.</p>
+{% endblock %}

@@ -1,0 +1,260 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By John Bohannon and Sebastian Wernicke{% endblock %}
+{% block solution %}REAL FOOD{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .monospace {
+    font-family: monospace;
+  }
+
+  .puzzle-content .break-word {
+    word-wrap: break-word;
+  }
+
+  .puzzle-content .separated > div {
+    margin-bottom: 10px;
+  }
+
+  .puzzle-content .pipe-separated {
+    display: flex;
+  }
+
+  .puzzle-content .pipe-separated span:not(:last-child) {
+    border-right: 1px solid gray;
+    margin-right: 10px;
+    padding-right: 10px;
+  }
+
+  .puzzle-content .center-vertically {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .plate-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .puzzle-content .plate-line {
+    stroke: blue;
+    stroke-width: 1;
+  }
+
+  .puzzle-content .preserve-whitespace > div {
+    white-space: pre;
+  }
+
+  .puzzle-content .solution-blocks {
+    line-height: 1;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>All ingredients start with either a B or a W. If the quantities for each ingredient are converted to tablespoons (as the portion size for the Preparatory Steps suggests), then each recipe converts to a string of B and W. The ingredients of the Preparatory Steps thereby serve as a shorthand for longer strings of B and W.</p>
+<div class="preparatory-recipes monospace separated break-word">
+  <div>
+    <div>Spice Mix ( A ) --> BWBW</div>
+    <div>BWBW 4</div>
+  </div>
+  <div>
+    <div>Seasoning Sauce ( C ) --> BWWBWW</div>
+    <div>BWWBWW 6</div>
+  </div>
+  <div>
+    <div>Grubby Rub ( D ) --> BWBB</div>
+    <div>BWBB 4</div>
+  </div>
+  <div>
+    <div>Funky Salsa ( E ) -->  WBAWDWBAACWCACAWBWWBBACWBWWBDWWBA</div>
+    <div>WBBWBWWBWBBWBBWBWBWBWBWWBWWWBWWBWWBWBWBWWBWWBWBWWBWWBBBWBWBWWBWWWBWWBBWBBWWBBWBW 80</div>
+  </div>
+  <div>
+    <div>Special Flavoring ( F ) -->  BAWBAAAWCBWWABBDWBAWBDAAWCWAADWBD</div>
+    <div>BBWBWWBBWBWBWBWBWBWWBWWBWWBWWBWBWBBBWBBWBBWBWWBBWBBBWBWBWBWWBWWBWWWBWBWBWBWBWBBWBBWBB 85</div>
+  </div>
+  <div>
+    <div>Tasty Crumbles ( G ) -->  WBAWCWCCAACCWCBBWBADWWBAWCWCCBBAB</div>
+    <div>WBBWBWWBWWBWWWBWWBWWBWWBWWBWBWBWBWBWWBWWBWWBWWWBWWBWWBBWBBWBWBWBBWWBBWBWWBWWBWWWBWWBWWBWWBWWBBBWBWB 99</div>
+  </div>
+  <div>
+    <div>Hot Proteins ( H ) -->  WBBBEWDWBAACWCACAWWDDCWBWWBAAWBAB</div>
+    <div>WBBBWBBWBWWBWBBWBBWBWBWBWBWWBWWWBWWBWWBWBWBWWBWWBWBWWBWWBBBWBWBWWBWWWBWWBBWBBWWBBWBWWBWBBWBBWBWBWBWBWWBWWWBWWBWWBWBWBWWBWWBWBWWWBWBBBWBBBWWBWWWBWWBBWBWBWBWWBBWBWB 162</div>
+  </div>
+  <div>
+    <div>Dark Concentrate ( J ) --> WBAWAWAAAAWACAWAADAWABBWBABDABBWW</div>
+    <div>WBBWBWWBWBWWBWBWBWBWBWBWBWBWWBWBWBWWBWWBWBWWBWBWBWBWBWBBBWBWWBWBWBBWBBWBWBBWBBBWBWBBWW 86</div>
+  </div>
+  <div>
+    <div>Strong Fortifier ( K ) --> DAWBBWBCBBBGWWBWBAWBWWWBWWBDWBAAD</div>
+    <div>BWBBBWBWWBBWBBWWBWWBBBWBBWBWWBWWBWWWBWWBWWBWWBWWBWBWBWBWBWWBWWBWWBWWWBWWBWWBBWBBWBWBWBBWWBBWBWWBWWBWWWBWWBWWBWWBWWBBBWBWBWWBWBBWBWWBWWWBWWBBWBBWBBWBWBWBWBWBB 157</div>
+  </div>
+  <div>
+    <div>Cold Carbs ( L ) -->  BBAWBBWBCADAAWCWBWWBBAABBAWBBWBC</div>
+    <div>BBBWBWWBBWBBWWBWWBWBWBWBBBWBWBWBWWBWWBWWWBWWBBBWBWBWBWBBBWBWWBBWBBWWBWW 71</div>
+  </div>
+</div>
+<p>Decoding the main recipe works exactly the same way, only it leads to much longer strings. The lengths of the strings are all multiples of 5:</p>
+<div class="pipe-separated">
+  <span>100 = 20 x 5</span>
+  <span>160 = 32 x 5</span>
+  <span>85 = 17 x 5</span>
+  <span>95 = 19 x 5</span>
+  <span>185 = 37 x 5</span>
+  <span>165 = 33 x 5</span>
+  <span>110 = 22 x 5</span>
+  <span>135 = 27 x 5</span>
+</div>
+<p>These are the same as the number of little squares for each of the eight rectangle shapes in the serving suggestion.</p>
+<p>Writing each string of B and W in 5 lines (as the serving suggestion hints) gives the following result:</p><div class="center-vertically">
+  <div class="plate-display">
+    <svg height="200" width="400">
+      <line x1="210" y1="190" x2="390" y2="10" class="plate-line" />
+    </svg>
+    <img src="{{ asset_url_for('solutions/cooking_a_recipe/plate.png') }}"/>
+    <svg height="200" width="400">
+      <line x1="210" y1="10" x2="390" y2="190" class="plate-line" />
+    </svg>
+  </div>
+  <div class="monospace separated">
+    <div>
+      <div>BWBWBWBWBBWBBWBWWBBW</div>
+      <div>BWBWBWBWBWWBWWBWWBWW</div>
+      <div>BWBWBBBWBBWBBWBWWBBW</div>
+      <div>BBBWBWBWBWWBWWBWWWBW</div>
+      <div>BWBWBWBWBBWBBWBBWBBW</div>
+    </div>
+    <div>
+      <div>BWBWBBWBWWBWBBWBBBWBWBBWWWBWWBWW</div>
+      <div>BWBWBWWBWWBWBWWBWBWBWBWBWBWBWBWW</div>
+      <div>BBBWBBWBWWBWBWWBWBWBWBWBWBWBWBWW</div>
+      <div>BWBWBWWBWWBWBWWBWBWBWBWBWBBBWBWW</div>
+      <div>BWBWBBWBBWBWBBWBBBWBWBBWWBWBWBBW</div>
+    </div>
+    <div>
+      <div>BBBWBWBBBWBBBWBBW</div>
+      <div>BWBWBWBWBWBWWWBWW</div>
+      <div>BBWWBWBWBWBWBWBBW</div>
+      <div>BWBWBWBWBWBWBWWBW</div>
+      <div>BWBWBWBWBWBBBWBBW</div>
+    </div>
+    <div>
+      <div>BBWBBBWWBWWBWBWWBBW</div>
+      <div>BWWBWBWBWBWBWBWWBWW</div>
+      <div>BBWBWBWBWBWBWBWWBBW</div>
+      <div>WBWBWBWBBBWBWBWWWBW</div>
+      <div>BBWBWBWBWBWBWBBWBBW</div>
+    </div>
+    <div>
+      <div>BBBWBWBWBBBWBBBWBBWBBBWBBWBWWBWBBWBBW</div>
+      <div>BWBWBWBWWBWWWBWWBWWBWBWBWWBWWBWBWWBWW</div>
+      <div>BBBWBWBWWBWWWBWWBBWBBWWBBWBWWBWBBWBBW</div>
+      <div>BWBWBWBWWBWWWBWWBWWBWBWBWWBWWBWBWWWBW</div>
+      <div>BBBWBBBWWBWWWBWWBBWBWBWBWWBBWBWBBWBBW</div>
+    </div>
+    <div>
+      <div>BWWBWBBBWBBBWBWWBBWBBWWBWWBBBWBBW</div>
+      <div>BWWBWWBWWWBWWBWWBWWBWWBWBWBWBWBWW</div>
+      <div>BWWBWWBWWWBWWBWWBBWBBWBWBWBBWWBBW</div>
+      <div>BWWBWWBWWWBWWBWWBWWBWWBBBWBWBWWBW</div>
+      <div>BBWBWWBWWWBWWBBWBBWBBWBWBWBWBWBBW</div>
+    </div>
+    <div>
+      <div>BBBWWBWWBBBWBWWBBWBWBW</div>
+      <div>BWBWBWBWBWBWBWWBWWBWBW</div>
+      <div>BBBWBWBWBBWWBWWBBWWBWW</div>
+      <div>BWBWBBBWBWBWBWWBWWWBWW</div>
+      <div>BBBWBWBWBWBWBBWBBWWBWW</div>
+    </div>
+    <div>
+      <div>BBBWBWBWBWBWBWBBBWBWWBBWBBW</div>
+      <div>WBWWBWBWBWBBBWBWBWBWWBWWBWW</div>
+      <div>WBWWBBBWBWBWBWBBBWBWWBBWBBW</div>
+      <div>WBWWBWBWBWBWBWBWBWBWWBWWWBW</div>
+      <div>WBWWBWBWBWBWBWBBBWBBWBBWBBW</div>
+    </div>
+  </div>
+</div>
+<p>Each string contains an encoded word that becomes clearly visible when treating the B as <b>b</b>lack pixels and the W as <b>w</b>hite pixels:</p>
+<div class="center-horizontally">
+  <div class="monospace separated">
+    <div class="preserve-whitespace solution-blocks">
+      <div>&#9608; &#9608; &#9608; &#9608; &#9608;&#9608; &#9608;&#9608; &#9608;  &#9608;&#9608; </div>
+      <div>&#9608; &#9608; &#9608; &#9608; &#9608;  &#9608;  &#9608;  &#9608;  </div>
+      <div>&#9608; &#9608; &#9608;&#9608;&#9608; &#9608;&#9608; &#9608;&#9608; &#9608;  &#9608;&#9608; </div>
+      <div>&#9608;&#9608;&#9608; &#9608; &#9608; &#9608;  &#9608;  &#9608;   &#9608; </div>
+      <div>&#9608; &#9608; &#9608; &#9608; &#9608;&#9608; &#9608;&#9608; &#9608;&#9608; &#9608;&#9608; </div>
+    </div>
+    <div class="preserve-whitespace solution-blocks">
+      <div>&#9608; &#9608; &#9608;&#9608; &#9608;  &#9608; &#9608;&#9608; &#9608;&#9608;&#9608; &#9608; &#9608;&#9608;   &#9608;  &#9608;  </div>
+      <div>&#9608; &#9608; &#9608;  &#9608;  &#9608; &#9608;  &#9608; &#9608; &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;  </div>
+      <div>&#9608;&#9608;&#9608; &#9608;&#9608; &#9608;  &#9608; &#9608;  &#9608; &#9608; &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;  </div>
+      <div>&#9608; &#9608; &#9608;  &#9608;  &#9608; &#9608;  &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;&#9608;&#9608; &#9608;  </div>
+      <div>&#9608; &#9608; &#9608;&#9608; &#9608;&#9608; &#9608; &#9608;&#9608; &#9608;&#9608;&#9608; &#9608; &#9608;&#9608;  &#9608; &#9608; &#9608;&#9608; </div>
+    </div>
+    <div class="preserve-whitespace solution-blocks">
+      <div>&#9608;&#9608;&#9608; &#9608; &#9608;&#9608;&#9608; &#9608;&#9608;&#9608; &#9608;&#9608; </div>
+      <div>&#9608; &#9608; &#9608; &#9608; &#9608; &#9608;   &#9608;  </div>
+      <div>&#9608;&#9608;  &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;&#9608; </div>
+      <div>&#9608; &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;  &#9608; </div>
+      <div>&#9608; &#9608; &#9608; &#9608; &#9608; &#9608;&#9608;&#9608; &#9608;&#9608; </div>
+    </div>
+    <div class="preserve-whitespace solution-blocks">
+      <div>&#9608;&#9608; &#9608;&#9608;&#9608;  &#9608;  &#9608; &#9608;  &#9608;&#9608; </div>
+      <div>&#9608;  &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;  &#9608;  </div>
+      <div>&#9608;&#9608; &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;  &#9608;&#9608; </div>
+      <div> &#9608; &#9608; &#9608; &#9608;&#9608;&#9608; &#9608; &#9608;   &#9608; </div>
+      <div>&#9608;&#9608; &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;&#9608; &#9608;&#9608; </div>
+    </div>
+    <div class="preserve-whitespace solution-blocks">
+      <div>&#9608;&#9608;&#9608; &#9608; &#9608; &#9608;&#9608;&#9608; &#9608;&#9608;&#9608; &#9608;&#9608; &#9608;&#9608;&#9608; &#9608;&#9608; &#9608;  &#9608; &#9608;&#9608; &#9608;&#9608; </div>
+      <div>&#9608; &#9608; &#9608; &#9608;  &#9608;   &#9608;  &#9608;  &#9608; &#9608; &#9608;  &#9608;  &#9608; &#9608;  &#9608;  </div>
+      <div>&#9608;&#9608;&#9608; &#9608; &#9608;  &#9608;   &#9608;  &#9608;&#9608; &#9608;&#9608;  &#9608;&#9608; &#9608;  &#9608; &#9608;&#9608; &#9608;&#9608; </div>
+      <div>&#9608; &#9608; &#9608; &#9608;  &#9608;   &#9608;  &#9608;  &#9608; &#9608; &#9608;  &#9608;  &#9608; &#9608;   &#9608; </div>
+      <div>&#9608;&#9608;&#9608; &#9608;&#9608;&#9608;  &#9608;   &#9608;  &#9608;&#9608; &#9608; &#9608; &#9608;  &#9608;&#9608; &#9608; &#9608;&#9608; &#9608;&#9608; </div>
+    </div>
+    <div class="preserve-whitespace solution-blocks">
+      <div>&#9608;  &#9608; &#9608;&#9608;&#9608; &#9608;&#9608;&#9608; &#9608;  &#9608;&#9608; &#9608;&#9608;  &#9608;  &#9608;&#9608;&#9608; &#9608;&#9608; </div>
+      <div>&#9608;  &#9608;  &#9608;   &#9608;  &#9608;  &#9608;  &#9608;  &#9608; &#9608; &#9608; &#9608; &#9608;  </div>
+      <div>&#9608;  &#9608;  &#9608;   &#9608;  &#9608;  &#9608;&#9608; &#9608;&#9608; &#9608; &#9608; &#9608;&#9608;  &#9608;&#9608; </div>
+      <div>&#9608;  &#9608;  &#9608;   &#9608;  &#9608;  &#9608;  &#9608;  &#9608;&#9608;&#9608; &#9608; &#9608;  &#9608; </div>
+      <div>&#9608;&#9608; &#9608;  &#9608;   &#9608;  &#9608;&#9608; &#9608;&#9608; &#9608;&#9608; &#9608; &#9608; &#9608; &#9608; &#9608;&#9608; </div>
+    </div>
+    <div class="preserve-whitespace solution-blocks">
+      <div>&#9608;&#9608;&#9608;  &#9608;  &#9608;&#9608;&#9608; &#9608;  &#9608;&#9608; &#9608; &#9608; </div>
+      <div>&#9608; &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;  &#9608;  &#9608; &#9608; </div>
+      <div>&#9608;&#9608;&#9608; &#9608; &#9608; &#9608;&#9608;  &#9608;  &#9608;&#9608;  &#9608;  </div>
+      <div>&#9608; &#9608; &#9608;&#9608;&#9608; &#9608; &#9608; &#9608;  &#9608;   &#9608;  </div>
+      <div>&#9608;&#9608;&#9608; &#9608; &#9608; &#9608; &#9608; &#9608;&#9608; &#9608;&#9608;  &#9608;  </div>
+    </div>
+    <div class="preserve-whitespace solution-blocks">
+      <div>&#9608;&#9608;&#9608; &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;&#9608;&#9608; &#9608;  &#9608;&#9608; &#9608;&#9608; </div>
+      <div> &#9608;  &#9608; &#9608; &#9608; &#9608;&#9608;&#9608; &#9608; &#9608; &#9608;  &#9608;  &#9608;  </div>
+      <div> &#9608;  &#9608;&#9608;&#9608; &#9608; &#9608; &#9608; &#9608;&#9608;&#9608; &#9608;  &#9608;&#9608; &#9608;&#9608; </div>
+      <div> &#9608;  &#9608; &#9608; &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;  &#9608;   &#9608; </div>
+      <div> &#9608;  &#9608; &#9608; &#9608; &#9608; &#9608; &#9608;&#9608;&#9608; &#9608;&#9608; &#9608;&#9608; &#9608;&#9608; </div>
+    </div>
+  </div>
+</div>
+<p>Each word is the English translation of an Italian pasta type:</p>
+<div>
+  <div><code>RUOTE</code></div>
+  <div><code>ELICOIDALE</code></div>
+  <div><code>ANELLI</code></div>
+  <div><code>LUMACHE</code></div>
+  <div><code>FARFALLE</code></div>
+  <div><code>ORECCHIETTE</code></div>
+  <div><code>ORZO</code></div>
+  <div><code>DITALI</code></div>
+</div>
+<p>Taking the first letter of each word yields <strong><code>REAL FOOD</code></strong>, the solution.</p>
+{% endblock %}

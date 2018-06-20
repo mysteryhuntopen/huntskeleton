@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+gcloud auth activate-service-account "--key-file=$GOOGLE_APPLICATION_CREDENTIALS"
+gsutil \
+    -m \
+    -h 'Cache-Control:public, max-age=2592000' \
+    rsync \
+    -a public-read \
+    -r \
+    /opt/src/dist gs://hunt2018-assets/
+cd presentation
+
+exec /opt/vendor/bin/gunicorn \
+    --enable-stdio-inheritance \
+    --bind 0.0.0.0:5000 \
+    --workers 8 \
+    --log-file - \
+    --worker-class gevent \
+    run_present:app

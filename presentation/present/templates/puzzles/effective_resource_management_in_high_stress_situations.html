@@ -1,0 +1,234 @@
+{% extends "solutions/solution_layout.html" %}
+{% import "/event_macros.html" as event_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block byline %}By Wesley Graybill and Nicholas Georgiou{% endblock %}
+
+{% block solution %}NICK OF TIME{% endblock %}
+
+{% block puzzle_head_block %}
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/solution.css') }}">
+<style>
+  .puzzle-content table {
+    margin-bottom: 20px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+{{ event_macros.generate_event_content(puzzle.puzzleId) }}
+<div id="main-page-content">
+  <p>When teams arrived at La Sala de Puerto Rico, they were given the following puzzle sheets:</p>
+
+  <p>
+    <div><a href="{{ asset_url_for('puzzles/effective_resource_management_in_high_stress_situations/1.pdf') }}">Sheet 1</a></div>
+    <div><a href="{{ asset_url_for('puzzles/effective_resource_management_in_high_stress_situations/2.pdf') }}">Sheet 2</a></div>
+  </p>
+
+  <p>This is a puzzle version of the British game show <a href="https://en.wikipedia.org/wiki/Countdown_(game_show)" target="_blank">Countdown</a>. In Countdown, there are two types of round: &ldquo;letters&rdquo; rounds and &ldquo;numbers&rdquo; rounds. In letters rounds, contestants are shown 9 letters and try to make the longest word possible wtih the given letters. In numbers rounds, contestants are shown 6 numbers and are instructed to use arithmetic operations (&plus;, &minus;, &times;, &divide;) to use these 6 numbers to get as close as possible to a target number. There is also a final &ldquo;conundrum&rdquo; round where playesr are presented with a 9-letter anagram that they race to finish first.</p>
+
+  <p>In this puzzle, there are far more rounds than usual, and all rounds have unique answers:</p>
+
+  <p>Letters Rounds</p>
+  <table class="solution-table">
+    <tr>
+      <th>Letter bank</th>
+      <th>Best word</th>
+    </tr>
+    <tr>
+      <td>WRDIADNEE</td>
+      <td>WANDERED</td>
+    </tr>
+    <tr>
+      <td>GEAMRNAPS</td>
+      <td>MANAGERS</td>
+    </tr>
+    <tr>
+      <td>SISXUNESE</td>
+      <td>SEXINESS</td>
+    </tr>
+    <tr>
+      <td>MRYEGUOMH</td>
+      <td>MEMORY</td>
+    </tr>
+    <tr>
+      <td>BTOVARFSE</td>
+      <td>BOATERS</td>
+    </tr>
+    <tr>
+      <td>TCEFSIREI</td>
+      <td>CERTIFIES</td>
+    </tr>
+    <tr>
+      <td>DORCUPTSE</td>
+      <td>PRODUCES</td>
+    </tr>
+    <tr>
+      <td>DUEHKGSIH</td>
+      <td>HUSHED</td>
+    </tr>
+    <tr>
+      <td>LTCLAIGCE</td>
+      <td>CALCITE</td>
+    </tr>
+    <tr>
+      <td>LJCAOREBY</td>
+      <td>CAJOLERY</td>
+    </tr>
+  </table>
+
+  <p>Numbers Rounds</p>
+  <table class="solution-table">
+    <tr>
+      <th>Number bank</th>
+      <th>Arithmetic</th>
+      <th>Target Number</th>
+      <th>Leftover number</th>
+    </tr>
+    <tr>
+      <td>50 8 3 4 1 10</td>
+      <td>((50 &minus; 3) &times; (10 &plus; 8)) &minus; 1</td>
+      <td>845</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>5 2 4 10 3 8</td>
+      <td>((10 &times; 8) &plus; 3) &times; (5 &plus; 4)</td>
+      <td>747</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>25 1 8 10 5 6</td>
+      <td>(((8 &times; 5) &plus; 25) &times; 10) &plus; 1</td>
+      <td>651</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>100 25 75 50 7 9</td>
+      <td>(100 &plus; ((75 &plus; 50) &divide; 25)) &times; 7</td>
+      <td>735</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>75 4 1 8 6 7</td>
+      <td>((75 &plus; 6) &times; (8 &plus; 1)) - 7</td>
+      <td>722</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>50 100 25 1 9 6</td>
+      <td>(50 &plus; 1) &times; (9 &plus; (100 &divide; 25))</td>
+      <td>633</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>25 100 1 8 7 6</td>
+      <td>((25 &plus; 6) &times; (8 &plus; 1)) &plus; 100</td>
+      <td>379</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>75 2 10 1 8 3</td>
+      <td>((75 &plus; 8) &times; (10 &plus; 2)) &plus; 1</td>
+      <td>997</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>1 9 3 5 7 2</td>
+      <td>((7 &times; 6) &plus; 1) &times; (9 &plus; 2)</td>
+      <td>473</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>75 25 100 50 2 8</td>
+      <td>(50 &times; 8) - ((100 &plus; 75) &divide; 25)</td>
+      <td>393</td>
+      <td>2</td>
+    </tr>
+  </table>
+
+  <p>For the conundrum rounds, each of the given conundrums has multiple answers. (For instance, CRIMITOES could be EROTICISM or ISOMETRIC.) The correct answer is a synonym of one of the letter rounds answers. The corresponding number round digit can be used as an index into the correct conundrum to get the final answer, <strong><code>NICK OF TIME</code></strong>.</p>
+  <table class="solution-table">
+    <tr>
+      <th>Original</th>
+      <th>Letter Rounds Synonym</th>
+      <th>Correct Conundrum</th>
+      <th>Number Rounds Digit</th>
+      <th>Letter</th>
+    </tr>
+    <tr>
+      <td>TENDESAUR</td>
+      <td>WANDERED</td>
+      <td>SAUNTERED</td>
+      <td>4</td>
+      <td><code>N</code></td>
+    </tr>
+    <tr>
+      <td>STIRCORDE</td>
+      <td>MANAGERS</td>
+      <td>DIRECTORS</td>
+      <td>2</td>
+      <td><code>I</code></td>
+    </tr>
+    <tr>
+      <td>CRIMITOES</td>
+      <td>SEXINESS</td>
+      <td>EROTICISM</td>
+      <td>6</td>
+      <td><code>C</code></td>
+    </tr>
+    <tr>
+      <td>HACKFLABS</td>
+      <td>MEMORY</td>
+      <td>FLASHBACK</td>
+      <td>9</td>
+      <td><code>K</code></td>
+    </tr>
+    <tr>
+      <td>NOSECATIS</td>
+      <td>BOATERS</td>
+      <td>CANOEISTS</td>
+      <td>4</td>
+      <td><code>O</code></td>
+    </tr>
+    <tr>
+      <td>STIFETISE</td>
+      <td>CERTIFIES</td>
+      <td>TESTIFIES</td>
+      <td>6</td>
+      <td><code>F</code></td>
+    </tr>
+    <tr>
+      <td>TREEGEANS</td>
+      <td>PRODUCES</td>
+      <td>GENERATES</td>
+      <td>7</td>
+      <td><code>T</code></td>
+    </tr>
+    <tr>
+      <td>ISOSLEENS</td>
+      <td>HUSHED</td>
+      <td>NOISELESS</td>
+      <td>3</td>
+      <td><code>I</code></td>
+    </tr>
+    <tr>
+      <td>LENTOMISE</td>
+      <td>CALCITE</td>
+      <td>LIMESTONE</td>
+      <td>3</td>
+      <td><code>M</code></td>
+    </tr>
+    <tr>
+      <td>CUITONDES</td>
+      <td>CAJOLERY</td>
+      <td>SEDUCTION</td>
+      <td>2</td>
+      <td><code>E</code></td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% set text = {
+  'games': {
+    'name': 'Games Island',
+    'abstract': 'The {placeholder} stretches in all directions. The lone mystery at its heart is
+      deeper than it appears.  Visitors to this island may have to settle.',
+  },
+  'pokemon': {
+    'name': 'Pokémon Island',
+    'abstract': 'The {placeholder} appears segmented into collections, but much of the island is 
+      cumulative.  This island is in a state of constant change that is best appreciated on site.',
+  },
+  'scifi': {
+    'name': 'Sci-Fi Island',
+    'abstract': 'The {placeholder} is an interconnected and overlapping web that must be
+      explored by following its many connections.  There’s a lot of space in this island.',
+  },
+  'hacking': {
+    'name': 'Hacking Island',
+    'abstract': 'The {placeholder} is classical and hierarchal.  Each phase is independent, but
+      leads to the next, building to something great.  This island is unique to this place and
+      time, and demands real physical presence (on campus).',
+  },
+} %}
+
+{% macro name(island) %}
+  {{ text[island]['name'] }}
+{% endmacro %}
+
+{% macro abstract(island) %}
+  {{ text[island]['abstract'] }}
+{% endmacro %}
+
+{% macro pretty_next_island(cnt, tot) -%}
+  {%- if tot-cnt==1 -%}
+    the final island
+  {%- elif cnt>=1 -%}
+    another island
+  {%- else -%}
+    an island
+  {%- endif -%}
+{%- endmacro %}

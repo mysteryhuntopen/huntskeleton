@@ -1,0 +1,292 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content img {
+    height: 50px;
+    width: 50px;
+  }
+
+  @media print {
+    img, div {
+        /* This puzzle always to page break in the middle of some of the images
+           for some reason if I try to print. */
+        display: block;
+        page-break-inside: avoid;
+    }
+  }
+
+  .puzzle-content .row {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .puzzle-content .row > span {
+    align-self: center;
+    margin-right: 10px;
+  }
+
+  .puzzle-content .container {
+    position: relative;
+    text-align: center;
+  }
+
+  .puzzle-content .centered {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-70%, -50%);
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<p>Set D: Medical Professionals</p>
+<div class="row">
+  <span>D.1:</span>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/01.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/02.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/03.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/04.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/05.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/06.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/07.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">7</span>
+  </div>
+</div>
+<div class="row">
+  <span>D.2:</span>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">7</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/08.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/09.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/10.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">26</span>
+  </div>
+</div>
+<div class="row">
+  <span>D.3:</span>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/11.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">31</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/12.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">42</span>
+  </div>
+</div>
+
+<p>Set E: Tiny Pieces</p>
+<div class="row">
+  <span>E.2:</span>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">8</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/07.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/13.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/09.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/14.png') }}>
+</div>
+<div class="row">
+  <span>E.3:</span>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">23</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/04.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">52</span>
+  </div>
+</div>
+<div class="row">
+  <span>E.13</span>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">623</span>
+  </div>
+</div>
+
+<p>Set G: Top Talent</p>
+<div class="row">
+  <span>G.1</span>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/01.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/06.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/13.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/05.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/07.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">9</span>
+  </div>
+</div>
+<div class="row">
+  <span>G.2</span>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/12.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">33</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/02.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/14.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/15.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/08.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">8</span>
+  </div>
+</div>
+<div class="row">
+  <span>G.3</span>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">58</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/16.png') }}>
+</div>
+
+<p>Set N: Data Packs</p>
+<div class="row">
+  <span>N.1:</span>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/12.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/01.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/02.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/04.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/07.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/13.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/06.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/15.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">21</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/17.png') }}>
+</div>
+<div class="row">
+  <span>N.2:</span>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">4</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/03.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">12</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/18.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">27</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/14.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/08.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/09.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/05.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">14</span>
+  </div>
+</div>
+<div class="row">
+  <span>N.3:</span>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">17</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/19.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/20.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">61</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/21.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">64</span>
+  </div>
+</div>
+
+<p>Set P: Spheres</p>
+<div class="row">
+  <span>P.2:</span>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/22.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">2</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/05.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">5</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/15.png') }}>
+</div>
+
+<p>Set W: Keep Rolling</p>
+<div class="row">
+  <span>W.2:</span>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">30</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/10.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">33</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/02.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">35</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/09.png') }}>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/05.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">24</span>
+  </div>
+</div>
+<div class="row">
+  <span>W.11:</span>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/16.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">1370</span>
+  </div>
+  <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/14.png') }}>
+  <div class="container">
+    <img {{ img_src_for('puzzles/flags_o1_6ur_10the15/00.png') }}>
+    <span class="centered">137</span>
+  </div>
+</div>
+
+<div>
+  <div><b>1)</b> D.8 + N.5 - E.17</div>
+  <div><b>2)</b> N.16 - W.7 - E.10</div>
+  <div><b>3)</b> G.15 - D.12</div>
+  <div><b>4)</b> G.14 - E.18</div>
+  <div><b>5)</b> P.8 - E.5 - D.6</div>
+  <div><b>6)</b> G.18 - E.12</div>
+  <div><b>7)</b> G.20 + N.14 - E.7 - W.12</div>
+  <div><b>8)</b> W.13 - P.7 - N.4 - N.20</div>
+  <div><b>9)</b> P.6 + D.13 - G.16</div>
+  <div><b>10)</b> P.4 + E.14 - E.16</div>
+  <div><b>11)</b> N.8 + N.12 - G.11 - N.15</div>
+  <div><b>12)</b> D.9 + W.9 - N.11</div>
+  <div><b>13)</b> N.10 + G.9 - D.10 - N.9</div>
+  <div><b>14)</b> W.10 - G.17 - N.18</div>
+</div>
+{% endblock %}

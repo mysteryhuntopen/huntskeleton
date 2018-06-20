@@ -1,0 +1,94 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .row {
+    width: 100%;
+    display: flex;
+  }
+
+  .puzzle-content img {
+    width: 100%;
+  }
+
+  .puzzle-content .blue {
+    color: blue;
+  }
+
+  .puzzle-content .red {
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="row">
+  <div class="image"><img {{ img_src_for('puzzles/shift/01.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/02.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/03.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/04.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/05.png') }} ></div>
+</div>
+<div class="row">
+  <div class="image"><img {{ img_src_for('puzzles/shift/06.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/07.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/08.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/09.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/10.png') }} ></div>
+</div>
+<div class="row">
+  <div class="image"><img {{ img_src_for('puzzles/shift/11.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/12.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/13.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/14.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/15.png') }} ></div>
+</div>
+<div class="row">
+  <div class="image"><img {{ img_src_for('puzzles/shift/16.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/17.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/18.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/19.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/20.png') }} ></div>
+</div>
+<div class="row">
+  <div class="image"><img {{ img_src_for('puzzles/shift/21.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/22.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/23.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/24.png') }} ></div>
+  <div class="image"><img {{ img_src_for('puzzles/shift/25.png') }} ></div>
+</div>
+<table>
+  <tr>
+    <td class="blue">gamma</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td class="red">copper</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td class="blue">first</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td class="red">rabbit</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td class="blue">earth</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td class="red">ratatouille</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td class="blue">golf</td>
+    <td>2</td>
+  </tr>
+</table>
+{% endblock %}

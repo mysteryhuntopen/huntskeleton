@@ -1,0 +1,44 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_call_to_action_block %}
+Where can you find the core memory?
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+<p>This game is different from the usual, and requires far more victory points to win. To do so, you will need to build something bigger than a few roads.</p>
+
+<p>It turns out this game is deeper than expected, and they&rsquo;re playing by Australian rules. The only thing you do know about Australian Rules Catan is that no two resources of the same type can touch. Once your empire extends across the world, you'll be able to find the core memory.</p>
+{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .pentagon {
+    width: 137.7px;
+    height: 130.9px;
+
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="pentagons">
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/01.svg') }} >
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/02.svg') }} >
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/03.svg') }} >
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/04.svg') }} >
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/05.svg') }} >
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/06.svg') }} >
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/07.svg') }} >
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/08.svg') }} >
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/09.svg') }} >
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/10.svg') }} >
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/11.svg') }} >
+  <img class="pentagon" {{ img_src_for('puzzles/the_robber/12.svg') }} >
+</div>
+{% endblock %}

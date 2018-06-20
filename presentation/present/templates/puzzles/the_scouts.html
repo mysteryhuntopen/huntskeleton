@@ -1,0 +1,24 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/pokemon_macros.html" as pokemon_macros with context %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+  {{ pokemon_macros.generate_meta_styles() }}
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  You come across two youngsters wearing bright sashes, covered in
+  merit badges. You ask for their names and they introduce themselves
+  as Tim and Kim, Pokéscouts.
+{% endblock %}
+
+{% block puzzle_call_to_action_block %}
+  How can you defeat The Scouts?
+{% endblock %}
+
+{% block puzzle_content_block %}
+  {{ pokemon_macros.generate_puzzle_feeders() }}
+{% endblock %}

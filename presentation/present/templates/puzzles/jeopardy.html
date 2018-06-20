@@ -1,0 +1,318 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<link href="https://fonts.googleapis.com/css?family=Kreon|Rambla&amp;subset=latin-ext" rel="stylesheet">
+<style>
+  .puzzle-content #jeopardy {
+    position: relative;
+    margin: 0 auto;
+    line-height: 1.2;
+  }
+
+  .puzzle-content #board {
+    border: 10px solid black;
+    margin: 0px;
+    display: flex;
+  }
+
+  .puzzle-content #again {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width: 40%;
+    height: 25%;
+    z-index: 2;
+    background-color: #101A7D;
+    border: 2px solid #DBA521;
+    border-radius: 20px;
+    cursor: pointer;
+    line-height: 150px;
+    font-size: 26px;
+    font-family: 'Kreon', serif;
+    color: white;
+    text-shadow: 5px 5px #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media print {
+    .puzzle-content #again {
+      display: none;
+    }
+  }
+
+  .puzzle-content div.column {
+    width: 150px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+  }
+
+  .puzzle-content div.column div {
+    width: 144px;
+    height: 81px;
+    vertical-align: top;
+  }
+
+  @media print {
+    .puzzle-content div.column div {
+      height: 100px;
+    }
+  }
+
+  .puzzle-content div.category, .puzzle-content div.amount, .puzzle-content div.clue {
+    display: table;
+  }
+
+  @media screen {
+    .puzzle-content div.category:before, .puzzle-content div.tile:before {
+      content: "";
+      width: 144px;
+      height: 81px;
+      display: block;
+      position: absolute;
+      background: linear-gradient(to bottom,  rgba(255, 255, 255, .4) 0%, rgba(255, 255, 255, 0.2) 8%, rgba(255, 255, 255, 0) 100%);
+    }
+  }
+
+  .puzzle-content div.category p, .puzzle-content div.amount p, .puzzle-content div.clue p {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    padding: 7px;
+  }
+
+  @media print {
+    .puzzle-content div.amount p {
+      vertical-align: top;
+      padding: 2px;
+      font-size: 24px;
+    }
+
+    .puzzle-content div.clue p {
+      vertical-align: bottom;
+      padding: 5px;
+    }
+  }
+
+  .puzzle-content div.category, .puzzle-content div.tile {
+    border: 5px solid black;
+  }
+
+  @media screen {
+    .puzzle-content div.category, .puzzle-content div.tile {
+      background-color: #101A7D;
+    }
+
+    .puzzle-content div.category.done p, .puzzle-content div.tile.done p {
+      color: transparent;
+      text-shadow: none;
+    }
+
+    .puzzle-content div.amount {
+      color: #DBA521;
+      text-shadow: 4px 4px #000000;
+    }
+
+    .puzzle-content div.category {
+      text-shadow: 2px 2px #000000;
+    }
+
+    .puzzle-content div.clue {
+      text-shadow: 1px 1px #000000;
+    }
+  }
+
+  .puzzle-content div.category, .puzzle-content div.amount {
+    font-family: 'Rambla', sans-serif;
+  }
+
+  .puzzle-content div.category {
+    border-bottom-width: 15px;
+    font-size: 22px;
+  }
+
+  .puzzle-content div.amount {
+    font-size: 46px;
+    z-index: 2;
+  }
+
+  .puzzle-content div.amount:not(.done) {
+    cursor: pointer;
+  }
+
+  .puzzle-content div.clue {
+    font-size: 10px;
+    font-family: 'Kreon', serif;
+  }
+
+  @media screen {
+    .puzzle-content div.category, .puzzle-content div.clue {
+      color: white;
+    }
+  }
+
+  /* Flipping animation */
+  .puzzle-content div.tile {
+    display: inline-block;
+    perspective: 1000;
+    -webkit-perspective: 1000;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  @media screen {
+    .puzzle-content .tile.flip .flipper {
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      transition: 0.6s;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      position: absolute;
+      backface-visibility: hidden;
+    }
+
+    .puzzle-content div.clue {
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+    }
+  }
+
+  .puzzle-content div.amount, .puzzle-content div.clue {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    border: 0;
+    background-color: transparent;
+  }
+</style>
+
+<script>
+  function openTile(tile) {
+    tile.addClass('flip');
+  }
+
+  function closeOpenTiles() {
+    $('.puzzle-content .tile.flip .clue').each(function(i) {closeTile($(this).closest('.tile'));});
+  }
+
+  function closeTile(tile) {
+    tile.addClass('done');
+    if (tile.siblings('.tile:not(.done)').length === 0) {
+      tile.siblings('.category').addClass('done');
+    }
+    if ($('.puzzle-content #board .tile:not(.done)').length === 0) {
+      $('.puzzle-content #again').show();
+    }
+  }
+
+  function reset() {
+    $('.puzzle-content #again').hide();
+    $('.puzzle-content .tile.flip:not(.done)').addClass('done');
+    $('.puzzle-content .tile').removeClass('flip');
+    $('.puzzle-content .category').removeClass('done');
+    setTimeout(function() {
+      var todo = $.makeArray($('.puzzle-content .tile.done')).sort(function() {
+        return 0.5 - Math.random()
+      });
+      var i = 0;
+      interval = setInterval(function(){
+        $(todo[i]).removeClass('done');
+        i++;
+        if (i === todo.length) {
+          clearInterval(interval);
+        }
+      }, 100);
+    }, 500);
+  }
+
+  $('.puzzle-content').ready(function() {
+    $('.puzzle-content .tile').click(function(e) {
+      e.stopPropagation();
+      closeOpenTiles();
+      if (!$(this).hasClass('done')) {
+        openTile($(this));
+      }
+    });
+    $('.puzzle-content #board').click(function(e) {
+      closeOpenTiles();
+    });
+    $('.puzzle-content #again').click(function(e) {
+      e.stopPropagation();
+      reset();
+    });
+    $('.puzzle-content #again').hide();
+    $('.puzzle-content .tile, .puzzle-content .category').addClass('done');
+    reset();
+  });
+</script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Secretly, some people think about jeopardy all the time.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div id="jeopardy">
+  <div id="again" style="display: none;">Play Again?</div>
+  <div id="board">
+    <div class="column">
+      <div class="category"><p>General Knowledge</p></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$200</p></div><div class="clue"><p>Neil Armstrong&rsquo;s boot left this on the Moon (5&nbsp;8)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$400</p></div><div class="clue"><p>This popular trance song was produced by a Finnish DJ (6&nbsp;11)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$600</p></div><div class="clue"><p>This might contain an instrument cluster (6&nbsp;5)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$800</p></div><div class="clue"><p>A 2001 film starring John Travolta (4&nbsp;5)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$1000</p></div><div class="clue"><p>Johnny Mercer and Hoagy Carmichael wrote this jazz song (6&nbsp;4)</p></div></div></div>
+    </div>
+    <div class="column">
+      <div class="category"><p>Potpourri</p></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$200</p></div><div class="clue"><p>Harper Lee might tell you to set this kind of lookout (7&nbsp;7)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$400</p></div><div class="clue"><p>&ldquo;Autumntime&rdquo; is not a common term in English, unlike this similar word for another season (5&nbsp;10)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$600</p></div><div class="clue"><p>Charlie Sheen would describe himself as this kind of person (6&nbsp;7)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$800</p></div><div class="clue"><p>It&rsquo;s another term for the shoulder or curb (6&nbsp;8)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$1000</p></div><div class="clue"><p>This is a common household cleaning tool (9&nbsp;7)</p></div></div></div>
+    </div>
+    <div class="column">
+      <div class="category"><p>Miscellany</p></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$200</p></div><div class="clue"><p>Click and Clack named this automaker&rsquo;s Aztek the &ldquo;2005 Ugliest Car of the Year&rdquo; (5&nbsp;7)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$400</p></div><div class="clue"><p>Side four of Bruce Springsteen&rsquo;s album &ldquo;The River&rdquo; includes this song (3&nbsp;4)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$600</p></div><div class="clue"><p>It&rsquo;s a term for light emission (5&nbsp;5)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$800</p></div><div class="clue"><p>This is made of a single piece of glass (7&nbsp;7)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$1000</p></div><div class="clue"><p>One of the quantities in Einstein&rsquo;s famous equation &ldquo;E = mc<sup>2</sup>&rdquo; is this (7&nbsp;7)</p></div></div></div>
+    </div>
+    <div class="column">
+      <div class="category"><p>Odds and Ends</p></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$200</p></div><div class="clue"><p>It&rsquo;s a Mars mission or a Nissan SUV (5&nbsp;5)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$400</p></div><div class="clue"><p>This animal is a member of the taxonomic rank Apodiformes (5&nbsp;5)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$600</p></div><div class="clue"><p>A certain type of electromagnetic generator is known by this name (3&nbsp;6)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$800</p></div><div class="clue"><p>This is a common title for a person in middle management who is in charge of other employees (3&nbsp;6)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$1000</p></div><div class="clue"><p>This word means &ldquo;to secretly add a substance to&rdquo; (10&nbsp;7)</p></div></div></div>
+    </div>
+    <div class="column">
+      <div class="category"><p>Hodgepodge</p></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$200</p></div><div class="clue"><p>This cereal can be &ldquo;fruity&rdquo; or &ldquo;cocoa&rdquo; (7&nbsp;6)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$400</p></div><div class="clue"><p>It&rsquo;s an Ability in Dungeons and Dragons, Fifth Edition (4&nbsp;10)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$600</p></div><div class="clue"><p>This person&rsquo;s parents are Will and Jada (6&nbsp;7)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$800</p></div><div class="clue"><p>One of the creatures that appears in the Chinese zodiac is this (6&nbsp;7)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$1000</p></div><div class="clue"><p>A professional athlete based in Oakland, CA might be called this (7&nbsp;7)</p></div></div></div>
+    </div>
+    <div class="column">
+      <div class="category"><p>Etcetera</p></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$200</p></div><div class="clue"><p>You might get a painful one from using an insufficient SPF (3&nbsp;7)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$400</p></div><div class="clue"><p>This carnivore was found in the Cretaceous Period (4&nbsp;8)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$600</p></div><div class="clue"><p>One of the major genres of poetry is described by this adjective (8&nbsp;7)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$800</p></div><div class="clue"><p>This might be tied around a present or tree (5&nbsp;5)</p></div></div></div>
+      <div class="tile"><div class="flipper"><div class="amount"><p>$1000</p></div><div class="clue"><p>An object that can open any lock of a particular type is called this (6&nbsp;4)</p></div></div></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

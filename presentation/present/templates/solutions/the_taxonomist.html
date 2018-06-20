@@ -1,0 +1,158 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Hubert Hwang{% endblock %}
+{% block solution %}TAKE OUT{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .header {
+    margin: 0.5em 0 1em 0;
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+
+  .puzzle-content .row {
+    border: 1px solid black;
+    padding: 10px 0;
+    width: 300px;
+    margin: 20px auto 0;
+    text-align: center;
+    background: white;
+  }
+
+  .puzzle-content .ans {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>These are the puzzle answers from this section (given here in alphabetical order):</p>
+
+<ul>
+  <li><code>ABSOLUTION</code></li>
+  <li><code>MAST</code></li>
+  <li><code>PASTOR</code></li>
+  <li><code>PUNKROCK</code></li>
+  <li><code>REPTILES</code></li>
+  <li><code>RIGHTMOST</code></li>
+  <li><code>STUMBLE</code></li>
+</ul>
+
+<p>The &ldquo;national taxonomy&rdquo; theme and the name Dexter are intended to clue
+that you will need to know the National Pok&eacute;dex numbers for the seven
+Pok&eacute;mon used in this metapuzzle.
+</p>
+
+<p>
+The seven Pok&eacute;mon are:
+<ul>
+  <li>Charmeleon (5)</li>
+  <li>Squirtle (7)</li>
+  <li>Raticate (20)</li>
+  <li>Krabby (98)</li>
+  <li>Duskull (355)</li>
+  <li>Yamask (562)</li>
+  <li>Rockruff (744)</li>
+</ul>
+</p>
+
+<p>
+Next, you will have to figure out which operations are performed on
+each Pok&eacute;mon&rsquo;s number.  Thankfully, you are told that all intermediate
+operations result in a valid number&mdash;where valid in this case means
+an integer from 1 to 806 (the number of Pok&eacute;mon in existence).  The
+pairings are as follows:
+</p>
+
+<div class="row">&rarr; &divide;6 &rarr; &times;5 &rarr; &minus;24 &rarr;</div>
+<div class="ans">Rockruff (744), resulting in 596 (Galvantula)</div>
+
+<div class="row">&rarr; &times;8 &rarr; &plus;17 &rarr;</div>
+<div class="ans">Raticate (20), resulting in 177 (Natu)</div>
+
+<div class="row">&rarr; ^4 &rarr; &minus;7 &rarr;</div>
+<div class="ans">Charmeleon (5), resulting in 618 (Stunfisk)</div>
+
+<div class="row">&rarr; &divide;7 &rarr; &plus;1 &rarr;</div>
+<div class="ans">Krabby (98), resulting in 15 (Beedrill)</div>
+
+<div class="row">&rarr; &minus;50 &rarr; log<sub>2</sub> &rarr; &times;8 &rarr;</div>
+<div class="ans">Yamask (562), resulting in 72 (Tentacool)</div>
+
+<div class="row">&rarr; ^3 &rarr; &divide;7 &rarr; &times;6 &rarr;</div>
+<div class="ans">Squirtle (7), resulting in 294 (Loudred)</div>
+
+<div class="row">&rarr; &plus;29 &rarr; &divide;3 &rarr; &plus;22 &rarr;</div>
+<div class="ans">Duskull (355), resulting in 150 (Mewtwo)</div>
+
+<p>
+There are seven Pok&eacute;mon that you end up with.  Each one is the
+same length as the answer that corresponds to the starting
+Pok&eacute;mon used.  For example, Rockruff is associated with the
+answer <code>ABSOLUTION</code>, and is matched with <code>GALVANTULA</code>.  There is exactly
+one letter in common between them.
+</p>
+
+<table class="solution-table">
+  <tr>
+    <th>Pok&eacute;mon</th>
+    <th>Answer</th>
+    <th>Result</th>
+    <th>Shared</th>
+  </tr>
+  <tr>
+    <td>Rockruff</td>
+    <td><code>ABSOLUTION</code></td>
+    <td><code>GALVANTULA</code></td>
+    <td><code>T</code></td>
+  </tr>
+  <tr>
+    <td>Raticate</td>
+    <td><code>MAST</code></td>
+    <td><code>NATU</code></td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td>Charmeleon</td>
+    <td><code>PUNKROCK</code></td>
+    <td><code>STUNFISK</code></td>
+    <td><code>K</code></td>
+  </tr>
+  <tr>
+    <td>Krabby</td>
+    <td><code>REPTILES</code></td>
+    <td><code>BEEDRILL</code></td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td>Yamask</td>
+    <td><code>RIGHTMOST</code></td>
+    <td><code>TENTACOOL</code></td>
+    <td><code>O</code></td>
+  </tr>
+  <tr>
+    <td>Squirtle</td>
+    <td><code>STUMBLE</code></td>
+    <td><code>LOUDRED</code></td>
+    <td><code>U</code></td>
+  </tr>
+  <tr>
+    <td>Duskull</td>
+    <td><code>PASTOR</code></td>
+    <td><code>MEWTWO</code></td>
+    <td><code>T</code></td>
+  </tr>
+</table>
+
+<p>
+Repeating this process for all of the answers gives the battle
+mechanic <strong><code>TAKE OUT</code></strong>.
+</p>
+{% endblock %}

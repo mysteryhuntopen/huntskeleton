@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block page_body %}
+<div class="ha-control-boxes-container">
+  {{ autoRefreshWidget() }}
+</div>
+<div class="ha-page-section">
+  <h2>Interaction Requests</h2>
+  <table class="ha-table">
+    <thead>
+      <tr>
+  <th>Request Time</th>
+  <th>Team</th>
+  <th>Puzzle</th>
+  <th>Request</th>
+  <th>Caller</th>
+  <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for h in pending_interaction_requests if h.status in ['REQUESTED','ASSIGNED'] %}
+      <tr>
+  <td>{{ h.timestamp | datetime }}</td>
+  <td>{{ h.teamId }}</td>
+  <td>{{ prettyPuzzleIdentifier(h.puzzleId) }}</td>
+  <td>
+    <a href="{{ url_for('interactionrequest', interaction_request_id=h.interactionRequestId) }}">
+      {{ h.request }}
+    </a>
+  </td>
+  <td>{{ h.callerUsername }}</td>
+  <td>
+    {% if h.status == 'REQUESTED' %}
+    <form action="{{ url_for('interactionrequest', interaction_request_id=h.interactionRequestId) }}" method="post">
+      <input type="hidden" name="status" value="ASSIGNED">
+      <input type="submit" value="Assign to Me">
+    </form>
+    {% elif h.status in ['ASSIGNED'] %}
+    <form action="{{ url_for('interactionrequest', interaction_request_id=h.interactionRequestId) }}" method="post">
+      <input type="hidden" name="status" value="REQUESTED">
+      <input type="submit" value="Unassign">
+    </form>
+    {% endif %}
+  </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="ha-page-section">
+  <h2>Scheduled Interaction Requests</h2>
+  <table class="ha-table">
+    <thead>
+      <tr>
+  <th>Request Time</th>
+  <th>Team</th>
+  <th>Puzzle</th>
+  <th>Request</th>
+  <th>Response Text</th>
+  <th>Last Caller</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for h in pending_interaction_requests if h.status in ['SCHEDULED'] %}
+      <tr>
+  <td>{{ h.timestamp | datetime }}</td>
+  <td>{{ h.teamId }}</td>
+  <td>{{ prettyPuzzleIdentifier(h.puzzleId) }}</td>
+  <td>
+    <a href="{{ url_for('interactionrequest', interaction_request_id=h.interactionRequestId) }}">
+      {{ h.request }}
+    </a>
+  </td>
+  <td>{{ h.response }}</td>
+  <td>{{ h.callerUsername }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+<div class="ha-page-section">
+  <h2>Hint Requests</h2>
+  <table class="ha-table">
+    <thead>
+      <tr>
+  <th>Request Time</th>
+  <th>Team</th>
+  <th>Puzzle</th>
+  <th>Request</th>
+  <th>Caller</th>
+  <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for h in pending_hint_requests %}
+      <tr>
+  <td>{{ h.timestamp | datetime }}</td>
+  <td>{{ h.teamId }}</td>
+  <td>{{ prettyPuzzleIdentifier(h.puzzleId) }}</td>
+  <td>
+    <a href="{{ url_for('hintrequest', hint_request_id=h.hintRequestId) }}">
+      {{ h.request }}
+    </a>
+  </td>
+  <td>{{ h.callerUsername }}</td>
+  <td>
+    {% if h.status == 'REQUESTED' %}
+    <form action="{{ url_for('hintrequest', hint_request_id=h.hintRequestId) }}" method="post">
+      <input type="hidden" name="status" value="ASSIGNED">
+      <input type="submit" value="Assign to Me">
+    </form>
+    {% elif h.status == 'ASSIGNED' %}
+    <form action="{{ url_for('hintrequest', hint_request_id=h.hintRequestId) }}" method="post">
+      <input type="hidden" name="status" value="REQUESTED">
+      <input type="submit" value="Unassign">
+    </form>
+    {% endif %}
+  </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

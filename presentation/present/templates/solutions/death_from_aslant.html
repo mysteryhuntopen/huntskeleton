@@ -1,0 +1,134 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Grant Elliott<br />Photo retouching by Kevin Simmons and Tucker Elliott{% endblock %}
+{% block solution %}VALIDATOR{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .plan {
+    width: 100%;
+    position: relative;
+  }
+
+  .puzzle-content .layout {
+    display: block;
+    width: 100%;
+  }
+
+  .puzzle-content .pov:hover {
+    width:35%;
+    z-index:99;
+  }
+
+  .puzzle-content .pov {
+    display: block;
+    position: absolute;
+    border: 1px solid black;
+    width: 10%;
+  }
+
+  .puzzle-content .pov-a {
+    top: 45%;
+    left: 38%;
+  }
+
+  .puzzle-content .pov-b {
+    top: 35%;
+    left: 42%;
+  }
+
+  .puzzle-content .pov-c {
+    top: 1%;
+    left: 8%;
+  }
+
+  .puzzle-content .pov-d {
+    top: 17%;
+    left: 5%;
+  }
+
+  .puzzle-content .pov-e {
+    top: 16%;
+    right: 35%;
+  }
+
+  .puzzle-content .pov-f {
+    top: 15%;
+    left: 31%;
+  }
+
+  .puzzle-content .pov-g {
+    bottom:55%;
+    left:1%;
+  }
+
+  .puzzle-content .pov-h {
+    bottom: 26%;
+    left:8%;
+  }
+
+  .puzzle-content .pov-i {
+    top:45%;
+    left:58%;
+  }
+
+  .puzzle-content .pov-j {
+    bottom: 18%;
+    right:1%;
+  }
+
+  .puzzle-content .pov-k {
+    bottom:5%;
+    right:36%;
+  }
+
+  .puzzle-content .graph {
+    width: 100%;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>First, as clued by the title and the word &ldquo;perspective&rdquo; in the flavor, this scene must be reimagined from &ldquo;above&rdquo;. Reconstructing the scene allows each photograph to be assigned to its photographer, all of whom appear in the photos. Though some people&rsquo;s clothes differ in various photos, their poses and positions in space do not change. From above, and with photographers assigned arbitrary letters, the layout is as follows (Hover over a photo to enlarge):</p>
+
+<div class="plan">
+  <img class="layout" {{ img_src_for('solutions/death_from_aslant/layout.png') }}>
+  <img class="pov pov-a" {{ img_src_for('puzzles/death_from_aslant/09.jpg') }} >
+  <img class="pov pov-b" {{ img_src_for('puzzles/death_from_aslant/04.jpg') }} >
+  <img class="pov pov-c" {{ img_src_for('puzzles/death_from_aslant/01.jpg') }} >
+  <img class="pov pov-d" {{ img_src_for('puzzles/death_from_aslant/11.jpg') }} >
+  <img class="pov pov-e" {{ img_src_for('puzzles/death_from_aslant/02.jpg') }} >
+  <img class="pov pov-f" {{ img_src_for('puzzles/death_from_aslant/08.jpg') }} >
+  <img class="pov pov-g" {{ img_src_for('puzzles/death_from_aslant/03.jpg') }} >
+  <img class="pov pov-h" {{ img_src_for('puzzles/death_from_aslant/10.jpg') }} >
+  <img class="pov pov-i" {{ img_src_for('puzzles/death_from_aslant/07.jpg') }} >
+  <img class="pov pov-j" {{ img_src_for('puzzles/death_from_aslant/06.jpg') }} >
+  <img class="pov pov-k" {{ img_src_for('puzzles/death_from_aslant/05.jpg') }} >
+</div>
+
+<p>As clued by the ubiquity of dots and stripes (and the fact that some of the people change clothes), patterns matter. Every photograph shows either two people, one dressed in dots and one dressed in stripes, or a single person, who wears both dots and stripes, and what someone wears can depend on who is looking at them. This information can be represented as a graph. For reasons that will become apparent shortly, mark people holding checkered flags with double circles and the person holding a green flag with an extra arrow:</p>
+
+<img class="graph" {{ img_src_for('solutions/death_from_aslant/graph.png') }} >
+
+<p>Given that green and checkered flags are symbols of start and finish, one might imagine walking this graph, starting at the green flag and trying to end at a checkered flag, recording the pattern encountered at each transition. This is, in fact, a deterministic finite automata (as clued by the flavor&rsquo;s reference to &ldquo;cogs in a machine&rdquo; and confirmed by the title - both it and the team name it alludes to acronym to DFA). Analysis or experimentation reveals that it accepts only the following sequences, continuing to use &#x25CB; to represent dots and | to represent stripes:</p>
+
+<ul>
+  <li>|</li>
+  <li>|&#x25CB;&#x25CB;</li>
+  <li>|&#x25CB;&#x25CB;|</li>
+  <li>||&#x25CB;&#x25CB;</li>
+  <li>||||</li>
+  <li>|&#x25CB;&#x25CB;|&#x25CB;</li>
+  <li>|&#x25CB;|&#x25CB;&#x25CB;</li>
+  <li>|&#x25CB;||&#x25CB;</li>
+  <li>Any of the above, preceded by an arbitrary number of &#x25CB;</li>
+</ul>
+
+<p>If these sequences are treated as binary numbers (most-significant-bit first, as indicated by the permission of leading zeros), these sequences correspond to 1, 4, 9, 12, 15, 18, 20, and 22 - or equivalently <code>A</code>, <code>D</code>, <code>I</code>, <code>L</code>, <code>O</code>, <code>R</code>, <code>T</code>, and <code>V</code>.</p>
+
+<p>Preserving only those letters of the given phrase <code>CHECKSUM VALUE IN FEEDBACK NETWORK</code> leaves <strong><code>VALIDATOR</code></strong>, a reasonable response to the bizarre clue, a description of the mechanic, and the answer to the puzzle.</p>
+{% endblock %}

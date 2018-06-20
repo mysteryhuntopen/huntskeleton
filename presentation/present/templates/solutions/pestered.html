@@ -1,0 +1,555 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Leland Aldridge and Oliver Mulley{% endblock %}
+{% block solution %}MASTER AT ARMS{% endblock %}
+
+{% block solution_head_block %}
+  <style>
+    .puzzle-content pre.wrap {
+      word-wrap: break-word;
+    }
+
+    .puzzle-content .letter {
+      width: 1em;
+      display: inline-block;
+      text-align: center;
+      font-family: monospace;
+    }
+
+    .puzzle-content .box {
+      border: 1px solid black;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <p>The body of the puzzle is written as a “pesterlog” from the
+    multimedia webcomic <a href="http://mspaintadventures.com/">Homestuck</a>.
+    Hopefully, if you were not aware of this comic, the Warhammer of
+    Zillyhoo reference should lead you to it swiftly.</p>
+
+  <p>In Homestuck, each of the main characters has a <a href="http://mspaintadventures.wikia.com/wiki/Typing_Quirk#Trolls.27_quirks">particular
+    way of typing</a>. <a href="http://mspaintadventures.wikia.com/wiki/Eridan_Ampora">Eridan
+    Ampora</a>, for instance, always doubles ws and vs. From these
+    typing quirks, the character delivering each line in the puzzle
+    can be determined.</p>
+
+  <p>Each character has a conjoined two-word chat handle, such as
+    Eridan’s being <code>caligulasAquarium</code>. Each line of chat
+    is prefaced by the initials of the chat handle, so Eridan’s lines
+    would all start <code>CA:</code>. In the puzzle, these
+    designations are blacked out. After determining which character
+    delivers each line, the handle initials can be filled in.</p>
+
+  <p>A significant aspect of Homestuck is genetic codes. Each of the
+    main character’s handles have initials from the nucleotide bases
+    ATCG. If the chat handle initials from the whole puzzle are put in
+    sequence, the following genetic sequence is recovered:</p>
+
+  <pre class="wrap">CCAGCCGGCGAGGCCGATGACCGAGAGAGCAGCGAGAGCTGGCATGAGCGGGAGGATGAGGCCGATATCTCGATCAATGCGCCGGCGAATGAATTG</pre>
+
+  <p>If this is split into triplets and decoded to an amino acid
+    sequence, using the standard
+    <a href="https://en.wikipedia.org/wiki/Amino_acid#Table_of_standard_amino_acid_abbreviations_and_properties">single-letter
+    abbreviations</a> for amino acids, a message is recovered:
+    <code>PAGE ADDRESSES WHERE DEAD IS IN A PANEL</code>.</p>
+
+  <p>Characters die quite often in Homestuck (the same character
+    multiple times, in some cases), but in a few select instances
+    those deaths are accompanied by panel art with the word “DEAD” in
+    them. All ten of the characters featured in the puzzle’s dialog
+    have had this happen in at least one instance. Homestuck is
+    arranged on the web so that each page has a (usually) four-digit
+    page address. The relevant DEAD panels are found at:</p>
+
+  <table class="solution-table">
+    <thead>
+      <tr>
+        <th>Character</th>
+        <th>Page address</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>Tavros Nitram</td>
+      <td><a href="http://www.mspaintadventures.com/?s=6&p=005199" target="_blank">5199</a></td>
+    </tr>
+    <tr>
+      <td>Feferi Peixes</td>
+      <td><a href="http://www.mspaintadventures.com/?s=6&p=005233" target="_blank">5233</a></td>
+    </tr>
+    <tr>
+      <td>Kanaya Maryam</td>
+      <td><a href="http://www.mspaintadventures.com/?s=6&p=005247" target="_blank">5247</a></td>
+    </tr>
+    <tr>
+      <td>Equius Zahhak</td>
+      <td><a href="http://www.mspaintadventures.com/?s=6&p=005348" target="_blank">5348</a></td>
+    </tr>
+    <tr>
+      <td>Eridan Ampora</td>
+      <td><a href="http://www.mspaintadventures.com/?s=6&p=005437" target="_blank">5437</a></td>
+    </tr>
+    <tr>
+      <td>Vriska Serket</td>
+      <td><a href="http://www.mspaintadventures.com/scratch.php?s=6&p=005763" target="_blank">5763</a></td>
+    </tr>
+    <tr>
+      <td>Jade Harley</td>
+      <td><a href="http://www.mspaintadventures.com/?s=6&p=006007" target="_blank">6007</a> or <a href="http://www.mspaintadventures.com/?s=6&p=008551" target="_blank">8551</a></td>
+    </tr>
+    <tr>
+      <td>Roxy Lalonde</td>
+      <td><a href="http://www.mspaintadventures.com/?s=6&p=007086" target="_blank">7086</a></td>
+    </tr>
+    <tr>
+      <td>Karkat Vantas</td>
+      <td><a href="http://www.mspaintadventures.com/?s=6&p=008231" target="_blank">8231</a></td>
+    </tr>
+    <tr>
+      <td>Terezi Pyrope</td>
+      <td><a href="http://www.mspaintadventures.com/?s=6&p=009085" target="_blank">9085</a></td>
+    </tr>
+  </table>
+
+  <p>The chat lines given in the puzzle are all exactly 100 characters
+    long, including spaces and punctuation. These page addresses can
+    be used as a set of two indices to extract two characters from
+    each line, according to the character who delivered them. In the
+    case of Jade, using either of the addresses extracts the same
+    characters. After extracting all the characters, one finds twelve
+    space-separated strings: <code>seag0at Lion S)(-ELLFIS)( HOLST31NS
+    bowwhunter M41D3N Twins sCALES PITCHER 4R4CHN1D BiGhOrN FISH</code></p>
+
+  <p>Each of these strings describes one of the zodiac signs, written
+    in the style of one of the Homestuck trolls. Since each troll
+    additionally is associated with a specific zodiac sign, it’s
+    possible to pair the troll with the appropriate zodiac sign with
+    the troll whose typing style is represented. This yields a single
+    letter in the same position in both names:</p>
+
+  <table class="solution-table">
+    <thead>
+      <tr>
+        <th>Word</th>
+        <th>Zodiac</th>
+        <th>Zodiac troll</th>
+        <th>Typing troll</th>
+      </tr>
+    </thead>
+    <tr>
+      <td><code>seag0at</code></td>
+      <td>Capricorn</td>
+      <td>
+        <span class="letter">G</span>
+        <span class="letter">A</span>
+        <span class="letter">M</span>
+        <span class="letter">Z</span>
+        <span class="letter">E</span>
+        <span class="letter">E</span>
+        <span class="letter"></span>
+        <span class="letter box">M</span>
+        <span class="letter">A</span>
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter">R</span>
+        <span class="letter">A</span>
+      </td>
+      <td>
+        <span class="letter">A</span>
+        <span class="letter">R</span>
+        <span class="letter">A</span>
+        <span class="letter">D</span>
+        <span class="letter">I</span>
+        <span class="letter">A</span>
+        <span class="letter"></span>
+        <span class="letter box">M</span>
+        <span class="letter">E</span>
+        <span class="letter">G</span>
+        <span class="letter">I</span>
+        <span class="letter">D</span>
+        <span class="letter">O</span>
+      </td>
+    </tr>
+    <tr>
+      <td><code>Lion</code></td>
+      <td>Leo</td>
+      <td>
+        <span class="letter">N</span>
+        <span class="letter">E</span>
+        <span class="letter">P</span>
+        <span class="letter">E</span>
+        <span class="letter">T</span>
+        <span class="letter box">A</span>
+        <span class="letter"> </span>
+        <span class="letter">L</span>
+        <span class="letter">E</span>
+        <span class="letter">I</span>
+        <span class="letter">J</span>
+        <span class="letter">O</span>
+        <span class="letter">N</span>
+      </td>
+      <td>
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter">N</span>
+        <span class="letter">A</span>
+        <span class="letter">Y</span>
+        <span class="letter box">A</span>
+        <span class="letter"> </span>
+        <span class="letter">M</span>
+        <span class="letter">A</span>
+        <span class="letter">R</span>
+        <span class="letter">Y</span>
+        <span class="letter">A</span>
+        <span class="letter">M</span>
+      </td>
+    </tr>
+    <tr>
+      <td><code>S)(-ELLFIS)(</code></td>
+      <td>Cancer</td>
+      <td>
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter">R</span>
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter">T</span>
+        <span class="letter"> </span>
+        <span class="letter">V</span>
+        <span class="letter">A</span>
+        <span class="letter">N</span>
+        <span class="letter">T</span>
+        <span class="letter">A</span>
+        <span class="letter box">S</span>
+      </td>
+      <td>
+        <span class="letter">F</span>
+        <span class="letter">E</span>
+        <span class="letter">F</span>
+        <span class="letter">E</span>
+        <span class="letter">R</span>
+        <span class="letter">I</span>
+        <span class="letter"> </span>
+        <span class="letter">P</span>
+        <span class="letter">E</span>
+        <span class="letter">I</span>
+        <span class="letter">X</span>
+        <span class="letter">E</span>
+        <span class="letter box">S</span>
+      </td>
+    </tr>
+    <tr>
+      <td><code>HOLST31NS</code></td>
+      <td>Taurus</td>
+      <td>
+        <span class="letter box">T</span>
+        <span class="letter">A</span>
+        <span class="letter">V</span>
+        <span class="letter">R</span>
+        <span class="letter">O</span>
+        <span class="letter">S</span>
+        <span class="letter"> </span>
+        <span class="letter">N</span>
+        <span class="letter">I</span>
+        <span class="letter">T</span>
+        <span class="letter">R</span>
+        <span class="letter">A</span>
+        <span class="letter">M</span>
+      </td>
+      <td>
+        <span class="letter box">T</span>
+        <span class="letter">E</span>
+        <span class="letter">R</span>
+        <span class="letter">E</span>
+        <span class="letter">Z</span>
+        <span class="letter">I</span>
+        <span class="letter"> </span>
+        <span class="letter">P</span>
+        <span class="letter">Y</span>
+        <span class="letter">R</span>
+        <span class="letter">O</span>
+        <span class="letter">P</span>
+        <span class="letter">E</span>
+      </td>
+    </tr>
+    <tr>
+      <td><code>bowwhunter</code></td>
+      <td>Sagittarius</td>
+      <td>
+        <span class="letter box">E</span>
+        <span class="letter">Q</span>
+        <span class="letter">U</span>
+        <span class="letter">I</span>
+        <span class="letter">U</span>
+        <span class="letter">S</span>
+        <span class="letter"> </span>
+        <span class="letter">Z</span>
+        <span class="letter">A</span>
+        <span class="letter">H</span>
+        <span class="letter">H</span>
+        <span class="letter">A</span>
+        <span class="letter">K</span>
+      </td>
+      <td>
+        <span class="letter box">E</span>
+        <span class="letter">R</span>
+        <span class="letter">I</span>
+        <span class="letter">D</span>
+        <span class="letter">A</span>
+        <span class="letter">N</span>
+        <span class="letter"> </span>
+        <span class="letter">A</span>
+        <span class="letter">M</span>
+        <span class="letter">P</span>
+        <span class="letter">O</span>
+        <span class="letter">R</span>
+        <span class="letter">A</span>
+      </td>
+    </tr>
+    <tr>
+      <td><code>M41D3N</code></td>
+      <td>Virgo</td>
+      <td>
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter">N</span>
+        <span class="letter">A</span>
+        <span class="letter">Y</span>
+        <span class="letter">A</span>
+        <span class="letter"> </span>
+        <span class="letter">M</span>
+        <span class="letter">A</span>
+        <span class="letter box">R</span>
+        <span class="letter">Y</span>
+        <span class="letter">A</span>
+        <span class="letter">M</span>
+      </td>
+      <td>
+        <span class="letter">T</span>
+        <span class="letter">E</span>
+        <span class="letter">R</span>
+        <span class="letter">E</span>
+        <span class="letter">Z</span>
+        <span class="letter">I</span>
+        <span class="letter"> </span>
+        <span class="letter">P</span>
+        <span class="letter">Y</span>
+        <span class="letter box">R</span>
+        <span class="letter">O</span>
+        <span class="letter">P</span>
+        <span class="letter">E</span>
+      </td>
+    </tr>
+    <tr>
+      <td><code>Twins</code></td>
+      <td>Gemini</td>
+      <td>
+        <span class="letter">S</span>
+        <span class="letter">O</span>
+        <span class="letter">L</span>
+        <span class="letter">L</span>
+        <span class="letter">U</span>
+        <span class="letter">X</span>
+        <span class="letter"> </span>
+        <span class="letter">C</span>
+        <span class="letter box">A</span>
+        <span class="letter">P</span>
+        <span class="letter">T</span>
+        <span class="letter">O</span>
+        <span class="letter">R</span>
+      </td>
+      <td>
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter">N</span>
+        <span class="letter">A</span>
+        <span class="letter">Y</span>
+        <span class="letter">A</span>
+        <span class="letter"> </span>
+        <span class="letter">M</span>
+        <span class="letter box">A</span>
+        <span class="letter">R</span>
+        <span class="letter">Y</span>
+        <span class="letter">A</span>
+        <span class="letter">M</span>
+      </td>
+    </tr>
+    <tr>
+      <td><code>sCALES</code></td>
+      <td>Libra</td>
+      <td>
+        <span class="letter box">T</span>
+        <span class="letter">E</span>
+        <span class="letter">R</span>
+        <span class="letter">E</span>
+        <span class="letter">Z</span>
+        <span class="letter">I</span>
+        <span class="letter"> </span>
+        <span class="letter">P</span>
+        <span class="letter">Y</span>
+        <span class="letter">R</span>
+        <span class="letter">O</span>
+        <span class="letter">P</span>
+        <span class="letter">E</span>
+      </td>
+      <td>
+        <span class="letter box">T</span>
+        <span class="letter">A</span>
+        <span class="letter">V</span>
+        <span class="letter">R</span>
+        <span class="letter">O</span>
+        <span class="letter">S</span>
+        <span class="letter"> </span>
+        <span class="letter">N</span>
+        <span class="letter">I</span>
+        <span class="letter">T</span>
+        <span class="letter">R</span>
+        <span class="letter">A</span>
+        <span class="letter">M</span>
+      </td>
+    </tr>
+    <tr>
+      <td><code>PITCHER</code></td>
+      <td>Aquarius</td>
+      <td>
+        <span class="letter">E</span>
+        <span class="letter">R</span>
+        <span class="letter">I</span>
+        <span class="letter">D</span>
+        <span class="letter box">A</span>
+        <span class="letter">N</span>
+        <span class="letter"> </span>
+        <span class="letter">A</span>
+        <span class="letter">M</span>
+        <span class="letter">P</span>
+        <span class="letter">O</span>
+        <span class="letter">R</span>
+        <span class="letter">A</span>
+      </td>
+      <td>
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter">R</span>
+        <span class="letter">K</span>
+        <span class="letter box">A</span>
+        <span class="letter">T</span>
+        <span class="letter"> </span>
+        <span class="letter">V</span>
+        <span class="letter">A</span>
+        <span class="letter">N</span>
+        <span class="letter">T</span>
+        <span class="letter">A</span>
+        <span class="letter">S</span>
+      </td>
+    </tr>
+    <tr>
+      <td><code>4R4CHN1D</code></td>
+      <td>Scorpio</td>
+      <td>
+        <span class="letter">V</span>
+        <span class="letter">R</span>
+        <span class="letter">I</span>
+        <span class="letter">S</span>
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter"> </span>
+        <span class="letter">S</span>
+        <span class="letter">E</span>
+        <span class="letter box">R</span>
+        <span class="letter">K</span>
+        <span class="letter">E</span>
+        <span class="letter">T</span>
+      </td>
+      <td>
+        <span class="letter">T</span>
+        <span class="letter">E</span>
+        <span class="letter">R</span>
+        <span class="letter">E</span>
+        <span class="letter">Z</span>
+        <span class="letter">I</span>
+        <span class="letter"> </span>
+        <span class="letter">P</span>
+        <span class="letter">Y</span>
+        <span class="letter box">R</span>
+        <span class="letter">O</span>
+        <span class="letter">P</span>
+        <span class="letter">E</span>
+      </td>
+    </tr>
+    <tr>
+      <td><code>BiGhOrN</code></td>
+      <td>Aries</td>
+      <td>
+        <span class="letter">A</span>
+        <span class="letter">R</span>
+        <span class="letter">A</span>
+        <span class="letter">D</span>
+        <span class="letter">I</span>
+        <span class="letter">A</span>
+        <span class="letter"> </span>
+        <span class="letter box">M</span>
+        <span class="letter">E</span>
+        <span class="letter">G</span>
+        <span class="letter">I</span>
+        <span class="letter">D</span>
+        <span class="letter">O</span>
+      </td>
+      <td>
+        <span class="letter">G</span>
+        <span class="letter">A</span>
+        <span class="letter">M</span>
+        <span class="letter">Z</span>
+        <span class="letter">E</span>
+        <span class="letter">E</span>
+        <span class="letter"> </span>
+        <span class="letter box">M</span>
+        <span class="letter">A</span>
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter">R</span>
+        <span class="letter">A</span>
+      </td>
+    </tr>
+    <tr>
+      <td><code>FISH</code></td>
+      <td>Pisces</td>
+      <td>
+        <span class="letter">F</span>
+        <span class="letter">E</span>
+        <span class="letter">F</span>
+        <span class="letter">E</span>
+        <span class="letter">R</span>
+        <span class="letter">I</span>
+        <span class="letter"> </span>
+        <span class="letter">P</span>
+        <span class="letter">E</span>
+        <span class="letter">I</span>
+        <span class="letter">X</span>
+        <span class="letter">E</span>
+        <span class="letter box">S</span>
+      </td>
+      <td>
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter">R</span>
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter">T</span>
+        <span class="letter"> </span>
+        <span class="letter">V</span>
+        <span class="letter">A</span>
+        <span class="letter">N</span>
+        <span class="letter">T</span>
+        <span class="letter">A</span>
+        <span class="letter box">S</span>
+      </td>
+    </tr>
+  </table>
+
+  <p>Taking the letters in order gives the final answer, <strong><code>MASTER
+    AT ARMS</code></strong>.</p>
+{% endblock %}

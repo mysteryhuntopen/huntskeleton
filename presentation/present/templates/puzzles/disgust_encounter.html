@@ -1,0 +1,22 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "objective_macros.html" as objective_macros %}
+{% import "island_macros.html" as island_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block byline %}
+Disgust played by Simone Agha / Rachel Bowens-Rubin
+{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_content_block %}
+{% if site_mode() == "solution" %}
+<div id="main-page-content">
+  <p>After a team solves the <a href="{{ url_for('full_puzzle' if session.usertype == 'writingteam' else 'puzzle', puzzle_id='disgust') }}">Disgust meta</a>, Disgust pays a visit to their headquarters. Since she&rsquo;s just rappelled back into the Control Room, she&rsquo;s still a little dirty. She passes off her rappelling rope to the first person she sees, and begins complaining about how gross the journey was and how digusting everything and everyone in the team&rsquo;s headquarters is. After a few minutes, she declares she needs a breath of fresh air, and steps out, heaving a huge sigh of relief the instant she&rsquo;s out of the room.</p>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_call_to_action_block %}
+Where can you find the core memory?
+{% endblock %}
+
+{% block puzzle_content_block %}
+<p>Quickly! You need to flee the deployment site before you get caught!</p>
+
+<p>You can only move in cardinal directions and use stairwells to move between connected floors. The Campus Police are tracking you, so you can’t revisit any square, including stairwells.</p>
+
+<p>You’ll need to use your new tools in order to make it out safely. Studying each bulletin board, it becomes clear that there’s only one way to complete each phase. And once you figure that out, your new tools should fit perfectly.</p>
+
+<p><b>Tools</b></p>
+<ul>
+  <li><code>EXOSKELETON</code></li>
+  <li><code>BIOFUEL TORCH</code></li>
+  <li><code>BACKUP PLAN</code></li>
+</ul>
+{% endblock %}

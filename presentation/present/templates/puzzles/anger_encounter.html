@@ -1,0 +1,20 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block byline %}
+Anger played by Hubert Hwang / Anisa Schardl
+{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_content_block %}
+{% if site_mode() == "solution" %}
+<div id="main-page-content">
+  <p>After a team solves the <a href="{{ url_for('full_puzzle' if session.usertype == 'writingteam' else 'puzzle', puzzle_id='anger') }}">Anger meta</a>, Anger pays a visit to their headquarters. He's grumpy and frustrated, but eager to tell the story of picking a fight with the Control Room lock and busting it open. Apparently, his key didn&rsquo;t work to open the lock to get back into the Control Room, and he expresses his frustration with it by throwing it on the floor. After a few minutes, Anger looks at his watch and realizes he needs to be back in the Control Room in case Terry encounters the Health and Safety Hunt organizer, James, because he wishes to berate him.</p>
+</div>
+{% endif %}
+{% endblock %}

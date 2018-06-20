@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+{% block page_body %}
+{% set submitted_answer = submission.submission %}
+{% set canonical_answers = puzzle.get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers',[]) %}
+{% set canonical_answer = canonical_answers[0].get('canonicalAnswer','') if canonical_answers|length else '' %}
+<div class="ha-page-section">
+  <div class="ha-section-row">
+    <table class="ha-section-row-box">
+      <tr>
+        <td>Submission Time</td>
+        <td>{{ submission.timestamp | datetime }}</td>
+      </tr>
+      <tr>
+        <td>Team ID</td>
+        <td>{{ submission.teamId }}</td>
+      </tr>
+      <tr>
+        <td>Team Name</td>
+        <td>{{ team.teamName }}</td>
+      </tr>
+      <tr>
+        <td>Team Primary Phone</td>
+        <td>{{ team.primaryPhone }}</td>
+      </tr>
+      <tr>
+        <td>Team Secondary Phone</td>
+        <td>{{ team.secondaryPhone }}</td>
+      </tr>
+      <tr>
+        <td>Team Email</td>
+        <td>{{ team.email }}</td>
+      </tr>
+      <tr>
+        <td>Team Headquarters</td>
+        <td>{{ team.headquarters }}</td>
+      </tr>
+      <tr>
+        <td>Puzzle ID</td>
+        <td>{{ submission.puzzleId }}</td>
+      </tr>
+      <tr>
+        <td>Puzzle Name</td>
+        <td>
+          {% if 'puzzleProperties' in puzzle and 'DisplayNameProperty' in puzzle.puzzleProperties %}
+          {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}
+          {% else %}
+          unknown
+          {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td>Submitted Answer</td>
+        <td>{{ submission.submission }}</td>
+      </tr>
+      <tr>
+        <td>Correct Answer</td>
+        <td>{{ canonical_answer }}</td>
+      </tr>
+      <tr>
+        <td>Assigned to Caller</td>
+        <td>{{ submission.callerUsername }}</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>{{ submission.status }}</td>
+      </tr>
+    </table>
+    {% if past_submissions %}
+    <div class="ha-section-row-box">
+      <h3 class="ha-section-row-heading">Previous Submissions</h3>
+      <ul>
+        {% for s in past_submissions %}
+        <li>
+          {{ s.timestamp | datetime }} - {{ s.status }} - {{ s.submission }} - handled by {{ s.callerUsername }}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<div class="ha-page-section">
+  {% if submission.status == 'SUBMITTED' %}
+  <form action="{{ url_for('submission', submission_id=submission.submissionId) }}" method="post">
+    <input type="hidden" name="status" value="ASSIGNED">
+    <input type="submit" value="Assign to Me">
+  </form>
+  {% elif submission.status == 'ASSIGNED' %}
+    {% if submission.callerUsername == session['username'] %}
+      <h3>Figure out if the answer is correct or incorrect.</h3>
+      <p>
+        Differences in spacing, casing, and punctuation are allowed.
+      </p>
+      <table id="submission-comparison">
+        <tr>
+          <td>Submission</td>
+          <td class="submission-entry">
+            {{ submitted_answer }}
+          </td>
+        </tr>
+        <tr>
+          <td>Answer</td>
+          <td class="submission-entry">{{ canonical_answer }}</td>
+        </tr>
+      </table>
+      <p>Computer says this answer is: <span id="ha-call-queue-answer-status"></span> (but double-check)</p>
+
+      <h3>If correct, call {{ team.teamName }} at {{ team.primaryPhone }}.</h3>
+      <p>
+        If there's no answer, try their secondary phone number
+        {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get
+        updated contact info.
+      </p>
+      <p>
+        Make sure you are talking to the correct team.
+      </p>
+      <p>
+        <b>Do not say either the team&rsquo;s submission or the answer</b>. Tell the team:
+        <div class="ha-indented">&ldquo;Hi [Team Name], this is Cranium Command. I&rsquo;m calling about your submission for the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}. [Break for acknowledgement.] Your answer to the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }} is correct, congratulations.&rdquo;</div>
+      </p>
+
+      <div class="line"></div>
+
+      {% if puzzle.puzzleProperties.DisplayIdProperty.displayId in puzzles_with_instructions %}
+        <h3>If incorrect, figure out if the answer is an instruction rather than an actual answer.</h3>
+        <p>
+          Again, differences in spacing, casing, and punctuation are allowed.
+        </p>
+        <table id ="submission-comparison">
+          <tr>
+            <td>Submission</td>
+            <td class="submission-entry">
+              {{ submitted_answer }}
+            </td>
+          </tr>
+          <tr>
+            <td>Instruction</td>
+            <td class="submission-entry">{{ puzzles_with_instructions[puzzle.puzzleProperties.DisplayIdProperty.displayId] }}</td>
+          </tr>
+        </table>
+        <p>Computer says this: <span id="ha-call-queue-instruction-status"></span> (but double-check)</p> 
+
+        <h3>If the team has submitted a correct instruction, call {{ team.teamName }} at {{ team.primaryPhone }}.</h3>
+        <p>
+          If there's no answer, try their secondary phone number
+          {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get
+          updated contact info.
+        </p>
+        <p>
+          Make sure you are talking to the correct team.
+        </p>
+        <p>
+          <b>Do not say either the team&rsquo;s submission or the answer</b>. Tell the team:
+          <div class="ha-indented">&ldquo;Hi [Team Name], this is Cranium Command. I&rsquo;m calling about your submission for the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}. [Break for acknowledgement.] You submitted an incorrect <i>answer</i>, but that sounds like a really good <i>instruction</i>.&rdquo;</div>
+        </p>
+
+        <p>Then mark this submission as <b>INCORRECT</b></p>
+
+        <div class="line"></div>
+      {% endif %}
+
+      <h3>If the submission is straight up incorrect, call {{ team.teamName }} at {{ team.primaryPhone }}.</h3>
+      <p>
+        If there's no answer, try their secondary phone number
+        {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get
+        updated contact info.
+      </p>
+      <p>
+        Make sure you are talking to the correct team.
+      </p>
+      <p>
+        <b>Do not say either the team&rsquo;s submission or the answer</b>. Tell the team:
+        <div class="ha-indented">&ldquo;Hi [Team Name], this is Cranium Command. I&rsquo;m calling about your submission for the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}. [Break for acknowledgement.] Your answer to the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }} is incorrect, sorry.&rdquo;</div>
+      </p>
+
+      <div class="line"></div>
+
+      <h3>After the call, mark this submission as either Correct or Incorrect.</h3>
+      <script>
+        function cleanAnswer(answer) {
+          return answer.toLowerCase().replace(/[^a-z0-9]/g,'');
+        }
+        var submittedAnswer = cleanAnswer("{{ submitted_answer }}");
+        var canonicalAnswer = cleanAnswer("{{ canonical_answer }}");
+        var floaterInstruction = cleanAnswer("{{ puzzles_with_instructions.get(puzzle.puzzleProperties.DisplayIdProperty.displayId, '') }}")
+        function checkCorrect(expectCorrect) {
+          if (expectCorrect && submittedAnswer != canonicalAnswer) {
+            return confirm("Please DOUBLE CHECK that {{ submitted_answer }} actually matches {{ canonical_answer }}! If it doesn't, press cancel.");
+          }
+          if (!expectCorrect && submittedAnswer == canonicalAnswer) {
+            return confirm("Please DOUBLE CHECK that {{ submission.submission }} does NOT MATCH {{ canonical_answer }}! If it DOES MATCH, press cancel.");
+          }
+          return true;
+        }
+        if (submittedAnswer == canonicalAnswer) {
+          $('#ha-call-queue-answer-status').addClass('ha-call-queue-status-correct').text('✅ CORRECT!');
+        } else {
+          $('#ha-call-queue-answer-status').addClass('ha-call-queue-status-incorrect').text('❌ INCORRECT!');
+        }
+        if (floaterInstruction && submittedAnswer == floaterInstruction) {
+          $('#ha-call-queue-instruction-status').addClass('ha-call-queue-status-correct').text('✅ IS AN INSTRUCTION!');
+        } else {
+          $('#ha-call-queue-instruction-status').addClass('ha-call-queue-status-incorrect').text('❌ IS NOT AN INSTRUCTION!');
+        }
+      </script>
+      <form
+          action="{{ url_for('submission', submission_id=submission.submissionId) }}"
+          method="post"
+          onsubmit="return checkCorrect(true);"
+      >
+        <input type="hidden" name="status" value="CORRECT">
+        <input type="submit" value="Correct">
+      </form>
+      <form
+         action="{{ url_for('submission', submission_id=submission.submissionId) }}"
+         method="post"
+         onsubmit="return checkCorrect(false);"
+      >
+        <input type="hidden" name="status" value="INCORRECT">
+        <input type="submit" value="Incorrect">
+      </form>
+    {% endif %}
+    <form action="{{ url_for('submission', submission_id=submission.submissionId) }}" method="post">
+      <input type="hidden" name="status" value="SUBMITTED">
+      <p>
+        If the assigned user is no longer able to handle this submission, please click
+        <input type="submit" value="Unassign">.
+      </p>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}

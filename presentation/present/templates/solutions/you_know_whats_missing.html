@@ -1,0 +1,71 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Kevin Hwang, Zachary Barryte, and Hannah Robertson{% endblock %}
+{% block solution %}PEARL{% endblock %}
+
+{% block solution_content_block %}
+<p>At Cranium Command, solvers were presented with a urine sample cup containing 5 lateral flow devices (i.e. pee sticks), numbered 1&ndash;5, inclusive.</p>
+
+<p>Solvers should pee into the cup, thus dousing the 5 lateral flow devices. Once wet with urine (or water, if you&rsquo;re boring), the 5 lateral flow devices reveal the following numbered clue phrases:</p>
+
+<ol>
+  <li>Here in Boston, Hoover and Chacoda</li>
+  <li>Party with linked computers</li>
+  <li>Favor, fortune, or blind chance</li>
+  <li>They sometimes are atoned for</li>
+  <li>Noises from winged grey rats</li>
+</ol>
+
+<p>Each cluephrase clues the following word, each of which is one character fewer than the number of words in the cluephrase. Each clue word becomes a different word when a P is added somewhere (thereby reapplying the puzzle mechanic), and the location of that additional P corresponds to one of the words in the cluephrase.</p>
+
+<table class="solution-table condensed-table">
+  <tr>
+    <th>Number</th>
+    <th>Phrase</th>
+    <th>Word</th>
+    <th>Word with added P</th>
+    <th>Extracted cluephrase word</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Here in Boston, Hoover and Chacoda</td>
+    <td><code>SEALS</code></td>
+    <td><code>SEPALS</code></td>
+    <td><code>BOSTON</code></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Party with linked computers</td>
+    <td><code>LAN</code></td>
+    <td><code>PLAN</code></td>
+    <td><code>PARTY</code></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Favor, fortune, or blind chance</td>
+    <td><code>LUCK</code></td>
+    <td><code>PLUCK</code></td>
+    <td><code>FAVOR</code></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>They sometimes are atoned for</td>
+    <td><code>SINS</code></td>
+    <td><code>SPINS</code></td>
+    <td><code>SOMETIMES</code></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Noises from winged grey rats</td>
+    <td><code>COOS</code></td>
+    <td><code>COOPS</code></td>
+    <td><code>GREY</code></td>
+  </tr>
+</table>
+
+<p>In order, those indexed words form a new phrase: <code>BOSTON PARTY FAVOR SOMETIMES GREY</code>. Following that original pattern, the new phrase clues a word that is one character fewer than its number of words: <code>EARL</code>. The solution is this new word with an added P: <strong><code>PEARL</code></strong>.</p>
+{% endblock %}

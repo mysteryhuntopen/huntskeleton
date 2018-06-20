@@ -1,0 +1,11 @@
+FROM node:8
+
+RUN apt-get update && \
+  apt-get install --no-install-recommends -qy \
+    graphicsmagick
+RUN yarn global add gulp-cli
+
+WORKDIR /src
+VOLUME /src
+EXPOSE 5003
+CMD ["./dev/build-assets"]

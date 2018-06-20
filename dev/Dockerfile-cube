@@ -1,0 +1,12 @@
+FROM ubuntu:16.04
+
+RUN apt-get update && \
+  apt-get install --no-install-recommends -qy maven openjdk-8-jdk-headless openjdk-8-jre-headless
+
+ADD cube/pom.xml /src/
+WORKDIR /src
+RUN mvn verify clean --fail-never
+
+VOLUME /src
+EXPOSE 8182
+CMD ["mvn", "package", "exec:java", "-DskipTests=true", "-Dexec.mainClass=edu.mit.puzzle.cube.core.CubeApplication"]

@@ -1,0 +1,135 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By David Greenspan and Li-Mei Lim{% endblock %}
+{% block solution %}ASTRAKHAN{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content th {
+    text-align: left;
+  }
+  .puzzle-content td:nth-child(2n) {
+    text-align: center;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>
+  Each line contains a word that&rsquo;s etymologically derived from a toponym (place name). Using the position (word index) of the toponym in the phrase or sentence to index into the modern­-day country the toponym is from, you extract letters in the given order. Note that the number of words in each sentence or phrase is the same as the number of letters in the country, to provide confirmation and suggest indexing.</p>
+
+<table class="solution-table">
+  <thead>
+    <tr>
+      <th>Toponym</th>
+      <th>Position in phrase</th>
+      <th>Modern-day country</th>
+      <th>Extracted letter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Limousine</td>
+      <td>5</td>
+      <td>Limousin, FRANCE</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Scallions</td>
+      <td>4</td>
+      <td>Ashkelon, ISRAEL</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Calico</td>
+      <td>2</td>
+      <td>Calicut, INDIA</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Jeans</td>
+      <td>3</td>
+      <td>Genoa, ITALY</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Antimacassar</td>
+      <td>3</td>
+      <td>Makassar, INDONESIA</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <td>Magenta</td>
+      <td>1</td>
+      <td>Magenta, ITALY</td>
+      <td>I</td>
+    </tr>
+    <tr>
+      <td>Varnish</td>
+      <td>5</td>
+      <td>Benghazi, LIBYA</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Peach</td>
+      <td>4</td>
+      <td>Persia, IRAN</td>
+      <td>N</td>
+    </tr>
+      <td>Suede</td>
+      <td>2</td>
+      <td>SWEDEN</td>
+      <td>W</td>
+    <tr>
+      <td>Parchment</td>
+      <td>5</td>
+      <td>Pergamon, TURKEY</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <td>Badminton</td>
+      <td>6</td>
+      <td>Badminton House, UNITED KINGDOM</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <td>Currant</td>
+      <td>1</td>
+      <td>Corinth, GREECE</td>
+      <td>G</td>
+    </tr>
+    <tr>
+      <td>Mocha</td>
+      <td>4</td>
+      <td>Mocha, YEMEN</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <td>Denim</td>
+      <td>5</td>
+      <td>Nimes, FRANCE</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Sardines</td>
+      <td>3</td>
+      <td>Sardinia, ITALY</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Mayonnaise</td>
+      <td>2</td>
+      <td>Mahon, SPAIN</td>
+      <td>P</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  The letters spell the clue phrase <code>CANADIAN WEDGE CAP</code>, which clues <strong><code>ASTRAKHAN</code></strong>.
+</p>
+{% endblock %}

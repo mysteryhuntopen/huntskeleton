@@ -1,0 +1,86 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Does a bad relationship have you bashing your head against the wall? The owl of wisdom sent along these tips to help you release your inner goddess.
+{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content td:not(:first-child) {
+    padding-left: 20px;
+  }
+
+  .puzzle-content img {
+    width: 300px;
+  }
+
+  .puzzle-content .text {
+    vertical-align: middle;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<table>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/01.jpg') }}></td>
+    <td class="text">1. Take your partner out to dinner. But make sure you&rsquo;ve changed recently.</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/02.jpg') }}></td>
+    <td class="text">2. Find yourself going deeper and deeper? There must be a key to it&hellip;</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/03.jpg') }}></td>
+    <td class="text">3. When you want to feel your partner in sexy ways, first get a one-line summary of their info.</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/04.jpg') }}></td>
+    <td class="text">4. If you stare slackjawed at your partner, text them exactly what you want in a programmatic way to get over it&mdash;just not in a file.</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/05.jpg') }}></td>
+    <td class="text">5. When you go to your partner (in bed), write &ldquo;empty&rdquo; on the box of missing condoms.</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/06.jpg') }}></td>
+    <td class="text">6. When you want something smaller, don&rsquo;t highlight what you wanted to find.</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/07.jpg') }}></td>
+    <td class="text">7. If you need help in your love life, find a guy friend. Ask him to give you an introduction.</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/08.jpg') }}></td>
+    <td class="text">8. When you could use a little extra something, no form is going to make you wait.</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/09.jpg') }}></td>
+    <td class="text">9. Before you get on top, make sure you tie your partner up.</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/10.jpg') }}></td>
+    <td class="text">10. Take it all off, and your partner will show you right where to put it.</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/11.jpg') }}></td>
+    <td class="text">11. Let them see your butt, but only a few times.</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/12.jpg') }}></td>
+    <td class="text">12. It&rsquo;s OK to cop a feel, but don&rsquo;t let that lead to the miracle of creation&hellip;</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/13.jpg') }}></td>
+    <td class="text">13. When the time is right, you can undo your fly. Don&rsquo;t be afraid to ask for help.</td>
+  </tr>
+  <tr>
+    <td class="image"><img {{ img_src_for('puzzles/executive_relationship_commandments/14.jpg') }}></td>
+    <td class="text">14. When was the last time you had any downtime with your partner? Be specific where you start counting!</td>
+  </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,32 @@
+/* Login */
+.support-section {
+  text-align: center;
+}
+
+.login-error {
+  color: black;
+  background-color: #ffc0c0;
+  padding: 10px;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.login-form-table {
+  border-spacing: 6px;
+  margin: 0 auto;
+}
+
+.login-form-label {
+  text-align: right;
+}
+
+.login-button {
+  padding: 12px;
+  box-sizing: content-box;
+}
+
+.login-help-text a {
+  white-space: nowrap;
+}

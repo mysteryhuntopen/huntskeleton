@@ -1,0 +1,52 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Colin Liotta and Leland Aldridge{% endblock %}
+{% block solution %}ROLLIN HAND{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content img {
+    width: 450px;
+    height: auto;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>This puzzle is a deck of cards, delivered to the solver in a sealed box. There is no puzzle content on the box itself.</p>
+
+<p>Upon opening the deck, the cards are found to have been cruelly adulterated. Each has some portion of it cut away. The cards are initially ordered by suit and rank, with two jokers on top. The jokers are marked A and B.</p>
+
+<p>The cards can be rearranged such that the full portion of every hole is visible, which looks like this:</p>
+
+<img {{ img_src_for('solutions/marked_deck/1.png') }} >
+<img {{ img_src_for('solutions/marked_deck/2.png') }} >
+
+<p>This creates an artistic rendering of a certain symbol emerging from the deck. As well as this symbol, when the deck is placed in this order, notches in the edges of the cards line up to reveal the sequence of letters <code>UNPUUJDKL</code>.</p>
+
+<p>The order of the deck at this point is, starting from the card with its face showing:</p>
+
+<p>8&spades;, 7&clubs;, 2&hearts;, A&spades;, 10&clubs;, K&clubs;, 7&spades;, A&diams;, A&hearts;, 4&clubs;, A&clubs;, 3&clubs;, 6&clubs;, 8&clubs;, 9&spades;, J&spades;, 3&diams;, 5&diams;, 7&diams;, 9&diams;, J&diams;, K&diams;, 3&hearts;, 5&hearts;, XA, Q&diams;, J&clubs;, 4&hearts;, 10&spades;, Q&clubs;, 9&clubs;, 8&hearts;, 2&clubs;, 5&clubs;, 9&hearts;, 2&diams;, 6&diams;, 8&diams;, 10&diams;, 4&spades;, XB, Q&spades;, Q&hearts;, 7&hearts;, 10&hearts;, K&hearts;, 3&spades;, 6&spades;, 5&spades;, K&spades;, 6&hearts;, 4&diams;, 2&spades;, J&hearts;</p>
+
+<p>where XA and XB are the two jokers.</p>
+
+<p>The symbol is one found on the cover of the novel <i>Cryptonomicon</i> by Neal Stephenson. In the novel, a cryptographic algorithm named Solitaire is described. Solitaire functions by a deck of cards to generate a keystream, which is then added to a plaintext to encrypt it (or subtracted from a ciphertext to decrypt it). The <a href="https://www.schneier.com/academic/solitaire/">full details of the algorithm</a> can be found on the website of its creator, Bruce Schneier.</p>
+
+<p>Performing ten iterations of the Solitaire algorithm to produce a keystream of nine characters (one iteration will produce a null keystream character) gives <code>LZWMZDXYG</code>. Subtracting this from the sequence on the side of the cards gives the message: <code>IN SHUFFLE</code>.</p>
+
+<p>Crucially, each iteration of the Solitaire algorithm reorders the deck. After ten iterations, the deck is in the order:</p>
+
+<p>2&clubs;, 5&clubs;, 7&clubs;, 10&clubs;, K&clubs;, 4&diams;, 6&diams;, 8&diams;, 10&diams;, Q&diams;, 2&hearts;, 4&hearts;, 6&hearts;, 9&hearts;, J&hearts;, 2&spades;, 4&spades;, 7&spades;, 9&spades;, J&spades;, K&spades;, XB, 2&diams;, Q&hearts;, A&diams;, A&hearts;, 4&clubs;, A&clubs;, 3&clubs;, 6&clubs;, 8&clubs;, J&clubs;, 3&diams;, 5&diams;, 7&diams;, 9&diams;, J&diams;, K&diams;, 3&hearts;, 5&hearts;, 7&hearts;, 10&hearts;, K&hearts;, 3&spades;, 6&spades;, 8&spades;, 10&spades;, Q&spades;, XA, 5&spades;, Q&clubs;, 9&clubs;, 8&hearts;, A&spades;</p>
+
+<p>After performing an in-shuffle on the deck (separating the deck into two even halves and interleaving them, with the new top card coming from the second half of the deck), the deck order becomes:</p>
+
+<p>A&clubs;, 2&clubs;, 3&clubs;, 5&clubs;, 6&clubs;, 7&clubs;, 8&clubs;, 10&clubs;, J&clubs;, K&clubs;, 3&diams;, 4&diams;, 5&diams;, 6&diams;, 7&diams;, 8&diams;, 9&diams;, 10&diams;, J&diams;, Q&diams;, K&diams;, 2&hearts;, 3&hearts;, 4&hearts;, 5&hearts;, 6&hearts;, 7&hearts;, 9&hearts;, 10&hearts;, J&hearts;, K&hearts;, 2&spades;, 3&spades;, 4&spades;, 6&spades;, 7&spades;, 8&spades;, 9&spades;, 10&spades;, J&spades;, Q&spades;, K&spades;, XA, XB, 5&spades;, 2&diams;, Q&clubs;, Q&hearts;, 9&clubs;, A&diams;, 8&hearts;, A&hearts;, A&spades;, 4&clubs;</p>
+
+<p>This is very nearly the order the cards were in when they came out of the box (which is also the order of an unkeyed Solitaire deck), with ten cards removed and placed at the end of the deck. If these ten cards are interpreted as letters, as per Solitaire, they give the string <strong><code>ROLLIN HAND</code></strong>, which is the answer to the puzzle.</p>
+
+<p>More art like this can be found at <a href="http://etsy.com/shop/liottadesign">Liotta Design</a>.</p>
+{% endblock %}

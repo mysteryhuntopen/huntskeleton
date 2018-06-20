@@ -1,0 +1,60 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    div.company {
+      font-weight: bold;
+      font-size: 1.4em;
+      margin-top: 0.4em;
+    }
+
+    div.finstatement {
+      margin-top: 1em;
+      font-size: 1.2em;
+    }
+
+    div.box {
+      margin: 15px;
+      padding: 0 25px 15px;
+      border: 1px solid black;
+      background-color: #99FF99;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  MeowthCorp is being audited! As a Certified Internal Kantophile,
+  you’ve been asked to calculate the following.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <ul>
+    <li>Incineroar Tornadus</li>
+    <li>Dragonairs per Shinx</li>
+    <li>Eevees per Shinx</li>
+    <li>Pyroar Mareep</li>
+    <li>Gross Mareep</li>
+    <li>Aggron Tornadus</li>
+    <li>R&amp;D to Rapidash</li>
+    <li>Ivysaur Coverage Rattata</li>
+    <li>Porygons Tornadus</li>
+    <li>Debt to Espeon</li>
+    <li>Quick Rattata</li>
+    <li>Oranguru Mareep</li>
+    <li>Cubone Rattata</li>
+    <li>Cash Rattata</li>
+  </ul>
+
+  <div class="box">
+    <div class="company">MeowthCorp (PKSE: MC)</div>
+    
+    <div class="finstatement">
+      <a href="{{ asset_url_for('puzzles/harsh_financial_scrutiny/financialstatement.csv') }}">Consolidated Financial Statements</a>
+    </div>
+  </div>
+{% endblock %}

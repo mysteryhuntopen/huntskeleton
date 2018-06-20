@@ -1,0 +1,45 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Leland Aldridge{% endblock %}
+{% block solution %}EMANATIONS{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content img {
+    display: block;
+    margin: 0 auto;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>The behavior of the xenomorph as described in the puzzle matches the rules of the Nikoli puzzle type <a href="https://en.wikipedia.org/wiki/Country_Road_(puzzle)">Country Road</a>. Usually, Country Road puzzles give numbers in each compartment, but those are lacking here.</p>
+
+<p>The answer to each puzzle on this face is two words (given here in alphabetical order):</p>
+
+<ul>
+  <li><code>ANATOMICAL DEMONSTRATIONS</code></li>
+  <li><code>IMPROVISED RAFT</code></li>
+  <li><code>INTRACTABLE QUESTION</code></li>
+  <li><code>RECREATIONAL USE</code></li>
+  <li><code>TAX DOCUMENTS</code></li>
+</ul>
+
+<p>Each of the puzzles is associated with a pair of adjacent rooms. As the text claims that &ldquo;how long [the xenomorph] traveled in each compartment is surely half the answer to the puzzle&rdquo;, each compartment in the pair corresponds to one of the answer words, and that word&rsquo;s length gives the path length in each compartment.</p>
+
+<p>There is no immediate indication which of each compartment gets which word of the answer, but only one combination creates a solvable Country Road puzzle. Most obviously, the lengths of the words and sizes of the combinations in the red and green sets makes it obvious which is which. After that, the pairs can be set by considering in this order: yellow, blue, purple.</p>
+
+<p>Having set the path lengths in each room, the solution to the Country Road puzzle is:</p>
+
+<img {{ img_src_for('solutions/laratel_wf_15_fusion_reactor/1.png') }}>
+
+<p>Since the path length in each compartment is the same as the word length of one of the answer words, the answer words can be written along the path, proceeding counter-clockwise as indicated in the text. If this is done, one letter per compartment falls in the circled cells.</p>
+
+<img {{ img_src_for('solutions/laratel_wf_15_fusion_reactor/2.png') }}>
+
+<p>Taking the circled letters in path order, starting at the &lsquo;E&rsquo; in the top left, gives the answer to this puzzle: <strong><code>EMANATIONS</code></strong>.</p>
+{% endblock %}

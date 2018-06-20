@@ -1,0 +1,57 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Tanya Khovanova and Xavid{% endblock %}
+{% block solution %}EXCEPT{% endblock %}
+
+{% block solution_content_block %}
+<p>This puzzle is based off a puzzle called
+  <a href="http://glenniba.com/grandtourhexbranch/GrandTour.html">Grand
+    Tour</a> (alternatively known as Monorail or Round Trip), created
+  by Glenn Iba. Traditionally, a Grand Tour requires constructing a
+  Hamiltonian circuit (a path that travels through each square exactly
+  once), which includes any provided line segments. Our variant still
+  requires constructing a Hamiltonian <em>path</em>, but not a
+  circuit&mdash;the start and end points on the edge of the grid are
+  provided.</p>
+
+<p>The first step is to solve the presented Grand Tour puzzles.</p>
+
+<p>Next, realize that the number of letters in each of the paragraphs
+  is a perfect square (49, 64, 81, 100, 121, and 144), meaning that
+  each paragraph has the same number of letters as one of the
+  grids. Match each paragraph to the grid of the corresponding size,
+  and fill the letters from the paragraph into the grid by following
+  the path from the Grand Tour puzzle. Once all of the characters have
+  been entered, the grids appear as follows:</p>
+
+<p><img src="{{ asset_url_for('solutions/a_learning_path/1.png') }}" /></p>
+
+<p><img src="{{ asset_url_for('solutions/a_learning_path/2.png') }}" /></p>
+
+<p><img src="{{ asset_url_for('solutions/a_learning_path/3.png') }}" /></p>
+
+<p><img src="{{ asset_url_for('solutions/a_learning_path/4.png') }}" /></p>
+
+<p><img src="{{ asset_url_for('solutions/a_learning_path/5.png') }}" /></p>
+
+<p><img src="{{ asset_url_for('solutions/a_learning_path/6.png') }}" /></p>
+
+<p>After filling in the grids, several letters are
+  highlighted. Reading those top to bottom, left to right, from
+  smallest grid to largest grid yields the phrase: <code>FANTASTIC!
+  YOU REACHED THE EXTRACTION STEP</code>.</p>
+
+<p>As the paragraphs allude to, it is necessary to re-apply the
+  mechanic, by solving the last Grand Tour puzzle, and entering that
+  clue phrase along the path. This results in the following grid:</p>
+
+<p><img src="{{ asset_url_for('solutions/a_learning_path/7.png') }}" /></p>
+
+<p>Reading the highlighted letters again top to bottom, left to right,
+  yields the answer, <strong><code>EXCEPT</code></strong>.</p>
+
+{% endblock %}

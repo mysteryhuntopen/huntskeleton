@@ -1,0 +1,115 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}
+By Kevin Hwang, James Douberley, Nathan Fung, Hubert Hwang, and Henry Wong
+{% endblock %}
+{% block solution %}TEAR DUCT{% endblock %}
+
+{% block solution_head_block %}
+{% endblock %}
+
+{% block solution_content_block %}
+<p>After solving the Sadness memory puzzles, solvers are presented
+  with the following answers (in alphabetical order):</p>
+
+<ul>
+  <li><code>HORSES</code></li>
+  <li><code>HOW GREAT</code></li>
+  <li><code>INCREDIBLY STUPID</code></li>
+  <li><code>ISLAND OF OPPORTUNITY</code></li>
+  <li><code>NECESSARY</code></li>
+  <li><code>PARTICIPATE</code></li>
+  <li><code>SUPERIORS</code></li>
+  <li><code>VISION</code></li>
+</ul>
+
+<p>As suggested by the flavor text (&ldquo;Hang in there&rdquo;), the answers
+  are all words or phrases that can be found in the captions of the
+  <a href="https://despair.com/">Despair, Inc.</a> catalog of
+  Demotivators&reg;. Each word or phrase occurs in exactly one
+  Demotivator, and serves to uniquely identify it. Each Demotivator
+  has a unique, sequential length, providing an ordering.</p>
+
+<p>Additionally, the puzzle title on each individual puzzle page is
+  surrounded by one or more blue borders, which is distinct from other
+  memory puzzles. The number of borders provides an index into the
+  name of the Demotivator:</p>
+
+<table class="solution-table">
+  <thead>
+    <tr>
+      <th>Answer</th>
+      <th>Demotivator</th>
+      <th>Caption</th>
+      <th>Index</th>
+      <th>Letter</th>
+    </tr>
+  </thead>
+  <tr>
+    <td><code>NECESSARY</code></td>
+    <td><a href="https://despair.com/collections/demotivators/products/worth"><code>WORTH</code></a></td>
+    <td>Just because you’re <code>NECESSARY</code> doesn’t mean you’re important.</td>
+    <td>4</td>
+    <td><code>T</code></td>
+  </tr>
+  <tr>
+    <td><code>HORSES</code></td>
+    <td><a href="https://despair.com/products/wishes-cow"><code>WISHES</code></a></td>
+    <td>If wishes were <code>HORSES</code> then dreamers would ride. But they’re much more like cattle, so best grab a shovel.</td>
+    <td>5</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td><code>ISLAND OF OPPORTUNITY</code></td>
+    <td><a href="https://despair.com/products/hazards"><code>HAZARDS</code></a></td>
+    <td>There is an <code>ISLAND OF OPPORTUNITY</code> in the middle of every difficulty. Miss that, though, and you’re pretty much doomed.</td>
+    <td>2</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td><code>HOW GREAT</code></td>
+    <td><a href="https://despair.com/products/problems"><code>PROBLEMS</code></a></td>
+    <td>No matter <code>HOW GREAT</code> and destructive your problems may seem now, remember, you’ve probably only seen the tip of them.</td>
+    <td>2</td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td><code>INCREDIBLY STUPID</code></td>
+    <td><a href="https://despair.com/collections/demotivators/products/tradition"><code>TRADITION</code></a></td>
+    <td>Just because you’ve always done it that way doesn’t mean it’s not <code>INCREDIBLY STUPID</code>.</td>
+    <td>4</td>
+    <td><code>D</code></td>
+  </tr>
+  <tr>
+    <td><code>PARTICIPATE</code></td>
+    <td><a href="https://despair.com/products/corruption"><code>CORRUPTION</code></a></td>
+    <td>I want either less corruption or more opportunity to <code>PARTICIPATE</code> in it.</td>
+    <td>5</td>
+    <td><code>U</code></td>
+  </tr>
+  <tr>
+    <td><code>VISION</code></td>
+    <td><a href="https://despair.com/collections/demotivators/products/achievement"><code>ACHIEVEMENT</code></a></td>
+    <td>You can do anything you set your mind to when you have <code>VISION</code>, determination, and an endless supply of expendable labor.</td>
+    <td>2</td>
+    <td><code>C</code></td>
+  </tr>
+  <tr>
+    <td><code>SUPERIORS</code></td>
+    <td><a href="https://despair.com/products/intimidation"><code>INTIMIDATION</code></a></td>
+    <td>No one can make you feel inferior without your consent. But you’d be a fool to withhold that from your <code>SUPERIORS</code>.</td>
+    <td>3</td>
+    <td><code>T</code></td>
+  </tr>
+</table>
+
+<p>Reading the letters in order tells how to get through the piping
+  and back in the Control Room; all Sadness has to do is
+  <strong><code>TEAR DUCT</code></strong>.</p>
+  
+<p>Shortly after solving this puzzle, each team is <a href="{{ url_for('full_puzzle' if session.usertype == 'writingteam' else 'puzzle', puzzle_id='sadness_encounter') }}">visited by Sadness</a>.</p>
+{% endblock %}

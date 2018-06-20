@@ -1,0 +1,28 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_content_block %}
+  <ol>
+    <li>The next answer plus thirteen mod twenty-six is ____.</li>
+    <li>The number of o’s in these answers plus two is ____.</li>
+    <li>The number of answers less than the answer to this statement is  ____ minus seven.</li>
+    <li>The kth prime number, where k is the number of u’s among these answers plus two, is ____.</li>
+    <li>Ignore all characters in the previous answer that are not Roman numerals and read the remainder as a single number, then subtract three, and finally add the result to the number of i’s and u’s in the answer to this statement to get ____</li>
+    <li>The antepenultimate answer plus eleven is ____.</li>
+    <li>Multiply the number of answers that end in consonants (including y) by two,  add one, and add the total number of x’s among all answers to get ____, which leaves a remainder of five when divided by six.</li>
+    <li>The length of this answer times four, plus three times the number of syllables in this answer, minus ten, minus the number of o’s and c’s in this answer is ____.</li>
+    <li>Nineteen plus the previous answer minus the next answer is ____, which is the sum of all the answers except this one minus one hundred seventy-one.</li>
+    <li>Let k be the number of answers with value equal to fourteen. The (2k + 4)th number in the Fibonacci sequence (starting with index 1 at the first number 1) is ____.</li>
+    <li>The median of these answers plus five is ____, which is nine times the number of answers equal to one, plus the number of answers equal to twenty-three.</li>
+    <li>Let k be such that the kth statement is the first one with an answer containing a letter with Scrabble value at least eight. The value of nineteen minus k is ____.</li>
+    <li>The number of other answers that have the same value as this is ____ (which is one of the modes of the answers)</li>
+    <li>The average of these answers, rounded down, plus two, is ____, which is a multiple of the previous answer times seven.</li>
+    <li>The number of n’s contained in this sentence is ____.</li>
+    <li>The value of the answer to the next statement plus eleven is ____.</li>
+    <li>The number of h’s among these answers times two is ____.</li>
+  </ol>
+{% endblock %}

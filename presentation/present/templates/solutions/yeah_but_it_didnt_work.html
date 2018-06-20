@@ -1,0 +1,150 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Justin Melvin{% endblock %}
+{% block solution %}AD NAUSEAM{% endblock %}
+
+{% block solution_head_block %}
+{% endblock %}
+
+{% block solution_content_block %}
+<p>The puzzle is presented as a series of groups of mini-puzzles. Each
+  group can be solved using techniques from one of the headings in the
+  <a href="http://www.mit.edu/~puzzle/resources/haveyoutried.pdf">ACME
+    Have You Tried document</a>:</p>
+
+<p>
+  <strong>What is it? (3)</strong>
+
+  <ul>
+    <li>&hellip;Braille: <code>THE LETTER AITCH</code> (<code>H</code>)</li>
+    <li>&hellip;using the Library of Congress system: <code>THE SCARLET LETTER</code> (<code>A</code>)</li>
+    <li>&hellip;getting on the T: Draw lines connecting the three stations to form a letter (<code>V</code>)</li>
+  </ul>
+</p>
+
+<p>
+  <strong>Letters and words (14)</strong>
+
+  <ul>
+    <li>&hellip;determining if it is a Rot 13: <code>THE BEGINNING OF ETERNITY AND THE END OF TIME</code> (<code>E</code>)</li>
+    <li>&hellip;rearranging the letters (&ldquo;anagramming&rdquo;): <code>THE LETTER THAT PRECEEDS ZED</code> (<code>Y</code>)</li>
+    <li>&hellip;looking at a computer keyboard: The letters form a circle around a letter (<code>O</code>)</li>
+  </ul>
+</p>
+
+<p>
+  <strong>Numbers (1)</strong>
+
+  <ul>
+    <li>&hellip;treating numbers as latitude/longitude: Draw lines between the coordinates to form a letter (<code>U</code>)</li>
+    <li>&hellip;matching numbers to MIT buildings: The three named buildings form the shape of a lettter (<code>T</code>)</li>
+    <li>&hellip;treating numbers as radio stations: The call signs for the stations all end in the same letter (<code>R</code>)</li>
+  </ul>
+</p>
+
+<p>
+  <strong>Thirteen ways of looking at a puzzle (10)</strong>
+
+  <ul>
+    <li>&hellip;connecting the dots: <code>THE LETTER BETWEEN J AND H</code> (<code>I</code>)</li>
+    <li>&hellip;looking at it in a mirror: <code>THIS ONE IS THE LETTER E</code> (<code>E</code>)</li>
+    <li>&hellip;saying it out loud to someone else: <code>I&rsquo;LL SAY THAT YOU WANT TO TAKE D AS THE NEXT ONE</code> (<code>D</code>)</li>
+  </ul>
+</p>
+
+<p>
+  <strong>Numbers (2)</strong>
+
+  <ul>
+    <li>&hellip;seeing if prime numbers are involved: The 20th prime number (71) is missing (<code>T</code>)</li>
+    <li>&hellip;treating numbers as ASCII numbers: <code>ONE OUGHT OBTAIN ONE OH</code> (<code>O</code>)</li>
+    <li>&hellip;graphing it parametrically: Graphs a circle above a rectangle, for a lowercase letter (<code>I</code>)</li>
+  </ul>
+</p>
+
+<p>
+  <strong>For starters (4)</strong>
+
+  <ul>
+    <li>&hellip;typing it into a search engine: The first hit from Googling these words is <code>&ldquo;The Letter N Song&rdquo;</code> (<code>N</code>)</li>
+    <li>&hellip;reading the title and the blurb: The puzzle&rsquo;s blurb says how to interpret a double asterisk (<code>D</code>)</li>
+    <li>&hellip;pursuing a train of thought: The missing railroad from Monopoly is <code>READING RAILROAD</code> (<code>E</code>)</li>
+  </ul>
+</p>
+
+<p>
+  <strong>Zen (2)</strong>
+
+  <ul>
+    <li>&hellip;asking for fresh brains: The victim is dead, so the eyes are crossed out (<code>X</code>)</li>
+    <li>&hellip;thinking about what&rsquo;s missing: One letter is missing from the pangram (<code>I</code>)</li>
+    <li>&hellip;trusting someone else&rsquo;s instincts: (<code>N</code>)</li>
+  </ul>
+</p>
+
+<p>
+  <strong>Thirteen ways of looking at a puzzle (10)</strong>
+
+  <ul>
+    <li>&hellip;tilting it: Looking from the edge of the screen, it says <code>TANGO</code> (<code>T</code>)</li>
+    <li>&hellip;folding it: Fold the light lines together so they touch; it says <code>THE LETTER YOU SHOULD USE IS INDIA</code> (<code>I</code>)</li>
+    <li>&hellip;looking at it upside down: The text clues <code>TEA</code> (<code>T</code>)</li>
+  </ul>
+</p>
+
+<p>
+  <strong>Numbers (3)</strong>
+
+  <ul>
+    <li>&hellip;treating numbers as atomic weights: Drawing a line between the elements on the periodic table forms the shape of a letter (<code>L</code>)</li>
+    <li>&hellip;seeing if fundamental constants are involved: This is Euler&rsquo;s constant (<code>E</code>)</li>
+    <li>&hellip;using it as a phone number: On a phone, these form the shape of a letter (<code>S</code>)</li>
+  </ul>
+</p>
+
+<p>Once all of the mini-puzzles have been answered, the extracted
+  letters read <code>HAVE YOU TRIED TO INDEX IN TITLES</code>. Using
+  the numbers in each section of the puzzle to index into the
+  corresponding section of the Have You Tried document:</p>
+
+<table class="solution-table condensed-table">
+    <tr>
+      <th>Section</th>
+      <th>Index</th>
+      <th>Letter</th>
+    </tr>
+    <tr>
+      <td><code>WHAT IS IT</code></td><td>3</td><td><code>A</code></td>
+    </tr>
+    <tr>
+      <td><code>LETTERS AND WORDS</code></td><td>14</td><td><code>D</code></td>
+    </tr>
+    <tr>
+      <td><code>NUMBERS</code></td><td>1</td><td><code>N</code></td>
+    </tr>
+    <tr>
+      <td><code>THIRTEEN WAYS OF LOOKING AT A PUZZLE</code></td><td>10</td><td><code>A</code></td>
+    </tr>
+    <tr>
+      <td><code>NUMBERS</code></td><td>2</td><td><code>U</code></td>
+    </tr>
+    <tr>
+      <td><code>FOR STARTERS</code></td><td>4</td><td><code>S</code></td>
+    </tr>
+    <tr>
+      <td><code>ZEN</code></td><td>2</td><td><code>E</code></td>
+    </tr>
+    <tr>
+      <td><code>THIRTEEN WAYS OF LOOKING AT A PUZZLE</code></td><td>24</td><td><code>A</code></td>
+    </tr>
+    <tr>
+      <td><code>NUMBERS</code></td><td>3</td><td><code>M</code></td>
+    </tr>
+</table>
+
+<p>Reading in order yields the answer, <strong><code>AD NAUSEAM</code></strong>.</p>
+{% endblock %}

@@ -1,0 +1,273 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}I Can Build Anything: Solution{% endblock %}
+{% block puzzle_name_block %}I Can Build Anything: Solution{% endblock %}
+
+{% block byline %}By Nathan Fung{% endblock %}
+{% block solution %}ASK US WHAT TO MACGYVER{% endblock %}
+
+{% block solution_head_block %}
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/support.css') }}">
+<style>
+  .puzzle-content table {
+    font-size: 0.8em;
+  }
+
+  .puzzle-content table div:not(:first-child) {
+    margin-top: 10px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<i>This puzzle was designed to be swapped in during Hunt in case another puzzle turned out to be hopelessly broken. If this had happened, their &ldquo;final&rdquo; answer would have been that of the puzzle they replaced, and that answer would have been given to teams who carried out the instruction that is extracted from this puzzle.</i>
+
+<p>The puzzle consists of two lists: a To Do List and an Inventory List. Each item on the To Do List consists of a task, which was dealt with by MacGyver (in the original 1985&ndash;1992 series) using the bracketed number of items from the inventory list at the bottom. Summing together the numbers following the items described in the inventory, this number can be used to index into the answer of the parenthetical question (which should be answered with respect to the episode this task was done).</p>
+
+<p>The To Do List is sorted alphabetically by the answer to the parenthetical question. When sorting these tasks by the order they happened on the show, the indexed letters spell out the message <code>ASK US WHAT TO MACGYVER</code>.</p>
+
+<table class="solution-table condensed-table">
+  <tr>
+    <th>Episode</th>
+    <th>Task</th>
+    <th>Items used</th>
+    <th>Parenthetical</th>
+    <th>Answer</th>
+    <th>Index</th>
+    <th>Letter</th>
+  </tr>
+  <tr>
+    <td>Pilot</td>
+    <td>Plug a liquid leak</td>
+    <td>Wrapped Brown Rectangles of Sweet Sustenance +9 (Chocolate bars)</td>
+    <td>(of what?)</td>
+    <td>SULFURIC ACID</td>
+    <td>9</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>The Heist</td>
+    <td>Figure out how to get past a lock on a safe</td>
+    <td>
+      <div>Translucent Chalices of Alcoholic Beverage Holding +2 (Crystal wine glasses)</div>
+      <div>Grape-Made Liquid of Intoxication +3 (Wine)</div>
+    </td>
+    <td>(who helps me with the overall goal of why I'm doing this?)</td>
+    <td>CHRIS</td>
+    <td>5</td>
+    <td>S</td>
+  </tr>
+  <tr>
+    <td>Hellfire</td>
+    <td>Repair a safety device that breaks when there is too much current</td>
+    <td>Wrapper of Chewing Material Enclosing +7 (Gum wrapper)</td>
+    <td>(and what response do I get when I offer the part I don't use?)</td>
+    <td>NO THANKS</td>
+    <td>7</td>
+    <td>K</td>
+  </tr>
+  <tr>
+    <td>Deathlock</td>
+    <td>Make a vehicle that will go across the surface of the water at high speed</td>
+    <td>Rectangular Container of Body Holding +6 (Casket)</td>
+    <td>(and who will help me read the item I retrieved using this?)</td>
+    <td>MRS. CHUNG</td>
+    <td>6</td>
+    <td>U</td>
+  </tr>
+  <tr>
+    <td>The Enemy Within</td>
+    <td>Make a tool for restoring the heartbeat of a person</td>
+    <td>
+      <div>Pair of Metal Oblong Stands of Wicked Wax Rod Holding +5 (Pair of candlestick holders)</div>
+      <div>Rubber Flat Rectangle of Ground Surface Covering +3 (Floor mat)</div>
+      <div>Cord of Power Conducting (from an Amplification Device) +3 (Cord from a Microphone)</div>
+    </td>
+    <td>(and who do I need to use this on?)</td>
+    <td>CRAIG BANNISTER</td>
+    <td>11</td>
+    <td>S</td>
+  </tr>
+  <tr>
+    <td>Slow Death</td>
+    <td>Make a device to detect falsehoods</td>
+    <td>
+      <div>Time Keeping Device of Noise Making +3 (Alarm clock)</div>
+      <div>Instrument of Blood Pressure Measuring +3 (Sphygmomanometer)</div>
+      <div>Metal Thread of Conducting -1 (Wire)</div>
+    </td>
+    <td>(and who do I catch with it?)</td>
+    <td>PAUL WEBSTER</td>
+    <td>5</td>
+    <td>W</td>
+  </tr>
+  <tr>
+    <td>The Escape</td>
+    <td>Make a floating air device to notify someone</td>
+    <td>
+      <div>Round Orb of Hexagons and Pentagons +5 (Soccer ball)</div>
+      <div>Printed Material of Daily Information Dissemination +1 (Newspaper)</div>
+      <div>Fluffy White Objects of Makeup Removal +2 (Cotton balls)</div>
+      <div>Liquid Product of Pitted Tree Fruit -3 (Olive oil)</div>
+    </td>
+    <td>(who?)</td>
+    <td>SARAH</td>
+    <td>5</td>
+    <td>H</td>
+  </tr>
+  <tr>
+    <td>Final Approach</td>
+    <td>Make an instrument for surveying angles</td>
+    <td>
+      <div>Group of Limbs of Tall Woody Plants +6 (Tree branches)</div>
+      <div>Objects of Hearing Organ Adornment -1 (Earrings)</div>
+    </td>
+    <td>(used to align what?)</td>
+    <td>RUNWAY</td>
+    <td>5</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>Out in the Cold</td>
+    <td>Make a notification to be rescued</td>
+    <td>
+      <div>Pointy Rod of Cold Balance +2 (Ski pole)</div>
+      <div>Rectangular Cloth of Head Covering +2 (Bandanna)</div>
+      <div>Grabbable Piece of Metal Teeth Attaching -1 (Zipper pull)</div>
+    </td>
+    <td>(seen by whom?)</td>
+    <td>PETE THORNTON</td>
+    <td>3</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>For Love or Money</td>
+    <td>Make a distraction that is hard to see through</td>
+    <td>
+      <div>Gas of Floating Balloon-Filling -5 (Helium)</div>
+      <div>Disposable Object of Hand Covering +1 (Latex gloves)</div>
+      <div>Grey Roll of Attaching Material +2 (Duct tape)</div>
+      <div>Powdery Material of Incomplete Combustion +5 (Carbon black)</div>
+    </td>
+    <td>(put it in a container of what?)</td>
+    <td>POTATOES</td>
+    <td>3</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>Fire and Ice</td>
+    <td>Make a device to climb upwards</td>
+    <td>
+      <div>Rubber Tube of Watering +3 (Garden hose)</div>
+      <div>Set of Metal Teeth of Leaf Collecting +4 (Rake head)</div>
+    </td>
+    <td>(to go where?)</td>
+    <td>SUMAL'S OFFICE</td>
+    <td>7</td>
+    <td>O</td>
+  </tr>
+  <tr>
+    <td>Hell Week</td>
+    <td>Bypass a door trap</td>
+    <td>
+      <div>Sour Liquid of Vinegar Flavoring +5 (Acetic acid)</div>
+      <div>Pungent Chemical of Cleaning +4 (Ammonia)</div>
+    </td>
+    <td>(which is below a room containing what substance?)</td>
+    <td>PLUTONIUM</td>
+    <td>9</td>
+    <td>M</td>
+  </tr>
+  <tr>
+    <td>Blow Out</td>
+    <td>Make a gas that will irritate a robber</td>
+    <td>
+      <div>Stoppered Container of Bed Heat Providing +4 (Hot water bottle)</div>
+      <div>White Powder of Leavening +2 (Baking soda)</div>
+      <div>Liquid of Pickling -3 (Vinegar)</div>
+      <div>Spice of Red Pepper +3 (Cayenne)</div>
+    </td>
+    <td>(but where can I find the leaves I needed earlier?)</td>
+    <td>AUSTRALIA</td>
+    <td>6</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>Rock the Cradle</td>
+    <td>Make a sleeping place for a baby</td>
+    <td>
+      <div>Set of Curved-End Rods of Flat Cylinder Hitting +5 (Hockey sticks)</div>
+      <div>Meshed Strings of Hitting Target Stopping (Often Earning Points) +1 (Net)</div>
+      <div>Cord of Ascending -3 (Climbing rope)</div>
+    </td>
+    <td>(who is with me and the baby?)</td>
+    <td>JACK DALTON</td>
+    <td>3</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td>Blood Brothers</td>
+    <td>Make decoy bodily fluid</td>
+    <td>
+      <div>Liquid of pH Identification +5 (Phenolphthalein solution)</div>
+      <div>Liquid of Unclogging -1 (Drain cleaner)</div>
+    </td>
+    <td>(and who did I help earlier when looking for my friend?)</td>
+    <td>SERGEANT OLSON</td>
+    <td>4</td>
+    <td>G</td>
+  </tr>
+  <tr>
+    <td>Gold Rush</td>
+    <td>Move entrapping snow</td>
+    <td>
+      <div>Container of Gas Necessary for Breathing +5 (Oxygen tank)</div>
+      <div>Container of Russian Alcohol +5 (Bucket of vodka)</div>
+      <div>Warm Fabric Container for Person at Rest -2 (Sleeping bag)</div>
+    </td>
+    <td>(and where would I be vacationing if I wasn't here?)</td>
+    <td>GRAND KEYS</td>
+    <td>8</td>
+    <td>Y</td>
+  </tr>
+  <tr>
+    <td>Halloween Knights</td>
+    <td>Get a thumbprint</td>
+    <td>
+      <div>Cube of Powdered Substance (for Game) +3 (Pool chalk)</div>
+      <div>Slick Substance of Moldability Used in Long Wicked Light Source -2 (Candle wax)</div>
+    </td>
+    <td>(of someone dressed as what?)</td>
+    <td>VAMPIRE</td>
+    <td>1</td>
+    <td>V</td>
+  </tr>
+  <tr>
+    <td>Bitter Harvest</td>
+    <td>Test a sample of earth for the presence of certain substances</td>
+    <td>
+      <div>Eyewear of Tinted Protection +3 (Sunglasses)</div>
+      <div>Solvent of Finger Art Removal +1 (Nail polish remover)</div>
+      <div>Source of Illumination -2 (Lamp)</div>
+    </td>
+    <td>(what kind of substances?)</td>
+    <td>PESTICIDES</td>
+    <td>2</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td>Good Knight MacGyver: Part 2</td>
+    <td>Escape by blowing up a locked cell door</td>
+    <td>
+      <div>Cut Flying Cloth Rectangle of Woman's Clothing Origin +4 (Kite made from a women's dress)</div>
+      <div>Electricity of Sky Origin -2 (Lightning)</div>
+      <div>Floating Rubber Sac of Lightest Element +1 (Hydrogen balloon)</div>
+    </td>
+    <td>(who is holding us?)</td>
+    <td>MORGANA</td>
+    <td>3</td>
+    <td>R</td>
+  </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,226 @@
+{% import "/shared_macros.html" as shared_macros with context %}
+
+{% set emotion_colors = {
+  'ANGER': {
+    'hex': '#fdbbb7',
+    'text': 'red'
+  },
+  'DISGUST': {
+    'hex': '#a9ff9e',
+    'text': 'green'
+  },
+  'FEAR': {
+    'hex': '#deadff',
+    'text': 'purple'
+  },
+  'JOY': {
+    'hex': '#feffd4',
+    'text': 'yellow'
+  },
+  'SADNESS': {
+    'hex': '#b6d4fc',
+    'text': 'blue'
+  },
+} %}
+
+{# the orbs look better with the lighter color at the bottom, defined as follows #}
+{%- set emotion_order = ['JOY', 'DISGUST', 'ANGER', 'SADNESS', 'FEAR'] -%}
+
+{% set island_full_names = {
+  'games': 'Games',
+  'pokemon': 'Pokémon',
+  'scifi': 'Sci-Fi',
+  'hacking': 'Hacking',
+  'mysteryhunt': 'Mystery Hunt',
+} %}
+
+{% macro colors(puzzle) %}
+  {%- set emotions = puzzle.puzzleProperties.get('EmotionsProperty', {}).get('emotions', []) -%}
+  {%- if emotions|length == 0 -%}
+    {%- if puzzle.puzzleId == 'brainstorm' -%}
+      {%- set emotions = emotion_order -%}
+    {%- else -%}
+      {%- set emotions = [puzzle.puzzleId|upper] -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- for emotion in emotions|sort -%}
+    {%- if emotion in emotion_colors %} {{ emotion_colors[emotion]['text'] }} {% endif -%}
+  {% endfor -%}
+{%- endmacro %}
+
+{% macro sadness_header_styles() %}
+  {% if puzzle and puzzle.puzzleProperties.SadnessProperty -%}
+    {%- set sadness = puzzle.puzzleProperties.SadnessProperty.sadness -%}
+    padding: 0 {{ sadness * 4 }}px; box-shadow:
+    {%- for i in range(sadness) -%}
+      inset 0 0 0 {{ 4 * i + 2 }}px blue{% if i != sadness - 1 %}, inset 0 0 0 {{ 4 * i + 4 }}px white, {% endif %}
+    {%- endfor -%}"
+  {% endif %}
+{% endmacro %}
+
+{% macro anger_thermometer() %}
+  {% if puzzle and puzzle.puzzleProperties.AngerProperty -%}
+    {#- We don't want the gradations public, so thermometers are all named after hashes of their content -#}
+    {%- set thermometers = {
+      1: "4f92c579",
+      2: "ed59ff86",
+      3: "879f765f",
+      4: "8dd0ccac",
+      5: "59883558",
+      6: "93b08576",
+      7: "ed719e0d",
+      8: "32146455",
+      9: "e157cd75",
+      10: "19ad28d5",
+      11: "b03a0ed1",
+      12: "d74009a0",
+    } -%}
+    <div class="thermometer">
+      <img {{ img_src_for('rounds/memories/images/thermometers/%s.png' % thermometers[puzzle.puzzleProperties.AngerProperty.anger]) }} />
+    </div>
+  {%- endif %}
+{% endmacro %}
+
+{% macro generate_round_page_memory_icon(type, index) %}
+  {%- set puzzle_link_action = 'full_puzzle' if session.usertype == 'writingteam' else 'puzzle' -%}
+  {%- set puzzle_id = 'brainstorm' if type=='runaround' else 'emo-'+index|string -%}
+  {%- if puzzle_id in puzzle_visibilities -%}
+    {%- set status = puzzle_visibilities[puzzle_id].status -%}
+    {%- set answer = puzzle_visibilities[puzzle_id].solvedAnswers|join(', ') if status=='SOLVED' else none -%}
+    {%- set props = puzzle_properties[puzzle_id].get('puzzleProperties', {}) -%}
+    {%- set link_puzzle_id = props.get('DisplayIdProperty', {}).get('displayId', puzzle_id) -%}
+    {%- set display_name = props.get('DisplayNameProperty', {}).get('displayName', puzzle_id) -%}
+    {%- set emotions = emotion_order if type=='runaround' else props.get('EmotionsProperty', {}).get('emotions', []) -%}
+    {%- set link = url_for(puzzle_link_action, puzzle_id=link_puzzle_id) if status in ['UNLOCKED','SOLVED'] else none -%}
+    {{ memory_icon_helper(emotions, status, link, display_name, answer) }}
+  {%- endif -%}
+{% endmacro %}
+
+{% macro generate_puzzle_page_icon(puzzle) %}
+  {%- set status = shared_macros.puzzle_display_state()|upper -%}
+  {%- if puzzle_id|upper in emotion_colors -%}
+    {{ emotion_icon_helper(puzzle_id|upper, status) }}
+  {%- else -%}
+    {%- if puzzle.puzzleId == 'brainstorm' -%}
+      {%- set emotions = emotion_order -%}
+    {%- else -%}
+      {%- set emotions = puzzle.puzzleProperties.get('EmotionsProperty', {}).get('emotions', []) -%}
+    {%- endif -%}
+    {{ memory_icon_helper(emotions, status) }}
+  {%- endif -%}
+{% endmacro %}
+
+{% macro memory_icon_helper(emotions, status, link=none, display_name=none, answer=none) %}
+  <div class="orb {{ status|lower }}">
+    {%- if status in ['UNLOCKED','SOLVED'] -%}  
+      {%- if link is not none -%}
+        <a href="{{link}}"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="{{display_name}}"
+            {% if answer is not none %} data-answer="{{answer}}" {% endif %}
+        ></a>
+      {%- endif -%}
+      {%- if (emotions|length==5) -%}
+        <img {{ img_src_for('rounds/memories/images/memory-orbs/all.svg') }} draggable="false" />
+      {%- elif (emotions|length==1) -%}
+        {%- for i in range(1,2+1) -%}
+          <img {{ img_src_for('rounds/memories/images/memory-orbs/%s-%d.svg' % (emotion_colors[emotions[0]]['text'], i)) }} draggable="false">
+        {%- endfor -%}
+      {%- else -%}
+        {%- for e in emotion_order if e in emotions -%}
+          <img {{ img_src_for('rounds/memories/images/memory-orbs/%s-%d.svg' % (emotion_colors[e]['text'], loop.index)) }} draggable="false">
+        {%- endfor -%}
+      {%- endif -%}
+      <img {{ img_src_for('rounds/memories/images/memory-orbs/%s-border.svg' % status|lower) }} {% if status=="SOLVED" %} class="oversized" {% endif %} draggable="false">
+    {%- else -%}
+      <img {{ img_src_for('rounds/memories/images/memory-orbs/locked.svg') }} draggable="false">
+    {%- endif -%}
+  </div>
+{% endmacro %}
+
+{% macro emotion_icon_helper(emotion, status) %}
+  <div class="orb {{ status|lower }}">
+    <img {{ img_src_for('rounds/memories/images/puzzle-page/emotions/%s-%s.png' % (emotion|lower, status|lower)) }} draggable="false">
+    <img {{ img_src_for('rounds/memories/images/puzzle-page/emotions/%s-border.svg' % status|lower) }} {% if status=="SOLVED" %} class="oversized" {% endif %} draggable="false">
+  </div>
+{% endmacro %}
+
+{% macro generate_puzzle_styles(puzzle) %}
+  {%- set id = puzzle.puzzleId -%}
+  {%- if id|upper in emotion_colors -%}
+    {%- set background_emotion = id|upper -%}
+  {%- elif id == 'brainstorm' -%}
+    {%- set background_emotion = 'FEAR' -%}
+  {%- else -%}
+    {%- set emotions = puzzle.puzzleProperties.get('EmotionsProperty', {}).get('emotions', []) -%}
+    {# select the lightest available emotion color, as ordered by emotion_order #}
+    {%- set background_emotion -%}
+      {%- for e in emotion_order if e in emotions -%}
+        {%- if loop.index == 1 -%}
+          {{- e -}}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endset -%}
+  {%- endif -%}
+  <style>
+    @media screen {
+      body {
+        background-color: {{ emotion_colors.get(background_emotion, {}).get('hex','#ffffff') }};
+      }
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/memories/styles/icons.css') }}">
+{% endmacro %}
+
+{% macro generate_core_memory(island, show_link=True) %}
+  {%- set puzzle_id = 'grand-finale' if island == 'mysteryhunt' else (island + '-recovery') -%}
+  {%- set status = puzzle_visibilities.get(puzzle_id,{}).get('status','INVISIBLE') -%}
+  {%- if status == 'SOLVED' -%}
+    {%- set link = url_for('full_memory' if session.usertype == 'writingteam' else 'memory', island_id=island) -%}
+    <div class="orb core"
+         {% if not show_link %}
+         data-toggle="tooltip"
+         data-placement="top"
+         data-tooltip-class="tooltip-white"
+         title="{{island_full_names[island]}} Core Memory"
+         {% endif %}
+    >
+      {% if show_link %}
+      <a href="{{link}}"
+        data-toggle="tooltip"
+        data-placement="top"
+        data-tooltip-class="tooltip-white"
+        title="{{island_full_names[island]}} Core Memory"
+      ></a>
+      {% endif %}
+      <img
+          {{ img_src_for('rounds/memories/images/core-memories/%s.png' % island) }} draggable="false" />
+    </div>
+  {%- else -%}
+    <div class="orb core none">
+    </div>
+  {%- endif -%}
+{% endmacro %}
+
+{% macro generate_island(island) %}
+  {%- set island_link_action = 'full_island' if session.usertype == 'writingteam' else 'island' -%}
+  {%- set status = puzzle_visibilities.get(island,{}).get('status','INVISIBLE') -%}
+  {%- set link = url_for(island_link_action, island_id=island) -%}
+  {%- if status in ['UNLOCKED','SOLVED'] -%}
+    <div class="island">
+      <a href="{{link}}"
+        data-toggle="tooltip"
+        data-placement="top"
+        title="{{island_full_names[island]}} Island"
+      >
+        <img class="island-outline" {{ img_src_for('rounds/memories/images/islands/%s-outline.svg' % (island,)) }} />
+        <img class="island-graphic" {{ img_src_for('rounds/memories/images/islands/%s.png' % (island,)) }} />
+      </a>
+    </div>
+  {%- else -%}
+    <div class="island fogged">
+      <img class="fog" {{ img_src_for('rounds/memories/images/islands/fog.svg') }}>
+    </div>
+  {%- endif -%}
+{% endmacro %}

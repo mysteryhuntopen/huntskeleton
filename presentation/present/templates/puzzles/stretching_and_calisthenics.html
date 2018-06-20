@@ -1,0 +1,25 @@
+{% extends "solutions/solution_layout.html" %}
+{% import "/event_macros.html" as event_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block byline %}By Wesley Graybill, Erin Price, and Molly Frey{% endblock %}
+
+{% block solution %}ROOT BEER FLOAT{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_content_block %}
+{{ event_macros.generate_event_content(puzzle.puzzleId) }}
+
+<div id="main-page-content">
+  <p>When teams arrived at La Sala de Puerto Rico, they were faced with a large number of helium balloons with words written on them. Hunters took turns dashing into the middle of the room, pulling balloons down to find the words written on them, releasing the balloon, and returning to their partner to communicate the word through charades. When the partner guessed the word, it was written on their list and the partner dashed in to find a balloon with a related word to charade.</p>
+
+  <p>When a pair had accumulated ten linked words, they could bring their chain in for verification. If they couldn't come up with a plausible relationship between two words on their list, they would be sent back to fill in the gaps.</p>
+
+  <p>After completing the chain, teams were handed their own balloon on a string. They had to pop the balloon in order to find a slip of paper inside, which contained the answer, <strong><code>ROOT BEER FLOAT</code></strong>.</p>
+</div>
+{% endblock %}

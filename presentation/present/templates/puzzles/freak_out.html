@@ -1,0 +1,80 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content table {
+    border-collapse: collapse;
+  }
+
+  .puzzle-content tr {
+    border-bottom: 1px black solid;
+  }
+
+  .puzzle-content th {
+    white-space: nowrap;
+  }
+
+  .puzzle-content th, .puzzle-content td {
+    padding: 1em;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+You should be afraid of what happens when you don&rsquo;t enunciate your consonants. Even if you are on the billboards.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<table>
+  <thead>
+    <tr>
+      <th>Song</th>
+      <th>Concert Date</th>
+      <th>Artist Notes</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="{{ asset_url_for('puzzles/freak_out/track01.mp3') }}">1</a></td>
+      <td>Nov 6 1976</td>
+      <td>They seemed rather well-adjusted on stage&mdash;nothing creepy or seafood related at all!</td>
+      <td>★★★★★</td>
+    </tr>
+    <tr>
+      <td><a href="{{ asset_url_for('puzzles/freak_out/track02.mp3') }}">2</a></td>
+      <td>Dec 27 1997</td>
+      <td>The artist&rsquo;s music inspired me to carry a knife around with me at all times.</td>
+      <td>★★☆☆☆</td>
+    </tr>
+    <tr>
+      <td><a href="{{ asset_url_for('puzzles/freak_out/track03.mp3') }}">3</a></td>
+      <td>May 22 2010</td>
+      <td>I couldn&rsquo;t give this performance a fair score since I&rsquo;m a candyphobe.</td>
+      <td>★★★☆☆</td>
+    </tr>
+    <tr>
+      <td><a href="{{ asset_url_for('puzzles/freak_out/track04.mp3') }}">4</a></td>
+      <td>Apr 18 2009</td>
+      <td>The stage was covered in flowers and keys.</td>
+      <td>★★★★☆</td>
+    </tr>
+    <tr>
+      <td><a href="{{ asset_url_for('puzzles/freak_out/track05.mp3') }}">5</a></td>
+      <td>Feb 4 2017</td>
+      <td>I&rsquo;d seen this singer before on the subway in Brooklyn.</td>
+      <td>★☆☆☆☆</td>
+    </tr>
+    <tr>
+      <td><a href="{{ asset_url_for('puzzles/freak_out/track06.mp3') }}">6</a></td>
+      <td>Nov 1 2008</td>
+      <td>The singer moved alarmingly quickly.</td>
+      <td>★★★★☆</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

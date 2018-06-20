@@ -1,0 +1,1074 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}
+By Hubert Hwang<br/>
+Artwork by Ryan Veeder
+{% endblock %}
+{% block solution %}{{ puzzle.puzzleProperties.AnswersProperty.answers.0.canonicalAnswer }}{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .group {
+    margin-bottom: 1em;
+    page-break-inside: avoid;
+  }
+
+  .puzzle-content .label {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  .puzzle-content .top {
+    margin-left: 1em;
+  }
+
+  .puzzle-content .items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .puzzle-content .item {
+    margin-bottom: 1em;
+    background-color: white;
+  }
+
+  .puzzle-content .letters {
+    border: 1px black solid;
+    padding: 0.1em;
+  }
+
+  .puzzle-content .grid {
+    display: flex;
+  }
+
+  .puzzle-content .grid span {
+    border: 1px black solid;
+    font-size: 1.25em;
+    width: 1em;
+    text-align: center;
+  }
+
+  .puzzle-content .grid span.skip {
+    border: 0;
+  }
+
+  .puzzle-content .grid span.white {
+    background-color: white;
+  }
+
+  .puzzle-content .grid span.black {
+    background: black;
+  }
+
+  .puzzle-content .grid span.light {
+    background: yellow;
+  }
+
+  @media print {
+    .puzzle-content .grid span.black {
+      box-shadow: inset 0 0 0 1000px black;
+    }
+
+    .puzzle-content .grid span.light {
+      box-shadow: inset 0 0 0 1000px yellow;
+    }
+  }
+
+  .puzzle-content .bottom {
+    margin-left: 2em;
+  }
+
+  .puzzle-content .riddle {
+    font-weight: bold;
+    margin-bottom: 0.25em;
+  }
+
+  .puzzle-content .prompt {
+    display: flex;
+    align-items: center;
+  }
+
+  .puzzle-content .prompt .text {
+    padding-right: 0.5em;
+  }
+
+  .puzzle-content .section {
+    border: 1px solid black;
+    margin: 0 2em;
+    padding: 1em;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>First, solve the jumbles and the riddles:</p>
+
+<div class="section">
+  <div class="group">
+    <div class="label">Jumble 14</div>
+    <div class="top">
+      <div class="items">
+        <div class="item">
+          <div class="letters">JSUOYE</div>
+          <div class="grid">
+            <span class="white">J</span>
+            <span class="white">E</span>
+            <span class="white">Y</span>
+            <span class="black">&nbsp;</span>
+            <span class="light">U</span>
+            <span class="white">S</span>
+            <span class="white">O</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">ANFNODGA</div>
+          <div class="grid">
+            <span class="white">F</span>
+            <span class="white">A</span>
+            <span class="white">N</span>
+            <span class="white">D</span>
+            <span class="white">A</span>
+            <span class="white">N</span>
+            <span class="light">G</span>
+            <span class="light">O</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">OSTIRELNHLS</div>
+          <div class="grid">
+            <span class="white">S</span>
+            <span class="white">E</span>
+            <span class="white">T</span>
+            <span class="white">H</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">R</span>
+            <span class="white">O</span>
+            <span class="light">L</span>
+            <span class="white">L</span>
+            <span class="white">I</span>
+            <span class="white">N</span>
+            <span class="light">S</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">IADMDOAWSENN</div>
+          <div class="grid">
+            <span class="light">D</span>
+            <span class="white">A</span>
+            <span class="white">M</span>
+            <span class="white">I</span>
+            <span class="white">E</span>
+            <span class="white">N</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">S</span>
+            <span class="light">A</span>
+            <span class="white">N</span>
+            <span class="white">D</span>
+            <span class="white">O</span>
+            <span class="white">W</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="riddle">What do you call a guy without a shovel?</div>
+      <div class="prompt">
+        <span class="text">Your answer: </span>
+        <div class="grid">
+          <span class="white">D</span>
+          <span class="white">O</span>
+          <span class="light">U</span>
+          <span class="white">G</span>
+          <span class="white">L</span>
+          <span class="white">A</span>
+          <span class="light">S</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="group">
+    <div class="label">Jumble 02</div>
+    <div class="top">
+      <div class="items">
+        <div class="item">
+          <div class="letters">WGHSOIB</div>
+          <div class="grid">
+            <span class="light">B</span>
+            <span class="white">I</span>
+            <span class="white">G</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">S</span>
+            <span class="white">H</span>
+            <span class="white">O</span>
+            <span class="white">W</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">LVEVISNA</div>
+          <div class="grid">
+            <span class="white">V</span>
+            <span class="white">A</span>
+            <span class="light">L</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">V</span>
+            <span class="white">E</span>
+            <span class="white">N</span>
+            <span class="light">I</span>
+            <span class="white">S</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">RLGEATKNU</div>
+          <div class="grid">
+            <span class="white">K</span>
+            <span class="white">U</span>
+            <span class="white">R</span>
+            <span class="white">T</span>
+            <span class="black">&nbsp;</span>
+            <span class="light">A</span>
+            <span class="white">N</span>
+            <span class="white">G</span>
+            <span class="white">L</span>
+            <span class="light">E</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">URYRRTENPSA</div>
+          <div class="grid">
+            <span class="white">P</span>
+            <span class="white">E</span>
+            <span class="white">R</span>
+            <span class="light">R</span>
+            <span class="white">Y</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">S</span>
+            <span class="white">A</span>
+            <span class="white">T</span>
+            <span class="white">U</span>
+            <span class="white">R</span>
+            <span class="light">N</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="riddle">What language is used by a straight insect?</div>
+      <div class="prompt">
+        <span class="text">Your answer: </span>
+        <div class="grid">
+          <span class="white">L</span>
+          <span class="white">I</span>
+          <span class="white">N</span>
+          <span class="light">E</span>
+          <span class="white">A</span>
+          <span class="light">R</span>
+          <span class="skip">&nbsp;</span>
+          <span class="white">B</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="group">
+    <div class="label">Jumble 06</div>
+    <div class="top">
+      <div class="items">
+        <div class="item">
+          <div class="letters">OISCSSIP</div>
+          <div class="grid">
+            <span class="white">P</span>
+            <span class="light">S</span>
+            <span class="white">I</span>
+            <span class="white">C</span>
+            <span class="light">O</span>
+            <span class="white">S</span>
+            <span class="white">I</span>
+            <span class="white">S</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">ADTYATHMR</div>
+          <div class="grid">
+            <span class="light">M</span>
+            <span class="white">A</span>
+            <span class="light">T</span>
+            <span class="white">T</span>
+            <span class="black">&nbsp;</span>
+            <span class="light">H</span>
+            <span class="white">A</span>
+            <span class="white">R</span>
+            <span class="white">D</span>
+            <span class="white">Y</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">TVMRUREOHODRC</div>
+          <div class="grid">
+            <span class="white">T</span>
+            <span class="white">R</span>
+            <span class="light">E</span>
+            <span class="white">V</span>
+            <span class="white">O</span>
+            <span class="white">R</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">M</span>
+            <span class="light">U</span>
+            <span class="white">R</span>
+            <span class="white">D</span>
+            <span class="white">O</span>
+            <span class="white">C</span>
+            <span class="light">H</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">OAANRRIIDMRWLRAAO</div>
+          <div class="grid">
+            <span class="light">R</span>
+            <span class="white">O</span>
+            <span class="white">A</span>
+            <span class="white">D</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">W</span>
+            <span class="white">A</span>
+            <span class="white">R</span>
+            <span class="white">R</span>
+            <span class="white">I</span>
+            <span class="light">O</span>
+            <span class="white">R</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">A</span>
+            <span class="white">N</span>
+            <span class="white">I</span>
+            <span class="light">M</span>
+            <span class="white">A</span>
+            <span class="white">L</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="riddle">Where can you find all of the semisolid goop?</div>
+      <div class="prompt">
+        <span class="text">Your answer: </span>
+        <div class="grid">
+          <span class="white">T</span>
+          <span class="white">H</span>
+          <span class="white">E</span>
+          <span class="skip">&nbsp;</span>
+          <span class="white">M</span>
+          <span class="light">U</span>
+          <span class="white">S</span>
+          <span class="white">H</span>
+          <span class="white">R</span>
+          <span class="white">O</span>
+          <span class="white">O</span>
+          <span class="light">M</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="group">
+    <div class="label">Jumble 07</div>
+    <div class="top">
+      <div class="items">
+        <div class="item">
+          <div class="letters">DRMOBVANA</div>
+          <div class="grid">
+            <span class="white">R</span>
+            <span class="white">O</span>
+            <span class="light">B</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">V</span>
+            <span class="light">A</span>
+            <span class="white">N</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">D</span>
+            <span class="light">A</span>
+            <span class="white">M</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">GKKRNIOEBO</div>
+          <div class="grid">
+            <span class="light">K</span>
+            <span class="white">I</span>
+            <span class="white">N</span>
+            <span class="white">G</span>
+            <span class="black">&nbsp;</span>
+            <span class="light">B</span>
+            <span class="white">O</span>
+            <span class="white">O</span>
+            <span class="white">K</span>
+            <span class="white">E</span>
+            <span class="white">R</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">LJTINMNNSEAEOBH</div>
+          <div class="grid">
+            <span class="light">S</span>
+            <span class="white">H</span>
+            <span class="white">E</span>
+            <span class="light">L</span>
+            <span class="white">T</span>
+            <span class="white">O</span>
+            <span class="white">N</span>
+            <span class="black">&nbsp;</span>
+            <span class="light">B</span>
+            <span class="white">E</span>
+            <span class="white">N</span>
+            <span class="white">J</span>
+            <span class="white">A</span>
+            <span class="light">M</span>
+            <span class="white">I</span>
+            <span class="white">N</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">UORVOMTTRNOVINEAPLEOTS</div>
+          <div class="grid">
+            <span class="white">M</span>
+            <span class="white">O</span>
+            <span class="white">N</span>
+            <span class="white">T</span>
+            <span class="white">E</span>
+            <span class="light">L</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">V</span>
+            <span class="white">O</span>
+            <span class="white">N</span>
+            <span class="light">T</span>
+            <span class="light">A</span>
+            <span class="white">V</span>
+            <span class="white">I</span>
+            <span class="white">O</span>
+            <span class="white">U</span>
+            <span class="white">S</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">P</span>
+            <span class="white">O</span>
+            <span class="white">R</span>
+            <span class="white">T</span>
+            <span class="light">E</span>
+            <span class="white">R</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="riddle">What sport requires all of its players to have business degrees?</div>
+      <div class="prompt">
+        <span class="text">Your answer: </span>
+        <div class="grid">
+          <span class="white">M</span>
+          <span class="white">B</span>
+          <span class="white">A</span>
+          <span class="skip">&nbsp;</span>
+          <span class="light">B</span>
+          <span class="white">A</span>
+          <span class="white">S</span>
+          <span class="white">K</span>
+          <span class="white">E</span>
+          <span class="white">T</span>
+          <span class="white">B</span>
+          <span class="white">A</span>
+          <span class="white">L</span>
+          <span class="light">L</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="group">
+    <div class="label">Jumble 13</div>
+    <div class="top">
+      <div class="items">
+        <div class="item">
+          <div class="letters">NARANYDIELB</div>
+          <div class="grid">
+            <span class="white">D</span>
+            <span class="white">A</span>
+            <span class="white">N</span>
+            <span class="white">I</span>
+            <span class="light">E</span>
+            <span class="white">L</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">B</span>
+            <span class="white">R</span>
+            <span class="light">Y</span>
+            <span class="white">A</span>
+            <span class="white">N</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">AHLDNIJAREM</div>
+          <div class="grid">
+            <span class="light">J</span>
+            <span class="white">I</span>
+            <span class="white">N</span>
+            <span class="white">D</span>
+            <span class="white">E</span>
+            <span class="white">R</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">M</span>
+            <span class="light">A</span>
+            <span class="white">H</span>
+            <span class="white">A</span>
+            <span class="white">L</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">ADARTERETBW</div>
+          <div class="grid">
+            <span class="light">W</span>
+            <span class="white">A</span>
+            <span class="white">D</span>
+            <span class="white">E</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">B</span>
+            <span class="light">A</span>
+            <span class="white">R</span>
+            <span class="white">R</span>
+            <span class="white">E</span>
+            <span class="white">T</span>
+            <span class="white">T</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">LHLPGIDOZRGE</div>
+          <div class="grid">
+            <span class="white">D</span>
+            <span class="white">O</span>
+            <span class="white">L</span>
+            <span class="light">P</span>
+            <span class="white">H</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">Z</span>
+            <span class="white">I</span>
+            <span class="white">G</span>
+            <span class="white">G</span>
+            <span class="white">L</span>
+            <span class="light">E</span>
+            <span class="white">R</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="riddle">What children’s game is played with an Army truck?</div>
+      <div class="prompt">
+        <span class="text">Your answer: </span>
+        <div class="grid">
+          <span class="white">J</span>
+          <span class="white">E</span>
+          <span class="light">E</span>
+          <span class="white">P</span>
+          <span class="skip">&nbsp;</span>
+          <span class="white">A</span>
+          <span class="light">W</span>
+          <span class="white">A</span>
+          <span class="white">Y</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="group">
+    <div class="label">Jumble 95</div>
+    <div class="top">
+      <div class="items">
+        <div class="item">
+          <div class="letters">NWGAK</div>
+          <div class="grid">
+            <span class="white">K</span>
+            <span class="white">W</span>
+            <span class="light">A</span>
+            <span class="light">N</span>
+            <span class="light">G</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">AATURMN</div>
+          <div class="grid">
+            <span class="white">M</span>
+            <span class="light">A</span>
+            <span class="white">N</span>
+            <span class="light">T</span>
+            <span class="white">A</span>
+            <span class="white">U</span>
+            <span class="light">R</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">IENCDHKWNOTOL</div>
+          <div class="grid">
+            <span class="white">D</span>
+            <span class="white">O</span>
+            <span class="light">I</span>
+            <span class="white">N</span>
+            <span class="white">K</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">T</span>
+            <span class="white">H</span>
+            <span class="white">E</span>
+            <span class="black">&nbsp;</span>
+            <span class="light">C</span>
+            <span class="white">L</span>
+            <span class="white">O</span>
+            <span class="white">W</span>
+            <span class="light">N</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">IIHULLGDOBBTRS</div>
+          <div class="grid">
+            <span class="white">B</span>
+            <span class="white">R</span>
+            <span class="light">I</span>
+            <span class="white">T</span>
+            <span class="light">I</span>
+            <span class="light">S</span>
+            <span class="white">H</span>
+            <span class="black">&nbsp;</span>
+            <span class="light">B</span>
+            <span class="white">U</span>
+            <span class="white">L</span>
+            <span class="white">L</span>
+            <span class="white">D</span>
+            <span class="white">O</span>
+            <span class="white">G</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="riddle">What did the ammonia have to do when it enlisted?</div>
+      <div class="prompt">
+        <span class="text">Your answer: </span>
+        <div class="grid">
+          <span class="white">B</span>
+          <span class="white">A</span>
+          <span class="white">S</span>
+          <span class="white">I</span>
+          <span class="white">C</span>
+          <span class="skip">&nbsp;</span>
+          <span class="white">T</span>
+          <span class="white">R</span>
+          <span class="white">A</span>
+          <span class="white">I</span>
+          <span class="white">N</span>
+          <span class="light">I</span>
+          <span class="light">N</span>
+          <span class="white">G</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="group">
+    <div class="label">Jumble 89</div>
+    <div class="top">
+      <div class="items">
+        <div class="item">
+          <div class="letters">TTNTANOISAA</div>
+          <div class="grid">
+            <span class="white">T</span>
+            <span class="light">I</span>
+            <span class="white">T</span>
+            <span class="white">O</span>
+            <span class="black">&nbsp;</span>
+            <span class="light">S</span>
+            <span class="white">A</span>
+            <span class="white">N</span>
+            <span class="white">T</span>
+            <span class="light">A</span>
+            <span class="white">N</span>
+            <span class="white">A</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">YTRTTEANYNJMA</div>
+          <div class="grid">
+            <span class="light">M</span>
+            <span class="white">A</span>
+            <span class="light">R</span>
+            <span class="white">T</span>
+            <span class="white">Y</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">J</span>
+            <span class="white">A</span>
+            <span class="white">N</span>
+            <span class="white">N</span>
+            <span class="white">E</span>
+            <span class="white">T</span>
+            <span class="white">T</span>
+            <span class="light">Y</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">AHNNEGATERTDI</div>
+          <div class="grid">
+            <span class="white">A</span>
+            <span class="white">N</span>
+            <span class="white">D</span>
+            <span class="white">R</span>
+            <span class="light">E</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">T</span>
+            <span class="light">H</span>
+            <span class="white">E</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">G</span>
+            <span class="white">I</span>
+            <span class="white">A</span>
+            <span class="light">N</span>
+            <span class="white">T</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">UEWHBBTHHCUCAKRS</div>
+          <div class="grid">
+            <span class="white">B</span>
+            <span class="white">U</span>
+            <span class="white">S</span>
+            <span class="white">H</span>
+            <span class="white">W</span>
+            <span class="white">H</span>
+            <span class="white">A</span>
+            <span class="light">C</span>
+            <span class="white">K</span>
+            <span class="light">E</span>
+            <span class="white">R</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">B</span>
+            <span class="white">U</span>
+            <span class="white">T</span>
+            <span class="white">C</span>
+            <span class="light">H</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="riddle">Who did Saarinen live in mortal fear of?</div>
+      <div class="prompt">
+        <span class="text">Your answer: </span>
+        <div class="grid">
+          <span class="white">H</span>
+          <span class="white">I</span>
+          <span class="white">S</span>
+          <span class="skip">&nbsp;</span>
+          <span class="white">A</span>
+          <span class="white">R</span>
+          <span class="white">C</span>
+          <span class="white">H</span>
+          <span class="skip">&nbsp;</span>
+          <span class="white">E</span>
+          <span class="light">N</span>
+          <span class="light">E</span>
+          <span class="white">M</span>
+          <span class="white">Y</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="group">
+    <div class="label">Jumble 03</div>
+    <div class="top">
+      <div class="items">
+        <div class="item">
+          <div class="letters">SDTOLUG</div>
+          <div class="grid">
+            <span class="white">G</span>
+            <span class="white">O</span>
+            <span class="white">L</span>
+            <span class="white">D</span>
+            <span class="light">U</span>
+            <span class="white">S</span>
+            <span class="light">T</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">CATRNSIHI</div>
+          <div class="grid">
+            <span class="white">C</span>
+            <span class="white">H</span>
+            <span class="white">R</span>
+            <span class="light">I</span>
+            <span class="light">S</span>
+            <span class="white">T</span>
+            <span class="white">I</span>
+            <span class="white">A</span>
+            <span class="light">N</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">LTOLEBMIDT</div>
+          <div class="grid">
+            <span class="light">B</span>
+            <span class="light">I</span>
+            <span class="white">L</span>
+            <span class="white">L</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">D</span>
+            <span class="light">E</span>
+            <span class="white">M</span>
+            <span class="white">O</span>
+            <span class="white">T</span>
+            <span class="white">T</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="letters">HAICHLEARAS</div>
+          <div class="grid">
+            <span class="white">C</span>
+            <span class="white">H</span>
+            <span class="light">A</span>
+            <span class="light">R</span>
+            <span class="white">L</span>
+            <span class="white">I</span>
+            <span class="white">E</span>
+            <span class="black">&nbsp;</span>
+            <span class="white">H</span>
+            <span class="white">A</span>
+            <span class="white">A</span>
+            <span class="light">S</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="riddle">What do you need when you have a head cold?</div>
+      <div class="prompt">
+        <span class="text">Your answer: </span>
+        <div class="grid">
+          <span class="white">B</span>
+          <span class="light">R</span>
+          <span class="white">A</span>
+          <span class="white">I</span>
+          <span class="white">N</span>
+          <span class="skip">&nbsp;</span>
+          <span class="white">T</span>
+          <span class="white">I</span>
+          <span class="white">S</span>
+          <span class="light">S</span>
+          <span class="white">U</span>
+          <span class="white">E</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>After solving the jumbles, the highlighted letters from the Jumble
+  answers gives the phrase <code>USE RUMBLE WINNERS</code>, which
+  suggests (along with the reference to &ldquo;royal&rdquo; in the
+  flavortext) the WWF/WWE Royal Rumble..</p>
+
+<p>All of the sub-answers are professional wrestlers that have been in
+  the WWF/WWE. Each Jumble specifies a year (for instance, Jumble 14
+  corresponds to Royal Rumble 2014), and each group of wrestlers
+  appeared in that Royal Rumble.</p>
+
+<p>The winners of those events fit into the provided blanks
+  exactly. They are, in order:</p>
+
+<div class="section">
+  <div class="winner-group">
+    <div class="label">Jumble 14</div>
+    <div class="grid">
+      <span class="white">B</span>
+      <span class="white">A</span>
+      <span class="light">T</span>
+      <span class="white">I</span>
+      <span class="white">S</span>
+      <span class="white">T</span>
+      <span class="light">A</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="winner-group">
+    <div class="label">Jumble 02</div>
+    <div class="grid">
+      <span class="white">T</span>
+      <span class="white">R</span>
+      <span class="white">I</span>
+      <span class="light">P</span>
+      <span class="white">L</span>
+      <span class="light">E</span>
+      <span class="skip">&nbsp;</span>
+      <span class="white">H</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="winner-group">
+    <div class="label">Jumble 06</div>
+    <div class="grid">
+      <span class="white">R</span>
+      <span class="white">E</span>
+      <span class="white">Y</span>
+      <span class="skip">&nbsp;</span>
+      <span class="white">M</span>
+      <span class="light">Y</span>
+      <span class="white">S</span>
+      <span class="white">T</span>
+      <span class="white">E</span>
+      <span class="white">R</span>
+      <span class="white">I</span>
+      <span class="light">O</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="winner-group">
+    <div class="label">Jumble 07</div>
+    <div class="grid">
+      <span class="white">T</span>
+      <span class="white">H</span>
+      <span class="white">E</span>
+      <span class="skip">&nbsp;</span>
+      <span class="light">U</span>
+      <span class="white">N</span>
+      <span class="white">D</span>
+      <span class="white">E</span>
+      <span class="white">R</span>
+      <span class="white">T</span>
+      <span class="white">A</span>
+      <span class="white">K</span>
+      <span class="white">E</span>
+      <span class="light">R</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="winner-group">
+    <div class="label">Jumble 13</div>
+    <div class="grid">
+      <span class="white">J</span>
+      <span class="white">O</span>
+      <span class="light">H</span>
+      <span class="white">N</span>
+      <span class="skip">&nbsp;</span>
+      <span class="white">C</span>
+      <span class="light">E</span>
+      <span class="white">N</span>
+      <span class="white">A</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="winner-group">
+    <div class="label">Jumble 95</div>
+    <div class="grid">
+      <span class="white">S</span>
+      <span class="white">H</span>
+      <span class="white">A</span>
+      <span class="white">W</span>
+      <span class="white">N</span>
+      <span class="skip">&nbsp;</span>
+      <span class="white">M</span>
+      <span class="white">I</span>
+      <span class="white">C</span>
+      <span class="white">H</span>
+      <span class="white">A</span>
+      <span class="light">E</span>
+      <span class="light">L</span>
+      <span class="white">S</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="winner-group">
+    <div class="label">Jumble 89</div>
+    <div class="grid">
+      <span class="white">B</span>
+      <span class="white">I</span>
+      <span class="white">G</span>
+      <span class="skip">&nbsp;</span>
+      <span class="white">J</span>
+      <span class="white">O</span>
+      <span class="white">H</span>
+      <span class="white">N</span>
+      <span class="skip">&nbsp;</span>
+      <span class="white">S</span>
+      <span class="light">T</span>
+      <span class="light">U</span>
+      <span class="white">D</span>
+      <span class="white">D</span>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="winner-group">
+    <div class="label">Jumble 03</div>
+    <div class="grid">
+      <span class="white">B</span>
+      <span class="light">R</span>
+      <span class="white">O</span>
+      <span class="white">C</span>
+      <span class="white">K</span>
+      <span class="skip">&nbsp;</span>
+      <span class="white">L</span>
+      <span class="white">E</span>
+      <span class="white">S</span>
+      <span class="light">N</span>
+      <span class="white">A</span>
+      <span class="white">R</span>
+    </div>
+  </div>
+</div>
+
+<p>Reading the highlighted squares with the wrestlers filled in yields
+  the clue phrase <code>TAPE YOUR HEEL TURN</code>.</p>
+
+<p>In pro wrestling (or TV tropes), a <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/FaceHeelTurn">&ldquo;heel
+  turn&rdquo;</a> is when a character changes from good to bad. Teams
+  were required to record and send in a heel turn. This may be a short
+  vignette or possibly a dance move. Once they provide a recording,
+  they are provided with <a href="{{ asset_url_for('solutions/lets_get_ready_to_jumble/answer.pdf') }}" target="_blank">this PDF</a>. On
+  the March 13th, 2003 episode of Smackdown, the impostor who was F5'd
+  was <strong><code>ERIC ANGLE</code></strong>, which is the final
+  answer.</p>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_flavortext_block %}
+At the institute, you find some colorful characters sketching out their family trees.
+{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 20px;
+  }
+
+  .puzzle-content a {
+    width: 100%;
+  }
+
+  .puzzle-content .container img {
+    border: 1px solid blue;
+  }
+
+  .puzzle-content img {
+    width: 100%;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="container">
+  <a href="{{ asset_url_for('puzzles/mamma_mia/01.png') }}" target="_blank"><img {{ img_src_for('puzzles/mamma_mia/01.png') }} ></a>
+  <div><i>oldest</i></div>
+</div>
+<div class="container">
+  <a href="{{ asset_url_for('puzzles/mamma_mia/02.png') }}" target="_blank"><img {{ img_src_for('puzzles/mamma_mia/02.png') }} ></a>
+  <div><i>only</i></div>
+</div>
+<div class="container">
+  <a href="{{ asset_url_for('puzzles/mamma_mia/03.png') }}" target="_blank"><img {{ img_src_for('puzzles/mamma_mia/03.png') }} ></a>
+  <div><i>only</i></div>
+</div>
+<div class="container">
+  <a href="{{ asset_url_for('puzzles/mamma_mia/04.png') }}" target="_blank"><img {{ img_src_for('puzzles/mamma_mia/04.png') }} ></a>
+  <div><i>oldest</i></div>
+</div>
+<div class="container">
+  <a href="{{ asset_url_for('puzzles/mamma_mia/05.png') }}" target="_blank"><img {{ img_src_for('puzzles/mamma_mia/05.png') }} ></a>
+  <div><i>most recent</i></div>
+</div>
+<div class="container">
+  <a href="{{ asset_url_for('puzzles/mamma_mia/06.png') }}" target="_blank"><img {{ img_src_for('puzzles/mamma_mia/06.png') }} ></a>
+  <div><i>second most recent</i></div>
+</div>
+<div class="container">
+  <a href="{{ asset_url_for('puzzles/mamma_mia/07.png') }}" target="_blank"><img {{ img_src_for('puzzles/mamma_mia/07.png') }} ></a>
+  <div><i>third oldest</i></div>
+</div>
+<div class="container">
+  <a href="{{ asset_url_for('puzzles/mamma_mia/08.png') }}" target="_blank"><img {{ img_src_for('puzzles/mamma_mia/08.png') }} ></a>
+  <div><i>only</i></div>
+</div>
+<div class="container">
+  <a href="{{ asset_url_for('puzzles/mamma_mia/09.png') }}" target="_blank"><img {{ img_src_for('puzzles/mamma_mia/09.png') }} ></a>
+  <div><i>most recent</i></div>
+</div>
+<hr>
+<a href="{{ asset_url_for('puzzles/mamma_mia/10.png') }}" target="_blank"><img {{ img_src_for('puzzles/mamma_mia/10.png') }} ></a>
+{% endblock %}

@@ -1,0 +1,160 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+  <script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.3.0"></script>
+  <script>
+    $(document).ready(function() {
+      twemoji.folder = '2/svg';
+      twemoji.parse(document.body);
+    });
+  </script>
+  <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/crossword.css') }}">
+  <style>
+    .puzzle-content .crossword {
+      margin: auto;
+    }
+
+    .puzzle-content .clues {
+      margin-top: 1.5em;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .puzzle-content .emoji-container {
+      display: flex;
+    }
+
+    .puzzle-content img.emoji {
+      width: 1em;
+      height: 1em;
+      margin-left: 0.25em;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+{% call puzzle_macros.crossword() %}
+___||____|||_____
+____|____||______
+____|____|_______
+____|_______|___|
+|||____||___|___|
+_____|||___||___|
+_____|______|||||
+_________||______
+_________________
+______||_________
+|||||______|_____
+|___||___|||_____
+|___|___||____|||
+|___|_______|____
+_______|____|____
+______||____|____
+_____|||____||___
+{% endcall %}
+<div class="clues">
+  <div>
+    <div><b>Across</b></div>
+    <div><b>1.</b> Rehab woe</div>
+    <div class="emoji-container"><b>4.</b> 😠</div>
+    <div><b>8.</b> Cause embarrassment</div>
+    <div class="emoji-container"><b>13.</b> 😠</div>
+    <div><b>15.</b> River of Switzerland</div>
+    <div><b>16.</b> Damon’s Jason</div>
+    <div><b>17.</b> Lean upon</div>
+    <div><b>18.</b> Prying</div>
+    <div class="emoji-container"><b>19.</b> 😠</div>
+    <div><b>20.</b> Fish in a can</div>
+    <div><b>21.</b> Fat _______</div>
+    <div><b>23.</b> Hoot</div>
+    <div><b>24.</b> Ton of TNT</div>
+    <div><b>26.</b> Curve</div>
+    <div><b>27.</b> Bald eagle, e.g.</div>
+    <div><b>28.</b> Stannis’s correction</div>
+    <div><b>31.</b> HP products</div>
+    <div><b>32.</b> Hadouken user</div>
+    <div><b>33.</b> Gut bacterium</div>
+    <div><b>34.</b> Learning location</div>
+    <div><b>37.</b> Money given to servants (Sc.)</div>
+    <div><b>39.</b> Fly _______</div>
+    <div class="emoji-container"><b>45.</b> 😠</div>
+    <div><b>48.</b> Disease-causing fly</div>
+    <div><b>49.</b> Barren</div>
+    <div><b>50.</b> <i>Family Matters</i>, for one</div>
+    <div><b>53.</b> Pave again</div>
+    <div><b>54.</b> Choc. pooch</div>
+    <div><b>57.</b> Mother of Fíli and Kíli</div>
+    <div><b>58.</b> Pile up</div>
+    <div><b>59.</b> Gabby’s fierce teammate</div>
+    <div><b>60.</b> Male child</div>
+    <div><b>61.</b> Sloped path</div>
+    <div><b>63.</b> Type of sando</div>
+    <div><b>64.</b> They’re above orders</div>
+    <div><b>67.</b> Russian ruler</div>
+    <div><b>71.</b> Nipple surroundings</div>
+    <div><b>73.</b> Melchior et al.</div>
+    <div><b>74.</b> Overhang on a roof</div>
+    <div class="emoji-container"><b>75.</b> 😠</div>
+    <div class="emoji-container"><b>76.</b> 😠</div>
+    <div class="emoji-container"><b>77.</b> 😠</div>
+    <div><b>78.</b> Beautiful Lauder</div>
+    <div><b>79.</b> Strong blow</div>
+    <div><b>80.</b> Atlantic Sun sch.</div>
+  </div>
+  <div>
+    <div><b>Down</b></div>
+    <div class="emoji-container"><b>1.</b> 😠</div>
+    <div><b>2.</b> Forbidden perfume?</div>
+    <div><b>3.</b> Wow</div>
+    <div><b>4.</b> Coca-Cola brand</div>
+    <div><b>5.</b> <i>Phantom of the Opera</i> role</div>
+    <div class="emoji-container"><b>6.</b> 😠</div>
+    <div><b>7.</b> D-major and C-minor</div>
+    <div><b>8.</b> Mass-mailer of CDs</div>
+    <div class="emoji-container"><b>9.</b> 😠</div>
+    <div><b>10.</b> Malagasy currency</div>
+    <div class="emoji-container"><b>11.</b> 😠</div>
+    <div><b>12.</b> Take up a cuff</div>
+    <div><b>14.</b> Exit _______</div>
+    <div><b>16.</b> Ottoman governors</div>
+    <div><b>19.</b> Vocal part</div>
+    <div><b>22.</b> Art _______</div>
+    <div class="emoji-container"><b>25.</b> 😠</div>
+    <div><b>28.</b> Banquet</div>
+    <div><b>29.</b> Beiges</div>
+    <div><b>30.</b> Author of <i>Look Homeward, Angel</i></div>
+    <div><b>31.</b> Branch of science</div>
+    <div><b>34.</b> Way to indicate host with TLS</div>
+    <div><b>35.</b> Blitzer’s TV home</div>
+    <div><b>36.</b> Delicate fabric</div>
+    <div><b>38.</b> _______ tu</div>
+    <div class="emoji-container"><b>40.</b> 😠</div>
+    <div><b>41.</b> Tried</div>
+    <div><b>42.</b> Yogurt based condiment</div>
+    <div><b>43.</b> Menorca y Mallorca</div>
+    <div><b>44.</b> Singers Sarkisian and Lloyd</div>
+    <div><b>46.</b> Cuatro menos tres</div>
+    <div><b>47.</b> Rate of flow unit</div>
+    <div><b>51.</b> Teen _______</div>
+    <div><b>52.</b> Mel’s co-star in <i>Mad Max: Beyond Thunderdome</i></div>
+    <div><b>54.</b> Plesiosaur-like Pokemon</div>
+    <div><b>55.</b> Prince in a can</div>
+    <div class="emoji-container"><b>56.</b> 😠</div>
+    <div><b>60.</b> Droppings</div>
+    <div><b>61.</b> Kingly</div>
+    <div><b>62.</b> Statement to the audience</div>
+    <div class="emoji-container"><b>65.</b> 😠</div>
+    <div><b>66.</b> Long tale</div>
+    <div class="emoji-container"><b>68.</b> 😠</div>
+    <div><b>69.</b> Commonwealth and Mass.</div>
+    <div><b>70.</b> Bausch and Lomb solution</div>
+    <div><b>71.</b> Fruit drink</div>
+    <div><b>72.</b> Little white thing</div>
+  </div>
+</div>
+{% endblock %}

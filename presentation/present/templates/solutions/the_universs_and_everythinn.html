@@ -1,0 +1,395 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By John Toomey<br />Artwork by Kevin Simmons and Anna Brunner{% endblock %}
+{% block solution %}SMALL NOVEL{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .group {
+    display: flex;
+  }
+
+  .puzzle-content .rows {
+    margin-right: 10px;
+  }
+
+  .puzzle-content .row {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .puzzle-content img.puzzle-image {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+  }
+
+  .puzzle-content img.map {
+    object-fit: contain;
+    align-self: flex-start;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>Each of the pictures represents a location/word in Adams and Lloyd&rsquo;s <i>The Meaning of Liff</i>. When the locations are plotted on a map in order within their groupings, they form letters which spell out <strong><code>SMALL NOVEL</code></strong>, the solution.</p>
+
+<hr>
+
+<div class="group">
+  <div class="rows">
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/01.png') }}>
+      <div>
+        <div>1) OSSETT</div>
+        <div>&ldquo;A frilly spare-toilet-roll-cosy.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/02.png') }}>
+      <div>
+        <div>2) DOLGELLAU</div>
+        <div>&ldquo;The clump, or cluster, of bored, quietly enraged, mildly embarassed men waiting for their wives to come out of a changing room in a dress shop.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/03.png') }}>
+      <div>
+        <div>3) LUTON</div>
+        <div>&ldquo;The horseshoe-shaped rug which goes around a lavatory seat.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/04.png') }}>
+      <div>
+        <div>4) BISHOP&rsquo;S CAUNDLE</div>
+        <div>&ldquo;An opening gambit before a game of chess whereby the missing pieces are replaced by small ornaments from the mantelpiece.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+  <img class="map" {{ img_src_for('solutions/the_universs_and_everythinn/01.png') }}>
+</div>
+
+<hr>
+
+<div class="group">
+  <div class="rows">
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/05.png') }}>
+      <div>
+        <div>5) PERRANZABULOE</div>
+        <div>&ldquo;One of those spray things used to wet ironing with.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/06.png') }}>
+      <div>
+        <div>6) LLANELLI</div>
+        <div>&ldquo;Descriptive of the waggling movement of a person&rsquo;s hands when shaking water from them or warming up for a piece of workshop theatre.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+  <img class="map" {{ img_src_for('solutions/the_universs_and_everythinn/02.png') }}>
+</div>
+<div class="row">
+  <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/07.png') }}>
+  <div>
+    <div>7) DEWLISH</div>
+    <div>&ldquo;(Of the hands or feet.) Prunelike after an overlong bath.&rdquo;</div>
+  </div>
+</div>
+<div class="row">
+  <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/08.png') }}>
+  <div>
+    <div>8) DIDCOT</div>
+    <div>&ldquo;The tiny oddly-shaped bit of card which a ticket inspector cuts out of a ticket with his clipper for no apparent reason. It is a little-known fact that the confetti at Princess Margaret&rsquo;s wedding was made up of thousands of didcots collected by inspectors on the Royal Train.&rdquo;</div>
+  </div>
+</div>
+<div class="row">
+  <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/09.png') }}>
+  <div>
+    <div>9) FULKING</div>
+    <div>&ldquo;Pretending not to be in when the carol-singers come round.&rdquo;</div>
+  </div>
+</div>
+
+<hr>
+
+<div class="group">
+  <div class="rows">
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/10.png') }}>
+      <div>
+        <div>10) GRIMMET</div>
+        <div>&ldquo;A small bush from which cartoon characters dangle over the edge of a cliff.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/11.png') }}>
+      <div>
+        <div>11) CROMARTY</div>
+        <div>&ldquo;The brittle sludge which clings to the top of ketchup bottles and plastic tomatoes in nasty cafés.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/12.png') }}>
+      <div>
+        <div>12) DUDDO</div>
+        <div>&ldquo;The most deformed potato in any given collection of potatoes.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+  <img class="map" {{ img_src_for('solutions/the_universs_and_everythinn/03.png') }}>
+</div>
+
+<hr>
+
+<div class="group">
+  <div class="rows">
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/13.png') }}>
+      <div>
+        <div>13) GOOLE</div>
+        <div>&ldquo;The puddle on the bar into which the barman puts your change.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/14.png') }}>
+      <div>
+        <div>14) BALDOCK</div>
+        <div>&ldquo;The sharp prong on the top of a tree stump where the tree has snapped off before being completely sawn through.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/15.png') }}>
+      <div>
+        <div>15) NACTON</div>
+        <div>&ldquo;The &rsquo;n&rsquo; with which cheap advertising copywriters replace the word &lsquo;and&rsquo; (as in &lsquo;fish &rsquo;n&rsquo; chips&rsquo;, &lsquo;mix &rsquo;n&rsquo; match&rsquo;, &lsquo;assault &rsquo;n&rsquo; battery&rsquo;), in the mistaken belief that this is in some way chummy or endearing.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+  <img class="map" {{ img_src_for('solutions/the_universs_and_everythinn/04.png') }}>
+</div>
+
+<hr>
+
+<div class="group">
+  <div class="rows">
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/16.png') }}>
+      <div>
+        <div>16) AITH</div>
+        <div>&ldquo;The single bristle that sticks out sideways on a cheap paintbrush.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/17.png') }}>
+      <div>
+        <div>17) FROLESWORTH</div>
+        <div>&ldquo;Measure. The minimum time it is necessary to spend frowning in deep concentration at each picture in an art gallery in order that everyone else doesn&rsquo;t think you&rsquo;re a complete moron.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/18.png') }}>
+      <div>
+        <div>18) SOTTERLEY</div>
+        <div>&ldquo;Uncovered bit between two shops with awnings, which you have to cross when it&rsquo;s raining.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+  <img class="map" {{ img_src_for('solutions/the_universs_and_everythinn/05.png') }}>
+</div>
+
+<hr>
+
+<div class="group">
+  <div class="rows">
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/19.png') }}>
+      <div>
+        <div>19) PIMPERNE</div>
+        <div>&ldquo;One of those rubber nodules found on the underneath side of a lavatory seat.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/20.png') }}>
+      <div>
+        <div>20) DORRIDGE</div>
+        <div>&ldquo;Technical term for one of the lame excuses written in very small print on the side of packets of food or washing powder to explain why there&rsquo;s hardly anything inside. Examples include &lsquo;Contents may have settled in transit&rsquo; and &lsquo;To keep each biscuit fresh they have been individually wrapped in silver paper and cellophane and separated with corrugated lining, a cardboard flap, and heavy industrial tyres&rsquo;.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/21.png') }}>
+      <div>
+        <div>21) ROCHESTER</div>
+        <div>&ldquo;One who is able to gain occupation of the armrest on both sides of their cinema or aircraft seat.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+  <img class="map" {{ img_src_for('solutions/the_universs_and_everythinn/06.png') }}>
+</div>
+<div class="group">
+  <div class="row">
+    <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/22.png') }}>
+    <div>
+      <div>22) CLENCHWARTON</div>
+      <div>&ldquo;One who assists an exorcist by squeezing whichever part of the possessed the exorcist deems useful.&rdquo;</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="group">
+  <div class="rows">
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/23.png') }}>
+      <div>
+        <div>23) FRADDAM</div>
+        <div>&ldquo;The small awkward-shaped piece of cheese which remains after grating a large regular-shaped piece of cheese and enables you to cut your fingers.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/24.png') }}>
+      <div>
+        <div>24) EPPING</div>
+        <div>&ldquo;The futile movements of forefingers and eyebrows used when failing to attract the attention of waiters and barmen.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/25.png') }}>
+      <div>
+        <div>25) SCOSTHROP</div>
+        <div>&ldquo;To make vague opening or cutting movements with the hands when wandering about looking for a tin opener, scissors, etc., in the hope that this will help in some way.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+  <img class="map" {{ img_src_for('solutions/the_universs_and_everythinn/07.png') }}>
+</div>
+<div class="group">
+  <div class="rows">
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/26.png') }}>
+      <div>
+        <div>26) FINUGE</div>
+        <div>&ldquo;In any division of foodstuffs between several people, to give yourself the extra slice left over.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/27.png') }}>
+      <div>
+        <div>27) GWEEK</div>
+        <div>&ldquo;A coat hanger recycled as a car aerial.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="group">
+  <div class="rows">
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/28.png') }}>
+      <div>
+        <div>28) SCONSER</div>
+        <div>&ldquo;A person who looks around when talking to you, to see if there&rsquo;s anyone more interesting about.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/29.png') }}>
+      <div>
+        <div>29) DAMNAGLAUR</div>
+        <div>&ldquo;A certain facial expression which actors are required to demonstrate their mastery of before they are allowed to play MacBeth.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/30.png') }}>
+      <div>
+        <div>30) ALDCLUNE</div>
+        <div>&ldquo;One who collects ten-year-old telephone directories.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+  <img class="map" {{ img_src_for('solutions/the_universs_and_everythinn/08.png') }}>
+</div>
+
+<hr>
+
+<div class="group">
+  <div class="rows">
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/31.png') }}>
+      <div>
+        <div>31) LIFF</div>
+        <div>&ldquo;A book, the contents of which are totally belied by its cover. For instance, any book the dust jacket of which bears the words: &lsquo;This book will change your life&rsquo;.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/32.png') }}>
+      <div>
+        <div>32) SCREGGAN</div>
+        <div>&ldquo;The crossed-out bit caused by people putting the wrong year on their cheques all through January.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/33.png') }}>
+      <div>
+        <div>33) HUCKNALL</div>
+        <div>&ldquo;To crouch upwards: as in the movement of a seated person&rsquo;s feet and legs made in order to allow a cleaner&rsquo;s hoover to pass beneath them.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/34.png') }}>
+      <div>
+        <div>34) AHENNY</div>
+        <div>&ldquo;The way people stand when examining other people&rsquo;s bookshelves.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+  <img class="map" {{ img_src_for('solutions/the_universs_and_everythinn/09.png') }}>
+</div>
+<div class="group">
+  <div class="row">
+    <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/35.png') }}>
+    <div>
+      <div>35) ABINGER</div>
+      <div>&ldquo;One who washes up everything except the frying pan, the cheese grater, and the saucepan which the chocolate sauce has been made in.&rdquo;</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="group">
+  <div class="rows">
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/36.png') }}>
+      <div>
+        <div>36) WORKSOP</div>
+        <div>&ldquo;A person who never actually gets round to doing anything because he spends all his time writing out lists headed &lsquo;Things to Do (Urgent)&rsquo;.&rdquo;</div>
+      </div>
+    </div>
+    <div class="row">
+      <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/37.png') }}>
+      <div>
+        <div>37) SCRAPTOFT</div>
+        <div>&ldquo;The absurd flap of hair a vain and balding man grows long above one ear to comb it to the other ear.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+  <img class="map" {{ img_src_for('solutions/the_universs_and_everythinn/10.png') }}>
+</div>
+<div class="row">
+  <img class="puzzle-image" {{ img_src_for('puzzles/the_universs_and_everythinn/38.png') }}>
+  <div>
+    <div>38) ACLE</div>
+    <div>&ldquo;The rogue pin which shirtmakers conceal in the most improbable fold of a new shirt. Its function is to stab you when you don the garment.&rdquo;</div>
+  </div>
+</div>
+{% endblock %}

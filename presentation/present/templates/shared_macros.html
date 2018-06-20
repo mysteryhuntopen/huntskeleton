@@ -1,0 +1,7 @@
+{% macro puzzle_display_state() %}
+  {%- if (puzzle_visibility and puzzle_visibility.status == 'SOLVED') or solution -%}
+    solved
+  {%- else -%}
+    unlocked
+  {%- endif -%}
+{% endmacro %}

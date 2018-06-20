@@ -1,0 +1,253 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Justin Melvin, Tanya Khovanova, Wesley Graybill, and Robin Diets{% endblock %}
+{% block solution %}MEMORIAL{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content table.sudoku {
+    border: 2px solid black;
+    border-collapse: collapse;
+  }
+
+  .puzzle-content table.sudoku td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  .puzzle-content table.sudoku td.thick-right-border {
+    border-right-width: 2px;
+  }
+
+  .puzzle-content table.sudoku td.thick-bottom-border {
+    border-bottom-width: 2px;
+  }
+
+  .puzzle-content table.sudoku td {
+    padding: 0.5em;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>This puzzle is, as the title suggests, a tribute to beloved puzzles of yesteryear. Each mini-puzzle is based on a puzzle from a different year in the range 2010-2017, inclusive, and each mini-puzzle reuses the puzzle's mechanic to produce a single letter.</p>
+
+<p>The mini puzzles are presented in alphabetical order by the title of the original puzle. Rearranging them in chronological order gives the answer, <strong><code>MEMORIAL</code></strong>.</p>
+
+<p>Solutions for each mini puzzle are as follows:</p>
+
+<table class="solution-table">
+  <tr>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Solution</th>
+    <th>Letter</th>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2012/puzzles/ogre_of_la_mancha/argh/solution/">Argh</a></td>
+    <td>2012</td>
+    <td>The mumbled quote is &ldquo;A single opening transfixed the blob, forminf [sic] into a leechlike maw.&rdquo;, from which you extract &ldquo;maw&rdquo; and take the first letter to get <code>M</code>.</td>
+    <td><code>M</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2015/puzzle/be_a_star/solution/">Be A Star</a></td>
+    <td>2015</td>
+    <td>CAP + RICK + CORNUS (the genus of dogwood trees) = CAPRICORNUS. Five stars means take the fifth letter to get <code>I</code>.</td>
+    <td><code>I</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2016/puzzle/crimes_against_cruciverbalism/solution/">Crimes Against Cruciverbalism</a></td>
+    <td>2016</td>
+    <td><a href="{{ asset_url_for('solutions/a_tribute_2010_2017/grid.png') }}" target="_blank">Completed grid.</a> The intersections of matching &lsquo;crimes&rsquo; spell <code>ALPHA</code>.</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2010/puzzles/2010/great_minds_think_alike/solution.html">Great Minds Think Alike</a></td>
+    <td>2010</td>
+    <td>Great Minds Think Alike used references to previous puzzles as well. In this case, the reference is to <a href="http://web.mit.edu/puzzle/www/2005/setec/rite_awaits_myth/solution.html">Rite Awaits Myth</a> by 2005, which was solved by 11 teams. Take the 11th letter of the title to get <code>M</code>.</td>
+    <td><code>M</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2017/solution/heirplay.html">Heirplay</a></td>
+    <td>2017</td>
+    <td>The thumbs-up songs thematically clue &ldquo;U Got the Look&rdquo; by Prince. The thumbs-down songs clue the words <code>TOO</code>, <code>TOKE</code>, and <code>HUG</code> respectively. Removing those letters from <code>UGOTTHELOOK</code> leaves an <code>L</code>.</td>
+    <td><code>L</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2014/puzzle/magic_mushrooms/">Magic Mushrooms</a></td>
+    <td>2014</td>
+    <td>
+      Solve the sudoku:
+      <table class="sudoku">
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td class="thick-right-border">5</td>
+          <td>7</td>
+          <td>6</td>
+          <td class="thick-right-border">3</td>
+          <td>4</td>
+          <td>9</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>4</td>
+          <td class="thick-right-border">7</td>
+          <td>2</td>
+          <td>5</td>
+          <td class="thick-right-border">9</td>
+          <td>3</td>
+          <td>6</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td class="thick-bottom-border">6</td>
+          <td class="thick-bottom-border">3</td>
+          <td class="thick-bottom-border thick-right-border">9</td>
+          <td class="thick-bottom-border">4</td>
+          <td class="thick-bottom-border">1</td>
+          <td class="thick-bottom-border thick-right-border">8</td>
+          <td class="thick-bottom-border">7</td>
+          <td class="thick-bottom-border">2</td>
+          <td class="thick-bottom-border">5</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>7</td>
+          <td class="thick-right-border">6</td>
+          <td>8</td>
+          <td>4</td>
+          <td class="thick-right-border">2</td>
+          <td>1</td>
+          <td>3</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>1</td>
+          <td class="thick-right-border">3</td>
+          <td>6</td>
+          <td>7</td>
+          <td class="thick-right-border">5</td>
+          <td>8</td>
+          <td>4</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td class="thick-bottom-border">2</td>
+          <td class="thick-bottom-border">8</td>
+          <td class="thick-bottom-border thick-right-border">4</td>
+          <td class="thick-bottom-border">3</td>
+          <td class="thick-bottom-border">9</td>
+          <td class="thick-bottom-border thick-right-border">1</td>
+          <td class="thick-bottom-border">6</td>
+          <td class="thick-bottom-border">5</td>
+          <td class="thick-bottom-border">7</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>5</td>
+          <td class="thick-right-border">2</td>
+          <td>1</td>
+          <td>8</td>
+          <td class="thick-right-border">6</td>
+          <td>9</td>
+          <td>7</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>9</td>
+          <td class="thick-right-border">1</td>
+          <td>5</td>
+          <td>3</td>
+          <td class="thick-right-border">7</td>
+          <td>2</td>
+          <td>8</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>6</td>
+          <td class="thick-right-border">8</td>
+          <td>9</td>
+          <td>2</td>
+          <td class="thick-right-border">4</td>
+          <td>5</td>
+          <td>1</td>
+          <td>3</td>
+        </tr>
+      </table>
+      If you zoom in on the mushrooms, then you see a tiny <code>VEGA</code> spelled out. This is the 5th brightest star in the night sky. Three of the mushrooms were -1 and one was +1, so 1-3 = -2, and taking the entry two after Vega in Wikipedia&rsquo;s <a href="https://en.wikipedia.org/wiki/List_of_brightest_stars">list of brightest stars</a> gives <code>RIGEL</code>.
+    </td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2011/puzzles/katamari_damacy/plotlines/answer">Plotlines</a></td>
+    <td>2011</td>
+    <td>The movie is Inception, and the character represented by the question mark is <code>EAMES</code></td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2013/coinheist.com/rubik/something_in_common/answer/index.html">Something In Common</a></td>
+    <td>2013</td>
+    <td>The description is a mash-up of &ldquo;Demons&rdquo; from season 4 of <i>Castle</i> and &ldquo;Demons&rdquo; from season 4 of <i>The X-Files</i>. Take the fourth letter of <code>DEMONS</code> to get <code>O</code>.</td>
+    <td><code>O</code></td>
+  </tr>
+</table>
+
+<p>Re-ordered by year:</p>
+
+<table class="solution-table">
+  <tr>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Letter</th>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2010/puzzles/2010/great_minds_think_alike/solution.html">Great Minds Think Alike</a></td>
+    <td>2010</td>
+    <td><code>M</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2011/puzzles/katamari_damacy/plotlines/">Plotlines</a></td>
+    <td>2011</td>
+    <td><code>E</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2012/puzzles/ogre_of_la_mancha/argh/solution/">Argh</a></td>
+    <td>2012</td>
+    <td><code>M</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2013/coinheist.com/rubik/something_in_common/answer/index.html">Something In Common</a></td>
+    <td>2013</td>
+    <td><code>O</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2014/puzzle/magic_mushrooms/">Magic Mushrooms</a></td>
+    <td>2014</td>
+    <td><code>R</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2015/puzzle/be_a_star/solution/">Be A Star</a></td>
+    <td>2015</td>
+    <td><code>I</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://web.mit.edu/puzzle/www/2016/puzzle/crimes_against_cruciverbalism/solution/">Crimes Against Cruciverbalism</a></td>
+    <td>2016</td>
+    <td><code>A</code></td>
+  </tr>
+  <tr>
+    <td><a href="http://solutions.monsters-et-manus.com/hunt/puzzle/heirplay.html">Heirplay</a></td>
+    <td>2017</td>
+    <td><code>L</code></td>
+  </tr>
+</table>
+{% endblock %}

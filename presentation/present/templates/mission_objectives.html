@@ -1,0 +1,43 @@
+{% extends "overall_layout.html" %}
+{% block title_block %}Mission Objectives{% endblock %}
+
+{% block styling_block %}
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('objectives/styles/mission_objectives.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset_url_for('objectives/styles/objective_styles.css') }}">
+<script src="{{ asset_url_for('objectives/js/mission_objectives.js') }}"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+{% endblock %}
+
+{% block overall_layout_body %}
+<div class="objectives-workspace">
+  <div class="objectives-heading">
+    Mission Objectives
+  </div>
+  <div class="objectives-container">
+    <div class="objectives-list-wrapper">
+      <div class="objectives-list">
+        <div class="objectives-list-content">
+          {% include 'objectives/prepare.html' %}
+          {% include 'objectives/emotions.html' %}
+          {% include 'objectives/core.html' %}
+          {% include 'objectives/pokemon.html' %}
+          {% include 'objectives/games.html' %}
+          {% include 'objectives/scifi.html' %}
+          {% include 'objectives/hacking.html' %}
+          {% include 'objectives/win.html' %}
+          {% include 'objectives/events.html' %}
+        </div>
+      </div>
+      <div class="objectives-list-up at-edge"><a href="#"><i class="fa fa-chevron-up"></i></a></div>
+      <div class="objectives-list-down at-edge"><a href="#"><i class="fa fa-chevron-down"></i></a></div>
+    </div>
+    <div class="objective-text">
+      <div class="objective-text-content">
+        <div class="objective-name"></div>
+        <div class="objective-body"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

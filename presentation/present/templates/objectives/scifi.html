@@ -1,0 +1,180 @@
+{% extends "objective.html" %}
+{% import "objective_macros.html" as macros %}
+
+{# Dependent on:
+    openIslands
+    Puzzles:
+      scifi-meta-1
+      scifi-meta-2
+      scifi-meta-3
+      scifi-meta-4
+      scifi-meta-5
+      scifi-meta-6
+      scifi-supermeta
+      scifi-recovery
+#}
+
+{% set numSubstations = counts['scifi_submetas']['total'] %}
+{% set numPowered = counts['scifi_submetas']['solved'] %}
+
+{% set objective_id = "scifi" %}
+{% set objective_name = "Recover the Sci-Fi Core Memory" %}
+{% set objective_video_id = None %}
+{% set objective_video_visible = false %}
+{% set objective_unlocked = ('scifi' in core_display_data['openIslands']) %}
+{% set objective_complete = statuses['scifi-recovery'] == 'SOLVED' %}
+
+{% set meta_text = [
+  {
+    'description': 'Generators like this one power entire city-ships.',
+    'unlocked': 'This one won&rsquo;t be powering anything until you fix it.',
+    'solved': 'This one couldn&rsquo;t power anything at all, but once you figured out the {answer},
+      the substation sprang to life and opened a path forward.',
+  },
+  {
+    'description': 'A fusion reactor like this one is the lifeblood of a starfreighter like the
+      Nostromo.',
+    'unlocked': 'With it nonfunctional, the crew are sitting ducks.',
+    'solved': 'Repairing it gave the crew a chance, as the {answer} from their distress signal
+      might be heard in time.  It also revealed the tunnel ahead.',
+  },
+  {
+    'description': 'With the love of a good mechanic, the trace compression block on an old Firefly
+      can be with you &rsquo;til the day you die.',
+    'unlocked': 'They can be temperamental though and, until this one is fixed, Serenity is
+      grounded.',
+    'solved': 'Repairing Serenity&rsquo;s got her back in the sky and gave her crew a chance at a
+      {answer}.  And with this substation powered up, you can keep flying as well.',
+  },
+  {
+    'description': 'The cryogenic generator at the heart of an X-wing fighter powers everything
+      from the life support to the navigation.',
+    'unlocked': 'Luke&rsquo;s picked a bad time to fail.',
+    'solved': 'With his generator back online, Luke found his bearings along the Death Star&rsquo;s
+      {answer} trench.  His story doesn&rsquo;t end here and, with this substation powered up,
+      neither does yours.',
+  },
+  {
+    'description': 'For today&rsquo;s augmented human on the go, bio-electric cells are vital for a
+      quick recharge.',
+    'unlocked': 'Without a working one, augmentations are just dead weight.',
+    'solved': 'Getting the cell back in working order paved the way for the next step in human
+      {answer}. It&rsquo;s in our nature to rise above our limits, just as it&rsquo;s in your nature
+      to continue your journey.',
+  },
+  {
+    'description': 'The AllSpark begat Cybertron and, with it, the war between the Autobots and the
+      Decepticons.',
+    'unlocked': 'Now it sits useless, as the war rages around it.',
+    'solved': 'With it repaired, Megatron was again reminded never to underestimate {answer}.  Now
+      that this substation is powered up, it&rsquo;s time to roll out.',
+  },
+] %}
+
+{% set end_text = {
+  'supermeta': {
+    'unlocked-future': 'Once you&rsquo;ve learned all you can on the Cube, you can set about preparing the
+      {name} for battle!',
+    'unlocked-now': 'All that remains now is to use what you&rsquo;ve learned to prepare the 
+      {name} for battle!',
+    'solved': 'Thanks to you, the {name} has begun to fight back against the Borg menace.  As the 
+      Electro-Plasma System charged, you noticed the missing core memory {answer}.',
+  },
+  'recovery': {
+    'unlocked': 'Get that orb back in time!',
+    'solved': 'Before the Sci-Fi Core Memory could be lost in the space-time continuum, you recovered it,
+      saving Sci-Fi Island!',
+  },
+} %}
+
+{% macro pretty_count_substations(cnt, tot) -%}
+  {%- if cnt == 0 -%}
+    no substations
+  {%- elif cnt == 1 -%}
+    one substation
+  {%- elif cnt < tot -%}
+    {{ macros.pretty_number(cnt) }} substations
+  {%- else -%}
+    all {{ macros.pretty_number(cnt) }} substations
+  {%- endif -%}
+{%- endmacro %}
+
+{% block objective_action_item_1 %}
+  {% if numPowered == 0 and statuses['scifi-supermeta'] == 'SOLVED' %}
+    {# for completeness #}
+    The Starship Enterprise is prepared for battle
+  {% elif numPowered == 1 and statuses['scifi-supermeta'] != 'SOLVED' %}
+    One substation is online
+  {% else %}
+    {{ pretty_count_substations(numPowered, numSubstations) | capitalize }} are online
+    {% if statuses['scifi-supermeta'] == 'SOLVED' %}
+      and the Starship Enterprise is prepared for battle.
+    {% endif %}
+  {% endif %}
+{% endblock %}
+
+{% block objective_action_item_2 %}
+  {% if statuses['scifi-supermeta'] == 'SOLVED' %}
+    Recover the core memory
+  {% elif numPowered == numSubstations %}
+    Prepare the Starship Enterprise for battle
+  {% elif numSubstations - numPowered == 1 %}
+    Repair the final substation
+  {% elif numPowered > 0 %}
+    Repair the {{ macros.pretty_number(numSubstations - numPowered) }} remaining substations
+  {% else %}
+    Repair the {{ macros.pretty_number(numSubstations) }} substations
+  {% endif %}
+{% endblock %}
+
+{% block objective_body %}
+  <p>
+    On Sci-Fi Island, mind workers are constantly writing new fanfic for their favorite science
+    fiction properties.  This one&rsquo;s about the Enterprise facing down the Borg Cube!  How are
+    they going to get out of this one?  You joined them to find out and landed in a strange
+    branching utility tunnel.  In one direction of the landing site is some kind of substation.
+    In the other directions are blast doors.  To learn anything useful to the Enterprise,
+    you&rsquo;ll have to find a way through the locked blast doors and get these substations online.
+  </p>
+  <ul>
+    {% for i in range(1,numSubstations+1) %}
+      {%- set substation = 'scifi-meta-' + i|string -%}
+      <li>
+        {% if statuses[substation] in ['UNLOCKED','SOLVED'] %}
+          {%- set substation_text = meta_text[i-1] -%}
+          <div class="puzzle-name island-meta-name">
+            Substation {{ i }}:
+            {{ names[substation] | safe }}
+          </div>
+          <div>
+            {{- substation_text['description'] | safe }}
+            {{ substation_text[statuses[substation] | lower].format(answer = answers[substation]) | safe -}}
+          </div>
+        {% else %}
+          <div class="puzzle-name island-meta-name">
+            Substation {{ i }}: ?
+          </div>
+          <div>This substation is inaccessible.</div>
+        {% endif %}
+      </li>    
+    {% endfor %}
+  </ul>
+  
+  <p>
+    {%- set variant = (statuses['scifi-supermeta'] | lower) -%}
+    {%- if statuses['scifi-supermeta'] != 'SOLVED' -%}
+      {%- set variant = variant + ('-now' if numPowered == numSubstations else '-future') -%}
+    {%- endif %}
+    {%- set substitutions = {
+      'name': macros.format_meta(names['scifi-supermeta']),
+      'answer': macros.format_answer(answers['scifi-supermeta']),
+    } -%}
+    {{- end_text['supermeta'][variant].format(**substitutions) | safe -}}
+  </p>
+  
+  {% if statuses['scifi-recovery'] in ['UNLOCKED', 'SOLVED'] %}
+    <p>
+      {{- end_text['recovery'][statuses['scifi-recovery'] | lower] | safe -}}
+    </p>
+  {% endif %}
+{% endblock %}

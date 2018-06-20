@@ -1,0 +1,52 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_errata_block %}
+<p><b>Errata:</b> This puzzle does not render correctly in Safari. Please use Chrome, Firefox, or Edge to view this puzzle.</p>
+{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .puzzle-content p {
+      text-align: center;
+      page-break-after: always;
+    }
+
+    .puzzle-content img {
+      background-color: white;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  You could even bend a spoon!
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <p>
+    <img {{ img_src_for('puzzles/wolf_in_the_fold/1.svg') }}>
+  </p>
+
+  <p>
+    <img {{ img_src_for('puzzles/wolf_in_the_fold/2.svg') }}>
+  </p>
+
+  <p>
+    <img {{ img_src_for('puzzles/wolf_in_the_fold/3.svg') }}>
+  </p>
+
+  <p>
+    <img {{ img_src_for('puzzles/wolf_in_the_fold/4.svg') }}>
+  </p>
+
+  <p>
+    <img {{ img_src_for('puzzles/wolf_in_the_fold/5.svg') }}>
+  </p>
+
+  <p>
+    <img {{ img_src_for('puzzles/wolf_in_the_fold/6.svg') }}>
+  </p>
+{% endblock %}

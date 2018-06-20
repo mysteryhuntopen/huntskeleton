@@ -1,0 +1,75 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+  <script src="https://storage.googleapis.com/hunt2018-js/huntjs-client/huntjs-client.min.js"></script>
+  <style>
+    .puzzle-content {
+      font-family: monospace;
+      background-color: black;
+      color: gray;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .puzzle-content a {
+      color: #cccccc;
+      text-decoration: none;
+    }
+
+    .puzzle-content a.account-link {
+      color: #00ff00;
+    }
+
+    .puzzle-content a.green {
+      color: #00ff00;
+    }
+
+    .puzzle-content a.red {
+      color: #ff0000;
+    }
+
+    .puzzle-content .modal-body a {
+      color: #8888ff;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  <p>Your goal is to make it to the bottom of the dungeon alive. You
+    will find the answer you seek on the last level.</p>
+
+  <p>(And don't forget that you can hit 'z' to undo, even after
+    dying.)</p>
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <h4 class="nav" id="loadingMessage"></h4>
+
+  <div id="gameContainer" class="gameContainer">
+  </div>
+
+  <p class="nav" id="title"></p>
+
+  <p class="nav" id="instructions">
+  </p>
+
+  <div class="nav" >
+    <a id="restartButton" href="#">Restart (r)</a></span> | <a id="undoButton" href="#">Undo (z)</a>
+  </div>
+
+  <p class="nav" id="message"></p>
+
+  <div class="footer">
+    <a id="increaseFontButton" href="#">Increase Font</a> |
+    <a id="decreaseFontButton" href="#">Decrease Font</a>
+  </div>
+
+  <script src="{{ asset_url_for('puzzles/walk_across_some_dungeons_2/wasd2.min.js') }}"></script>
+  <script src="{{ asset_url_for('puzzles/walk_across_some_dungeons_2/puzzle.js') }}"></script>
+{% endblock %}

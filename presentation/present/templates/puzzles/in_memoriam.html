@@ -1,0 +1,670 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  @media screen {
+    .puzzle-content ol {
+      padding-left: 1em;
+    }
+  }
+
+  .puzzle-content ol li {
+    margin-bottom: 1em;
+    overflow-wrap: break-word;
+  }
+
+  .puzzle-content li * {
+    vertical-align: top;
+  }
+
+  .puzzle-content .i {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+  }
+
+  .puzzle-content .g {
+    display: flex;
+    white-space: nowrap;
+  }
+
+  .puzzle-content #i-04 .g {
+    margin-right: 49px;
+  }
+
+  .puzzle-content #i-05 .g {
+    margin-right: 33px;
+  }
+
+  .puzzle-content #i-06 .g {
+    margin-right: 24px;
+  }
+
+  .puzzle-content #i-08 .g {
+    margin-right: 37px;
+  }
+
+  .puzzle-content #i-14 .g {
+    margin-right: 38px;
+  }
+
+  .puzzle-content #i-15 .g {
+    margin-right: 34px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+20 15 04 01 25 09 19 01 07 15 15 04 04 01 25 20 15 04 09 05!
+{% endblock %}
+
+{% block puzzle_content_block %}
+<ol>
+  <li>Nzlrhgh dzmg z wrivxgob vovxgvw kivhrwvmg, yfg gsrh droo trev
+    yrigs gl zm zfglxizg.</li>
+
+  <li>_asted _omicide _vidence _oose ; _libi ; _alice _libi _oose ;
+    _ilence _eril _vidence _oose _eadbeat _ilence ; _omicide _nnocent
+    _ilence ; _icochet _vidence _awless _nnocent _vidence _ugitive ;
+    _orpse _omicide _vidence _orpse _iller _ilence ; _utlaw _oose ;
+    _umshoe _icochet _vidence _vidence _oose ; _asted _omicide
+    _nnocent _ilence _iller _vidence _esterday ; _omicide _nnocent
+    _ilence ; _orpse _omicide _nnocent _awless _eadbeat _icochet
+    _vidence _oose ; _omicide _libi _engeance _vidence ; _libi ;
+    _asted _libi _esterday ; _utlaw _ugitive ; _orpse _icochet
+    _esterday _nnocent _oose _umshoe ; _ugitive _icochet _utlaw _alice
+    ; _omicide _ndertow _oose _umshoe _vidence _icochet ; _eril _libi
+    _nnocent _oose _ilence.</li>
+
+  <li>A-CHI BE-TKAH TSAH AH-JAH A-KEH-DI-GLINI AH-NAH AH-LOSZ BE-TKAH
+    TSAH AH-NAH A-KEH-DI-GLINI AH-JAH AH-LOSZ BE-TKAH A-CHI TSAH
+    BE-TKAH TSIN-TLITI TSAH-AS-ZIH BE-TKAH NASH-DOIE-TSO YEH-HES MA-E
+    DZEH BE-TKAH A-WOH NE-AHS-JAH NE-AHS-JAH BA-AH-NE-DI-TININ BE-TKAH
+    TSE-NILL BE-TKAH CO-JI-GOH BE-TKAH A-CHI A-CHIN BE-TKAH AH-JAH
+    TLA-GIN TLO-CHIN A-CHIN A-KHA BE-TAS-TNI YEH-HES MOASI KLESH.</li>
+
+  <li>
+    <div class="i" id="i-04">
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-01.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-02.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-03.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-04.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-05.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-06.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-07.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-08.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-09.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-10.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-11.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-12.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-13.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-14.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-15.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-16.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-17.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-18.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-19.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-20.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-21.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-22.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-23.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-24.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-25.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-26.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-27.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-28.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-29.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-30.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-31.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-32.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-33.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-34.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-35.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-36.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-37.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-38.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-39.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-40.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-41.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-42.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-43.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-44.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-45.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-46.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-47.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-48.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-49.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-50.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-51.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-52.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-53.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-54.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/04-55.png') }}"/>
+      </span>
+    </div>
+  </li>
+
+  <li>
+    <div class="i" id="i-05">
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-01.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-02.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-03.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-04.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-05.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-06.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-07.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-08.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-09.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-10.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-11.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-12.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-13.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-14.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-15.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-16.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-17.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-18.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-19.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-20.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-21.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-22.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-23.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-24.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-25.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-26.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-27.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-28.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-29.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-30.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-31.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-32.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-33.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-34.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-35.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-36.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-37.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-38.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-39.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-40.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-41.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-42.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-43.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-44.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-45.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-46.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-47.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-48.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-49.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-50.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-51.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-52.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-53.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-54.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-55.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-56.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-57.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-58.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-59.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-60.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-61.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-62.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-63.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-64.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-65.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-66.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-67.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-68.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-69.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-70.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/05-71.png') }}"/>
+      </span>
+    </div>
+  </li>
+
+  <li>
+    <div class="i" id="i-06">
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-001.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-002.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-003.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-004.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-005.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-006.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-007.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-008.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-009.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-010.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-011.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-012.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-013.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-014.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-015.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-016.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-017.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-018.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-019.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-020.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-021.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-022.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-023.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-024.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-025.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-026.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-027.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-028.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-029.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-030.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-031.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-032.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-033.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-034.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-035.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-036.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-037.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-038.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-039.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-040.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-041.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-042.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-043.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-044.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-045.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-046.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-047.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-048.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-049.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-050.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-051.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-052.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-053.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-054.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-055.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-056.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-057.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-058.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-059.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-060.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-061.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-062.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-063.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-064.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-065.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-066.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-067.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-068.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-069.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-070.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-071.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-072.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-073.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-074.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-075.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-076.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-077.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-078.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-079.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-080.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-081.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-082.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-083.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-084.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-085.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-086.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-087.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-088.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-089.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-090.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-091.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-092.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-093.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-094.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-095.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-096.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-097.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-098.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-099.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-100.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-101.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-102.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-103.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-104.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-105.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-106.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-107.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-108.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-109.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-110.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-111.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-112.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/06-113.png') }}"/>
+      </span>
+    </div>
+  </li>
+
+  <li>&amp;#78; &amp;#111; &amp;#119; &amp;#32; &amp;#116; &amp;#104;
+    &amp;#105; &amp;#115; &amp;#32; &amp;#102; &amp;#105; &amp;#114;
+    &amp;#115; &amp;#116; &amp;#32; &amp;#83; &amp;#76; &amp;#73;
+    &amp;#73; &amp;#73; &amp;#68; &amp;#69; &amp;#46; &amp;#46;
+    &amp;#46; &amp;#32; &amp;#115; &amp;#104; &amp;#111; &amp;#119;
+    &amp;#115; &amp;#32; &amp;#97; &amp;#32; &amp;#118; &amp;#101;
+    &amp;#114; &amp;#121; &amp;#44; &amp;#32; &amp;#118; &amp;#101;
+    &amp;#114; &amp;#121; &amp;#32; &amp;#105; &amp;#110; &amp;#116;
+    &amp;#101; &amp;#114; &amp;#101; &amp;#115; &amp;#116; &amp;#105;
+    &amp;#110; &amp;#103; &amp;#32; &amp;#116; &amp;#104; &amp;#105;
+    &amp;#110; &amp;#103; &amp;#58; &amp;#32; &amp;#111; &amp;#117;
+    &amp;#114; &amp;#32; &amp;#109; &amp;#97; &amp;#105; &amp;#110;
+    &amp;#32; &amp;#98; &amp;#117; &amp;#105; &amp;#108; &amp;#100;
+    &amp;#105; &amp;#110; &amp;#103; &amp;#46;</li>
+
+  <li>
+    <div class="i" id="i-08">
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/08-01.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/08-02.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/08-03.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/08-04.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/08-05.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/08-06.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/08-07.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/08-08.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/08-09.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/08-10.png') }}"/>
+      </span>
+    </div>
+  </li>
+
+  <li>24 12151533 22154444243322 22343414 134234521443. 2444 34333154
+    44343425 50 5415114243.</li>
+
+  <li>Yg ygtg pqv cdng vq tgcnkbg vjcv ykvj vjg ocejgvg aqw ecp etgcvg
+    c igpqekfg.</li>
+
+  <li>4d 61 6e 79 20 6f 66 20 74 68 65 20 70 72 6f 62 6c 65 6d 73 20
+    77 68 69 63 68 20 77 65 20 66 61 63 65 20 74 6f 64 61 79 20 61 72
+    65 20 74 68 65 20 65 76 65 6e 74 75 61 6c 20 72 65 73 75 6c 74 20
+    6f 66 20 73 68 6f 72 74 2d 72 75 6e 20 6d 65 61 73 75 72 65 73 20
+    74 61 6b 65 6e 20 61 73 20 6c 6f 6e 67 20 61 73 20 74 77 6f 20 6f
+    72 20 74 68 72 65 65 20 64 65 63 61 64 65 73 20 61 67 6f 2e</li>
+
+  <li>115 145 40 144 151 157 40 150 141 163 164 141 40 166 145 162 147
+    374 145 156 172 141 40 144 145 143 151 162 40 161 165 145 40 145
+    163 164 141 40 157 142 162 141 40 145 162 141 40 155 355 141 56</li>
+
+  <li>6 59 5 95(¶80‡?) 4‡?)8788.8( 8¶8(: ;698 6 085¶8 5 95* 6 788. 46)
+    4‡?)8</li>
+
+  <li>
+    <div class="i" id="i-14">
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-01.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-02.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-03.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-04.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-05.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-06.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-07.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-08.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-09.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-10.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-11.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-12.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-13.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-14.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-15.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-16.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-17.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-18.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-19.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-20.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-21.png') }}"/>
+      </span>
+      <span class="g">
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-22.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-23.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-24.png') }}"/>
+        <img src="{{ asset_url_for('puzzles/in_memoriam/14-25.png') }}"/>
+      </span>
+    </div>
+  </li>
+
+  <li>
+    <div class="i" id="i-15">
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-01.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-02.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-03.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-04.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-05.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-06.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-07.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-08.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-09.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-10.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-11.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-12.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-13.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-14.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-15.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-16.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-17.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-18.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-19.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-20.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-21.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-22.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-23.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-24.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-25.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-26.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-27.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-28.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-29.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-30.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-31.png') }}"/>
+      &rsquo;
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-32.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-33.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-34.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-35.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-36.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-37.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-38.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-39.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-40.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-41.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-42.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/15-43.png') }}"/>
+    </div>
+  </li>
+
+  <li>.. ..-. / ... -.-. .. . -. -.-. . / .. ... / - --- / .- -.. ...-
+    .- -. -.-. . --..-- / ... --- -- . / ... .-
+    -.-. .-. .. ..-. .. -.-. . ... / -- ..- ... - / -... . / -- .-
+    -.. . </li>
+
+  <li>QXMgSSBzYWlkIGVhcmxpZXIsIHRoZXJlIGFyZSBubyB3cml0ZXJzIHdobyBjb3VsZCBjcmVhdGUgYSBsaXRlcmFyeSB2aXNpb24gb2YgdGhlIG5ldyByZWFsaXR5Lg==</li>
+
+  <li>7/3|5/3/-2\9\2\7|3|6|3|7/7/ 2\6|3\
+    7/3|5/3/-3|7/8\3|3|6\. 8\4|6/7/3| 2\7|3|6|&rsquo;8\ 3/3|6\2\5/3|
+    4/7/7/8|3|7/, 8\4|6/7/3| 2\7|3| 4|8|6\2\6| 4/7/7/8|3|7/.</li>
+
+  <li>
+    <div class="i" id="i-19">
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-01.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-02.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-03.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-04.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-05.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-06.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-07.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-08.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-09.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-10.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-11.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-12.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-13.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-14.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-15.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-16.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-17.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-18.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-19.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-20.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-21.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-22.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-23.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-24.png') }}"/>
+      <img src="{{ asset_url_for('puzzles/in_memoriam/19-25.png') }}"/>
+    </div>
+  </li>
+</ol>
+{% endblock %}

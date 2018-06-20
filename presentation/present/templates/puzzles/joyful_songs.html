@@ -1,0 +1,20 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  All the lines got mixed up, and they mixed up their lines! The crazy song bugs me at first. 
+{% endblock %}
+{% block puzzle_content_block %}
+  <p>abw des juw pɪk [10]</p>
+  <p>aɪæ aɪs ɛlf ɪdm ɪnt itu mjʌ nuw pʌm usm ʌvə wəd [22]</p>
+  <p>aɪæ dʒi mlə ŋkə ɹnɔ̃ stɪ [16]</p>
+  <p>aɪs aɪθ ɔəp kæt ppp sss ʊsi θɔt θθθ [18]</p>
+  <p>ɑmə biv ɛɹə hʌn ɪtɑ ɪts kwɑ ɹæb sɛɪ tɪn [10]</p>
+  <p>ðæt lfo ʪʪɔ ʊkʪ [3]</p>
+  <p>dgə eəs eɪj əlɔ lut ŋiɹ ɹeɪ ʌəp zja [13]</p>
+  <p>dʒo kaɪ klʊ sɛd sʌn tad tsə uðæ uðæ ʒok [11]</p>
+{% endblock %}

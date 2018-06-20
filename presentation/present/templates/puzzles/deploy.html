@@ -1,0 +1,93 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content table {
+    border: 3px solid black;
+    border-collapse: collapse;
+  }
+
+  .puzzle-content td {
+    border: 1px black solid;
+  }
+
+  .puzzle-content td {
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .puzzle-content td.black {
+    background-color: black;
+    color: white;
+    font-size: 18pt;
+    text-align: center;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+You see campus police flashlights everywhere! Fortunately, you’re an Elite hacker. If you keep track of where they are, you just might pull this off.
+{% endblock %}
+
+{% block puzzle_call_to_action_block %}
+Find something that will help deploy your hack.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<table>
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td class="black">_</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td class="black">_</td>
+    <td class="black"> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td class="black"> </td>
+    <td> </td>
+    <td> </td>
+    <td class="black"> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td class="black"> </td>
+    <td> </td>
+    <td> </td>
+    <td class="black">_</td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td class="black">_</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td class="black">_</td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+</table>
+{% endblock %}

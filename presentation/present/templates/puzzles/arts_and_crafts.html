@@ -1,0 +1,52 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% import "/puzzle_macros.html" as puzzle_macros %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_head_block %}
+  {%- if site_mode() == 'solution' -%}
+    <style>
+      .puzzle-content img {
+        max-width: 100%;
+      }
+
+      .puzzle-content .spoon-image {
+        border: 1px solid black;
+      }
+    </style>
+  {%- endif -%}
+{% endblock %}
+
+{% block puzzle_content_block %}
+<p>To request a copy of this puzzle, submit an instruction request to Cranium Command with the phrase “DON’T BRUSH US OFF.”</p>
+
+{% if site_mode() == "solution" %}
+<p>Solvers were given a 12&Prime; diameter wooden shield and a total of 20 wooden spoons. The shield was etched to have the following pattern on it, with holes halfway between each tick mark:</p>
+
+<img {{ img_src_for('solutions/arts_and_crafts/shield-1.png') }} >
+
+<p>The spoons had the following images pasted on them, one half on the front and one half on the back:</p>
+
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/01.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/02.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/03.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/04.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/05.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/06.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/07.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/08.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/09.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/10.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/11.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/12.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/13.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/14.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/15.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/16.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/17.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/18.png') }} >
+<img class="spoon-image" {{ img_src_for('solutions/arts_and_crafts/20.png') }} >
+{% endif %}
+{% endblock %}

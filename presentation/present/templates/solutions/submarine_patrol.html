@@ -1,0 +1,90 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Denis Auroux and James Douberley{% endblock %}
+{% block solution %}MAST{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content img {
+    display: block;
+    width: 45%;
+    margin: auto;
+  }
+
+  @media print {
+    .puzzle-content img {
+        page-break-inside: avoid;
+        page-break-after: always;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>This is a 3D version of &ldquo;Shoal Patrol.&rdquo; The grid is a combination of Battleship, Minesweeper, and loop puzzle. The completed grid is as follows; see below for the solving path. The minesweeper values of the 1-cell ships (the four &lsquo;?&rsquo; in the given data) are, in order along the loop, 13, 1, 19, and 20. Indexing into the alphabet gives the answer: <strong><code>MAST</code></strong>.</p>
+
+<img {{ img_src_for('solutions/submarine_patrol/image.svg') }} >
+
+<p><b>Battleship:</b> Solving starts with the battleships; unlike &ldquo;Shoal Patrol,&rdquo; here the battleship puzzle can be solved completely without using minesweeper and loop constraints.</p>
+
+<p>The usual battleship strategies apply: no two ship segments can touch diagonally, so placing a ship segment allows one to exclude ship segments on the diagonally adjacent cells (up to 20 of them: 4 in the same layer, 8 in the layers above and below). Conversely, if a row is nearly full then some cells in the adjacent rows (including in the adjacent layers) cannot contain ship segments.</p>
+
+<p>The rows/columns containing the largest number of ship segments, and those immediately next to them, are typically the most constrained and those that hold the key to the battleships puzzle.</p>
+
+<p>Here, the fourth and sixth layers (from top) are most constrained. One can place a 2-ship, a 3-ship and an isolated segment (which is in fact part of a vertical ship) in layer 4, and complete layer 6. This in turn excludes a number of cells in layers 3, 5, and 7.</p>
+
+<p>The following successive observations essentially unlock the upper layers of the grid:</p>
+
+<ul>
+  <li>looking at the 4th rows in layers 1, 2, and 3: placing 3 segments along the 4 available cells in layer 2 forces columns 2, 4, 6 in rows 3-4-5 to be empty in layers 1 and 3. This gives row 4 of layer 3, and eliminates more cells in layer 2.</li>
+  <li>looking at the 1st column in layers 1 and 2: placing 4 segments among the 5 available cells in layer 1 forces, in the 1st column of layer 2, row 6 to be empty and row 2 to contain a segment. The other segment is either in row 1 or row 4; thus, in the 1st column of layer 1, one of rows 2 and 5 must be empty, and rows 4, 6, 7 must contain segments.</li>
+  <li>layer 1 contains 13 ship segments in total, so the missing clue for its column 6 must be 2, and those segments are in rows 2 and 6.</li>
+</ul>
+
+<p>This allows one to complete layers 2 and 3, and make further progress on layers 1 and 4. The bottom layer can also be partially solved on its own.</p>
+
+<p>At this point, we look for the 3- and 4-ships. (To help the search for potential vertical ships, note that there are no vertical ships through layer 6, so every vertical 3-ship must pass through layer 3, and every vertical 4-ship must pass through layers 2-3-4).</p>
+
+<ul>
+  <li>two 4-ships are already placed in layers 1 and 3. The remaining possibilities are: in row 2 of layer 1, in row 3 of layer 7, or vertically in row 4 column 7.</li>
+  <li>three 3-ships are already placed in layers 4, 6, 7. The remaining possibilities are: in row 6 of layer 1, in row 3 of layer 7, vertically in row 4 column 7, or vertically in row 6 column 7.</li>
+</ul>
+
+<p>We conclude that there is a 4-ship in row 2 of layer 1, and 3-ships in row 6 of layer 1 and vertically in row 6 column 7, while the two ambiguous options (row 3 of layer 7, and vertically in row 4 column 7) contain one 3-ship and one 4-ship.</p>
+
+<p>It is then easy to complete the battleship puzzle.</p>
+
+<p><b>Ship identification:</b> the next stage is to identify which ships can contain which minesweeper clues. The key observation is that high value minesweeper clues cannot occur on grid edges, and can constrain the loop as well. Namely, the minesweeper clue on a ship segment in the interior of the cube is at most 24 (since two of the 26 neighboring cells must also lie on the loop and cannot contain mines); on the interior of a face of the cube, it is at most 15; on an edge of the cube, it is at most 9; on a vertex of the cube, it is at most 5. Moreover, when these maximum values are attained, all cells diagonally adjacent to the ship segment must contain mines, and hence the loop must go straight immediately before and immediately after the considered cell (but can turn on the cell itself).</p>
+
+<p>We start with the 4-ships:</p>
+
+<ul>
+  <li>The ship in layer 1 is all along an edge of the cube, hence its clues cannot exceed 9; it must be 5-5-6-6.</li>
+  <li>The ship in layer 3 starts along an edge of the cube, hence one of its ends cannot exceed 9; so it must be 3-3-6-10.</li>
+  <li>The two others are 15-9-9-10, but it is not clear which end is 15 and which end is 10.</li>
+</ul>
+
+<p>A useful way to study the local behavior of the loop and mines near a given ship (especially 3-and 4-ships) is to consider the successive planes of cells that touch the ship, slicing perpendicularly to the direction of the ship, to find the number of mines and the number of cells used by the loop in each plane.</p>
+
+<p>For the 5-5-6-6 ship, each plane consists of 4 cells, in columns 1 and 2 of layers 1 and 2. Working from the corner, we find successively: in row 7, 2 mines and only one loop cell (hence the loop must go straight through it); in row 6, 3 mines (these all follow from the 5 clue at the corner of the cube; next we use the subsequent minesweeper clues); then in row 5, 3 empty cells (no loop, no mines); in row 4, 3 mines; in row 3, 3 mines and necessarily one loop cell (hence the loop must keep going straight through it, into row 2).</p>
+
+<p>For the 15-9-9-10 ships in the top and bottom layers, each plane consists of 6 cells, in rows 1-3 of layers 1-2 or rows 2-4 of layers 6-7. Starting from the side with the 15 clue (unknown so far), we find that the successive planes contain 6, 4, 5, 0, 4, 6 mines; and necessarily the loop turns at both extremities of the ship and goes straight through the adjacent cells. Thus, most of the mines can be placed around these ships and the solution can proceed even without knowing which end is 15 and which end is 10; the only difference between the two orientations is which of the two planes through the middle of the ship remains empty and which one is filled with mines.</p>
+
+<p>We leave the 3-3-6-10 ship as an exercise.</p>
+
+<p>Next we look at the 3-ships:</p>
+
+<ul>
+  <li>The 24-24-24 ship must be in the interior of the cube, hence in layer 4. Counting mines in successive planes perpendicular to the ship gives 8-8-8-8-8, and shows that the loop must go straight at least 2 cells past each end of the ship, while all remaining available cells contain mines.</li>
+  <li>The 10-10-15 ship cannot touch the edges of the cube, hence it is the vertical ship in row 6 column 7 of layers 3-4-5. (it is not clear which end is which at the outset).</li>
+  <li>The 9-14-15 ships start along an edge of the cube, and starting from the edge the successive planes contain 4, 5, 5, 5 mines. Hence the loop turns at the edge but goes straight through the next cell; and it goes straight past the other end of the ship by at least 2 cells. In particular, the ship in row 1 of layer 6 cannot be 9-14-15 (the loop after extending past the 15-end would then touch diagonally both 2-ships in layers 5 and 7, which is forbidden), so it is the 9-12-14 ship.</li>
+</ul>
+
+<p>These deductions concerning the 3- and 4-ships allow one to start placing a number of mines and significant portions of the loop; paying close attention to the no-touching constraint on the loop (which also prevents the loop from ever touching a ship that it does not immediately connect to) is key.</p>
+
+<p>At that point, identifying the minesweeper values of the 2-ships (and orienting the 15-9-9-10 and 10-10-15 ships), placing mines, and completing the loop, is mostly a matter of careful accounting. Some cells remain undetermined, but the total number of forced mines is already 178, so those remain empty. One can then count the minesweeper values of the 1-ships to extract the answer.</p>
+{% endblock %}

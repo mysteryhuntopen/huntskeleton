@@ -1,0 +1,71 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_call_to_action_block %}
+Find something that will help you scout your hack.
+{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puzzle-content .header {
+    font-size: 1.5em;
+  }
+
+  .puzzle-content .flexbox {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .puzzle-content .container {
+    display: flex;
+    flex-direction: column;
+    width: 31%;
+    flex: 0 0 auto;
+    margin: 10px 1%;
+  }
+
+  .puzzle-content img {
+    width: 100%;
+  }
+
+  @media print {
+    .puzzle-content img {
+      width: 68%;
+      display: block;
+      page-break-inside: avoid;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div class="header"><b>How Hackers Scout MIT&rsquo;s Campus</b></div>
+
+<div class="flexbox">
+  <div class="container">
+    <div><img {{ img_src_for("puzzles/scout/1.svg") }} ></div>
+    <div>Navigating MIT at night can be tricky. You’ve gotten a lot of information and there’s no way to know what order to take it in, so you’ll just have to experiment.</div>
+  </div>
+  <div class="container">
+    <div><img {{ img_src_for("puzzles/scout/2.svg") }} ></div>
+    <div>Most of the time, you’ll just move ahead by the length of the information you received, keeping notes as you move.</div>
+  </div>
+  <div class="container">
+    <div><img {{ img_src_for("puzzles/scout/3.svg") }} ></div>
+    <div>Sometimes you’ll land in a secret stairwell, which will give you a boost to the top.</div>
+  </div>
+  <div class="container">
+    <div><img {{ img_src_for("puzzles/scout/4.svg") }} ></div>
+    <div>Other times you’ll land in a construction site trash chute, which will take you back down. You’ll just have to keep going, as long as new information doesn’t contradict what you’ve already done.</div>
+  </div>
+  <div class="container">
+    <div><img {{ img_src_for("puzzles/scout/5.svg") }} ></div>
+    <div>Just follow these instructions and you’ll find your way to the roof.</div>
+  </div>
+</div>
+
+<img {{ img_src_for("puzzles/scout/6.svg") }} >
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+
+{% block title_block %}{{ puzzle_title }}{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Serenity is powered (energized) by twin 6V4-178-B31 trace
+  compression blocks. One side or the other always acts up, but it’s
+  usually (typically) in a minor way so we just say (assert) they have
+  character.
+{% endblock %}
+
+{% block puzzle_call_to_action_block %}
+  What does the crew of Serenity need?
+{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .title-text {
+    font-size: 26px;
+  }
+</style>
+{% endblock %}

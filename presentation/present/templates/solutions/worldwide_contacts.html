@@ -1,0 +1,141 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content .solution-map-list li {
+    padding: 6px 0;
+  }
+</style>
+{% endblock %}
+
+{% block byline %}
+  By Yonatan Kogan
+{% endblock %}
+{% block solution %}INTERNATIONAL{% endblock %}
+
+{% block solution_content_block %}
+  <p>
+    The puzzle opens with just the puzzle title and thirteen interactive maps embedded in the
+    page. Below the interactive maps is a static copy of a blank map with the same
+    projection.
+  </p>
+  <p>
+    Each map is plotting a different category, but the solver is only presented with markers for
+    the relevant countries. They can hover over the markers in order to get the values for those countries. Above
+    each map is a list of 1-3 countries that are not plotted, and a number in parentheses.
+  </p>
+  <p>
+    Solving each map results in a international calling country code, and the letter is extracted
+    by indexing into the name of the country provided by the country code. The solver must determine the theme of
+    each map in order to map the appropriate values onto the missing countries, and then concatenate the values in
+    the same order as the countries in the list.
+  </p>
+  <p>
+    The maps are in alphabetical order by extracted country name to help the solver know they are
+    on the right track.
+  </p>
+  <ul class="solution-map-list">
+    <li>
+      Map 1 is of number of billionaires from the country in 2017 (according to Forbes).
+      (<a href="https://en.wikipedia.org/wiki/List_of_countries_by_the_number_of_billionaires">Source</a>).
+      Missing countries are Kazakhstan (5), Monaco (4).
+      +54 is the country code for <code>ARGENTINA</code>.
+      Index of (1) gives the letter <code>A</code>.
+    </li>
+    <li>
+      Map 2 is of the number of letters in the country’s formal name.
+      (<a href="https://en.wikipedia.org/wiki/List_of_sovereign_states">Source</a>).
+      The missing country is the United Kingdom (45).
+      +45 is the country code for <code>DENMARK</code>.
+      Index of (3) gives the letter <code>N</code>.
+    </li>
+    <li>
+      Map 3 is of the number of operating nuclear reactors in that country.
+      (<a href="https://www.iaea.org/PRIS/WorldStatistics/OperationalReactorsByCountry.aspx">Source</a>).
+      Missing countries are Brazil (2), Switzerland (5), Armenia (1).
+      +251 is the country code for <code>ETHIOPIA</code>.
+      Index of (2) gives the letter <code>T</code>.
+    </li>
+    <li>
+      Map 4 is of the number of seasons of <i>Survivor</i> filmed in that country.
+      (<a href="https://en.wikipedia.org/wiki/Survivor_(U.S._TV_series)%23Locations">Source</a>).
+      Missing countries are Panama (3), Fiji (5), Philippines (4).
+      +354 is the country code for <code>ICELAND</code>.
+      Index of (1) gives the letter <code>I</code>.
+    </li>
+    <li>
+      Map 5 is of the number of years that the country has been a member of the United Nations.
+      (<a href="http://www.un.org/en/member-states/">Source</a>).
+      The missing country is Cambodia (62).
+      +62 is the country code for <code>INDONESIA</code>.
+      Index of (2) gives the letter <code>N</code>.
+    </li>
+    <li>
+      Map 6 is of the number Foreign Film Academy Award winners from that country.
+      (<a href="https://en.wikipedia.org/wiki/List_of_countries_by_number_of_Academy_Awards_for_Best_Foreign_Language_Film">Source</a>).
+      Missing countries are Iran (2), France (12).
+      +212 is the country code for <code>MOROCCO</code>.
+      Index of (3) gives the letter <code>R</code>.
+    </li>
+    <li>
+      Map 7 is of the number of Olympics hosted by that country.
+      (<a href="https://en.wikipedia.org/wiki/List_of_Olympic_Games_host_cities%23Number_of_Olympic_Games_by_country">Source</a>).
+      Missing countries are United Kingdom (3), Brazil (1).
+      +31 is the country code for <code>NETHERLANDS</code>.
+      Index of (3) gives the letter <code>T</code>.
+    </li>
+    <li>
+      Map 8 is of the number of that country’s restaurants in the 2017 World’s 50 Best.
+      (<a href="http://www.theworlds50best.com/">Source</a>).
+      Missing countries are Spain (6), Italy (4).
+      +64 is the country code for <code>NEW ZEALAND</code>.
+      Index of (7) gives the letter <code>L</code>.
+    </li>
+    <li>
+      Map 9 is of the number of mountains taller than 7200 meters.
+      (<a href="https://en.wikipedia.org/wiki/List_of_highest_mountains_on_Earth%23By_country">Source</a>).
+      Missing countries are China (50), Bhutan (5).
+      +505 is the country code for <code>NICARAGUA</code>.
+      Index of (4) gives the letter <code>A</code>.
+    </li>
+    <li>
+      Map 10 is of the number of time zones in that country.
+      (<a href="https://en.wikipedia.org/wiki/List_of_time_zones_by_country">Source</a>).
+      Missing countries are United Kingdom (9), Ecuador (2).
+      +92 is the country code for <code>PAKISTAN</code>.
+      Index of (8) gives the letter <code>N</code>.
+    </li>
+    <li>
+      Map 11 is of the number of times that country has won the World Cup.
+      (<a href="https://en.wikipedia.org/wiki/FIFA_World_Cup%23Teams_reaching_the_top_four">Source</a>).
+      Missing countries are Argentina (2), Italy (4), Uruguay (2).
+      +242 is the country code for the <code>REPUBLIC OF THE CONGO</code>.
+      Index of (9) gives the letter <code>O</code>.
+    </li>
+    <li>
+      Map 12 is of the number of stars on the country’s flag.
+      (<a href="https://en.wikipedia.org/wiki/List_of_countries_by_style_of_national_flags%23Stars">Source</a>).
+      Missing countries are Tuvalu (9), New Zealand (4).
+      +94 is the country code for <code>SRI LANKA</code>.
+      Index of (3) gives the letter <code>I</code>.
+    </li>
+    <li>
+      Map 13 is of number of female heads of government.
+      (<a href="https://en.wikipedia.org/wiki/List_of_elected_and_appointed_female_heads_of_state_and_government">Source</a>).
+      Missing countries are Peru (4), Rwanda (1).
+      +41 is the country code for <code>SWITZERLAND</code>.
+      Index of (6) gives the letter <code>E</code>.
+    </li>
+  </ul>
+  <p>
+    If these letters are all drawn on a map and then read left to right and top to bottom,
+    <strong><code>INTERNATIONAL</code></strong> can be read off.
+  </p>
+  <p>
+    <img style="width: 100%;" src="{{ asset_url_for('solutions/worldwide_contacts/solution_map.png') }}"/>
+  </p>
+{% endblock %}

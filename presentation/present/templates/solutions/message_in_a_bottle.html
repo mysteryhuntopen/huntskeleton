@@ -1,0 +1,214 @@
+{% extends "solutions/solution_layout.html" %}
+
+{% set puzzle_title = puzzle.puzzleProperties.DisplayNameProperty.displayName %}
+{% block title_block %}{{ puzzle_title }}: Solution{% endblock %}
+{% block puzzle_name_block %}{{ puzzle_title }}: Solution{% endblock %}
+
+{% block byline %}By Nathan Fung{% endblock %}
+{% block solution %}INTRACTABLE QUESTION{% endblock %}
+
+{% block solution_head_block %}
+<style>
+  .puzzle-content img {
+    width: 100%;
+  }
+
+  .puzzle-content .flexbox {
+    display: flex;
+  }
+
+  .puzzle-content .flexbox > * {
+    margin-right: 20px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>The squares can be cut apart and then assembled as an edge-to-face assembly puzzle so that the property described on the edge of a piece matches the face word of the piece that is adjacent along that edge (Previous versions of this puzzle type have appeared in Mystery Hunt in 2010&rsquo;s <a href="http://web.mit.edu/puzzle/www/2010/puzzles/1983/building_a_mystery/">Building a Mystery</a> and 2016&rsquo;s <a href="http://huntception.com/puzzle/lost_skull/">Lost Skull</a>.).</p>
+
+<p>Assembling using this property will allow solvers to assemble the squares into a 4x10-square rectangle, which when examining how the edges of the 4x10 rectangle must join reveal that the surface being assembled is a <a href="https://en.wikipedia.org/wiki/Klein_bottle">Klein bottle</a>.</p>
+
+<p>Starting at the green arrow and reading in the direction it points, the first letters of the face words spell out the message <code>CUT RED, REMATCH, COMPARE</code>. One square has a red edge with an arrow. Cutting the Klein bottle along this edge and continuing in that direction cuts the Klein bottle into two Möbius strips.</p>
+
+<p>Once cut into two Möbius strips, the two Möbius strips can be rejoined along their edges in a second way so that the edge properties match the face words. Comparing the way the face words are now matched between the two Möbius strips reveals that each face word has now been paired with a word that has one letter different (e.g. UNWISE and SEQUIN). Extracting the letter that is different and reading down the edge of the first Möbius strip gives <code>WORD ONE IS INTRACTABLE</code> and reading down the edge of the second Möbius strip gives <code>QUESTION IS SECOND WORD</code>, cluing the answer <strong><code>INTRACTABLE QUESTION</code></strong>.</p>
+
+<a href="{{ asset_url_for('solutions/message_in_a_bottle/image.svg') }}" target="_blank"><img {{ img_src_for('solutions/message_in_a_bottle/image.svg') }} ></a>
+
+<p>Extraction from solved Möbius strips below:</p>
+
+<div class="flexbox">
+  <table class="solution-table condensed-table">
+    <tr>
+      <th>Word</th>
+      <th>Letter</th>
+    </tr>
+    <tr>
+      <td>UNWISE</td>
+      <td><code>W</code></td>
+    </tr>
+    <tr>
+      <td>HOSTEL</td>
+      <td><code>O</code></td>
+    </tr>
+    <tr>
+      <td>MONITOR</td>
+      <td><code>R</code></td>
+    </tr>
+    <tr>
+      <td>PRELUDE</td>
+      <td><code>D</code></td>
+    </tr>
+    <tr>
+      <td>DIVORCE</td>
+      <td><code>O</code></td>
+    </tr>
+    <tr>
+      <td>PERCENT</td>
+      <td><code>N</code></td>
+    </tr>
+    <tr>
+      <td>SCIENCE</td>
+      <td><code>E</code></td>
+    </tr>
+    <tr>
+      <td>THRICE</td>
+      <td><code>I</code></td>
+    </tr>
+    <tr>
+      <td>ANGST</td>
+      <td><code>S</code></td>
+    </tr>
+    <tr>
+      <td>CURIO</td>
+      <td><code>I</code></td>
+    </tr>
+    <tr>
+      <td>CUMIN</td>
+      <td><code>N</code></td>
+    </tr>
+    <tr>
+      <td>STAIR</td>
+      <td><code>T</code></td>
+    </tr>
+    <tr>
+      <td>CURSOR</td>
+      <td><code>R</code></td>
+    </tr>
+    <tr>
+      <td>EASTER</td>
+      <td><code>A</code></td>
+    </tr>
+    <tr>
+      <td>COERCE</td>
+      <td><code>C</code></td>
+    </tr>
+    <tr>
+      <td>GUTTER</td>
+      <td><code>T</code></td>
+    </tr>
+    <tr>
+      <td>AISLE</td>
+      <td><code>A</code></td>
+    </tr>
+    <tr>
+      <td>MARBLE</td>
+      <td><code>B</code></td>
+    </tr>
+    <tr>
+      <td>GLIDE</td>
+      <td><code>L</code></td>
+    </tr>
+    <tr>
+      <td>HEROIC</td>
+      <td><code>E</code></td>
+    </tr>
+  </table>
+
+  <table class="solution-table condensed-table">
+    <tr>
+      <th>Word</th>
+      <th>Letter</th>
+    </tr>
+    <tr>
+      <td>SEQUIN</td>
+      <td><code>Q</code></td>
+    </tr>
+    <tr>
+      <td>SLEUTH</td>
+      <td><code>U</code></td>
+    </tr>
+    <tr>
+      <td>EMOTION</td>
+      <td><code>E</code></td>
+    </tr>
+    <tr>
+      <td>REPULSE</td>
+      <td><code>S</code></td>
+    </tr>
+    <tr>
+      <td>VERDICT</td>
+      <td><code>T</code></td>
+    </tr>
+    <tr>
+      <td>RECEIPT</td>
+      <td><code>I</code></td>
+    </tr>
+    <tr>
+      <td>CONCISE</td>
+      <td><code>O</code></td>
+    </tr>
+    <tr>
+      <td>TRENCH</td>
+      <td><code>N</code></td>
+    </tr>
+    <tr>
+      <td>GIANT</td>
+      <td><code>I</code></td>
+    </tr>
+    <tr>
+      <td>SCOUR</td>
+      <td><code>S</code></td>
+    </tr>
+    <tr>
+      <td>MUSIC</td>
+      <td><code>S</code></td>
+    </tr>
+    <tr>
+      <td>RAISE</td>
+      <td><code>E</code></td>
+    </tr>
+    <tr>
+      <td>CROCUS</td>
+      <td><code>C</code></td>
+    </tr>
+    <tr>
+      <td>STEREO</td>
+      <td><code>O</code></td>
+    </tr>
+    <tr>
+      <td>ENCORE</td>
+      <td><code>N</code></td>
+    </tr>
+    <tr>
+      <td>TRUDGE</td>
+      <td><code>D</code></td>
+    </tr>
+    <tr>
+      <td>LEWIS</td>
+      <td><code>W</code></td>
+    </tr>
+    <tr>
+      <td>MORALE</td>
+      <td><code>O</code></td>
+    </tr>
+    <tr>
+      <td>RIDGE</td>
+      <td><code>R</code></td>
+    </tr>
+    <tr>
+      <td>ORCHID</td>
+      <td><code>D</code></td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

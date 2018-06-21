@@ -1,35 +1,10 @@
 {% extends "overall_layout.html" %}
-{% import "/memories_macros.html" as macros with context %}
+{# import "/memories_macros.html" as macros with context #}
 
-{% block title_block %}Head Hunters: Control Room{% endblock %}
+{% block title_block %}Main{% endblock %}
 
 {% block styling_block %}
-<link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/memories/styles/control-room.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/memories/styles/icons.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/memories/styles/islands.css') }}">
-{% if 'joy' in puzzle_visibilities -%}
-<link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/memories/styles/emotions/joy-%s.css' % puzzle_visibilities['joy'].status|lower) }}">
-{% endif -%}
-{% if 'sadness' in puzzle_visibilities -%}
-<link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/memories/styles/emotions/sadness-%s.css' % puzzle_visibilities['sadness'].status|lower) }}">
-{% endif -%}
-{% if 'fear' in puzzle_visibilities -%}
-<link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/memories/styles/emotions/fear-%s.css' % puzzle_visibilities['fear'].status|lower) }}">
-{% endif -%}
-{% if 'disgust' in puzzle_visibilities -%}
-<link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/memories/styles/emotions/disgust-%s.css' % puzzle_visibilities['disgust'].status|lower) }}">
-{% endif -%}
-{% if 'anger' in puzzle_visibilities -%}
-<link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/memories/styles/emotions/anger-%s.css' % puzzle_visibilities['anger'].status|lower) }}">
-{% endif -%}
-{% for island in islands if puzzle_visibilities.get(island+'-recovery',{}).get('status','INVISIBLE') == 'SOLVED' %}
-  {% if loop.index ==1 %}
-    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/memories/styles/core-memories.css') }}">
-  {% endif %}
-{% endfor %}
-{% if puzzle_visibilities.get('grand-finale',{}).get('status','INVISIBLE') == 'SOLVED' %}
-  <link rel="stylesheet" type="text/css" href="{{ asset_url_for('rounds/memories/styles/core-memory-mystery-hunt.css') }}">
-{% endif %}
+
 {% endblock %}
 
 {% block overall_layout_body %}
@@ -40,13 +15,7 @@
 {%- else -%}
   {%- set background_asset = 'background' -%}
 {%- endif -%}
-<img id="control-room-background" {{ img_src_for('rounds/memories/images/control-room/%s.png' % (background_asset,)) }} />
 <div id="main-page-content">
-  <div id="islands">
-    {%- for island in islands -%}
-      {{ macros.generate_island(island) }}
-    {%- endfor -%}
-  </div>
   
   {% set puzzle_link_action = 'full_puzzle' if session.usertype == 'writingteam' else 'puzzle' %}
 
@@ -97,12 +66,6 @@
   </div>
   {%- endif %}
 
-  <div id="memories">
-    {% for i in range(1, 34+1) -%}
-      {{ macros.generate_round_page_memory_icon('puzzle', i) }}
-    {%- endfor %}
-    {{ macros.generate_round_page_memory_icon('runaround', i) }}
-  </div>
   {% for island in islands if puzzle_visibilities.get(island+'-recovery',{}).get('status','INVISIBLE') == 'SOLVED' %}
     {% if loop.index ==1 %}
       <div id="core-memories">

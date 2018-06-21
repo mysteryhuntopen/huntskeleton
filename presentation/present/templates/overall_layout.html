@@ -9,14 +9,14 @@
     <meta name="google" content="notranslate">
     <script src="https://use.fontawesome.com/7e30e2e185.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="{{ asset_url_for('js/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset_url_for('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset_url_for('js/hunt.js') }}"></script>
-    <script src="{{ asset_url_for('js/solutions.js') }}"></script>
-    <link rel="shortcut icon" href="{{ asset_url_for('images/favicon.ico') }}" />
-    <link rel="stylesheet" href="{{ asset_url_for('styles/bootstrap-reduced.css') }}">
-    <link rel="stylesheet" href="{{ asset_url_for('styles/jquery-ui.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/common.css') }}">
+    <script src="/static/js/jquery-ui.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+<!--    <script src="{{ asset_url_for('js/hunt.js') }}"></script> -->
+<!--    <script src="{{ asset_url_for('js/solutions.js') }}"></script> -->
+<!--    <link rel="shortcut icon" href="{{ asset_url_for('images/favicon.ico') }}" /> -->
+    <link rel="stylesheet" href="/static/styles/bootstrap-reduced.css">
+    <link rel="stylesheet" href="/static/styles/jquery-ui.min.css">
+<!--    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/common.css') }}"> -->
     {% block styling_block %}{% endblock %}
   </head>
   <body>
@@ -124,11 +124,6 @@
                     {% set puzzle_id=core_display_data['islandUnlocks'][core_display_data['openIslands']|length] %}
                     <a href="{{ url_for('puzzle', puzzle_id=puzzle_id) }}">
                   {% endif %}
-                  {% if core_display_data['brainpower'] >= core_display_data['brainpowerThresholds'][core_display_data['openIslands']|length] %}
-                    <img {{ img_src_for('images/brainpower-lit.svg') }} >
-                  {% else %}
-                    <img {{ img_src_for('images/brainpower.svg') }} >
-                  {% endif %}
                   <span {% if core_display_data['brainpower'] >= core_display_data['brainpowerThresholds'][core_display_data['openIslands']|length] %}{{ "class=threshold-reached" }}{% endif %} >{{ core_display_data['brainpower'] }}/{{ core_display_data['brainpowerThresholds'][core_display_data['openIslands']|length] }}</span>
                   {% if core_display_data['brainpower'] >= core_display_data['brainpowerThresholds'][core_display_data['openIslands']|length] %}
                     </a>
@@ -140,7 +135,6 @@
                     data-placement="bottom"
                     title="You have {{ core_display_data['buzzyBucks'] }} Buzzy Buck{% if core_display_data['buzzyBucks'] != 1 %}s{% endif%}."
               >
-                <img {{ img_src_for('images/buzzy-bucks.svg') }} >
                 <span>{{ core_display_data['buzzyBucks'] }}</span>
               </div>
             {% endif %}

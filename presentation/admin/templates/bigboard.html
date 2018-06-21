@@ -5,26 +5,6 @@
 {% block page_body %}
 <div class="ha-control-boxes-container">
   {{ autoRefreshWidget() }}
-  <form class="ha-column-control-box" action="{{ url_for('bigboard') }}" method="get">
-    <span class="ha-control-box-title">
-      Sort Order
-    </span>
-    <div class="ha-labeled-input-form">
-      <label>
-        <input type="radio" name="sortBy" value="supermetas" {% if sortBy == 'supermetas' %}checked{% endif %}>
-        Supermetas solved, then metas solved, then brainpower
-      </label>
-      <label>
-        <input type="radio" name="sortBy" value="metas" {% if sortBy == 'metas' %}checked{% endif %}>
-        Metas solved, then brainpower
-      </label>
-      <label>
-        <input type="radio" name="sortBy" value="brainpower" {% if sortBy == 'brainpower' %}checked{% endif %}>
-        Brainpower, then metas solved
-      </label>
-    </div>
-    <input type="submit" value="Reload">
-  </form>
 </div>
 <div class="ha-page-section">
   <div class="ha-bigboard-teams">

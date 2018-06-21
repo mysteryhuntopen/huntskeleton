@@ -27,15 +27,6 @@
                   {{ team_names.get(team_id, "") }}
                 </div>
                 <div class="ha-team-selector-status-line">
-                  {% for event in round_puzzle_map.EVENTS %}
-                    <div
-                        class="ha-team-selector-status-box {{ visibility_class(team_id, event) }}"
-                    >
-                      {{ event|replace('event-', '') }}
-                    </div>
-                  {% endfor %}
-                  <div class="ha-team-selector-score-box">{{ team_scores[team_id].get('BRAINPOWER', 0) }} BP</div>
-                  <div class="ha-team-selector-score-box">{{ (team_scores[team_id].get('BUZZY_BUCKS', 0)/1000)|round(0, 'floor')|int }}K B$</div>
                 </div>
               </div>
             </label>
@@ -44,71 +35,6 @@
       </div>
       <h2>Select Action</h2>
       <div class="ha-control-boxes-container">
-        {% if is_authorized('events:create:GrantScoreEvent') %}
-          <div class="ha-column-control-box">
-            <span class="ha-control-box-title">
-              Grant Brainpower
-            </span>
-            <div>
-            </div>
-            {% for brainpowerAmount in [50, 100, 500, 1000] %}
-              <div>
-                <input
-                   type="button"
-                   value="Yes, I'm sure"
-                   onclick="$('#brainpower{{ brainpowerAmount }}Button').removeAttr('disabled')"
-                >
-                <button id="brainpower{{ brainpowerAmount }}Button" type="submit" name="brainpower" value="{{ brainpowerAmount }}" disabled>{{ brainpowerAmount }} BP</button>
-              </div>
-            {% endfor %}
-          </div>
-
-          <div class="ha-column-control-box">
-            <span class="ha-control-box-title">
-              Grant Buzzy Bucks
-            </span>
-            <div>
-            </div>
-            {% for buzzyBucksAmount in [5, 10, 20, 50] %}
-              <div>
-                <input
-                   type="button"
-                   value="Yes, I'm sure"
-                   onclick="$('#buzzyBucks{{ buzzyBucksAmount }}Button').removeAttr('disabled')"
-                >
-                <button id="buzzyBucks{{ buzzyBucksAmount }}Button" type="submit" name="buzzyBucks" value="{{ buzzyBucksAmount }}000" disabled>{{ buzzyBucksAmount }}K B$</button>
-              </div>
-            {% endfor %}
-          </div>
-        {% endif %}
-
-        {% if is_authorized('visibilities:update:*') %}
-          <div class="ha-column-control-box">
-            <span class="ha-control-box-title">
-              Complete Event
-            </span>
-            <div>
-            </div>
-            {% for event in round_puzzle_map.EVENTS %}
-              <div>
-                <input
-                   type="button"
-                   value="Yes, I'm sure"
-                   onclick="$('#complete{{ event }}Button').removeAttr('disabled')"
-                >
-                <button
-                   type="submit"
-                   id="complete{{ event }}Button"
-                   name="solvePuzzle"
-                   value="{{ event }}"
-                   disabled
-                >
-                  Complete {{ event | capitalize }}
-                </button>
-              </div>
-            {% endfor %}
-          </div>
-        {% endif %}
       </div>
     </form>
   </div>

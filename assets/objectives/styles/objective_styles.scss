@@ -1,0 +1,85 @@
+/* Styles for objective body text */
+
+.objective-text {
+  .answer {
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  li {
+    .list-label {
+      font-weight: bold;
+    }
+
+    p:last-child {
+      margin-bottom: 1em;
+    }
+  }
+
+  .abstract {
+    font-style: italic;
+  }
+
+  .island-name {
+    font-weight: bold;
+    color: orange;
+  }
+
+  a.island-unlock {
+    color: white;
+  }
+
+  .puzzle-name {
+    font-weight: bold;
+
+    &.emotion-sadness-name {
+      color: #3986ff;
+    }
+
+    &.emotion-disgust-name {
+      color: #00da32;
+    }
+
+    &.emotion-joy-name {
+      color: #fff449;
+    }
+
+    &.emotion-anger-name {
+      color: #f8413d;
+    }
+
+    &.emotion-fear-name {
+      color: #966efb;
+    }
+
+    &.island-meta-name {
+      color: cyan;
+    }
+
+    &.island-super-name {
+      color: cyan;
+    }
+  }
+
+  .event-name {
+    font-style: italic;
+    color: #ff8044;
+  }
+
+  .event-table {
+    border-collapse: collapse;
+    border: none;
+    margin: 0 40px;
+
+    td:first-child {
+      width: 140px;
+      vertical-align: top;
+      text-align: right;
+      padding-right: 1em;
+    }
+  }
+
+  .event-list>li+li {
+    margin-top: 1em;
+  }
+}

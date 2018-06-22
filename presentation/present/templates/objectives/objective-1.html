@@ -1,0 +1,34 @@
+{% extends "objective.html" %}
+
+{# Dependent on: 
+    is_hunt_started
+#}
+
+{% set objective_id = "objective-1" %}
+{% set objective_name = "Objective 1" %}
+{# set objective_video_id = 'wRvQTy393wY' #}
+{% set objective_unlocked = true %}
+{% set objective_complete = is_hunt_started %}
+{% set objective_video_visible = true %}
+
+{% block objective_action_item_1 %}
+  Summary text of objective
+{% endblock %}
+
+{% block objective_action_item_2 %}
+{% endblock %}
+
+{% block objective_body %}
+  <p>
+    Text for this objective.
+  </p>
+  {% if is_hunt_started %}
+    <p>
+      Text if hunt has started.
+    </p>
+  {% else %}
+    <p>
+      Text if hunt has not started.
+    </p>
+  {% endif %}
+{% endblock %}

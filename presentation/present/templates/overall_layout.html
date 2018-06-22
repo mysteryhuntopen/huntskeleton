@@ -62,7 +62,7 @@
     <div class="fixed-header">
       <div class="fixed-header-inner">
         <div class="header-links">
-          <div class="header-link"><a href="{{ url_for('full_island', island_id='index') if session.usertype == 'writingteam' else url_for('index') }}">Control Room</a></div>
+          <div class="header-link"><a href="{{ url_for('full_island', island_id='index') if session.usertype == 'writingteam' else url_for('index') }}">Main</a></div>
           {% if core_display_data and core_display_data['openIslands']|length > 0 %}
             <div class="header-link header-dropdown">
               <div class="header-dropdown-title"><a href="#">Islands of Personality <span class="fa fa-caret-down"></span></a></div>
@@ -75,7 +75,7 @@
               </div>
             </div>
           {% endif %}
-          <div class="header-link"><a href="{{ url_for('full_objectives' if session.usertype == 'writingteam' else 'objectives') }}">Mission Objectives</a></div>
+          <div class="header-link"><a href="{{ url_for('full_objectives' if session.usertype == 'writingteam' else 'objectives') }}">Objectives</a></div>
           <div class="header-link header-dropdown">
             <div class="header-dropdown-title"><a href="#">Useful Links <span class="fa fa-caret-down"></span></a></div>
             <div class="dropdown-content-wrapper">

@@ -1,0 +1,27 @@
+#checkAnswerModal {
+  color: black;
+
+  #checkAnswerResult {
+    min-height: 150px;
+    padding-top: 10px;
+
+    &.correct {
+      color: green;
+    }
+
+    &.incorrect {
+      color: red;
+    }
+  }
+
+  .close {
+    opacity: 1;
+    background: none;
+    border: 0;
+
+    &:hover {
+      opacity: .75;
+      background-color: #eee;
+    }
+  }
+}

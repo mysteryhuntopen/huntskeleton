@@ -1,0 +1,85 @@
+body {
+  @media screen {
+    background-color: #92959f;
+  }
+}
+
+.overall-layout-body {
+  @media screen {
+    width: 1200px;
+    margin: 0 auto;
+
+    /* Logo placed behind the actual content */
+    &:before {
+      content: '';
+      display: block;
+      position: fixed;
+      width: 1200px;
+      margin: (44px + 72px + 2*52px + 20px) auto 72px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      /* background-image: url('/images/logo.svg'); */
+    }
+  }
+}
+
+.title-text {
+  font-size: 64px;
+  line-height: 72px;
+  height: 72px;
+  margin: 52px auto;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+
+  @media screen {
+    -webkit-text-stroke: 1px black;
+    color: white;
+  }
+}
+
+#byline {
+  font-family: 'Georgia', serif;
+  font-size: 28px;
+  line-height: 28px;
+}
+
+#main-page-content {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  color: black;
+
+  a {
+    color: black;
+  }
+
+  @media screen {
+    width: 920px;
+    margin: 0 auto 52px;
+    padding: 40px;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+
+    a {
+      color: white;
+    }
+  }
+
+  .support-header {
+    font-size: 28px;
+    line-height: 28px;
+    font-family: 'Orbitron', sans-serif;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  .support-section + .support-section {
+    margin-top: 24px;
+  }
+}

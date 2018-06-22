@@ -9,14 +9,13 @@
     <meta name="google" content="notranslate">
     <script src="https://use.fontawesome.com/7e30e2e185.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="/static/js/jquery-ui.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-<!--    <script src="{{ asset_url_for('js/hunt.js') }}"></script> -->
-<!--    <script src="{{ asset_url_for('js/solutions.js') }}"></script> -->
-<!--    <link rel="shortcut icon" href="{{ asset_url_for('images/favicon.ico') }}" /> -->
-    <link rel="stylesheet" href="/static/styles/bootstrap-reduced.css">
-    <link rel="stylesheet" href="/static/styles/jquery-ui.min.css">
-<!--    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/common.css') }}"> -->
+    <script src="{{ asset_url_for('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset_url_for('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset_url_for('js/hunt.js') }}"></script>
+    <link rel="shortcut icon" href="{{ asset_url_for('images/favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset_url_for('styles/bootstrap-reduced.css') }}">
+    <link rel="stylesheet" href="{{ asset_url_for('styles/jquery-ui.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset_url_for('styles/common.css') }}">
     {% block styling_block %}{% endblock %}
   </head>
   <body>

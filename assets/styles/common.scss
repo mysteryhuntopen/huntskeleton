@@ -1,0 +1,53 @@
+@import "./header";
+@import "./checkAnswer";
+
+body {
+  margin: 0px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Verdana", sans-serif;
+}
+
+.overall-layout-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.answer {
+  font-family: monospace;
+}
+
+p {
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+body .ui-tooltip.ui-widget {
+  padding: 8px 10px;
+  color: #ddd;
+  border-radius: 6px;
+  font: 14px "Helvetica", Sans-Serif;
+  background-color: black;
+  border: 1px solid #ddd;
+  opacity: 0.9;
+  pointer-events: none;
+
+  &.tooltip-white {
+    color: black;
+    border-color: black;
+    background-color: #ddd;
+  }
+}
+
+/* jQuery UI wants to use images for styling .*/
+.ui-icon, .ui-widget, .ui-widget>* {
+  background-image: none;
+}

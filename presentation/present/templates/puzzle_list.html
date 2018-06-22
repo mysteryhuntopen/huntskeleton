@@ -22,9 +22,10 @@
 {% set island_target = 'full_island' if session.usertype == 'writingteam' else 'island' %}
 <div>
 
+{% for round_id in round_puzzle_map %}
   <div class="round-list-item">
-    <div class="round-list-header">Emotions and Memories</div>
-      {% for puzzle_id in round_puzzle_map.get('memories',[]) %}
+    <div class="round-list-header">{{ round_id }}</div>
+      {% for puzzle_id in round_puzzle_map.get(round_id,[]) %}
         {% if all_visibilities.get(puzzle_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
           <div class="puzzle-list-item">
             <a href="{{ url_for(puzzle_target, puzzle_id=all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id)) }}">{{ pretty_title(all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id))|safe }}</a>{% if all_visibilities.get(puzzle_id,{}).get('status','') == 'SOLVED' and all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers') %} - <span class="monospace">{{ all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers')[0].get('canonicalAnswer') }}</span>{% endif %}
@@ -32,6 +33,7 @@
         {% endif %}
       {% endfor %}
   </div>
+{% endfor %}
 
   {% for island_id in ['pokemon', 'games', 'scifi', 'hacking'] %}
     {% if all_visibilities.get(island_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}

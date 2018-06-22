@@ -350,15 +350,10 @@ def puzzle_list():
     core_team_properties_async = cube.get_team_properties_async(app)
     all_visibilities_async = cube.get_puzzle_visibilities_async(app)
     all_puzzles_async = cube.get_all_puzzle_properties_async(app)
-    interactions_and_finales_async = cube.get_all_puzzle_properties_for_list_async(app, INTERACTIONS_AND_FINALES)
 
     core_display_data = make_core_display_data(core_team_properties_async)
     all_visibilities = { v["puzzleId"]: v for v in all_visibilities_async.result().json()["visibilities"] }
     all_puzzles = { v["puzzleId"]: v for v in all_puzzles_async.result().json()["puzzles"] }
-    interactions_finales = interactions_and_finales_async.result().json().get("puzzles")
-    interactions_finales = { v["puzzleId"]: v for v in interactions_finales }
-    events_unlocked = any( all_visibilities.get(puzzle_id, {}).get('status', '') in ['UNLOCKED', 'SOLVED']
-                           for puzzle_id in EVENTS )
 
     with metrics.timer("present.puzzle_list_render"):
         r = make_response(
@@ -368,10 +363,7 @@ def puzzle_list():
                 is_hunt_started=True,
                 all_visibilities=all_visibilities,
                 all_puzzles=all_puzzles,
-                round_puzzle_map=ROUND_PUZZLE_MAP,
-                events_unlocked=events_unlocked,
-                interactions_finales=interactions_finales,
-                interactions_finales_ordering=INTERACTIONS_AND_FINALES,))
+                round_puzzle_map=ROUND_PUZZLE_MAP, ))
         r.headers.set('Cache-Control', 'private, max-age=0, no-cache, no-store')
         return r
 
@@ -379,8 +371,8 @@ def puzzle_list():
 @login_required.solvingteam
 def objectives():
     is_hunt_started_async = cube.is_hunt_started_async(app)
-    objective_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, OBJECTIVE_PUZZLES + ISLAND_IDS)
-    puzzle_properties_async = cube.get_all_puzzle_properties_for_list_async(app, OBJECTIVE_PUZZLES + ISLAND_IDS + ISLAND_UNLOCKS + EVENTS)
+    objective_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, [])
+    puzzle_properties_async = cube.get_all_puzzle_properties_for_list_async(app, ALL_PUZZLES)
     core_team_properties_async = cube.get_team_properties_async(app)
 
     core_display_data = make_core_display_data(core_team_properties_async)
@@ -395,68 +387,26 @@ def objectives():
         puzzle_properties = {}
 
     objective_visibilities = collections.defaultdict(lambda: {'status': 'INVISIBLE'}, objective_visibilities)
-    statuses = { p: objective_visibilities[p]['status'] for p in OBJECTIVE_PUZZLES }
-    answers = { p: ', '.join(objective_visibilities[p].get('solvedAnswers',[])) for p in OBJECTIVE_PUZZLES }
+    statuses = { p: objective_visibilities[p]['status'] for p in [] }
+    answers = { p: ', '.join(objective_visibilities[p].get('solvedAnswers',[])) for p in [] }
 
     puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties_async.result().json().get('puzzles',[])}
-    island_properties = {puzzle: puzzle_properties[puzzle] for puzzle in puzzle_properties if puzzle in ISLAND_UNLOCKS}
-    names = { p: puzzle_properties.get(p,{}).get('puzzleProperties', {}).get('DisplayNameProperty', {}).get('displayName', '') for p in OBJECTIVE_PUZZLES }
-    display_ids = { p: puzzle_properties.get(p,{}).get('puzzleProperties', {}).get('DisplayIdProperty', {}).get('displayId', '') for p in OBJECTIVE_PUZZLES }
-
-    brainpower = core_display_data.get('brainpower',0)
-    buzzy_bucks = core_display_data.get('buzzyBucks',0)
+    names = { p: puzzle_properties.get(p,{}).get('puzzleProperties', {}).get('DisplayNameProperty', {}).get('displayName', '') for p in [] }
+    display_ids = { p: puzzle_properties.get(p,{}).get('puzzleProperties', {}).get('DisplayIdProperty', {}).get('displayId', '') for p in [] }
 
     def count_solved(puzzles):
       return sum(1 for p in puzzles if statuses[p] == 'SOLVED')
 
     # Much less messy to calculate these here than inside templates
-    counts = {
-      'events': {
-        'total': len(EVENTS),
-        'started': sum(1 for p in EVENTS if statuses[p] in ['UNLOCKED', 'SOLVED']),
-        'solved': count_solved(EVENTS),
-      },
-      'emotions': {
-        'total': len(EMOTION_IDS),
-        'solved': count_solved(EMOTION_IDS),
-        'encountered': count_solved('encounter-' + e for e in EMOTION_IDS),
-      },
-      'islands': {
-        'total': len(ISLAND_IDS),
-        'opened': len(core_display_data['openIslands']),
-        'solved': count_solved(i + '-supermeta' for i in ISLAND_IDS),
-        'recovered': count_solved(i + '-recovery' for i in ISLAND_IDS),
-      },
-      'pokemon_submetas': {
-        'total': len(POKEMON_SUBMETAS),
-        'solved': count_solved(POKEMON_SUBMETAS),
-      },
-      'scifi_submetas': {
-        'total': len(SCIFI_SUBMETAS),
-        'solved': count_solved(SCIFI_SUBMETAS),
-      },
-      'hacking_submetas': {
-        'total': len(HACKING_SUBMETAS),
-        'open': sum(1 for p in HACKING_SUBMETAS if statuses[p] in ['UNLOCKED', 'SOLVED']),
-        'solved': count_solved(HACKING_SUBMETAS),
-        'mapped': count_solved(HACKING_RUNAROUNDS),
-      },
-    }
+    counts = {}
 
     r = make_response(
         render_template(
             "mission_objectives.html",
             core_display_data=core_display_data,
-            emotions=EMOTION_IDS,
-            islands=ISLAND_IDS,
-            placeholders=dict(ISLANDS_AND_PLACEHOLDERS),
             names=names,
             display_ids=display_ids,
             is_hunt_started=is_hunt_started,
-            island_unlocks=ISLAND_UNLOCKS,
-            island_properties=island_properties,
-            brainpower=brainpower,
-            buzzy_bucks=buzzy_bucks,
             counts=counts,
             statuses=statuses,
             answers=answers))
@@ -551,7 +501,6 @@ def activity_log():
     team_visibility_changes_async = cube.get_team_visibility_changes_async(app)
     team_submissions_async = cube.get_team_submissions_async(app)
     all_puzzles_async = cube.get_all_puzzle_properties_async(app)
-    interactions_and_finales_async = cube.get_all_puzzle_properties_for_list_async(app, EMOTION_INTERACTIONS + ISLAND_RECOVERY_INTERACTIONS + FINALES)
 
     is_hunt_started = is_hunt_started_async.result()
     core_display_data = make_core_display_data(core_team_properties_async)
@@ -562,7 +511,7 @@ def activity_log():
     activity_entries.sort(key=lambda entry: entry["timestamp"], reverse=True)
 
     all_puzzles = { v["puzzleId"]: v for v in all_puzzles_async.result().json()["puzzles"] }
-    interactions_and_finales = [ v["puzzleId"] for v in interactions_and_finales_async.result().json().get("puzzles",[]) ]
+    interactions_and_finales = [ v["puzzleId"] for v in [] ]
 
     r = make_response(
         render_template(
@@ -571,8 +520,7 @@ def activity_log():
             is_hunt_started=is_hunt_started,
             activity_entries=activity_entries,
             all_puzzles=all_puzzles,
-            interactions_and_finales=interactions_and_finales,
-            island_ids=ISLAND_IDS))
+            interactions_and_finales=interactions_and_finales))
     r.headers.set('Cache-Control', 'private, max-age=0, no-cache, no-store')
     return r
 

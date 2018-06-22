@@ -95,18 +95,6 @@ def puzzle(puzzle_id):
     if not cube.is_puzzle_unlocked(app, puzzle_id):
         abort(403)
 
-    island_visibilities = cube.get_puzzle_visibilities_for_list(app, ISLAND_IDS + ISLAND_UNLOCKS)
-    open_islands = [island for island in ISLAND_IDS if island in island_visibilities and island_visibilities[island]['status'] in ['UNLOCKED', 'SOLVED']]
-
-    island_properties = cube.get_all_puzzle_properties_for_list(app, ISLAND_UNLOCKS)
-    island_ids = [island_properties[island].get('puzzleProperties', {}).get('DisplayIdProperty', {}).get('displayId', island) for island in island_properties ]
-
-    island_unlocks = [island_properties[island].get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId','')
-                         for island in ISLAND_UNLOCKS if island_visibilities[island].get('status') == "UNLOCKED"]
-
-    if puzzle_id in island_unlocks and island_unlocks.index(puzzle_id) < len(open_islands):
-        abort(403)
-
     if request.method == "POST":
         if "submission" in request.form:
             cube.create_submission(app, puzzle_id, request.form["submission"])
@@ -116,9 +104,6 @@ def puzzle(puzzle_id):
             return redirect(url_for('puzzle', puzzle_id = puzzle_id))
         elif "interactionrequest" in request.form:
             cube.create_interaction_request(app, puzzle_id, request.form["interactionrequest"])
-            return redirect(url_for('puzzle', puzzle_id = puzzle_id))
-        elif "islandunlock" in request.form:
-            cube.create_interaction_request(app, puzzle_id, request.form["islandunlock"])
             return redirect(url_for('puzzle', puzzle_id = puzzle_id))
         else:
             abort(400)
@@ -130,13 +115,7 @@ def puzzle(puzzle_id):
     interactions = [i for i in cube.get_interactions(app, puzzle_id) if i['invisible'] != 'YES']
     team_properties = cube.get_team_properties(app)
 
-    closed_islands = [ island for island in ISLAND_IDS if (island not in island_visibilities or island_visibilities[island]['status'] in ['INVISIBLE']) ]
-
-    url = '';
-    if (puzzle_id in island_ids):
-        url = "unlock_island.html"
-    else:
-        url="puzzle.html"
+    url = "puzzle.html"
 
     r = make_response(
         render_template(
@@ -147,8 +126,6 @@ def puzzle(puzzle_id):
             visibility=visibility,
             hints=hints,
             interactions=interactions,
-            team_properties=team_properties,
-            closed_islands=closed_islands,
-            placeholders=dict(ISLANDS_AND_PLACEHOLDERS)))
+            team_properties=team_properties))
     r.headers.set('Cache-Control', 'private, max-age=0, no-cache, no-store')
     return r

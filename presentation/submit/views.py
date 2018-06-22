@@ -1,7 +1,7 @@
 from submit import app
 
 from common import cube, login_required
-from common.round_puzzle_map import ISLAND_UNLOCKS, ISLAND_IDS, ISLANDS_AND_PLACEHOLDERS
+from common.round_puzzle_map import ROUND_PUZZLE_MAP
 from flask import abort, make_response, redirect, render_template, request, session, url_for
 from requests.exceptions import HTTPError
 from werkzeug.exceptions import default_exceptions

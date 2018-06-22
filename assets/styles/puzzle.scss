@@ -1,0 +1,77 @@
+.puzzle-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 1200px;
+
+  @media print {
+    /* Nothing constrains the .puzzle width for print media, but it should render
+       exactly as it does on screen. So just manually set .puzzle-container to
+       the actual width of .puzzle on screen.
+       This has the effect that the header is potentially slightly narrower that
+       usual, but ensures that .puzzle gets the full page width */
+    width: 920px;
+  }
+}
+
+.puzzle-header {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.name-container {
+  flex-grow: 1;
+  min-height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.theme-text {
+  margin: 5px 10px 10px 10px;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.title-text {
+  margin: 10px 10px 10px 10px;
+  font-size: 24px;
+}
+
+.puzzle {
+  width: auto;
+  flex-grow: 1;
+
+  @media print {
+    margin-top: 10px;
+    padding: 0;
+  }
+}
+
+.solution {
+  margin-bottom: 1em;
+}
+
+.flavor {
+  font-style: italic;
+  margin-bottom: 2em;;
+}
+
+.call-to-action {
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.puzzle-reward-solution-label {
+  font-weight: bold;
+}

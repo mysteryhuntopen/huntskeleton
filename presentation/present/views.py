@@ -236,14 +236,12 @@ def puzzle(puzzle_id):
     puzzle_visibility_async = cube.get_puzzle_visibility_async(app, puzzle_id)
     core_team_properties_async = cube.get_team_properties_async(app)
     puzzle_async = cube.get_puzzle_async(app, puzzle_id)
-    island_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, ISLAND_UNLOCKS + ISLAND_IDS)
-    island_properties_async = cube.get_all_puzzle_properties_for_list_async(app, ISLAND_UNLOCKS)
 
     puzzle_visibility = puzzle_visibility_async.result().json()
     if puzzle_visibility['status'] not in ['UNLOCKED','SOLVED'] and app.config["SITE_MODE"] != 'solution':
         abort(403)
 
-    interactions_and_finales_async = cube.get_all_puzzle_properties_for_list_async(app, INTERACTIONS_AND_FINALES)
+    interactions_and_finales_async = cube.get_all_puzzle_properties_for_list_async(app, [])
     interactions_finales = interactions_and_finales_async.result().json().get("puzzles")
     interactions_finales = { v["puzzleId"]: v for v in interactions_finales }
     interactions_finales = [ interactions_finales[interaction_finale].get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',interaction_finale)
@@ -251,16 +249,8 @@ def puzzle(puzzle_id):
     if puzzle_id in interactions_finales and app.config["SITE_MODE"] != 'solution':
         abort(403)
 
-    island_visibilities = {r['puzzleId']: r for r in island_visibilities_async.result().json()['visibilities']}
-    island_visibilities = collections.defaultdict(lambda: {'status': 'INVISIBLE'}, island_visibilities)
-    island_properties = {island.get('puzzleId'): island for island in island_properties_async.result().json().get('puzzles',[])}
-    island_unlocks = [island_properties[island].get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId','')
-                         for island in ISLAND_UNLOCKS if island_visibilities[island].get('status') == "UNLOCKED"]
-
     core_display_data = make_core_display_data(core_team_properties_async)
     puzzle = puzzle_async.result().json()
-
-    island_open_order = core_team_properties_async.result().json().get('teamProperties',{}).get('IslandOpenOrderProperty',{}).get('openOrder',[])
 
     # This pretends to be generic, but is actually just used for the Pokemon submetas
     feeders_solved = []
@@ -278,7 +268,7 @@ def puzzle(puzzle_id):
     puzzle_round_id = puzzle_round_id[0] if len(puzzle_round_id) > 0 else None
     emotions = puzzle.get('puzzleProperties',{}).get('EmotionsProperty',{}).get('emotions',[])
 
-    pages_without_solutions_async = cube.get_all_puzzle_properties_for_list_async(app, EMOTION_INTERACTIONS + ISLAND_RECOVERY_INTERACTIONS + FINALES + EVENTS)
+    pages_without_solutions_async = cube.get_all_puzzle_properties_for_list_async(app, [])
     pages_without_solutions = [ v.get('puzzleProperties', {}).get('DisplayIdProperty', {}).get('displayId', '') for v in pages_without_solutions_async.result().json().get("puzzles",[]) ]
 
     with metrics.timer("present.puzzle_render"):
@@ -293,9 +283,6 @@ def puzzle(puzzle_id):
                 puzzle=puzzle,
                 interactions_finales=interactions_finales,
                 puzzle_visibility=puzzle_visibility,
-                island_open_order=island_open_order,
-                placeholders=ISLANDS_AND_PLACEHOLDERS,
-                island_unlocks=island_unlocks,
                 pages_without_solutions=pages_without_solutions,
                 feeders_solved=feeders_solved,
                 feeder_count=len(feeders),

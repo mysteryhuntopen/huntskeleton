@@ -1,5 +1,4 @@
 {% extends "overall_layout.html" %}
-{# import "/memories_macros.html" as macros with context #}
 
 {% block title_block %}Main{% endblock %}
 
@@ -8,77 +7,35 @@
 {% endblock %}
 
 {% block overall_layout_body %}
-{%- if puzzle_visibilities.get('grand-finale',{}).get('status','INVISIBLE') == 'SOLVED' -%}
-  {%- set background_asset = 'grand' -%}
-{%- elif puzzle_visibilities.get('emotional-finale',{}).get('status','INVISIBLE') == 'SOLVED' -%}
-  {%- set background_asset = 'emotional' -%}
-{%- else -%}
-  {%- set background_asset = 'background' -%}
-{%- endif -%}
 <div id="main-page-content">
   
   {% set puzzle_link_action = 'full_puzzle' if session.usertype == 'writingteam' else 'puzzle' %}
+  
+  <p>
+    Index page!
+  </p>
 
-  {% for emotion_id in ['joy', 'sadness', 'fear', 'disgust', 'anger'] %}
-  {%- if emotion_id in puzzle_visibilities -%}
-  {% set status = puzzle_visibilities[emotion_id].status %}
-  <div id="{{ emotion_id }}">
-    {% if status == 'VISIBLE' -%}
-    <img src="{{ asset_url_for('rounds/memories/images/emotions/%s-unlocked.png' % (emotion_id,)) }}"/>
-    {%- elif status == 'UNLOCKED' -%}
-    <a href="{{ url_for(puzzle_link_action, puzzle_id=emotion_id) }}">
-      <img {{ img_src_for('rounds/memories/images/emotions/%s-unlocked.png' % (emotion_id,)) }}
-           data-toggle="tooltip"
-           data-placement="top"
-           title="{{ puzzle_properties[emotion_id].puzzleProperties.DisplayNameProperty.displayName }}"/>
-    </a>
-    {%- elif status == 'SOLVED' -%}
-    <a href="{{ url_for(puzzle_link_action, puzzle_id=emotion_id) }}">
-      <img {{ img_src_for('rounds/memories/images/emotions/%s-solved.png' % (emotion_id,)) }}
-           data-toggle="tooltip"
-           data-placement="top"
-           title="{{ puzzle_properties[emotion_id].puzzleProperties.DisplayNameProperty.displayName }}"
-           data-answer="{{ puzzle_visibilities[emotion_id].solvedAnswers|join(', ') }}"/>
-    </a>
-    {%- endif %}
-  </div>
-  {%- endif -%}
-  {%- endfor -%}
+  <ul>
+    {%- for puzzle_id in puzzle_properties -%}
+      {%- if puzzle_id in puzzle_visibilities -%}
+      {% set status = puzzle_visibilities[puzzle_id].status %}
+        <li>
+          {% if status == 'VISIBLE' -%}
+            ????
+          {%- elif status == 'UNLOCKED' -%}
+            <a href="{{ url_for(puzzle_link_action, puzzle_id=puzzle_id) }}">
+              {{ puzzle_properties[puzzle_id].puzzleProperties.DisplayNameProperty.displayName }}
+            </a>
+          {%- elif status == 'SOLVED' -%}
+            <a href="{{ url_for(puzzle_link_action, puzzle_id=puzzle_id) }}">
+              {{ puzzle_properties[puzzle_id].puzzleProperties.DisplayNameProperty.displayName }}
+            </a>
+            <span>{{ puzzle_visibilities[puzzle_id].solvedAnswers|join(', ') }}
+          {%- endif %}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
 
-  {% if 'joy' in puzzle_visibilities and puzzle_visibilities['joy'].status == 'SOLVED' %}
-  <div id="joy-beam">
-    <img {{ img_src_for('rounds/memories/images/emotions/joy-solved-glow.png') }} />
-  </div>
-  {%- endif -%}
-  {% if 'sadness' in puzzle_visibilities and puzzle_visibilities['sadness'].status == 'SOLVED' %}
-  <div id="sadness-burst">
-    <img {{ img_src_for('rounds/memories/images/emotions/sadness-solved-burst.png') }} />
-  </div>
-  {%- endif -%}
-  {% if 'fear' in puzzle_visibilities and puzzle_visibilities['fear'].status == 'SOLVED' %}
-  <div id="fear-confidence">
-    <img {{ img_src_for('rounds/memories/images/emotions/fear-solved-confidence.png') }} />
-  </div>
-  {%- endif -%}
-  {% if 'anger' in puzzle_visibilities and puzzle_visibilities['anger'].status == 'SOLVED' %}
-  <div id="anger-lock">
-    <img {{ img_src_for('rounds/memories/images/emotions/anger-solved-lock.png') }} />
-  </div>
-  {%- endif %}
-
-  {% for island in islands if puzzle_visibilities.get(island+'-recovery',{}).get('status','INVISIBLE') == 'SOLVED' %}
-    {% if loop.index ==1 %}
-      <div id="core-memories">
-        {% for island in islands -%}
-          {{ macros.generate_core_memory(island) }}
-        {%- endfor %}
-      </div>
-    {% endif %}
-  {% endfor %}
-  {% if puzzle_visibilities.get('grand-finale',{}).get('status','INVISIBLE') == 'SOLVED' %}
-    <div id="core-memory-mystery-hunt">
-      {{ macros.generate_core_memory('mysteryhunt') }}
-    </div>
-  {% endif %}
 </div>
 {% endblock %}

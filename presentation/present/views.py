@@ -1,7 +1,7 @@
 from present import app
 
 from common import cube, login_required, metrics
-from common.round_puzzle_map import EMOTION_IDS, ISLAND_IDS, OBJECTIVE_PUZZLES, ISLAND_RECOVERY_INTERACTIONS, POKEMON_SUBMETAS, SCIFI_SUBMETAS, HACKING_SUBMETAS, HACKING_RUNAROUNDS, EVENTS, FINALES, ROUND_PUZZLE_MAP, ISLANDS_AND_PLACEHOLDERS, ISLAND_UNLOCKS, EMOTION_INTERACTIONS, INTERACTIONS_AND_FINALES
+from common.round_puzzle_map import ROUND_PUZZLE_MAP, ALL_PUZZLES
 from common.brainpower import calculate_brainpower_thresholds
 from flask import abort, make_response, redirect, render_template, request, send_from_directory, session, url_for, jsonify
 from werkzeug.exceptions import default_exceptions
@@ -108,42 +108,20 @@ def make_core_display_data(team_properties_async):
     except HTTPError as e:
         return get_full_path_core_display_data()
 
-    island_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, ISLAND_IDS + ISLAND_UNLOCKS)
-    island_properties_async = cube.get_all_puzzle_properties_for_list_async(app, ISLAND_UNLOCKS)
-
-    island_visibilities = { v["puzzleId"]: v for v in island_visibilities_async.result().json().get("visibilities",[]) }
-    island_properties = {puzzle.get('puzzleId'): puzzle for puzzle in island_properties_async.result().json().get('puzzles',[])}
-    open_islands = [island for island in ISLAND_IDS if island in island_visibilities and island_visibilities[island]['status'] in ['UNLOCKED', 'SOLVED']]
-    island_unlocks = [island_properties[island].get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId','')
-                     for island in ISLAND_UNLOCKS if island in island_visibilities and island_visibilities[island].get('status') == "UNLOCKED"]
-
     core_display_data = { }
-    core_display_data['brainpower'] = team_properties.get('teamProperties',{}).get('ScoresProperty',{}).get('scores',{}).get('BRAINPOWER',0)
-    core_display_data['buzzyBucks'] = team_properties.get('teamProperties',{}).get('ScoresProperty',{}).get('scores',{}).get('BUZZY_BUCKS',0)
     core_display_data['teamName'] = team_properties.get('teamName',session['username'])
     core_display_data['email'] = team_properties.get('email','')
     core_display_data['primaryPhone'] = team_properties.get('primaryPhone','')
     core_display_data['secondaryPhone'] = team_properties.get('secondaryPhone','')
-    # Puzzle pokemon-unevolved-10, a.k.a. 'Go!', needs the puzzle page to look different before and after
-    # a physical prop is handed off to solvers. This property tracks whether this prop has been handed off.
-    core_display_data['goContentDelivered'] = team_properties.get('teamProperties',{}).get('GoContentDeliveredProperty',{}).get('goContentDelivered')
-    # We want to look at this in enough places that we want to just get it all the time.
-    core_display_data['openIslands'] = open_islands
-    core_display_data['brainpowerThresholds'] = calculate_brainpower_thresholds(island_properties)
-    core_display_data['islandUnlocks'] = island_unlocks
 
     return core_display_data
 
 def get_full_path_core_display_data():
     core_display_data = { }
-    core_display_data['brainpower'] = 0;
-    core_display_data['buzzyBucks'] = 0;
     core_display_data['teamName'] = session['username']
     core_display_data['email'] = ''
     core_display_data['primaryPhone'] = ''
     core_display_data['secondaryPhone'] = ''
-    core_display_data['goContentDelivered'] = 'DELIVERED'
-    core_display_data['openIslands'] = ISLAND_IDS
     return core_display_data
 
 def generate_puzzle_token_json(puzzle):
@@ -174,7 +152,7 @@ def index():
     if not is_hunt_started_async.result():
         return prehunt_index(core_display_data=core_display_data)
 
-    round_puzzle_ids = ROUND_PUZZLE_MAP.get('memories') + ISLAND_IDS + FINALES + ISLAND_RECOVERY_INTERACTIONS
+    round_puzzle_ids = ROUND_PUZZLE_MAP.get('round1')
 
     puzzle_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, round_puzzle_ids)
     puzzle_properties_async = cube.get_all_puzzle_properties_for_list_async(app, round_puzzle_ids)
@@ -187,7 +165,6 @@ def index():
             render_template(
                 "index.html",
                 core_display_data=core_display_data,
-                islands=ISLAND_IDS,
                 is_hunt_started=True,
                 puzzle_properties=puzzle_properties,
                 puzzle_visibilities=puzzle_visibilities))

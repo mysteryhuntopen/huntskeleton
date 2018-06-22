@@ -1,8 +1,3 @@
-{% import "/memories_macros.html" as memories_macros with context %}
-{% import "/scifi_macros.html" as scifi_macros with context %}
-{% import "/hacking_macros.html" as hacking_macros with context %}
-{% import "/games_macros.html" as games_macros with context %}
-{% import "/pokemon_macros.html" as pokemon_macros with context %}
 {% import "/event_macros.html" as event_macros with context %}
 {% import "/misc_macros.html" as misc_macros with context %}
 
@@ -11,37 +6,7 @@
 {% endmacro %}
 
 {% macro generate_puzzle_styles(puzzle) %}
-  {%- if puzzle_round_id == 'memories' -%}
-    {{ memories_macros.generate_puzzle_styles(puzzle) }}
-  {%- elif puzzle_round_id == 'scifi' -%}
-    {{ scifi_macros.generate_puzzle_styles(puzzle) }}
-  {%- elif puzzle_round_id == 'hacking' -%}
-    {{ hacking_macros.generate_puzzle_styles(puzzle) }}
-  {%- elif puzzle_round_id == 'games' -%}
-    {{ games_macros.generate_puzzle_styles(puzzle) }}
-  {%- elif puzzle_round_id == 'pokemon' -%}
-    {{ pokemon_macros.generate_puzzle_styles(puzzle) }}
-  {%- elif puzzle_round_id == 'events' -%}
-    {{ event_macros.generate_puzzle_styles(puzzle) }}
-  {%- else -%}
-    {{ misc_macros.generate_puzzle_styles(puzzle) }}
-  {%- endif -%}
 {% endmacro %}
 
 {% macro generate_icon(puzzle) %}
-  {%- if puzzle_round_id == 'memories' -%}
-    {{ memories_macros.generate_puzzle_page_icon(puzzle) }}
-  {%- elif puzzle_round_id == 'scifi' -%}
-    {{ scifi_macros.generate_puzzle_page_icon(puzzle) }}
-  {%- elif puzzle_round_id == 'hacking' -%}
-    {{ hacking_macros.generate_puzzle_page_icon(puzzle) }}
-  {%- elif puzzle_round_id == 'games' -%}
-    {{ games_macros.generate_puzzle_page_icon(puzzle) }}
-  {%- elif puzzle_round_id == 'pokemon' -%}
-    {{ pokemon_macros.generate_puzzle_page_icon(puzzle) }}
-  {%- elif puzzle_round_id == 'events' -%}
-    {{ event_macros.generate_puzzle_page_icon(puzzle) }}
-  {%- else -%}
-    {{ misc_macros.generate_puzzle_page_icon(puzzle) }}
-  {%- endif -%}
 {% endmacro %}

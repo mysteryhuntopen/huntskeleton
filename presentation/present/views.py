@@ -177,57 +177,6 @@ def prehunt_index(core_display_data):
         is_hunt_started=False,
         core_display_data=core_display_data)
 
-@app.route("/memory/<island_id>")
-@login_required.solvingteam
-@metrics.time("present.memory")
-def memory(island_id):
-    gate = 'grand-finale' if island_id == 'mysteryhunt' else island_id + '-recovery'
-    memory_visibility_async = cube.get_puzzle_visibility_async(app, gate)
-    core_team_properties_async = cube.get_team_properties_async(app)
-
-    memory_visibility = memory_visibility_async.result().json()
-    if memory_visibility['status'] != 'SOLVED':
-        abort(403)
-
-    core_display_data = make_core_display_data(core_team_properties_async)
-
-    with metrics.timer("present.memory_render"):
-        return render_template(
-            "core_memory.html",
-            core_display_data=core_display_data,
-            is_hunt_started=True,
-            island_id=island_id)
-
-@app.route("/island/<island_id>")
-@login_required.solvingteam
-@metrics.time("present.island")
-def island(island_id):
-    island_puzzle_ids = ROUND_PUZZLE_MAP.get(island_id,[]) + ISLAND_IDS
-
-    island_visibility_async = cube.get_puzzle_visibility_async(app, island_id)
-    core_team_properties_async = cube.get_team_properties_async(app)
-    puzzle_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, island_puzzle_ids)
-    puzzle_properties_async = cube.get_all_puzzle_properties_for_list_async(app, island_puzzle_ids)
-
-    island_visibility = island_visibility_async.result().json()
-    if island_visibility['status'] not in ['UNLOCKED','SOLVED']:
-        abort(403)
-
-    core_display_data = make_core_display_data(core_team_properties_async)
-    puzzle_visibilities = { v["puzzleId"]: v for v in puzzle_visibilities_async.result().json().get("visibilities",[]) }
-    puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties_async.result().json().get('puzzles',[])}
-
-    with metrics.timer("present.island_render"):
-        r = make_response(
-            render_template(
-                "islands/%s.html" % island_id,
-                core_display_data=core_display_data,
-                is_hunt_started=True,
-                island_id=island_id,
-                puzzle_properties=puzzle_properties,
-                puzzle_visibilities=puzzle_visibilities))
-        r.headers.set('Cache-Control', 'private, max-age=0, no-cache, no-store')
-        return r
 
 @app.route("/puzzle/<puzzle_id>")
 @login_required.solvingteam
@@ -556,8 +505,7 @@ def full_puzzle_list():
             all_puzzles=all_puzzles,
             round_puzzle_map=ROUND_PUZZLE_MAP,
             events_unlocked=True,
-            interactions_finales=all_puzzles,
-            interactions_finales_ordering=INTERACTIONS_AND_FINALES,))
+            interactions_finales=all_puzzles,))
     r.headers.set('Cache-Control', 'private, max-age=0, no-cache, no-store')
     return r
 
@@ -593,7 +541,7 @@ def full_puzzle(puzzle_id):
 
     core_display_data = get_full_path_core_display_data()
 
-    pages_without_solutions_async = cube.get_all_puzzle_properties_for_list_async(app, EMOTION_INTERACTIONS + ISLAND_RECOVERY_INTERACTIONS + FINALES + EVENTS)
+    pages_without_solutions_async = cube.get_all_puzzle_properties_for_list_async(app, ALL_PUZZLES)
     pages_without_solutions = [ v.get('puzzleProperties', {}).get('DisplayIdProperty', {}).get('displayId', '') for v in pages_without_solutions_async.result().json().get("puzzles",[]) ]
 
     return render_template(
@@ -654,9 +602,9 @@ def full_solution(puzzle_id):
         puzzle_visibility={'status': 'SOLVED'},
         solution=True)
 
-@app.route("/full/island/<island_id>")
+@app.route("/full")
 @login_required.writingteam
-def full_island(island_id):
+def full_index():
     puzzle_properties = cube.get_puzzles(app)
     puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties}
 
@@ -667,29 +615,12 @@ def full_island(island_id):
     opts = dict(
         core_display_data=core_display_data,
         is_hunt_started=True,
-        island_id=island_id,
         puzzle_properties=puzzle_properties,
         puzzle_visibilities=puzzle_visibilities,
         )
 
-    if island_id == 'index':
-        template = 'index.html'
-        opts['islands'] = ISLAND_IDS
-    else:
-        template = "islands/%s.html" % island_id
+    return render_template('index.html', **opts)
 
-    return render_template(template, **opts)
-
-@app.route("/full/memory/<island_id>")
-@login_required.writingteam
-def full_memory(island_id):
-    core_display_data = get_full_path_core_display_data()
-
-    return render_template(
-        "core_memory.html",
-        core_display_data=core_display_data,
-        is_hunt_started=True,
-        island_id=island_id)
 
 @app.route('/full/objectives')
 @login_required.writingteam
@@ -697,62 +628,23 @@ def full_objectives():
     core_display_data = get_full_path_core_display_data()
     is_hunt_started = True
 
-    puzzle_properties_async = cube.get_all_puzzle_properties_for_list_async(app, OBJECTIVE_PUZZLES + ISLAND_IDS + ISLAND_UNLOCKS + EVENTS)
+    puzzle_properties_async = cube.get_all_puzzle_properties_for_list_async(app, ALL_PUZZLES)
     puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties_async.result().json().get('puzzles',[])}
-    island_properties = {puzzle: puzzle_properties[puzzle] for puzzle in puzzle_properties if puzzle in ISLAND_UNLOCKS}
-    names = { p: puzzle_properties.get(p,{}).get('puzzleProperties', {}).get('DisplayNameProperty', {}).get('displayName', '') for p in OBJECTIVE_PUZZLES }
-    display_ids = { p: puzzle_properties.get(p,{}).get('puzzleProperties', {}).get('DisplayIdProperty', {}).get('displayId', '') for p in OBJECTIVE_PUZZLES }
+    names = { p: puzzle_properties.get(p,{}).get('puzzleProperties', {}).get('DisplayNameProperty', {}).get('displayName', '') for p in [] }
+    display_ids = { p: puzzle_properties.get(p,{}).get('puzzleProperties', {}).get('DisplayIdProperty', {}).get('displayId', '') for p in [] }
 
     statuses = collections.defaultdict(lambda: request.args.get('visibility', 'SOLVED'))
-    answers = {p: ', '.join([a['canonicalAnswer'] for a in puzzle_properties.get(p,{}).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers',[])]) for p in OBJECTIVE_PUZZLES}
+    answers = {p: ', '.join([a['canonicalAnswer'] for a in puzzle_properties.get(p,{}).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers',[])]) for p in []}
 
-    counts = {
-      'events': {
-        'total': len(EVENTS),
-        'started': len(EVENTS),
-        'solved': len(EVENTS),
-      },
-      'emotions': {
-        'total': len(EMOTION_IDS),
-        'solved': len(EMOTION_IDS),
-        'encountered': len(EMOTION_IDS),
-      },
-      'islands': {
-        'total': len(ISLAND_IDS),
-        'opened': len(ISLAND_IDS),
-        'solved': len(ISLAND_IDS),
-        'recovered': len(ISLAND_IDS),
-      },
-      'pokemon_submetas': {
-        'total': len(POKEMON_SUBMETAS),
-        'solved': len(POKEMON_SUBMETAS),
-      },
-      'scifi_submetas': {
-        'total': len(SCIFI_SUBMETAS),
-        'solved': len(SCIFI_SUBMETAS),
-      },
-      'hacking_submetas': {
-        'total': len(HACKING_SUBMETAS),
-        'open': len(HACKING_SUBMETAS),
-        'solved': len(HACKING_SUBMETAS),
-        'mapped': len(HACKING_RUNAROUNDS),
-      },
-    }
+    counts = {}
 
     r = make_response(
         render_template(
             "mission_objectives.html",
             core_display_data=core_display_data,
-            emotions=EMOTION_IDS,
-            islands=ISLAND_IDS,
-            placeholders=dict(ISLANDS_AND_PLACEHOLDERS),
             names=names,
             display_ids=display_ids,
             is_hunt_started=is_hunt_started,
-            island_unlocks=ISLAND_UNLOCKS,
-            island_properties=island_properties,
-            brainpower=0,
-            buzzy_bucks=0,
             counts=counts,
             statuses=statuses,
             answers=answers))

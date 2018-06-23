@@ -8,14 +8,6 @@
 
 {% block page_body %}
 <div>
-  <h2>Rounds</h2>
-  <ul>
-    <li><a href="{{ url_for('full_island', island_id='index') }}">Memories</a></li>
-    <li><a href="{{ url_for('full_island', island_id='pokemon') }}">Pokémon</a></li>
-    <li><a href="{{ url_for('full_island', island_id='games') }}">Games</a></li>
-    <li><a href="{{ url_for('full_island', island_id='scifi') }}">Sci-Fi</a></li>
-    <li><a href="{{ url_for('full_island', island_id='hacking') }}">Hacking</a></li>
-  </ul>
   <h2>Puzzles</h2>
   <ul>
     {% for puzzle_id in puzzle_ids %}

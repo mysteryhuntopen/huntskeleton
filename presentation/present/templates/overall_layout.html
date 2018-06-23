@@ -60,7 +60,7 @@
     <div class="fixed-header">
       <div class="fixed-header-inner">
         <div class="header-links">
-          <div class="header-link"><a href="{{ url_for('full_island', island_id='index') if session.usertype == 'writingteam' else url_for('index') }}">Main</a></div>
+          <div class="header-link"><a href="{{ url_for('full_index') if session.usertype == 'writingteam' else url_for('index') }}">Main</a></div>
           <div class="header-link"><a href="{{ url_for('full_objectives' if session.usertype == 'writingteam' else 'objectives') }}">Objectives</a></div>
           <div class="header-link header-dropdown">
             <div class="header-dropdown-title"><a href="#">Useful Links <span class="fa fa-caret-down"></span></a></div>

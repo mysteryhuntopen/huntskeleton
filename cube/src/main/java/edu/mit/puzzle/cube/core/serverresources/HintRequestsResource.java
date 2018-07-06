@@ -47,6 +47,12 @@ public class HintRequestsResource extends AbstractCubeResource {
         getSubject().checkPermission(
                 new HintsPermission(hintRequest.getTeamId(), PermissionAction.CREATE));
 
+        if (hintRequest.getHintType() == null) {
+            throw new ResourceException(
+                    Status.CLIENT_ERROR_BAD_REQUEST,
+                    "A hintType must be specified when creating a hint request");
+        }
+
         hintRequest = hintRequest.toBuilder()
             .setPuzzleId(puzzleStore.getCanonicalPuzzleId(hintRequest.getPuzzleId()))
             .build();

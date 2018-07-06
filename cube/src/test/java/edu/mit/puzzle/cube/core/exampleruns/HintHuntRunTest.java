@@ -111,6 +111,7 @@ public class HintHuntRunTest extends RestletTest {
                         .setTeamId("testerteam")
                         .setPuzzleId("meta")
                         .setRequest("help")
+                        .setHintType(HintRequest.HintType.HINT)
                         .build()
         );
         assertThat(json.get("created").asBoolean()).isFalse();
@@ -123,6 +124,7 @@ public class HintHuntRunTest extends RestletTest {
                         .setTeamId("testerteam")
                         .setPuzzleId("puzzle1")
                         .setRequest("help")
+                        .setHintType(HintRequest.HintType.HINT)
                         .build()
         );
         assertThat(getTokens()).isEqualTo(1);
@@ -134,6 +136,7 @@ public class HintHuntRunTest extends RestletTest {
                         .setTeamId("testerteam")
                         .setPuzzleId("puzzle2")
                         .setRequest("help")
+                        .setHintType(HintRequest.HintType.HINT)
                         .build()
         );
         assertThat(json.get("created").asBoolean()).isTrue();
@@ -159,6 +162,7 @@ public class HintHuntRunTest extends RestletTest {
                         .setTeamId("testerteam")
                         .setPuzzleId("puzzle2")
                         .setRequest("help")
+                        .setHintType(HintRequest.HintType.HINT)
                         .build()
         );
         assertThat(json.get("created").asBoolean()).isTrue();
@@ -185,6 +189,7 @@ public class HintHuntRunTest extends RestletTest {
                         .setTeamId("testerteam")
                         .setPuzzleId("puzzle2")
                         .setRequest("help")
+                        .setHintType(HintRequest.HintType.HINT)
                         .build()
         );
         assertThat(json.get("created").asBoolean()).isFalse();
@@ -224,6 +229,7 @@ public class HintHuntRunTest extends RestletTest {
                         .setTeamId("testerteam")
                         .setPuzzleId("meta")
                         .setRequest("help")
+                        .setHintType(HintRequest.HintType.HINT)
                         .build()
         );
         assertThat(json.get("created").asBoolean()).isTrue();

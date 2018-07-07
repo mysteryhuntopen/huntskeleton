@@ -75,6 +75,7 @@ public class HintRequestsTest extends RestletTest {
                         .setTeamId(TEAM.getIdentifier())
                         .setPuzzleId(PUZZLE_ID)
                         .setRequest("help")
+                        .setHintType(HintRequest.HintType.HINT)
                         .build()
         );
         assertThat(status.getCode()).isEqualTo(400);
@@ -91,6 +92,7 @@ public class HintRequestsTest extends RestletTest {
                         .setTeamId(TEAM.getIdentifier())
                         .setPuzzleId(PUZZLE_ID)
                         .setRequest("help")
+                        .setHintType(HintRequest.HintType.HINT)
                         .build()
         );
 
@@ -103,6 +105,7 @@ public class HintRequestsTest extends RestletTest {
         assertThat(hintRequest.get("puzzleId").asText()).isEqualTo(PUZZLE_ID);
         assertThat(hintRequest.get("status").asText()).isEqualTo(HintRequestStatus.REQUESTED.name());
         assertThat(hintRequest.get("request").asText()).isEqualTo("help");
+        assertThat(hintRequest.get("hintType").asText()).isEqualTo("HINT");
 
         setCurrentUserCredentials(USER_ONE);
         post(
@@ -123,6 +126,7 @@ public class HintRequestsTest extends RestletTest {
         assertThat(hintRequest.get("status").asText()).isEqualTo(HintRequestStatus.ASSIGNED.name());
         assertThat(hintRequest.get("callerUsername").asText()).isEqualTo(USER_ONE.getIdentifier());
         assertThat(hintRequest.get("request").asText()).isEqualTo("help");
+        assertThat(hintRequest.get("hintType").asText()).isEqualTo("HINT");
 
         post(
                 String.format("/hintrequests/%d", hintRequest.get("hintRequestId").asInt()),
@@ -148,6 +152,7 @@ public class HintRequestsTest extends RestletTest {
         assertThat(hintRequest.get("puzzleId").asText()).isEqualTo(PUZZLE_ID);
         assertThat(hintRequest.get("status").asText()).isEqualTo(HintRequestStatus.ANSWERED.name());
         assertThat(hintRequest.get("request").asText()).isEqualTo("help");
+        assertThat(hintRequest.get("hintType").asText()).isEqualTo("HINT");
         assertThat(hintRequest.get("response").asText()).isEqualTo("response");
     }
 }

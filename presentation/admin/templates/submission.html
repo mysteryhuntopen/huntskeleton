@@ -121,7 +121,7 @@
 
       <div class="line"></div>
 
-      {% if puzzle.puzzleProperties.DisplayIdProperty.displayId in puzzles_with_instructions %}
+      {% if 'DisplayIdProperty' in puzzle.puzzleProperties and puzzle.puzzleProperties.DisplayIdProperty.displayId in puzzles_with_instructions %}
         <h3>If incorrect, figure out if the answer is an instruction rather than an actual answer.</h3>
         <p>
           Again, differences in spacing, casing, and punctuation are allowed.
@@ -182,7 +182,7 @@
         }
         var submittedAnswer = cleanAnswer("{{ submitted_answer }}");
         var canonicalAnswer = cleanAnswer("{{ canonical_answer }}");
-        var floaterInstruction = cleanAnswer("{{ puzzles_with_instructions.get(puzzle.puzzleProperties.DisplayIdProperty.displayId, '') }}")
+        var floaterInstruction = cleanAnswer("{{ puzzles_with_instructions.get(puzzle.puzzleProperties.DisplayIdProperty.displayId, '') if 'DisplayIdProperty' in puzzle.puzzleProperties else '' }}")
         function checkCorrect(expectCorrect) {
           if (expectCorrect && submittedAnswer != canonicalAnswer) {
             return confirm("Please DOUBLE CHECK that {{ submitted_answer }} actually matches {{ canonical_answer }}! If it doesn't, press cancel.");

@@ -125,6 +125,7 @@ public class Setec2017HuntRunTest extends RestletTest {
                         .setTeamId("testerteam")
                         .setPuzzleId("f1")
                         .setRequest("help")
+                        .setHintType(HintRequest.HintType.HINT)
                         .build()
         );
         assertThat(json.get("created").asBoolean()).isFalse();

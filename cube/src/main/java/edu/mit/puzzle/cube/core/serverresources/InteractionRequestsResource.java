@@ -51,6 +51,12 @@ public class InteractionRequestsResource extends AbstractCubeResource {
             .setPuzzleId(puzzleStore.getCanonicalPuzzleId(interactionRequest.getPuzzleId()))
             .build();
 
+        if (interactionRequest.getInvisible() == null) {
+            interactionRequest = interactionRequest.toBuilder()
+                .setInvisible(InteractionRequest.Invisible.NO)
+                .build();
+        }
+
         Visibility visibility = huntStatusStore.getVisibility(
                 interactionRequest.getTeamId(),
                 interactionRequest.getPuzzleId()

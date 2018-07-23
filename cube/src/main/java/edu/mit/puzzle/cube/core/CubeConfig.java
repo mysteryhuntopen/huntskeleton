@@ -54,6 +54,7 @@ public abstract class CubeConfig {
         @JsonProperty("serviceEnvironment") public abstract Builder setServiceEnvironment(ServiceEnvironment serviceEnvironment);
         @Nullable @JsonProperty("graphiteHost") public abstract Builder setGraphiteHost(String graphiteHost);
         @Nullable @JsonProperty("graphitePrefix") public abstract Builder setGraphitePrefix(String graphitePrefix);
+        @Nullable @JsonProperty("prometheusMetricsUri") public abstract Builder setPrometheusMetricsUri(String prometheusMetricsUri);
         @Nullable @JsonProperty("databaseConfig") public abstract Builder setDatabaseConfig(DatabaseConfig databaseConfig);
 
         public abstract CubeConfig build();
@@ -87,5 +88,6 @@ public abstract class CubeConfig {
     @JsonProperty("serviceEnvironment") public abstract ServiceEnvironment getServiceEnvironment();
     @Nullable @JsonProperty("graphiteHost") public abstract String getGraphiteHost();
     @Nullable @JsonProperty("graphitePrefix") public abstract String getGraphitePrefix();
+    @Nullable @JsonProperty("prometheusMetricsUri") public abstract String getPrometheusMetricsUri();
     @Nullable @JsonProperty("databaseConfig") public abstract DatabaseConfig getDatabaseConfig();
 }

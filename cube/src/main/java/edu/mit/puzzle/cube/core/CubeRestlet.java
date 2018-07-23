@@ -6,6 +6,9 @@ import com.codahale.metrics.Timer;
 import edu.mit.puzzle.cube.core.permissions.SubjectUtils;
 import edu.mit.puzzle.cube.core.serverresources.*;
 
+import io.prometheus.client.Counter;
+import io.prometheus.client.Histogram;
+
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.restlet.Context;
@@ -20,6 +23,8 @@ import org.restlet.routing.Filter;
 import org.restlet.routing.Router;
 import org.restlet.security.ChallengeAuthenticator;
 import org.restlet.security.Verifier;
+
+import java.util.List;
 
 public class CubeRestlet extends Filter {
     public CubeRestlet(
@@ -110,6 +115,47 @@ public class CubeRestlet extends Filter {
         };
         timingMetricFilter.setNext(authenticator);
 
-        setNext(timingMetricFilter);
+        final Histogram prometheusLatencyHistogram = Histogram.build()
+                .name("response_latency_seconds")
+                .help("Cube response latency in seconds.")
+                .labelNames("method")
+                .exponentialBuckets(0.005, 1.45, 20)
+                .register();
+        final Counter prometheusStatusCodeCounter = Counter.build()
+                .name("status_codes")
+                .help("Cube response status codes.")
+                .labelNames("method", "code")
+                .register();
+        Filter prometheusMetricsFilter = new Filter(context) {
+            private static final String TIMER_ATTRIBUTE_KEY = "response_latency_seconds_timer";
+
+            private String getMethod(Request request) {
+                List<String> segments = request.getResourceRef().getSegments();
+                if (segments.isEmpty()) {
+                    return "";
+                }
+                return segments.get(0);
+            }
+
+            @Override
+            protected int beforeHandle(Request request, Response response) {
+                Histogram.Timer timer = prometheusLatencyHistogram.labels(getMethod(request)).startTimer();
+                request.getAttributes().put(TIMER_ATTRIBUTE_KEY, timer);
+                return CONTINUE;
+            }
+
+            @Override
+            protected void afterHandle(Request request, Response response) {
+                Histogram.Timer timer = (Histogram.Timer) request.getAttributes().get(TIMER_ATTRIBUTE_KEY);
+                timer.observeDuration();
+                prometheusStatusCodeCounter.labels(
+                        getMethod(request),
+                        Integer.toString(response.getStatus().getCode())
+                ).inc();
+            }
+        };
+        prometheusMetricsFilter.setNext(timingMetricFilter);
+
+        setNext(prometheusMetricsFilter);
     }
 }

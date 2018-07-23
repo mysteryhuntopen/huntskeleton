@@ -8,6 +8,7 @@ import com.google.common.util.concurrent.Service;
 import edu.mit.puzzle.cube.core.db.ConnectionFactory;
 import edu.mit.puzzle.cube.core.db.CubeJdbcRealm;
 import edu.mit.puzzle.cube.core.events.PeriodicTimerEvent;
+import io.prometheus.client.hotspot.DefaultExports;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
@@ -74,6 +75,10 @@ public class CubeApplication extends Application {
         dagger.getMetricRegistry().registerAll(new GarbageCollectorMetricSet());
         dagger.getMetricRegistry().registerAll(new MemoryUsageGaugeSet());
         dagger.getMetricRegistry().registerAll(new ThreadStatesGaugeSet());
+
+        if (!config.getPrometheusMetricsUri().isEmpty()) {
+            DefaultExports.initialize();
+        }
     }
 
     private void setupJacksonConverter() {
@@ -124,6 +129,10 @@ public class CubeApplication extends Application {
 
         // Attach this application.
         component.getDefaultHost().attach("", new CubeApplication(config));
+
+        if (!config.getPrometheusMetricsUri().isEmpty()) {
+            component.getDefaultHost().attach(config.getPrometheusMetricsUri(), new PrometheusRestlet());
+        }
 
         // Start the component.
         component.start();

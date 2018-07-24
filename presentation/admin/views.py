@@ -1,5 +1,5 @@
 from admin import app
-from admin.interactions import PUZZLES_WITH_INSTRUCTIONS, ISLAND_DISCOVERIES, ALL_PUZZLES_WITH_INTERACTIONS
+from admin.interactions import PUZZLES_WITH_INSTRUCTIONS, ALL_PUZZLES_WITH_INTERACTIONS
 
 from common import cube, login_required
 from common import round_puzzle_map
@@ -398,9 +398,9 @@ def bigboard():
     team_scores = { team['teamId']: team.get('teamProperties',{}).get('ScoresProperty',{}).get('scores',{}) \
                    for team in teams }
 
-    team_metas_solved = get_puzzles_solved_by_team(teams, team_visibilities, round_puzzle_map.ALL_METAS)
+    team_metas_solved = get_puzzles_solved_by_team(teams, team_visibilities, [])
 
-    team_supermetas_solved = get_puzzles_solved_by_team(teams, team_visibilities, round_puzzle_map.ISLAND_SUPERMETAS)
+    team_supermetas_solved = get_puzzles_solved_by_team(teams, team_visibilities, [])
 
     if sortBy == "metas":
         teams.sort(key=lambda team: (team_metas_solved[team["teamId"]], team_scores[team["teamId"]].get('BRAINPOWER', 0)), reverse=True)

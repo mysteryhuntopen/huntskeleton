@@ -15,6 +15,8 @@ import edu.mit.puzzle.cube.core.model.VisibilityStatusSet;
 import edu.mit.puzzle.cube.core.permissions.CubeRole;
 import edu.mit.puzzle.cube.modules.model.StandardVisibilityStatusSet;
 
+import io.prometheus.client.CollectorRegistry;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.UnavailableSecurityManagerException;
 import org.apache.shiro.authz.Permission;
@@ -96,6 +98,7 @@ public abstract class RestletTest {
         } catch (UnavailableSecurityManagerException e) {
         }
         SecurityUtils.setSecurityManager(null);
+        CollectorRegistry.defaultRegistry.clear();
     }
 
     protected HuntDefinition createHuntDefinition() {

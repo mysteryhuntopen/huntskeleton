@@ -47,6 +47,7 @@
   <div class="ha-bigboard-team">
     <div class="ha-bigboard-team-id">
       <span title="{{ team_id }}">{{ team.get("teamName", team_id) }}</span>
+      {{ puzzle_list(team_id, puzzles, puzzles, visibilities) }}
     </div>
   </div>
 {% endmacro %}
